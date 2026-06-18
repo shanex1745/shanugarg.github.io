@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work | Shanu.EXE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #111;
+      --text-main: #f8f8f8;
+      --accent-color: #ff0055;
+      --wallet-pink: #f95aba;
+      --wallet-shadow: #7c275d;
+      --card-bg: #17152c;
+      --card-border: #6ce8ff;
+      --text-yellow: #f8f66a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Press Start 2P', cursive;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 4px solid var(--text-main);
+      padding: 2rem;
+      background: var(--bg-color);
+    }
+    .brand { color: var(--accent-color); text-decoration: none; font-size: 1.2rem; }
+    .nav-links a { color: var(--text-main); text-decoration: none; margin-left: 1.5rem; font-size: 0.8rem; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent-color); }
+
+    /* Work Section Header */
+    .work-header {
+      text-align: center;
+      padding: 4rem 2rem 1rem;
+    }
+    .work-header h1 { font-size: 2rem; color: #fff8d6; text-shadow: 3px 3px 0 #4f347c; margin-bottom: 1rem; }
+    .work-header p { font-family: 'VT323', monospace; font-size: 1.5rem; color: #b8b0d9; }
+
+    /* Wallet Stage */
+    .wallet-stage {
+      position: relative;
+      min-height: 700px;
+      margin: 2rem auto;
+      max-width: 1180px;
+      border: 4px dashed rgba(108,232,255,.45);
+      background: rgba(20,18,41,.45);
+    }
+
+    /* Wallet Graphic */
+    .wallet-container {
+      position: absolute;
+      left: 50%;
+      bottom: 60px;
+      transform: translateX(-50%);
+      z-index: 4;
+      transition: transform 0.35s ease;
+      cursor: pointer;
+      text-align: center;
+    }
+    .wallet-container.is-open {
+      transform: translateX(-50%) translateY(20px);
+    }
+    .wallet {
+      width: 280px;
+      height: 180px;
+      background: var(--wallet-pink);
+      border: 5px solid #fff;
+      box-shadow: 8px 8px 0 var(--wallet-shadow), inset 0 -18px 0 #cf3e91;
+      position: relative;
+    }
+    .wallet-flap { position: absolute; left: 18px; right: 18px; top: 22px; height: 52px; background: #ff92d3; border: 4px solid var(--wallet-shadow); }
+    .wallet-slot { position: absolute; left: 34px; right: 34px; bottom: 24px; height: 40px; background: #e63f9f; border: 4px solid var(--wallet-shadow); }
+    .wallet-badge { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); z-index: 2; font-size: 1.2rem; color: #fff; text-shadow: 2px 2px 0 #7d1e5d; }
+    .wallet-label { margin-top: 20px; font-size: 0.6rem; color: var(--text-yellow); animation: blink 1s steps(2) infinite; }
+
+    @keyframes blink { 50% { opacity: 0.4; } }
+
+    /* Project Cards */
+    .project-card {
+      position: absolute;
+      left: 50%;
+      top: 60px;
+      width: 250px;
+      background: var(--card-bg);
+      border: 4px solid var(--card-border);
+      box-shadow: 6px 6px 0 #244d66;
+      z-index: 2;
+      opacity: 0;
+      transform: translate(-50%, 120px) scale(0.7);
+      transition: opacity 0.4s cubic-bezier(.2,.8,.2,1), transform 0.4s cubic-bezier(.2,.8,.2,1);
+      cursor: pointer;
+    }
+    .project-card:hover { border-color: var(--text-yellow); z-index: 10 !important; }
+    
+    /* 9:16 Aspect Ratio Image Container */
+    .card-img-container {
+      width: 100%;
+      aspect-ratio: 9 / 16; 
+      border-bottom: 4px solid var(--card-border);
+      background: #000;
+      overflow: hidden;
+    }
+    .card-img-container img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+    .project-card:hover .card-img-container img { opacity: 1; }
+
+    .card-content { padding: 12px; }
+    .card-role { font-size: 0.5rem; color: var(--text-yellow); margin-bottom: 8px; }
+    .card-title { font-size: 0.7rem; color: #fff8d6; line-height: 1.4; margin-bottom: 8px; }
+    .card-copy { font-family: 'VT323', monospace; font-size: 1.1rem; color: #b8b0d9; line-height: 1.1; }
+
+    /* Fanned Out States */
+    .wallet-stage.is-open .project-card { opacity: 1; }
+    .wallet-stage.is-open .card-0 { transform: translate(-560px, 10px) rotate(-4deg); }
+    .wallet-stage.is-open .card-1 { transform: translate(-280px, -12px) rotate(-1deg); }
+    .wallet-stage.is-open .card-2 { transform: translate(30px, -12px) rotate(1deg); }
+    .wallet-stage.is-open .card-3 { transform: translate(310px, 10px) rotate(4deg); }
+
+    /* Modal / Drawer */
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85); z-index: 100;
+      display: none; justify-content: center; align-items: center;
+      padding: 2rem;
+    }
+    .modal-overlay.active { display: flex; }
+    
+    .modal-content {
+      background: var(--bg-color);
+      border: 4px solid var(--accent-color);
+      box-shadow: 12px 12px 0 var(--wallet-shadow);
+      width: 100%; max-width: 800px; max-height: 90vh;
+      overflow-y: auto; padding: 2rem; position: relative;
+    }
+    .close-btn {
+      position: absolute; top: 1rem; right: 1rem;
+      background: transparent; border: none; color: var(--text-main);
+      font-family: 'Press Start 2P', cursive; font-size: 1.5rem; cursor: pointer;
+    }
+    .close-btn:hover { color: var(--accent-color); }
+
+    /* Modal Internal Formatting */
+    .modal-header { border-bottom: 4px dashed #333; padding-bottom: 1rem; margin-bottom: 2rem; }
+    .modal-header h2 { font-size: 1.5rem; color: var(--card-border); margin-bottom: 0.5rem; }
+    .modal-body { font-family: 'VT323', monospace; font-size: 1.4rem; line-height: 1.6; color: #ccc; }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .wallet-stage.is-open .card-0 { transform: translate(-260px, 10px) rotate(-2deg); }
+      .wallet-stage.is-open .card-1 { transform: translate(20px, 10px) rotate(2deg); }
+      .wallet-stage.is-open .card-2 { transform: translate(-260px, 480px) rotate(-2deg); }
+      .wallet-stage.is-open .card-3 { transform: translate(20px, 480px) rotate(2deg); }
+      .wallet-stage { min-height: 1100px; }
+    }
+    @media (max-width: 640px) {
+      .wallet-stage.is-open .card-0 { transform: translate(-125px, 10px); }
+      .wallet-stage.is-open .card-1 { transform: translate(-125px, 480px); }
+      .wallet-stage.is-open .card-2 { transform: translate(-125px, 950px); }
+      .wallet-stage.is-open .card-3 { transform: translate(-125px, 1420px); }
+      .wallet-stage { min-height: 2000px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="brand">SHANU.EXE</a>
+    <div class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="work.html" class="active">WORK</a>
+      <a href="activism.html">ACTIVISM</a>
+      <a href="play.html">PLAY</a>
+      <a href="resume.html">RESUME</a>
+    </div>
+  </nav>
+
+  <header class="work-header">
+    <h1>WORK + PROJECTS</h1>
+    <p>Selected UX, brand, and civic design projects. Click the wallet to fan out the cards.</p>
+  </header>
+
+  <section class="wallet-stage" id="walletStage">
+    
+    <!-- Project 1: NPS -->
+    <article class="project-card card-0" onclick="openModal('nps')">
+      <div class="card-img-container">
+        <!-- Placeholder for a 9:16 vertical image -->
+        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400&q=80" alt="NPS Project">
+      </div>
+      <div class="card-content">
+        <div class="card-role">LEAD UX DESIGNER</div>
+        <h3 class="card-title">National Pension System Experience</h3>
+        <p class="card-copy">Redesigning civic finance for 6M+ citizens.</p>
+      </div>
+    </article>
+
+    <!-- Project 2: K-Oscars -->
+    <article class="project-card card-1" onclick="openModal('koscars')">
+      <div class="card-img-container">
+        <img src="https://images.unsplash.com/photo-1680016661694-1cd3faf31c3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400&q=80" alt="K-Oscars 2025">
+      </div>
+      <div class="card-content">
+        <div class="card-role">CREATIVE DIRECTOR</div>
+        <h3 class="card-title">K-Oscars 2025 Event Systems</h3>
+        <p class="card-copy">Brand + experience for India's biggest student awards.</p>
+      </div>
+    </article>
+
+    <!-- Project 3: NAI -->
+    <article class="project-card card-2" onclick="openModal('nai')">
+      <div class="card-img-container">
+        <img src="https://images.unsplash.com/photo-1561070791-36c11767b26a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400&q=80" alt="National Accessibility Initiative">
+      </div>
+      <div class="card-content">
+        <div class="card-role">ACCESSIBILITY RESEARCHER</div>
+        <h3 class="card-title">National Accessibility Initiative</h3>
+        <p class="card-copy">Open playbook for inclusive government services.</p>
+      </div>
+    </article>
+
+    <!-- Project 4: RDPR -->
+    <article class="project-card card-3" onclick="openModal('rdpr')">
+      <div class="card-img-container">
+        <img src="https://images.unsplash.com/photo-1560461396-ec0ef7bb29dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400&q=80" alt="RDPR">
+      </div>
+      <div class="card-content">
+        <div class="card-role">UX LEAD</div>
+        <h3 class="card-title">RDPR Public Info Portal</h3>
+        <p class="card-copy">Rural-first information architecture for Panchayati Raj.</p>
+      </div>
+    </article>
+
+    <!-- Wallet Trigger -->
+    <div class="wallet-container" id="walletTrigger">
+      <div class="wallet">
+        <div class="wallet-flap"></div>
+        <div class="wallet-slot"></div>
+        <div class="wallet-badge">SG</div>
+      </div>
+      <div class="wallet-label" id="walletLabel">▼ OPEN WALLET</div>
+    </div>
+  </section>
+
+  <!-- Drawer / Modal -->
+  <div class="modal-overlay" id="projectModal" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="close-btn" onclick="closeModal(event)">X</button>
+      <div class="modal-header">
+        <h2 id="modalTitle">[PROJECT TITLE]</h2>
+        <div class="card-role" id="modalRole">[ROLE]</div>
+      </div>
+      <div class="modal-body" id="modalBody">
+        [Project details will load here. Information Architecture, Wireframes, Grassroots data, etc.]
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Wallet Toggle Logic
+    const walletTrigger = document.getElementById('walletTrigger');
+    const walletStage = document.getElementById('walletStage');
+    const walletLabel = document.getElementById('walletLabel');
+
+    let isOpen = false;
+
+    walletTrigger.addEventListener('click', () => {
+      isOpen = !isOpen;
+      if (isOpen) {
+        walletStage.classList.add('is-open');
+        walletTrigger.classList.add('is-open');
+        walletLabel.innerText = "▲ CLOSE WALLET";
+      } else {
+        walletStage.classList.remove('is-open');
+        walletTrigger.classList.remove('is-open');
+        walletLabel.innerText = "▼ OPEN WALLET";
+      }
+    });
+
+    // Modal Logic (The "Case Drawer")
+    const modal = document.getElementById('projectModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalRole = document.getElementById('modalRole');
+    const modalBody = document.getElementById('modalBody');
+
+    // Content for the Drawer
+    const projectData = {
+      nps: {
+        title: "National Pension System",
+        role: "LEAD UX DESIGNER",
+        body: "Detailed breakdown of the onboarding experience redesign, focusing on restructuring information architecture and simplifying user flows for millions of users."
+      },
+      koscars: {
+        title: "K-Oscars 2025",
+        role: "CREATIVE DIRECTOR",
+        body: "Visual asset creation including metallic 3D logos, 9:16 event posters, and introductory video clips for the corporate event ceremony."
+      },
+      nai: {
+        title: "National Accessibility Initiative",
+        role: "ACCESSIBILITY RESEARCHER",
+        body: "Organization of deep data points and restructuring of page routes to create an inclusive playbook for public services."
+      },
+      rdpr: {
+        title: "RDPR Information Portal",
+        role: "UX LEAD",
+        body: "Grassroots research and stakeholder identification aimed at making complex Panchayati Raj governance information accessible to the public."
+      }
+    };
+
+    function openModal(projectId) {
+      const data = projectData[projectId];
+      modalTitle.innerText = data.title;
+      modalRole.innerText = data.role;
+      modalBody.innerText = data.body;
+      modal.classList.add('active');
+    }
+
+    function closeModal(e) {
+      if(e) e.preventDefault();
+      modal.classList.remove('active');
+    }
+  </script>
+</body>
+</html>
