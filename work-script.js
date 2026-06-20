@@ -1,8 +1,27 @@
-// Wallet Animation Logic
+// --- LIVE COIN SYSTEM SYNC ---
+const coinCounter = document.getElementById('coinCounter');
+
+// Initialize coins from local storage (default to 999 if empty)
+function updateCoinsDisplay() {
+    const currentCoins = localStorage.getItem('shanuCoins') || "999";
+    coinCounter.innerText = currentCoins;
+}
+
+// Run on page load
+updateCoinsDisplay();
+
+// Listen for coin updates from other open tabs (Live Sync!)
+window.addEventListener('storage', (e) => {
+    if (e.key === 'shanuCoins') {
+        updateCoinsDisplay();
+    }
+});
+
+
+// --- WALLET ANIMATION LOGIC ---
 const walletTrigger = document.getElementById('walletTrigger');
 const walletStage = document.getElementById('walletStage');
 const walletLabel = document.getElementById('walletLabel');
-
 let isWalletOpen = false;
 
 walletTrigger.addEventListener('click', () => {
@@ -16,14 +35,14 @@ walletTrigger.addEventListener('click', () => {
     }
 });
 
-// Giant Modal Logic
+
+// --- GIANT MODAL LOGIC ---
 const modal = document.getElementById('projectModal');
 const modalTitle = document.getElementById('modalTitle');
 const modalRole = document.getElementById('modalRole');
 const modalImage = document.getElementById('modalImage');
 const modalDetails = document.getElementById('modalDetails');
 
-// The deep information for all 7 projects
 const projectData = {
     proj1: {
         title: "National Pension System", role: "LEAD UX DESIGNER",
@@ -78,34 +97,22 @@ const projectData = {
 
 function openModal(projectId) {
     const data = projectData[projectId];
-    
-    // Inject the data into the HTML
     modalTitle.innerText = data.title;
     modalRole.innerText = data.role;
     modalImage.src = data.image;
     
-    // Build the deep text sections
     modalDetails.innerHTML = `
-        <div class="detail-section">
-            <h4>> PROBLEM STATEMENT</h4>
-            <p>${data.problem}</p>
-        </div>
-        <div class="detail-section">
-            <h4>> DESIGN PROCESS & IDEATION</h4>
-            <p>${data.process}</p>
-        </div>
-        <div class="detail-section">
-            <h4>> SKILLS USED</h4>
-            <p>${data.skills}</p>
-        </div>
+        <div class="detail-section"><h4>> PROBLEM STATEMENT</h4><p>${data.problem}</p></div>
+        <div class="detail-section"><h4>> DESIGN PROCESS & IDEATION</h4><p>${data.process}</p></div>
+        <div class="detail-section"><h4>> SKILLS USED</h4><p>${data.skills}</p></div>
     `;
     
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Lock background scrolling
+    document.body.style.overflow = 'hidden'; 
 }
 
 function closeModal(e) {
     if(e) e.preventDefault();
     modal.classList.remove('active');
-    document.body.style.overflow = 'auto'; // Unlock background scrolling
+    document.body.style.overflow = 'auto'; 
 }
