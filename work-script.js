@@ -1,16 +1,28 @@
 // --- LIVE COIN SYSTEM SYNC ---
 const coinCounter = document.getElementById('coinCounter');
 
-// Initialize coins from local storage (default to 999 if empty)
+// Function to safely get the current coin count
+function getCoins() {
+    return parseInt(localStorage.getItem('shanuCoins') || "999");
+}
+
+// Function to update the screen
 function updateCoinsDisplay() {
-    const currentCoins = localStorage.getItem('shanuCoins') || "999";
-    coinCounter.innerText = currentCoins;
+    coinCounter.innerText = getCoins();
+}
+
+// Function to add a coin and save it
+function addCoin() {
+    let currentCoins = getCoins();
+    currentCoins += 1;
+    localStorage.setItem('shanuCoins', currentCoins);
+    updateCoinsDisplay();
 }
 
 // Run on page load
 updateCoinsDisplay();
 
-// Listen for coin updates from other open tabs (Live Sync!)
+// Listen for coin updates if they earn coins on another open tab
 window.addEventListener('storage', (e) => {
     if (e.key === 'shanuCoins') {
         updateCoinsDisplay();
@@ -97,6 +109,10 @@ const projectData = {
 
 function openModal(projectId) {
     const data = projectData[projectId];
+    
+    // Reward the player with a coin!
+    addCoin();
+
     modalTitle.innerText = data.title;
     modalRole.innerText = data.role;
     modalImage.src = data.image;
