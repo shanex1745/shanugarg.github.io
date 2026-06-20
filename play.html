@@ -4,147 +4,113 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHANU.EXE | Play</title>
+    
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+
     <style>
-        :root {
-            --bg-color: #0d1117; 
-            --nav-bg: rgba(13, 17, 23, 0.95);
-            --neon-cyan: #00ffff;
-            --neon-blue: #4fb1ff;
-            --neon-pink: #ff77da;
-            --neon-yellow: #ffd84f;
-            --neon-green: #7cff9b;
-            --text-main: #c9d1d9;
-            --font-heading: 'Press Start 2P', cursive;
-            --font-body: 'Space Mono', monospace; 
+        /* --- DYNAMIC ENVIRONMENT --- */
+        .cloud { animation: floatClouds 40s linear infinite; }
+        @keyframes floatClouds { 0% { transform: translateX(-15vw) scale(0.85); } 100% { transform: translateX(115vw) scale(0.85); } }
+
+        .weather-rain::before {
+            content: ''; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 100%);
+            background-size: 10px 100px; animation: rainDrop 0.3s linear infinite; pointer-events: none; z-index: 90;
         }
+        .weather-rain { animation: thunderFlash 12s infinite; }
+        @keyframes rainDrop { 0% { background-position: 0 0; } 100% { background-position: 20px 100vh; } }
+        @keyframes thunderFlash { 0%, 95%, 98% { filter: brightness(1); } 96%, 99% { filter: brightness(2.5); } }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        .random-entity { position: absolute; pointer-events: none; z-index: 5; display: none; font-size: 80px; line-height: 1; }
+        .dino-entity::after { content: '🦖'; } .dino-entity { bottom: 10%; animation: runAcross 15s linear infinite; }
+        .robot-entity::after { content: '🤖'; } .robot-entity { bottom: 10%; animation: walkAcross 25s linear infinite reverse; }
+        .bird-entity::after { content: '🦅'; font-size: 40px; } .bird-entity { top: 15%; animation: runAcross 20s linear infinite; }
+        .event-dino .dino-entity { display: block; } .event-robots .robot-entity { display: block; } .weather-sunny .bird-entity { display: block; }
+        @keyframes runAcross { 0% { left: -20%; } 100% { left: 120%; } }
+        @keyframes walkAcross { 0% { right: -20%; transform: scaleX(-1); } 100% { right: 120%; transform: scaleX(-1); } }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: var(--font-body);
-            font-size: 0.95rem; 
-            line-height: 1.6;
-            background-image: 
-                linear-gradient(rgba(255, 216, 79, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 216, 79, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
-            overflow-x: hidden;
-        }
+        /* --- ARCADE SPECIFIC STYLES --- */
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; position: relative; z-index: 10; }
+        .arcade-kicker { font-family: 'Press Start 2P', cursive; font-size: 0.8rem; color: #ffd84f; letter-spacing: 2px; }
+        .arcade-title { font-family: 'Press Start 2P', cursive; font-size: 2.5rem; color: #ff77da; margin: 15px 0; text-shadow: 2px 2px 0px rgba(255, 119, 218, 0.3); }
+        .arcade-desc { font-size: 1.2rem; margin-bottom: 40px; max-width: 800px; font-family: 'Space Mono', monospace;}
 
-        /* Navigation */
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 40px;
-            border-bottom: 2px solid var(--neon-yellow); 
-            font-family: var(--font-heading);
-            font-size: 0.7rem;
-            background: var(--nav-bg);
-            position: sticky; top: 0; z-index: 100;
-        }
+        .economy-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 40px; }
+        .economy-box { border: 2px dashed #ffd84f; background: rgba(255, 216, 79, 0.05); padding: 15px; font-family: 'Press Start 2P', cursive; font-size: 0.7rem; color: #ffd84f; text-align: center; line-height: 1.5; }
 
-        .logo { color: var(--neon-green); text-transform: uppercase; letter-spacing: 1px; }
-        
-        .nav-links { display: flex; gap: 25px; }
-        .nav-links a { color: var(--text-main); text-decoration: none; transition: color 0.3s; text-transform: uppercase; }
-        .nav-links a:hover { color: var(--neon-yellow); }
-        .nav-links a.active { color: var(--neon-yellow); }
+        .arcade-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .game-card { border: 3px solid #4fb1ff; background: rgba(13, 17, 23, 0.85); padding: 25px; box-shadow: inset 0 0 20px rgba(79, 177, 255, 0.05); display: flex; flex-direction: column; }
+        .game-title { font-family: 'Press Start 2P', cursive; font-size: 1rem; color: #00ffff; margin-bottom: 10px; }
+        .game-reward { font-family: 'Press Start 2P', cursive; font-size: 0.7rem; color: #ff77da; margin-bottom: 25px; }
 
-        .nav-actions { display: flex; gap: 15px; }
-        .level-badge { border: 2px solid var(--neon-cyan); color: var(--neon-cyan); padding: 8px 12px; }
-        .coin-counter { border: 2px solid var(--neon-yellow); color: var(--neon-yellow); padding: 8px 12px; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
-        
-        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-
-        /* Arcade Header Styles */
-        .arcade-kicker { font-family: var(--font-heading); font-size: 0.8rem; color: var(--neon-yellow); letter-spacing: 2px; }
-        .arcade-title { font-family: var(--font-heading); font-size: 2.5rem; color: var(--neon-pink); margin: 15px 0; text-shadow: 2px 2px 0px rgba(255, 119, 218, 0.3); }
-        .arcade-desc { font-size: 1.2rem; margin-bottom: 40px; max-width: 800px; }
-
-        /* Economy Strip */
-        .economy-strip {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 40px;
-        }
-        .economy-box {
-            border: 2px dashed var(--neon-yellow); background: rgba(255, 216, 79, 0.05);
-            padding: 15px; font-family: var(--font-heading); font-size: 0.7rem; 
-            color: var(--neon-yellow); text-align: center; line-height: 1.5;
-        }
-
-        /* Game Grid */
-        .arcade-grid {
-            display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px;
-        }
-
-        .game-card {
-            border: 3px solid var(--neon-blue); background: rgba(13, 17, 23, 0.85);
-            padding: 25px; box-shadow: inset 0 0 20px rgba(79, 177, 255, 0.05);
-            display: flex; flex-direction: column;
-        }
-        .game-title { font-family: var(--font-heading); font-size: 1rem; color: var(--neon-cyan); margin-bottom: 10px; }
-        .game-reward { font-family: var(--font-heading); font-size: 0.7rem; color: var(--neon-pink); margin-bottom: 25px; }
-
-        /* General Game UI elements */
-        .game-btn {
-            border: 2px solid var(--neon-pink); background: rgba(255, 119, 218, 0.1);
-            color: #fff; padding: 10px; font-family: var(--font-heading); font-size: 0.7rem;
-            cursor: pointer; width: 100%; transition: 0.2s; text-transform: uppercase; margin-top: 15px;
-        }
-        .game-btn:hover { background: var(--neon-pink); color: var(--bg-color); }
+        .game-btn { border: 2px solid #ff77da; background: rgba(255, 119, 218, 0.1); color: #fff; padding: 10px; font-family: 'Press Start 2P', cursive; font-size: 0.7rem; cursor: pointer; width: 100%; transition: 0.2s; text-transform: uppercase; margin-top: 15px; }
+        .game-btn:hover { background: #ff77da; color: #0d1117; }
         .game-btn:disabled { opacity: 0.5; cursor: not-allowed; border-color: gray; color: gray; background: transparent;}
-        .game-status { font-family: var(--font-heading); font-size: 0.7rem; color: var(--neon-green); margin-top: 15px; text-align: center; min-height: 20px;}
+        .game-status { font-family: 'Press Start 2P', cursive; font-size: 0.7rem; color: #7cff9b; margin-top: 15px; text-align: center; min-height: 20px;}
 
-        /* Specific Game 1: Scramble */
-        .scramble-word { font-family: var(--font-heading); font-size: 1.5rem; color: var(--neon-yellow); text-align: center; margin: 20px 0; letter-spacing: 5px; }
-        .scramble-input {
-            width: 100%; border: 2px solid var(--neon-blue); background: #000;
-            color: #fff; padding: 10px; font-family: var(--font-body); font-size: 1.2rem;
-            text-align: center; text-transform: uppercase; outline: none;
-        }
+        .scramble-word { font-family: 'Press Start 2P', cursive; font-size: 1.5rem; color: #ffd84f; text-align: center; margin: 20px 0; letter-spacing: 5px; }
+        .scramble-input { width: 100%; border: 2px solid #4fb1ff; background: #000; color: #fff; padding: 10px; font-family: 'Space Mono', monospace; font-size: 1.2rem; text-align: center; text-transform: uppercase; outline: none; }
 
-        /* Specific Game 2: Memory */
         .memory-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px; }
-        .memory-tile {
-            aspect-ratio: 1; border: 2px solid var(--neon-blue); background: rgba(79, 177, 255, 0.1);
-            cursor: pointer; transition: 0.1s;
-        }
-        .memory-tile.active { background: var(--neon-yellow); box-shadow: 0 0 15px var(--neon-yellow); border-color: var(--neon-yellow); }
+        .memory-tile { aspect-ratio: 1; border: 2px solid #4fb1ff; background: rgba(79, 177, 255, 0.1); cursor: pointer; transition: 0.1s; }
+        .memory-tile.active { background: #ffd84f; box-shadow: 0 0 15px #ffd84f; border-color: #ffd84f; }
 
-        /* Specific Game 3: Slider */
         .slider-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; margin-top: 15px; }
-        .slider-tile {
-            aspect-ratio: 1; border: 2px solid var(--neon-pink); background: rgba(255, 119, 218, 0.1);
-            color: #fff; font-family: var(--font-heading); font-size: 1.5rem;
-            display: flex; align-items: center; justify-content: center; cursor: pointer;
-        }
+        .slider-tile { aspect-ratio: 1; border: 2px solid #ff77da; background: rgba(255, 119, 218, 0.1); color: #fff; font-family: 'Press Start 2P', cursive; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; cursor: pointer; }
         .slider-tile.empty { border: 2px dashed rgba(255, 255, 255, 0.2); background: transparent; cursor: default; }
 
-        @media (max-width: 900px) {
-            .arcade-grid, .economy-strip { grid-template-columns: 1fr; }
-            nav { flex-direction: column; gap: 15px; }
-        }
+        @media (max-width: 900px) { .arcade-grid, .economy-strip { grid-template-columns: 1fr; } }
     </style>
 </head>
+
 <body>
 
-    <nav>
-        <div class="logo">SHANU.EXE</div>
-        <div class="nav-links">
-            <a href="index.html">HOME</a>
-            <a href="work.html" onclick="rewardPlayer(2)">WORK</a>
-            <a href="activism.html" onclick="rewardPlayer(2)">ACTIVISM</a>
-            <a href="play.html" class="active">PLAY</a>
-            <a href="resume.html" onclick="rewardPlayer(5)">RESUME</a>
-        </div>
-        <div class="nav-actions">
-            <div class="level-badge" id="player-level">LVL 1</div>
-            <div class="coin-counter" id="coin-ui">🪙 <span id="player-coins">0</span></div>
-        </div>
-    </nav>
+<div class="app-shell scanlines pixel-grid" id="main-world">
 
-    <main class="container">
+    <div class="star" style="left:8%;top:16%"></div>
+    <div class="star" style="left:21%;top:11%;animation-delay:.7s"></div>
+    <div class="star" style="left:37%;top:19%;animation-delay:1.2s"></div>
+    <div class="star" style="left:74%;top:13%;animation-delay:.4s"></div>
+    <div class="star" style="left:91%;top:23%;animation-delay:1.5s"></div>
+    <div class="star" style="left:57%;top:29%;animation-delay:2s"></div>
+    <div class="cloud" style="left:6%;top:170px"></div>
+    <div class="cloud" style="left:50%;top:130px;transform:scale(.85);animation-delay: -15s;"></div>
+    <div class="mountains"></div>
+    <div class="random-entity dino-entity"></div>
+    <div class="random-entity robot-entity"></div>
+    <div class="random-entity bird-entity"></div>
+    <div class="platform" style="left:7%;bottom:320px"></div>
+    <div class="platform" style="right:13%;bottom:285px;width:120px"></div>
+    <div class="pipe" style="left:6%"></div>
+    <div class="pipe" style="right:8%;height:140px"></div>
+    <div class="tree" style="left:20%"></div>
+    <div class="tree" style="right:22%"></div>
+    <div class="cat" style="left:42%"></div>
+    <div class="ground"></div>
+
+    <header class="hud">
+        <div class="hud-inner">
+            <div class="brand">SHANU.EXE</div>
+            <nav class="nav">
+                <a href="index.html">HOME</a>
+                <a href="work.html" onclick="rewardPlayer(2)">WORK</a>
+                <a href="activism.html" onclick="rewardPlayer(2)">ACTIVISM</a>
+                <a href="play.html" class="active">PLAY</a>
+                <a href="resume.html" onclick="rewardPlayer(5)">RESUME</a>
+            </nav>
+            <div class="hud-stats">
+                <div class="stat-box" id="player-level">LVL 1</div>
+                <div class="stat-box coin-box">
+                    <span class="coin"></span>
+                    <span id="player-coins">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="top" class="container">
         <div class="arcade-kicker">ARCADE MODE</div>
         <h1 class="arcade-title">PLAY + EARN</h1>
         <p class="arcade-desc">Prove your skills. Beat the logic puzzles below to earn coins and level up your global portfolio ranking.</p>
@@ -157,235 +123,186 @@
 
         <div class="arcade-grid">
             
-            <!-- GAME 1: WORD SCRAMBLE -->
             <div class="game-card">
                 <h2 class="game-title">WORD SCRAMBLE</h2>
                 <div class="game-reward">3 STREAK = 🪙 5 COINS</div>
-                
                 <div class="scramble-word" id="scramble-display">LOADING</div>
                 <input type="text" class="scramble-input" id="scramble-input" placeholder="YOUR ANSWER" autocomplete="off">
                 <button class="game-btn" id="scramble-btn">SUBMIT</button>
                 <div class="game-status" id="scramble-status">DECODE THE WORD</div>
             </div>
 
-            <!-- GAME 2: MEMORY SIGNAL -->
             <div class="game-card">
                 <h2 class="game-title">MEMORY SIGNAL</h2>
                 <div class="game-reward">5 ROUNDS = 🪙 5 COINS</div>
-                
                 <button class="game-btn" id="memory-start-btn" style="margin-top: 0;">START SEQUENCE</button>
-                <div class="memory-grid" id="memory-grid">
-                    <!-- Tiles generated via JS -->
-                </div>
+                <div class="memory-grid" id="memory-grid"></div>
                 <div class="game-status" id="memory-status">PRESS START</div>
             </div>
 
-            <!-- GAME 3: GRID PUZZLE -->
             <div class="game-card">
                 <h2 class="game-title">GRID PUZZLE</h2>
                 <div class="game-reward">SOLVE IT = 🪙 5 COINS</div>
-                
                 <button class="game-btn" id="slider-shuffle-btn" style="margin-top: 0;">SHUFFLE GRID</button>
-                <div class="slider-grid" id="slider-grid">
-                    <!-- Tiles generated via JS -->
-                </div>
+                <div class="slider-grid" id="slider-grid"></div>
                 <div class="game-status" id="slider-status">PRESS SHUFFLE</div>
             </div>
 
         </div>
     </main>
 
-    <script>
-        // --- 0. GLOBAL GAMIFICATION ENGINE ---
-        let currentCoins = parseInt(localStorage.getItem('shanu_coins')) || 0;
+    <footer>
+        <p>GAME OVER? NEVER.</p>
+        <div class="links">
+            <a href="https://www.behance.net/shanux17" target="_blank" onclick="rewardPlayer(5)">Behance</a> •
+            <a href="https://www.linkedin.com/in/shanupriyagarg" target="_blank" onclick="rewardPlayer(5)">LinkedIn</a> •
+            <a href="mailto:gargshanupriya@gmail.com" onclick="rewardPlayer(2)">Email</a>
+        </div>
+    </footer>
 
-        function updateHUD() {
-            let currentLevel = Math.floor(currentCoins / 50) + 1;
-            document.getElementById('player-coins').innerText = currentCoins;
-            document.getElementById('player-level').innerText = 'LVL ' + currentLevel;
-        }
+</div>
 
-        window.rewardPlayer = function(amount) {
-            currentCoins += amount;
-            localStorage.setItem('shanu_coins', currentCoins);
-            updateHUD();
-            
-            // Flash UI for feedback
-            const ui = document.getElementById('coin-ui');
-            ui.style.backgroundColor = 'var(--neon-yellow)';
-            ui.style.color = '#000';
-            setTimeout(() => {
-                ui.style.backgroundColor = 'transparent';
-                ui.style.color = 'var(--neon-yellow)';
-            }, 300);
-        };
+<script src="script.js"></script>
 
+<script>
+    // --- 0. GAMIFICATION & ENVIRONMENT ---
+    let currentCoins = parseInt(localStorage.getItem('shanu_coins')) || 0;
+    function updateHUD() {
+        let currentLevel = Math.floor(currentCoins / 50) + 1;
+        document.getElementById('player-coins').innerText = currentCoins;
+        document.getElementById('player-level').innerText = 'LVL ' + currentLevel;
+    }
+    window.rewardPlayer = function(amount) {
+        currentCoins += amount;
+        localStorage.setItem('shanu_coins', currentCoins);
         updateHUD();
+    };
+    updateHUD();
 
-        // --- 1. WORD SCRAMBLE LOGIC ---
-        const words = ["wireframe", "empathy", "prototype", "system", "research", "design", "iterate"];
-        let scrAnswer = "", scrStreak = 0, scrDisabled = false;
-        const scrDisplay = document.getElementById('scramble-display');
-        const scrInput = document.getElementById('scramble-input');
-        const scrStatus = document.getElementById('scramble-status');
-        const scrBtn = document.getElementById('scramble-btn');
+    if (!sessionStorage.getItem('visited_play')) {
+        rewardPlayer(2);
+        sessionStorage.setItem('visited_play', 'true');
+    }
 
-        function loadScramble() {
-            scrAnswer = words[Math.floor(Math.random() * words.length)];
-            scrDisplay.innerText = scrAnswer.split('').sort(() => Math.random() - 0.5).join('');
-            scrInput.value = "";
-            scrDisabled = false;
-            scrBtn.disabled = false;
-            scrStatus.innerText = "DECODE THE WORD";
+    document.addEventListener('DOMContentLoaded', () => {
+        const world = document.getElementById('main-world');
+        const events = ['normal', 'rain', 'sunny', 'dino', 'robots'];
+        const activeEvent = events[Math.floor(Math.random() * events.length)];
+        if (activeEvent === 'rain') { world.classList.add('weather-rain'); } 
+        else if (activeEvent === 'sunny') { world.classList.add('weather-sunny'); } 
+        else if (activeEvent === 'dino') { world.classList.add('event-dino'); } 
+        else if (activeEvent === 'robots') { world.classList.add('event-robots'); }
+    });
+
+    // --- 1. WORD SCRAMBLE LOGIC ---
+    const words = ["wireframe", "empathy", "prototype", "system", "research", "design", "iterate"];
+    let scrAnswer = "", scrStreak = 0, scrDisabled = false;
+    const scrDisplay = document.getElementById('scramble-display');
+    const scrInput = document.getElementById('scramble-input');
+    const scrStatus = document.getElementById('scramble-status');
+    const scrBtn = document.getElementById('scramble-btn');
+
+    function loadScramble() {
+        scrAnswer = words[Math.floor(Math.random() * words.length)];
+        scrDisplay.innerText = scrAnswer.split('').sort(() => Math.random() - 0.5).join('');
+        scrInput.value = ""; scrDisabled = false; scrBtn.disabled = false;
+        scrStatus.innerText = "DECODE THE WORD";
+    }
+
+    function submitScramble() {
+        if(scrDisabled) return;
+        const guess = scrInput.value.trim().toLowerCase();
+        if (guess === scrAnswer) {
+            scrStreak++; scrStatus.innerText = `CORRECT // STREAK: ${scrStreak}`;
+            if (scrStreak >= 3) { scrStatus.innerText = `WINNER! +5 COINS`; rewardPlayer(5); scrStreak = 0; }
+            scrDisabled = true; scrBtn.disabled = true; setTimeout(loadScramble, 1000);
+        } else {
+            scrStatus.innerText = `FAILED. ANSWER: ${scrAnswer.toUpperCase()}`;
+            scrStreak = 0; scrDisabled = true; scrBtn.disabled = true; setTimeout(loadScramble, 2000);
         }
+    }
+    scrBtn.addEventListener('click', submitScramble);
+    scrInput.addEventListener('keydown', (e) => { if(e.key === 'Enter') submitScramble(); });
+    loadScramble();
 
-        function submitScramble() {
-            if(scrDisabled) return;
-            const guess = scrInput.value.trim().toLowerCase();
-            if (guess === scrAnswer) {
-                scrStreak++;
-                scrStatus.innerText = `CORRECT // STREAK: ${scrStreak}`;
-                if (scrStreak >= 3) {
-                    scrStatus.innerText = `WINNER! +5 COINS`;
-                    rewardPlayer(5);
-                    scrStreak = 0;
-                }
-                scrDisabled = true;
-                scrBtn.disabled = true;
-                setTimeout(loadScramble, 1000);
-            } else {
-                scrStatus.innerText = `FAILED. ANSWER: ${scrAnswer.toUpperCase()}`;
-                scrStreak = 0;
-                scrDisabled = true;
-                scrBtn.disabled = true;
-                setTimeout(loadScramble, 2000);
-            }
+    // --- 2. MEMORY SIGNAL LOGIC ---
+    let memSeq = [], userMemSeq = [], memRound = 0, memAccepting = false;
+    const memGrid = document.getElementById('memory-grid');
+    const memStatus = document.getElementById('memory-status');
+    const memBtn = document.getElementById('memory-start-btn');
+    let memTiles = [];
+
+    for(let i=0; i<9; i++) {
+        const tile = document.createElement('div');
+        tile.className = 'memory-tile';
+        tile.addEventListener('click', () => handleMemClick(i));
+        memGrid.appendChild(tile); memTiles.push(tile);
+    }
+
+    function flashTile(idx, delay) { setTimeout(() => { memTiles[idx].classList.add('active'); setTimeout(() => memTiles[idx].classList.remove('active'), 250); }, delay); }
+
+    function startMemRound() {
+        memAccepting = false; memSeq.push(Math.floor(Math.random() * 9));
+        userMemSeq = []; memStatus.innerText = `ROUND ${memRound + 1}`;
+        memSeq.forEach((n, i) => flashTile(n, i * 400));
+        setTimeout(() => { memAccepting = true; }, memSeq.length * 400);
+    }
+
+    memBtn.addEventListener('click', () => { memSeq = []; memRound = 0; memBtn.disabled = true; startMemRound(); });
+
+    function handleMemClick(i) {
+        if(!memAccepting) return;
+        flashTile(i, 0); userMemSeq.push(i);
+        if(userMemSeq[userMemSeq.length - 1] !== memSeq[userMemSeq.length - 1]) {
+            memStatus.innerText = "SIGNAL LOST. TRY AGAIN."; memAccepting = false; memBtn.disabled = false; return;
         }
+        if(userMemSeq.length === memSeq.length) {
+            memAccepting = false; memRound++;
+            if(memRound >= 5) { memStatus.innerText = "MASTERED! +5 COINS"; rewardPlayer(5); memBtn.disabled = false; } 
+            else { setTimeout(startMemRound, 800); }
+        }
+    }
 
-        scrBtn.addEventListener('click', submitScramble);
-        scrInput.addEventListener('keydown', (e) => { if(e.key === 'Enter') submitScramble(); });
-        loadScramble();
+    // --- 3. GRID PUZZLE LOGIC ---
+    const sliderGridEl = document.getElementById('slider-grid');
+    const sliderStatus = document.getElementById('slider-status');
+    const sliderBtn = document.getElementById('slider-shuffle-btn');
+    let sliderArr = [1, 2, 3, 4, 5, 6, 7, 8, 0];
+    const solvedStr = "1,2,3,4,5,6,7,8,0";
 
-        // --- 2. MEMORY SIGNAL LOGIC ---
-        let memSeq = [], userMemSeq = [], memRound = 0, memAccepting = false;
-        const memGrid = document.getElementById('memory-grid');
-        const memStatus = document.getElementById('memory-status');
-        const memBtn = document.getElementById('memory-start-btn');
-        let memTiles = [];
+    function isSolvable(arr) {
+        let inv = 0; const nums = arr.filter(n => n !== 0);
+        for (let i = 0; i < nums.length; i++) { for (let j = i + 1; j < nums.length; j++) { if (nums[i] > nums[j]) inv++; } }
+        return inv % 2 === 0;
+    }
 
-        // Build grid
-        for(let i=0; i<9; i++) {
+    function renderSlider() {
+        sliderGridEl.innerHTML = "";
+        sliderArr.forEach((n, i) => {
             const tile = document.createElement('div');
-            tile.className = 'memory-tile';
-            tile.addEventListener('click', () => handleMemClick(i));
-            memGrid.appendChild(tile);
-            memTiles.push(tile);
-        }
-
-        function flashTile(idx, delay) {
-            setTimeout(() => {
-                memTiles[idx].classList.add('active');
-                setTimeout(() => memTiles[idx].classList.remove('active'), 250);
-            }, delay);
-        }
-
-        function startMemRound() {
-            memAccepting = false;
-            memSeq.push(Math.floor(Math.random() * 9));
-            userMemSeq = [];
-            memStatus.innerText = `ROUND ${memRound + 1}`;
-            
-            memSeq.forEach((n, i) => flashTile(n, i * 400));
-            setTimeout(() => { memAccepting = true; }, memSeq.length * 400);
-        }
-
-        memBtn.addEventListener('click', () => {
-            memSeq = []; memRound = 0;
-            memBtn.disabled = true;
-            startMemRound();
+            tile.className = n === 0 ? 'slider-tile empty' : 'slider-tile';
+            tile.innerText = n === 0 ? "" : n;
+            tile.addEventListener('click', () => moveSlider(i));
+            sliderGridEl.appendChild(tile);
         });
+    }
 
-        function handleMemClick(i) {
-            if(!memAccepting) return;
-            flashTile(i, 0);
-            userMemSeq.push(i);
+    function shuffleSlider() {
+        do { sliderArr = [1,2,3,4,5,6,7,8,0].sort(() => Math.random() - 0.5); } while (!isSolvable(sliderArr) || sliderArr.join(',') === solvedStr);
+        sliderStatus.innerText = "RESTORE THE GRID"; renderSlider();
+    }
 
-            // Check if wrong
-            if(userMemSeq[userMemSeq.length - 1] !== memSeq[userMemSeq.length - 1]) {
-                memStatus.innerText = "SIGNAL LOST. TRY AGAIN.";
-                memAccepting = false;
-                memBtn.disabled = false;
-                return;
-            }
-
-            // Check if round complete
-            if(userMemSeq.length === memSeq.length) {
-                memAccepting = false;
-                memRound++;
-                if(memRound >= 5) {
-                    memStatus.innerText = "MASTERED! +5 COINS";
-                    rewardPlayer(5);
-                    memBtn.disabled = false;
-                } else {
-                    setTimeout(startMemRound, 800);
-                }
-            }
-        }
-
-        // --- 3. GRID PUZZLE LOGIC ---
-        const sliderGridEl = document.getElementById('slider-grid');
-        const sliderStatus = document.getElementById('slider-status');
-        const sliderBtn = document.getElementById('slider-shuffle-btn');
-        let sliderArr = [1, 2, 3, 4, 5, 6, 7, 8, 0];
-        const solvedStr = "1,2,3,4,5,6,7,8,0";
-
-        function isSolvable(arr) {
-            let inv = 0;
-            const nums = arr.filter(n => n !== 0);
-            for (let i = 0; i < nums.length; i++) {
-                for (let j = i + 1; j < nums.length; j++) {
-                    if (nums[i] > nums[j]) inv++;
-                }
-            }
-            return inv % 2 === 0;
-        }
-
-        function renderSlider() {
-            sliderGridEl.innerHTML = "";
-            sliderArr.forEach((n, i) => {
-                const tile = document.createElement('div');
-                tile.className = n === 0 ? 'slider-tile empty' : 'slider-tile';
-                tile.innerText = n === 0 ? "" : n;
-                tile.addEventListener('click', () => moveSlider(i));
-                sliderGridEl.appendChild(tile);
-            });
-        }
-
-        function shuffleSlider() {
-            do {
-                sliderArr = [1,2,3,4,5,6,7,8,0].sort(() => Math.random() - 0.5);
-            } while (!isSolvable(sliderArr) || sliderArr.join(',') === solvedStr);
-            sliderStatus.innerText = "RESTORE THE GRID";
+    function moveSlider(i) {
+        const z = sliderArr.indexOf(0); const sameRow = Math.floor(z / 3) === Math.floor(i / 3);
+        const validMove = [z - 1, z + 1, z - 3, z + 3].includes(i) && !(Math.abs(z - i) === 1 && !sameRow);
+        if(validMove) {
+            [sliderArr[z], sliderArr[i]] = [sliderArr[i], sliderArr[z]];
             renderSlider();
+            if(sliderArr.join(',') === solvedStr) { sliderStatus.innerText = "RESTORED ✓ +5 COINS"; rewardPlayer(5); }
         }
-
-        function moveSlider(i) {
-            const z = sliderArr.indexOf(0);
-            const sameRow = Math.floor(z / 3) === Math.floor(i / 3);
-            const validMove = [z - 1, z + 1, z - 3, z + 3].includes(i) && !(Math.abs(z - i) === 1 && !sameRow);
-            
-            if(validMove) {
-                [sliderArr[z], sliderArr[i]] = [sliderArr[i], sliderArr[z]];
-                renderSlider();
-                if(sliderArr.join(',') === solvedStr) {
-                    sliderStatus.innerText = "RESTORED ✓ +5 COINS";
-                    rewardPlayer(5);
-                }
-            }
-        }
-
-        sliderBtn.addEventListener('click', shuffleSlider);
-        renderSlider(); // Initial render solved state
-    </script>
+    }
+    sliderBtn.addEventListener('click', shuffleSlider);
+    renderSlider(); 
+</script>
 </body>
 </html>
