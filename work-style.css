@@ -90,7 +90,7 @@
     z-index: 2;
     opacity: 0;
     transform: translate(-50%, 100px) scale(0.7);
-    transition: opacity 0.4s cubic-bezier(.2,.8,.2,1), transform 0.4s cubic-bezier(.2,.8,.2,1);
+    transition: opacity 0.4s cubic-bezier(.2,.8,.2,1), transform 0.4s cubic-bezier(.2,.8,.2,1), margin-top 0.2s ease;
     cursor: pointer;
 }
 .project-card:hover { 
