@@ -1,34 +1,47 @@
 .work-main {
     padding-top: 80px;
-    min-height: 80vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 .work-subtitle {
     font-family: 'Space Mono', monospace;
     color: #a3a3a3;
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     font-size: 1.1rem;
 }
 
+/* Wallet Stage */
 .wallet-stage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 2rem 0 5rem;
+    position: relative;
+    min-height: 600px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Perfect Match Wallet Design */
+/* Exact Wallet Design */
+.wallet-container {
+    position: absolute;
+    left: 50%;
+    bottom: 40px;
+    transform: translateX(-50%);
+    z-index: 15;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+.wallet-container.is-open {
+    transform: translateX(-50%) translateY(20px);
+}
+
 .wallet-btn {
-    width: 320px;
-    height: 200px;
-    background: #f864c4; /* Bright pink */
+    width: 280px;
+    height: 180px;
+    background: #f864c4;
     border: 4px solid #ffffff;
-    box-shadow: 12px 12px 0 #5a2146; /* Deep mauve shadow */
+    box-shadow: 10px 10px 0 #5a2146;
     position: relative;
     cursor: pointer;
     display: flex;
@@ -38,163 +51,117 @@
     gap: 12px;
     transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
+.wallet-btn:hover { transform: translate(-4px, -4px); box-shadow: 14px 14px 0 #5a2146; }
+.wallet-btn:active { transform: translate(4px, 4px); box-shadow: 6px 6px 0 #5a2146; }
 
-.wallet-btn:hover {
-    transform: translate(-4px, -4px);
-    box-shadow: 16px 16px 0 #5a2146;
-}
+.wallet-inner-top { width: 85%; height: 50px; background: #ffa8e8; border: 4px solid #5a2146; }
+.wallet-inner-bottom { width: 85%; height: 40px; background: #d941a9; border: 4px solid #5a2146; }
+.wallet-text { font-family: 'Press Start 2P', cursive; color: #ffffff; font-size: 1.5rem; text-shadow: 3px 3px 0 #5a2146; letter-spacing: 2px; }
 
-.wallet-btn:active {
-    transform: translate(4px, 4px);
-    box-shadow: 8px 8px 0 #5a2146;
-}
-
-/* Inner rectangles */
-.wallet-inner-top {
-    width: 85%;
-    height: 55px;
-    background: #ffa8e8;
-    border: 4px solid #5a2146;
-}
-
-.wallet-inner-bottom {
-    width: 85%;
-    height: 45px;
-    background: #d941a9;
-    border: 4px solid #5a2146;
-}
-
-.wallet-text {
-    font-family: 'Press Start 2P', cursive;
-    color: #ffffff;
-    font-size: 1.5rem;
-    text-shadow: 3px 3px 0 #5a2146;
-    letter-spacing: 2px;
-}
-
-/* The side tags */
 .tag-left {
-    position: absolute;
-    left: -28px;
-    top: 45px;
-    background: #f8f66a;
-    border: 4px solid #ffffff;
-    color: #000000;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 0.9rem;
-    padding: 10px 8px;
-    box-shadow: 4px 4px 0 #5a2146;
+    position: absolute; left: -24px; top: 40px; background: #f8f66a; border: 3px solid #ffffff;
+    color: #000; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; padding: 8px 6px; box-shadow: 4px 4px 0 #5a2146;
 }
-
 .tag-right {
-    position: absolute;
-    right: -24px;
-    bottom: 25px;
-    background: #6ce8ff;
-    border: 4px solid #ffffff;
-    color: #000000;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 0.7rem;
-    padding: 8px 6px;
-    box-shadow: 4px 4px 0 #5a2146;
+    position: absolute; right: -24px; bottom: 20px; background: #6ce8ff; border: 3px solid #ffffff;
+    color: #000; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; padding: 6px 4px; box-shadow: 4px 4px 0 #5a2146;
 }
 
 .wallet-label {
-    margin-top: 40px;
+    margin-top: 30px;
     font-family: 'Press Start 2P', cursive;
     font-size: 0.8rem;
     color: #ffd84f;
     animation: blink 1.5s steps(2) infinite;
 }
-
 @keyframes blink { 50% { opacity: 0.3; } }
 
-/* Expanded Modal Container */
+/* Fanning Project Cards (Updated for 7 cards) */
+.project-card {
+    position: absolute;
+    left: 50%;
+    top: 40px;
+    width: 200px;
+    background: #111;
+    border: 4px solid #fff;
+    box-shadow: 6px 6px 0 #000;
+    z-index: 2;
+    opacity: 0;
+    transform: translate(-50%, 100px) scale(0.7);
+    transition: opacity 0.4s cubic-bezier(.2,.8,.2,1), transform 0.4s cubic-bezier(.2,.8,.2,1), margin-top 0.2s ease;
+    cursor: pointer;
+}
+/* This prevents the hovering glitch we fixed earlier! */
+.project-card:hover { 
+    border-color: #ff77da; 
+    z-index: 20 !important; 
+    margin-top: -15px; 
+}
+
+.card-img-container { width: 100%; aspect-ratio: 9 / 16; border-bottom: 4px solid #fff; background: #000; overflow: hidden; }
+.card-img-container img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.3s; }
+.project-card:hover .card-img-container img { opacity: 1; }
+
+.card-content { padding: 12px; }
+.card-role { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #ff77da; margin-bottom: 8px; font-weight: bold; }
+.card-title { font-family: 'Press Start 2P', cursive; font-size: 0.6rem; color: #fff; line-height: 1.4; }
+
+/* The 7 Card Fanned Out States */
+.wallet-stage.is-open .project-card { opacity: 1; }
+.wallet-stage.is-open .card-0 { transform: translate(-550px, 60px) rotate(-9deg); }
+.wallet-stage.is-open .card-1 { transform: translate(-370px, 10px) rotate(-6deg); }
+.wallet-stage.is-open .card-2 { transform: translate(-190px, -20px) rotate(-3deg); }
+.wallet-stage.is-open .card-3 { transform: translate(-10px, -30px) rotate(0deg); }
+.wallet-stage.is-open .card-4 { transform: translate(170px, -20px) rotate(3deg); }
+.wallet-stage.is-open .card-5 { transform: translate(350px, 10px) rotate(6deg); }
+.wallet-stage.is-open .card-6 { transform: translate(530px, 60px) rotate(9deg); }
+
+/* Giant Modal Pop-Up */
 .modal-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0,0,0,0.9); z-index: 999;
-    display: none; justify-content: center; align-items: center;
-    padding: 2rem;
+    display: none; justify-content: center; align-items: center; padding: 2rem;
 }
 .modal-overlay.active { display: flex; }
 
 .expanded-modal {
-    background: #111;
-    border: 4px solid #fff;
-    box-shadow: 12px 12px 0 #5a2146;
-    width: 100%; 
-    max-width: 1100px; /* Much wider for in-depth reading */
-    height: 90vh; /* Takes up most of the screen */
-    overflow-y: auto; 
-    padding: 3rem; 
-    position: relative;
+    background: #111; border: 4px solid #fff; box-shadow: 12px 12px 0 #5a2146;
+    width: 100%; max-width: 1000px; max-height: 90vh; overflow-y: auto; padding: 3rem; position: relative;
 }
 
 .close-btn {
     position: absolute; top: 1.5rem; right: 1.5rem;
     background: #fff; border: 4px solid #000; color: #000;
-    font-family: 'Space Mono', monospace; font-weight: bold; font-size: 1rem; 
-    padding: 0.5rem 1rem; cursor: pointer; display: flex; align-items: center; gap: 8px;
+    font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.9rem; 
+    padding: 0.5rem 1rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: 0.2s;
 }
 .close-btn:hover { background: #f864c4; color: #fff; }
 
 .modal-header { border-bottom: 4px dashed #444; padding-bottom: 1rem; margin-bottom: 2rem; }
+.modal-role { font-family: 'Space Mono', monospace; color: #f8f66a; font-weight: bold; font-size: 0.9rem; margin-bottom: 0.5rem; }
 .modal-header h2 { font-family: 'Press Start 2P', cursive; font-size: 1.2rem; color: #6ce8ff; line-height: 1.5; }
 
-/* Case Study Internal Layout */
-.case-study-list {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem; /* Big spacing between the 7 projects */
-}
-
-.case-study-block {
-    background: #1a1a1a;
-    border: 2px solid #333;
-    padding: 2rem;
-}
-
-.case-header { margin-bottom: 1.5rem; }
-.case-role { font-family: 'Space Mono', monospace; color: #f8f66a; font-weight: bold; font-size: 0.9rem; margin-bottom: 0.5rem; display: block;}
-.case-title { font-family: 'Press Start 2P', cursive; font-size: 1.1rem; color: #fff; line-height: 1.4; }
-
-.case-grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr; /* Image on left, text on right */
-    gap: 2rem;
-}
-
-/* Enforcing strict vertical asset framing */
-.case-visuals {
-    width: 100%;
-    aspect-ratio: 9 / 16;
-    border: 4px solid #fff;
-    background: #000;
-}
+.case-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; }
+.case-visuals { width: 100%; aspect-ratio: 9 / 16; border: 4px solid #fff; background: #000; }
 .case-visuals img { width: 100%; height: 100%; object-fit: cover; }
 
-.case-details {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
+.case-details { display: flex; flex-direction: column; gap: 1.5rem; }
+.detail-section h4 { font-family: 'Press Start 2P', cursive; font-size: 0.8rem; color: #ff77da; margin-bottom: 0.8rem; line-height: 1.4;}
+.detail-section p { font-family: 'Space Mono', monospace; font-size: 1rem; line-height: 1.6; color: #ccc; }
 
-.detail-section h4 {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 0.7rem;
-    color: #ff77da;
-    margin-bottom: 0.8rem;
+/* Responsive adjustments for 7 cards on smaller screens */
+@media (max-width: 1200px) {
+    .wallet-stage.is-open .card-0 { transform: translate(-300px, 10px) rotate(-4deg); }
+    .wallet-stage.is-open .card-1 { transform: translate(-100px, 0px) rotate(-2deg); }
+    .wallet-stage.is-open .card-2 { transform: translate(100px, 0px) rotate(2deg); }
+    .wallet-stage.is-open .card-3 { transform: translate(300px, 10px) rotate(4deg); }
+    .wallet-stage.is-open .card-4 { transform: translate(-200px, 350px) rotate(-2deg); }
+    .wallet-stage.is-open .card-5 { transform: translate(0px, 350px) rotate(0deg); }
+    .wallet-stage.is-open .card-6 { transform: translate(200px, 350px) rotate(2deg); }
+    .wallet-stage { min-height: 900px; }
 }
-
-.detail-section p {
-    font-family: 'Space Mono', monospace;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #ccc;
-}
-
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     .case-grid { grid-template-columns: 1fr; }
-    .expanded-modal { padding: 1.5rem; }
-    .wallet-btn { transform: scale(0.85); }
+    .wallet-stage.is-open .project-card { position: relative; top: auto; left: auto; transform: none !important; margin: 0 auto 2rem auto; }
+    .wallet-stage.is-open { display: flex; flex-direction: column; align-items: center; padding-top: 2rem; }
 }
