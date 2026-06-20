@@ -1,0 +1,193 @@
+/* WORK PAGE CORE */
+.work-main {
+    padding-top: 60px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+/* NEW MENU BOX */
+.menu-box {
+    background: rgba(15, 15, 30, 0.85);
+    border: 4px solid #4a4a8c;
+    box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.5);
+    width: 95%;
+    max-width: 1400px;
+    padding: 3rem 2rem 5rem;
+    position: relative;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+}
+
+.menu-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.work-subtitle {
+    font-family: 'Space Mono', monospace;
+    color: #b8b0d9;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+/* BACKGROUND ANIMATIONS */
+@keyframes twinkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.2; transform: scale(0.8); }
+}
+.star.blink {
+    animation: twinkle 2s infinite ease-in-out;
+}
+
+@keyframes drift {
+    from { transform: translateX(-200px); }
+    to { transform: translateX(110vw); }
+}
+.moving-cloud-1 {
+    position: absolute;
+    animation: drift 45s linear infinite;
+    opacity: 0.6;
+    z-index: 1;
+}
+.moving-cloud-2 {
+    position: absolute;
+    animation: drift 65s linear infinite;
+    z-index: 1;
+}
+
+/* HIRE ME BUTTON */
+.hire-me-btn {
+    position: absolute;
+    bottom: -20px;
+    right: 40px;
+    background: #6ce8ff;
+    color: #092138;
+    border: 4px solid #fff;
+    box-shadow: 6px 6px 0 #244d66;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9rem;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.1s, box-shadow 0.1s;
+    z-index: 20;
+}
+.hire-me-btn:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 10px 10px 0 #244d66;
+    background: #fff;
+}
+.hire-me-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 4px 4px 0 #244d66;
+}
+
+/* WALLET STAGE & BUTTON */
+.wallet-stage {
+    position: relative;
+    min-height: 450px; /* Reduced to bring wallet up */
+    width: 100%;
+}
+
+.wallet-container {
+    position: absolute;
+    left: 50%;
+    bottom: 80px; /* Shifted higher up into the box */
+    transform: translateX(-50%);
+    z-index: 15;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    text-align: center;
+}
+
+/* THE WALLET DOWNWARD SHIFT ANIMATION */
+.wallet-container.is-open {
+    transform: translateX(-50%) translateY(160px); /* Shifts heavily down to reveal cards */
+}
+
+.wallet-btn {
+    width: 280px; height: 180px; background: #f864c4; border: 4px solid #ffffff; box-shadow: 10px 10px 0 #5a2146; position: relative; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.wallet-btn:hover { transform: translate(-4px, -4px); box-shadow: 14px 14px 0 #5a2146; }
+.wallet-btn:active { transform: translate(4px, 4px); box-shadow: 6px 6px 0 #5a2146; }
+.wallet-inner-top { width: 85%; height: 50px; background: #ffa8e8; border: 4px solid #5a2146; }
+.wallet-inner-bottom { width: 85%; height: 40px; background: #d941a9; border: 4px solid #5a2146; }
+.wallet-text { font-family: 'Press Start 2P', cursive; color: #ffffff; font-size: 1.5rem; text-shadow: 3px 3px 0 #5a2146; letter-spacing: 2px; }
+
+.tag-left { position: absolute; left: -24px; top: 40px; background: #f8f66a; border: 3px solid #ffffff; color: #000; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; padding: 8px 6px; box-shadow: 4px 4px 0 #5a2146; }
+.tag-right { position: absolute; right: -24px; bottom: 20px; background: #6ce8ff; border: 3px solid #ffffff; color: #000; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; padding: 6px 4px; box-shadow: 4px 4px 0 #5a2146; }
+
+.wallet-label { margin-top: 30px; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; color: #ffd84f; animation: blink 1.5s steps(2) infinite; transition: transform 0.3s; }
+@keyframes blink { 50% { opacity: 0.3; } }
+
+/* PROJECT CARDS */
+.project-card {
+    position: absolute; left: 50%; margin-left: -120px; 
+    top: 60px; /* Base start position */
+    width: 240px; background: #111; border: 4px solid #fff; box-shadow: 6px 6px 0 #000; z-index: 2; opacity: 0;
+    transform: translateY(80px) scale(0.7); 
+    transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), margin-top 0.2s ease; cursor: pointer;
+}
+.project-card:hover { border-color: #ff77da; z-index: 50 !important; margin-top: -20px; }
+
+.card-img-container { width: 100%; aspect-ratio: 3 / 2; border-bottom: 4px solid #fff; background: #000; overflow: hidden; }
+.card-img-container img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.3s; }
+.project-card:hover .card-img-container img { opacity: 1; }
+
+.card-content { padding: 12px; }
+.card-role { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #ff77da; margin-bottom: 8px; font-weight: bold; }
+.card-title { font-family: 'Press Start 2P', cursive; font-size: 0.6rem; color: #fff; line-height: 1.4; }
+
+/* THE PERFECTLY CENTERED DESKTOP FAN */
+.wallet-stage.is-open .project-card { opacity: 1; }
+.wallet-stage.is-open .card-0 { transform: translateX(-560px) translateY(80px) rotate(-15deg); }
+.wallet-stage.is-open .card-1 { transform: translateX(-380px) translateY(20px) rotate(-10deg); }
+.wallet-stage.is-open .card-2 { transform: translateX(-190px) translateY(-10px) rotate(-5deg); }
+.wallet-stage.is-open .card-3 { transform: translateX(0px) translateY(-20px) rotate(0deg); } 
+.wallet-stage.is-open .card-4 { transform: translateX(190px) translateY(-10px) rotate(5deg); }
+.wallet-stage.is-open .card-5 { transform: translateX(380px) translateY(20px) rotate(10deg); }
+.wallet-stage.is-open .card-6 { transform: translateX(560px) translateY(80px) rotate(15deg); }
+
+/* TABLET VIEW */
+@media (max-width: 1300px) {
+    .project-card { width: 200px; margin-left: -100px; }
+    .wallet-stage.is-open .card-0 { transform: translateX(-420px) translateY(90px) rotate(-12deg); }
+    .wallet-stage.is-open .card-1 { transform: translateX(-280px) translateY(45px) rotate(-8deg); }
+    .wallet-stage.is-open .card-2 { transform: translateX(-140px) translateY(15px) rotate(-4deg); }
+    .wallet-stage.is-open .card-3 { transform: translateX(0px) translateY(0px) rotate(0deg); }
+    .wallet-stage.is-open .card-4 { transform: translateX(140px) translateY(15px) rotate(4deg); }
+    .wallet-stage.is-open .card-5 { transform: translateX(280px) translateY(45px) rotate(8deg); }
+    .wallet-stage.is-open .card-6 { transform: translateX(420px) translateY(90px) rotate(12deg); }
+}
+
+/* MOBILE VIEW */
+@media (max-width: 768px) {
+    .menu-box { padding: 2rem 1rem 4rem; }
+    .hire-me-btn { right: 50%; transform: translateX(50%); bottom: -25px; }
+    .hire-me-btn:hover { transform: translateX(50%) translateY(-4px); }
+    
+    .wallet-stage.is-open { display: flex; flex-direction: column; align-items: center; gap: 2rem; padding-top: 2rem; padding-bottom: 250px; min-height: auto; }
+    .wallet-stage.is-open .project-card { position: relative; left: auto; margin-left: 0; top: auto; transform: none !important; width: 260px; opacity: 1; }
+    .wallet-container { position: fixed; bottom: 20px; z-index: 100; transform: translateX(-50%) scale(0.8); }
+    .wallet-container.is-open { transform: translateX(-50%) scale(0.8) translateY(10px); }
+}
+
+/* GIANT MODAL POP-UP */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 999; display: none; justify-content: center; align-items: center; padding: 2rem; }
+.modal-overlay.active { display: flex; }
+.expanded-modal { background: #111; border: 4px solid #fff; box-shadow: 12px 12px 0 #5a2146; width: 100%; max-width: 1000px; max-height: 90vh; overflow-y: auto; padding: 3rem; position: relative; }
+.close-btn { position: absolute; top: 1.5rem; right: 1.5rem; background: #fff; border: 4px solid #000; color: #000; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.9rem; padding: 0.5rem 1rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: 0.2s; }
+.close-btn:hover { background: #f864c4; color: #fff; }
+.modal-header { border-bottom: 4px dashed #444; padding-bottom: 1rem; margin-bottom: 2rem; }
+.modal-role { font-family: 'Space Mono', monospace; color: #f8f66a; font-weight: bold; font-size: 0.9rem; margin-bottom: 0.5rem; }
+.modal-header h2 { font-family: 'Press Start 2P', cursive; font-size: 1.2rem; color: #6ce8ff; line-height: 1.5; }
+.case-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; }
+.case-visuals { width: 100%; aspect-ratio: 9 / 16; border: 4px solid #fff; background: #000; }
+.case-visuals img { width: 100%; height: 100%; object-fit: cover; }
+.case-details { display: flex; flex-direction: column; gap: 1.5rem; }
+.detail-section h4 { font-family: 'Press Start 2P', cursive; font-size: 0.8rem; color: #ff77da; margin-bottom: 0.8rem; line-height: 1.4;}
+.detail-section p { font-family: 'Space Mono', monospace; font-size: 1rem; line-height: 1.6; color: #ccc; }
+@media (max-width: 768px) { .case-grid { grid-template-columns: 1fr; } .expanded-modal { padding: 1.5rem; } }
