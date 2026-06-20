@@ -20,97 +20,39 @@
     backdrop-filter: blur(4px);
 }
 
-.menu-header {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.work-subtitle {
-    font-family: 'Space Mono', monospace;
-    color: #b8b0d9;
-    font-size: 1.1rem;
-    margin-top: 1rem;
-}
+.menu-header { text-align: center; margin-bottom: 2rem; }
+.work-subtitle { font-family: 'Space Mono', monospace; color: #b8b0d9; font-size: 1.1rem; margin-top: 1rem; }
 
 /* BACKGROUND ANIMATIONS */
-@keyframes twinkle {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.2; transform: scale(0.8); }
-}
-.star.blink {
-    animation: twinkle 2s infinite ease-in-out;
-}
-
-@keyframes drift {
-    from { transform: translateX(-200px); }
-    to { transform: translateX(110vw); }
-}
-.moving-cloud-1 {
-    position: absolute;
-    animation: drift 45s linear infinite;
-    opacity: 0.6;
-    z-index: 1;
-}
-.moving-cloud-2 {
-    position: absolute;
-    animation: drift 65s linear infinite;
-    z-index: 1;
-}
+@keyframes twinkle { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.2; transform: scale(0.8); } }
+.star.blink { animation: twinkle 2s infinite ease-in-out; }
+@keyframes drift { from { transform: translateX(-200px); } to { transform: translateX(110vw); } }
+.moving-cloud-1 { position: absolute; animation: drift 45s linear infinite; opacity: 0.6; z-index: 1; }
+.moving-cloud-2 { position: absolute; animation: drift 65s linear infinite; z-index: 1; }
 
 /* HIRE ME BUTTON */
 .hire-me-btn {
-    position: absolute;
-    bottom: -20px;
-    right: 40px;
-    background: #6ce8ff;
-    color: #092138;
-    border: 4px solid #fff;
-    box-shadow: 6px 6px 0 #244d66;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 0.9rem;
-    padding: 1rem 1.5rem;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: transform 0.1s, box-shadow 0.1s;
-    z-index: 20;
+    position: absolute; bottom: -20px; right: 40px; background: #6ce8ff; color: #092138;
+    border: 4px solid #fff; box-shadow: 6px 6px 0 #244d66; font-family: 'Press Start 2P', cursive;
+    font-size: 0.9rem; padding: 1rem 1.5rem; text-decoration: none; display: flex; align-items: center;
+    gap: 10px; transition: transform 0.1s, box-shadow 0.1s; z-index: 20;
 }
-.hire-me-btn:hover {
-    transform: translate(-4px, -4px);
-    box-shadow: 10px 10px 0 #244d66;
-    background: #fff;
-}
-.hire-me-btn:active {
-    transform: translate(2px, 2px);
-    box-shadow: 4px 4px 0 #244d66;
-}
+.hire-me-btn:hover { transform: translate(-4px, -4px); box-shadow: 10px 10px 0 #244d66; background: #fff; }
+.hire-me-btn:active { transform: translate(2px, 2px); box-shadow: 4px 4px 0 #244d66; }
 
 /* WALLET STAGE & BUTTON */
-.wallet-stage {
-    position: relative;
-    min-height: 450px; 
-    width: 100%;
-}
+.wallet-stage { position: relative; min-height: 480px; width: 100%; }
 
 .wallet-container {
-    position: absolute;
-    left: 50%;
-    bottom: 80px; 
-    transform: translateX(-50%);
-    z-index: 15;
-    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-    text-align: center;
+    position: absolute; left: 50%; bottom: 80px; transform: translateX(-50%);
+    z-index: 10; /* Lowered so cards go in front */
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); text-align: center;
 }
 
-/* THE WALLET DOWNWARD SHIFT ANIMATION */
-.wallet-container.is-open {
-    transform: translateX(-50%) translateY(160px); 
-}
+/* SHIFT WALLET DOWN FURTHER WHEN OPEN */
+.wallet-container.is-open { transform: translateX(-50%) translateY(140px); }
 
-.wallet-btn {
-    width: 280px; height: 180px; background: #f864c4; border: 4px solid #ffffff; box-shadow: 10px 10px 0 #5a2146; position: relative; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; transition: transform 0.1s ease, box-shadow 0.1s ease;
-}
+.wallet-btn { width: 280px; height: 180px; background: #f864c4; border: 4px solid #ffffff; box-shadow: 10px 10px 0 #5a2146; position: relative; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; transition: transform 0.1s ease, box-shadow 0.1s ease; }
 .wallet-btn:hover { transform: translate(-4px, -4px); box-shadow: 14px 14px 0 #5a2146; }
 .wallet-btn:active { transform: translate(4px, 4px); box-shadow: 6px 6px 0 #5a2146; }
 .wallet-inner-top { width: 85%; height: 50px; background: #ffa8e8; border: 4px solid #5a2146; }
@@ -124,29 +66,34 @@
 @keyframes blink { 50% { opacity: 0.3; } }
 
 
-/* PROJECT CARDS */
+/* ========================================= */
+/* PROJECT CARDS (CREDIT CARD STYLE)         */
+/* ========================================= */
 .project-card {
     position: absolute; 
-    /* BULLETPROOF CENTERING TRICK */
     left: 50%; 
-    margin-left: -90px; /* Exactly negative half of the 180px width */
+    margin-left: -85px; /* Exactly negative half of the 170px width */
     top: 60px; 
-    width: 180px; /* Clean, compact width */
+    width: 170px; /* Broader width to fit 7 comfortably */
     background: #111; 
     border: 4px solid #fff; 
     box-shadow: 6px 6px 0 #000; 
-    z-index: 2; 
+    z-index: 5; /* Starts behind */
     opacity: 0;
     transform: translateY(80px) scale(0.7); 
     transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), margin-top 0.2s ease; 
     cursor: pointer;
 }
-.project-card:hover { border-color: #ff77da; z-index: 50 !important; margin-top: -20px; }
 
-/* 10:16 VERTICAL ASPECT RATIO ENFORCEMENT */
+/* CARDS JUMP TO FRONT WHEN OPEN */
+.wallet-stage.is-open .project-card { opacity: 1; z-index: 25; } 
+
+.project-card:hover { border-color: #ff77da; z-index: 50 !important; margin-top: -15px; }
+
+/* 16:9 LANDSCAPE ASPECT RATIO (Short height, wide feel) */
 .card-img-container { 
     width: 100%; 
-    aspect-ratio: 10 / 16; 
+    aspect-ratio: 16 / 9; 
     border-bottom: 4px solid #fff; 
     background: #000; 
     overflow: hidden; 
@@ -154,30 +101,29 @@
 .card-img-container img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.3s; }
 .project-card:hover .card-img-container img { opacity: 1; }
 
-.card-content { padding: 12px; }
-.card-role { font-family: 'Space Mono', monospace; font-size: 0.5rem; color: #ff77da; margin-bottom: 8px; font-weight: bold; }
+.card-content { padding: 10px; }
+.card-role { font-family: 'Space Mono', monospace; font-size: 0.5rem; color: #ff77da; margin-bottom: 6px; font-weight: bold; }
 .card-title { font-family: 'Press Start 2P', cursive; font-size: 0.5rem; color: #fff; line-height: 1.4; }
 
-/* THE PERFECTLY CENTERED DESKTOP FAN */
-.wallet-stage.is-open .project-card { opacity: 1; }
-.wallet-stage.is-open .card-0 { transform: translateX(-480px) translateY(80px) rotate(-15deg); }
-.wallet-stage.is-open .card-1 { transform: translateX(-320px) translateY(30px) rotate(-10deg); }
-.wallet-stage.is-open .card-2 { transform: translateX(-160px) translateY(-5px) rotate(-5deg); }
+/* THE PERFECTLY CENTERED DESKTOP FAN (Adjusted for wider cards) */
+.wallet-stage.is-open .card-0 { transform: translateX(-470px) translateY(70px) rotate(-15deg); }
+.wallet-stage.is-open .card-1 { transform: translateX(-310px) translateY(20px) rotate(-10deg); }
+.wallet-stage.is-open .card-2 { transform: translateX(-155px) translateY(-10px) rotate(-5deg); }
 .wallet-stage.is-open .card-3 { transform: translateX(0px) translateY(-20px) rotate(0deg); } 
-.wallet-stage.is-open .card-4 { transform: translateX(160px) translateY(-5px) rotate(5deg); }
-.wallet-stage.is-open .card-5 { transform: translateX(320px) translateY(30px) rotate(10deg); }
-.wallet-stage.is-open .card-6 { transform: translateX(480px) translateY(80px) rotate(15deg); }
+.wallet-stage.is-open .card-4 { transform: translateX(155px) translateY(-10px) rotate(5deg); }
+.wallet-stage.is-open .card-5 { transform: translateX(310px) translateY(20px) rotate(10deg); }
+.wallet-stage.is-open .card-6 { transform: translateX(470px) translateY(70px) rotate(15deg); }
 
 /* TABLET VIEW */
 @media (max-width: 1300px) {
-    .project-card { width: 150px; margin-left: -75px; }
-    .wallet-stage.is-open .card-0 { transform: translateX(-360px) translateY(70px) rotate(-12deg); }
-    .wallet-stage.is-open .card-1 { transform: translateX(-240px) translateY(35px) rotate(-8deg); }
-    .wallet-stage.is-open .card-2 { transform: translateX(-120px) translateY(10px) rotate(-4deg); }
-    .wallet-stage.is-open .card-3 { transform: translateX(0px) translateY(0px) rotate(0deg); }
-    .wallet-stage.is-open .card-4 { transform: translateX(120px) translateY(10px) rotate(4deg); }
-    .wallet-stage.is-open .card-5 { transform: translateX(240px) translateY(35px) rotate(8deg); }
-    .wallet-stage.is-open .card-6 { transform: translateX(360px) translateY(70px) rotate(12deg); }
+    .project-card { width: 140px; margin-left: -70px; }
+    .wallet-stage.is-open .card-0 { transform: translateX(-370px) translateY(60px) rotate(-12deg); }
+    .wallet-stage.is-open .card-1 { transform: translateX(-245px) translateY(25px) rotate(-8deg); }
+    .wallet-stage.is-open .card-2 { transform: translateX(-120px) translateY(0px) rotate(-4deg); }
+    .wallet-stage.is-open .card-3 { transform: translateX(0px) translateY(-10px) rotate(0deg); }
+    .wallet-stage.is-open .card-4 { transform: translateX(120px) translateY(0px) rotate(4deg); }
+    .wallet-stage.is-open .card-5 { transform: translateX(245px) translateY(25px) rotate(8deg); }
+    .wallet-stage.is-open .card-6 { transform: translateX(370px) translateY(60px) rotate(12deg); }
 }
 
 /* MOBILE VIEW */
@@ -187,12 +133,12 @@
     .hire-me-btn:hover { transform: translateX(50%) translateY(-4px); }
     
     .wallet-stage.is-open { display: flex; flex-direction: column; align-items: center; gap: 2rem; padding-top: 2rem; padding-bottom: 250px; min-height: auto; }
-    .wallet-stage.is-open .project-card { position: relative; left: auto; margin-left: 0; top: auto; transform: none !important; width: 220px; opacity: 1; }
+    .wallet-stage.is-open .project-card { position: relative; left: auto; margin-left: 0; top: auto; transform: none !important; width: 240px; opacity: 1; }
     .wallet-container { position: fixed; bottom: 20px; z-index: 100; transform: translateX(-50%) scale(0.8); }
     .wallet-container.is-open { transform: translateX(-50%) scale(0.8) translateY(10px); }
 }
 
-/* GIANT MODAL POP-UP */
+/* GIANT MODAL POP-UP (Unchanged) */
 .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 999; display: none; justify-content: center; align-items: center; padding: 2rem; }
 .modal-overlay.active { display: flex; }
 .expanded-modal { background: #111; border: 4px solid #fff; box-shadow: 12px 12px 0 #5a2146; width: 100%; max-width: 1000px; max-height: 90vh; overflow-y: auto; padding: 3rem; position: relative; }
@@ -202,12 +148,9 @@
 .modal-role { font-family: 'Space Mono', monospace; color: #f8f66a; font-weight: bold; font-size: 0.9rem; margin-bottom: 0.5rem; }
 .modal-header h2 { font-family: 'Press Start 2P', cursive; font-size: 1.2rem; color: #6ce8ff; line-height: 1.5; }
 .case-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; }
-
-/* Matching the 10:16 constraint in the popup */
-.case-visuals { width: 100%; aspect-ratio: 10 / 16; border: 4px solid #fff; background: #000; }
+.case-visuals { width: 100%; aspect-ratio: 9 / 16; border: 4px solid #fff; background: #000; }
 .case-visuals img { width: 100%; height: 100%; object-fit: cover; }
-
 .case-details { display: flex; flex-direction: column; gap: 1.5rem; }
 .detail-section h4 { font-family: 'Press Start 2P', cursive; font-size: 0.8rem; color: #ff77da; margin-bottom: 0.8rem; line-height: 1.4;}
 .detail-section p { font-family: 'Space Mono', monospace; font-size: 1rem; line-height: 1.6; color: #ccc; }
-@media (max-width: 768px) { .case-grid { grid-template-columns: 1fr; } .expanded-modal { padding: 1.5rem; } } 
+@media (max-width: 768px) { .case-grid { grid-template-columns: 1fr; } .expanded-modal { padding: 1.5rem; } }
