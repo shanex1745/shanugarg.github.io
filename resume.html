@@ -4,191 +4,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHANU.EXE | Resume</title>
-    <!-- Updated fonts to match homepage perfectly -->
+    
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+
     <style>
-        :root {
-            --bg-color: #0d1117; /* Matched to a standard dark retro aesthetic */
-            --nav-bg: rgba(13, 17, 23, 0.95);
-            --neon-cyan: #00ffff;
-            --neon-blue: #4fb1ff;
-            --neon-pink: #ff77da;
-            --neon-yellow: #ffd84f;
-            --neon-green: #7cff9b;
-            --text-main: #c9d1d9;
-            --font-heading: 'Press Start 2P', cursive;
-            --font-body: 'Space Mono', monospace; /* Swapped to match homepage */
+        /* --- DYNAMIC ENVIRONMENT --- */
+        .cloud { animation: floatClouds 40s linear infinite; }
+        @keyframes floatClouds { 0% { transform: translateX(-15vw) scale(0.85); } 100% { transform: translateX(115vw) scale(0.85); } }
+
+        .weather-rain::before {
+            content: ''; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 100%);
+            background-size: 10px 100px; animation: rainDrop 0.3s linear infinite; pointer-events: none; z-index: 90;
         }
+        .weather-rain { animation: thunderFlash 12s infinite; }
+        @keyframes rainDrop { 0% { background-position: 0 0; } 100% { background-position: 20px 100vh; } }
+        @keyframes thunderFlash { 0%, 95%, 98% { filter: brightness(1); } 96%, 99% { filter: brightness(2.5); } }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        .random-entity { position: absolute; pointer-events: none; z-index: 5; display: none; font-size: 80px; line-height: 1; }
+        .dino-entity::after { content: '🦖'; } .dino-entity { bottom: 10%; animation: runAcross 15s linear infinite; }
+        .robot-entity::after { content: '🤖'; } .robot-entity { bottom: 10%; animation: walkAcross 25s linear infinite reverse; }
+        .bird-entity::after { content: '🦅'; font-size: 40px; } .bird-entity { top: 15%; animation: runAcross 20s linear infinite; }
+        .event-dino .dino-entity { display: block; } .event-robots .robot-entity { display: block; } .weather-sunny .bird-entity { display: block; }
+        @keyframes runAcross { 0% { left: -20%; } 100% { left: 120%; } }
+        @keyframes walkAcross { 0% { right: -20%; transform: scaleX(-1); } 100% { right: 120%; transform: scaleX(-1); } }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: var(--font-body);
-            font-size: 0.95rem; /* Adjusted down for Space Mono proportions */
-            line-height: 1.6;
-            background-image: 
-                linear-gradient(rgba(79, 177, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(79, 177, 255, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
-            overflow-x: hidden;
-        }
-
-        /* Nav matched to Home Page structure */
-        nav {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 40px;
-            border-bottom: 2px solid var(--neon-blue); /* Sync with homepage border */
-            font-family: var(--font-heading);
-            font-size: 0.7rem;
-            background: var(--nav-bg);
-            position: sticky; top: 0; z-index: 100;
-        }
-
-        .logo { color: var(--neon-green); text-transform: uppercase; letter-spacing: 1px; }
+        /* --- RESUME SPECIFIC STYLES --- */
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; position: relative; z-index: 10; }
         
-        .nav-links { display: flex; gap: 25px; }
-        .nav-links a {
-            color: var(--text-main); text-decoration: none;
-            transition: color 0.3s; text-transform: uppercase;
-        }
-        .nav-links a:hover { color: var(--neon-blue); }
-        .nav-links a.active { color: var(--neon-pink); }
-
-        .nav-actions { display: flex; gap: 15px; }
-        .level-badge {
-            border: 2px solid var(--neon-cyan);
-            color: var(--neon-cyan);
-            padding: 8px 12px;
-        }
-        .coin-counter {
-            border: 2px solid var(--neon-yellow);
-            color: var(--neon-yellow);
-            padding: 8px 12px; display: flex; align-items: center; gap: 8px;
-        }
-        .coin {
-            display: inline-block; width: 10px; height: 10px;
-            background: var(--neon-yellow); border-radius: 50%;
-        }
-
-        /* Container */
-        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-
-        /* Header */
         .page-header { margin-bottom: 50px; }
-        h1 { font-family: var(--font-heading); font-size: 2rem; color: var(--neon-green); margin-bottom: 15px; letter-spacing: 1px; }
-        .subtitle { color: var(--neon-blue); font-family: var(--font-heading); font-size: 0.8rem; margin-bottom: 25px; line-height: 1.8; }
-        .intro-text { max-width: 800px; font-size: 1.1rem; margin-bottom: 30px; }
+        h1 { font-family: 'Press Start 2P', cursive; font-size: 2rem; color: #7cff9b; margin-bottom: 15px; letter-spacing: 1px; }
+        .subtitle { color: #4fb1ff; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; margin-bottom: 25px; line-height: 1.8; }
+        .intro-text { max-width: 800px; font-size: 1.1rem; margin-bottom: 30px; font-family: 'Space Mono', monospace;}
 
-        /* Buttons */
         .btn-group { display: flex; gap: 15px; }
         .btn {
-            font-family: var(--font-heading); font-size: 0.7rem;
-            padding: 15px 25px; background: rgba(255, 119, 218, 0.05);
-            border: 2px solid var(--neon-pink); color: #fff;
-            cursor: pointer; text-decoration: none; text-transform: uppercase;
-            transition: all 0.2s; position: relative; overflow: hidden;
+            font-family: 'Press Start 2P', cursive; font-size: 0.7rem; padding: 15px 25px; 
+            background: rgba(255, 119, 218, 0.05); border: 2px solid #ff77da; color: #fff;
+            cursor: pointer; text-decoration: none; text-transform: uppercase; transition: all 0.2s; position: relative; overflow: hidden;
         }
-        .btn:hover { background: var(--neon-pink); color: var(--bg-color); box-shadow: 0 0 15px var(--neon-pink); }
+        .btn:hover { background: #ff77da; color: #0d1117; box-shadow: 0 0 15px #ff77da; }
+        #download-btn.downloading { animation: glitch 0.5s infinite; background: #00ffff; border-color: #00ffff; color: #0d1117; }
+
+        .bento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px; align-items: start; }
+        .panel { border: 2px solid #4fb1ff; padding: 30px; background: rgba(13, 17, 23, 0.85); position: relative; margin-bottom: 30px; }
+        .panel-title { color: #ffd84f; font-family: 'Press Start 2P', cursive; font-size: 0.9rem; margin-bottom: 25px; border-bottom: 1px dashed rgba(255, 216, 79, 0.5); padding-bottom: 15px; }
         
-        #download-btn.downloading {
-            animation: glitch 0.5s infinite; background: var(--neon-cyan); border-color: var(--neon-cyan); color: var(--bg-color);
-        }
+        .highlight-panel { border-color: #ff77da; box-shadow: inset 0 0 15px rgba(255, 119, 218, 0.1); }
+        .highlight-panel .panel-title { color: #ff77da; border-bottom-color: rgba(255, 119, 218, 0.5); }
+        .highlight-item { background: rgba(255, 216, 79, 0.08); border-left: 4px solid #ffd84f; padding: 15px 20px; margin-bottom: 20px; }
+        .highlight-item .job-title { color: #ffd84f; }
 
-        /* Restructured Bento Grid for UX Balance */
-        .bento-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px; margin-bottom: 40px;
-            align-items: start; /* Allows columns to flow naturally without stretching empty space */
-        }
-
-        .panel {
-            border: 2px solid var(--neon-blue); padding: 30px;
-            background: rgba(13, 17, 23, 0.85); position: relative;
-            margin-bottom: 30px; /* Space between vertical stacked panels */
-        }
-        
-        .panel-title {
-            color: var(--neon-yellow); font-family: var(--font-heading); font-size: 0.9rem;
-            margin-bottom: 25px; border-bottom: 1px dashed rgba(255, 216, 79, 0.5); padding-bottom: 15px;
-        }
-
-        /* Highlight Styling */
-        .highlight-panel { border-color: var(--neon-pink); box-shadow: inset 0 0 15px rgba(255, 119, 218, 0.1); }
-        .highlight-panel .panel-title { color: var(--neon-pink); border-bottom-color: rgba(255, 119, 218, 0.5); }
-        
-        .highlight-item {
-            background: rgba(255, 216, 79, 0.08); border-left: 4px solid var(--neon-yellow);
-            padding: 15px 20px; margin-bottom: 20px;
-        }
-        .highlight-item .job-title { color: var(--neon-yellow); }
-
-        /* Typography */
-        .entry { margin-bottom: 30px; }
+        .entry { margin-bottom: 30px; font-family: 'Space Mono', monospace; }
         .entry:last-child { margin-bottom: 0; }
-        .job-title { color: var(--neon-cyan); font-weight: bold; font-size: 1.2rem; margin-bottom: 5px; }
+        .job-title { color: #00ffff; font-weight: bold; font-size: 1.2rem; margin-bottom: 5px; }
         .job-company { color: #fff; font-size: 1rem; margin-bottom: 8px; }
-        .job-date { color: var(--neon-green); font-family: var(--font-heading); font-size: 0.6rem; margin-bottom: 15px; }
-        
+        .job-date { color: #7cff9b; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; margin-bottom: 15px; }
         ul { list-style-type: none; padding-left: 0; }
         li { margin-bottom: 10px; position: relative; padding-left: 20px; }
-        li::before { content: '>'; position: absolute; left: 0; color: var(--neon-blue); font-family: var(--font-heading); font-size: 0.6rem; top: 4px;}
+        li::before { content: '>'; position: absolute; left: 0; color: #4fb1ff; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; top: 4px;}
 
-        /* Interactive Skills Section */
-        .skills-panel { position: relative; overflow: hidden; cursor: pointer; border-color: var(--neon-cyan); }
+        /* Skills Interaction */
+        .skills-panel { position: relative; overflow: hidden; cursor: pointer; border-color: #00ffff; }
         .skills-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: repeating-linear-gradient(0deg, rgba(0, 255, 255, 0.05), rgba(0, 255, 255, 0.05) 2px, transparent 2px, transparent 4px), var(--bg-color);
+            background: repeating-linear-gradient(0deg, rgba(0, 255, 255, 0.05), rgba(0, 255, 255, 0.05) 2px, transparent 2px, transparent 4px), #0d1117;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             z-index: 10; transition: transform 0.5s ease-in-out, opacity 0.5s;
         }
-        .skills-overlay p { font-family: var(--font-heading); color: var(--neon-cyan); font-size: 0.8rem; text-align: center; line-height: 2; animation: blink 1.5s infinite; }
+        .skills-overlay p { font-family: 'Press Start 2P', cursive; color: #00ffff; font-size: 0.8rem; text-align: center; line-height: 2; animation: blink 1.5s infinite; }
         .skills-overlay.unlocked { transform: translateY(-100%); opacity: 0; pointer-events: none; }
-        
         .skills-content { opacity: 0; filter: blur(4px); transition: opacity 0.8s 0.2s, filter 0.8s 0.2s; }
         .skills-content.revealed { opacity: 1; filter: blur(0); }
 
-        .tag-category { color: var(--neon-cyan); font-family: var(--font-heading); font-size: 0.7rem; margin: 20px 0 10px 0; }
+        .tag-category { color: #00ffff; font-family: 'Press Start 2P', cursive; font-size: 0.7rem; margin: 20px 0 10px 0; }
         .tag-category:first-of-type { margin-top: 0; }
-        .tag-container { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
-        .tag { border: 1px solid var(--neon-blue); padding: 6px 12px; font-size: 0.9rem; color: #fff; background: rgba(79, 177, 255, 0.05); transition: all 0.2s; }
-        .tag:hover { background: var(--neon-blue); color: var(--bg-color); transform: scale(1.05); }
+        .tag-container { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; font-family: 'Space Mono', monospace; }
+        .tag { border: 1px solid #4fb1ff; padding: 6px 12px; font-size: 0.9rem; color: #fff; background: rgba(79, 177, 255, 0.05); transition: all 0.2s; }
+        .tag:hover { background: #4fb1ff; color: #0d1117; transform: scale(1.05); }
 
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-        @keyframes glitch {
-            0% { transform: translate(2px, 2px); }
-            25% { transform: translate(-2px, -2px); }
-            50% { transform: translate(2px, -2px); }
-            75% { transform: translate(-2px, 2px); }
-            100% { transform: translate(2px, 2px); }
-        }
+        @keyframes glitch { 0% { transform: translate(2px, 2px); } 25% { transform: translate(-2px, -2px); } 50% { transform: translate(2px, -2px); } 75% { transform: translate(-2px, 2px); } 100% { transform: translate(2px, 2px); } }
 
-        @media (max-width: 900px) {
-            .bento-grid { grid-template-columns: 1fr; }
-            nav { flex-direction: column; gap: 20px; }
-        }
+        @media (max-width: 900px) { .bento-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
+
 <body>
 
-    <nav>
-        <div class="logo">SHANU.EXE</div>
-        <div class="nav-links">
-            <a href="index.html">HOME</a>
-            <a href="work.html" onclick="rewardPlayer(2)">WORK</a>
-            <a href="activism.html" onclick="rewardPlayer(2)">ACTIVISM</a>
-            <a href="play.html" onclick="rewardPlayer(2)">PLAY</a>
-            <a href="resume.html" class="active">RESUME</a>
-        </div>
-        <div class="nav-actions">
-            <div class="level-badge" id="player-level">LVL 1</div>
-            <div class="coin-counter"><span class="coin"></span><span id="player-coins">0</span></div>
-        </div>
-    </nav>
+<div class="app-shell scanlines pixel-grid" id="main-world">
 
-    <main class="container">
+    <div class="star" style="left:8%;top:16%"></div>
+    <div class="star" style="left:21%;top:11%;animation-delay:.7s"></div>
+    <div class="star" style="left:37%;top:19%;animation-delay:1.2s"></div>
+    <div class="star" style="left:74%;top:13%;animation-delay:.4s"></div>
+    <div class="star" style="left:91%;top:23%;animation-delay:1.5s"></div>
+    <div class="star" style="left:57%;top:29%;animation-delay:2s"></div>
+    <div class="cloud" style="left:6%;top:170px"></div>
+    <div class="cloud" style="left:50%;top:130px;transform:scale(.85);animation-delay: -15s;"></div>
+    <div class="mountains"></div>
+    <div class="random-entity dino-entity"></div>
+    <div class="random-entity robot-entity"></div>
+    <div class="random-entity bird-entity"></div>
+    <div class="platform" style="left:7%;bottom:320px"></div>
+    <div class="platform" style="right:13%;bottom:285px;width:120px"></div>
+    <div class="pipe" style="left:6%"></div>
+    <div class="pipe" style="right:8%;height:140px"></div>
+    <div class="tree" style="left:20%"></div>
+    <div class="tree" style="right:22%"></div>
+    <div class="cat" style="left:42%"></div>
+    <div class="ground"></div>
+
+    <header class="hud">
+        <div class="hud-inner">
+            <div class="brand">SHANU.EXE</div>
+            <nav class="nav">
+                <a href="index.html">HOME</a>
+                <a href="work.html" onclick="rewardPlayer(2)">WORK</a>
+                <a href="activism.html" onclick="rewardPlayer(2)">ACTIVISM</a>
+                <a href="play.html" onclick="rewardPlayer(2)">PLAY</a>
+                <a href="resume.html" class="active">RESUME</a>
+            </nav>
+            <div class="hud-stats">
+                <div class="stat-box" id="player-level">LVL 1</div>
+                <div class="stat-box coin-box">
+                    <span class="coin"></span>
+                    <span id="player-coins">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="top" class="container">
         <header class="page-header">
             <h1>SHANU PRIYA GARG</h1>
             <div class="subtitle">Product Designer • UX Strategist<br>Bengaluru, India</div>
@@ -202,16 +151,12 @@
             </div>
         </header>
 
-        <!-- Grid layout mapped to UX Journey to fix uneven spaces -->
         <section class="bento-grid">
-            
-            <!-- LEFT COLUMN: The Core Experience -->
             <div class="left-column">
                 <div class="panel">
                     <h2 class="panel-title">WORK EXPERIENCE</h2>
-                    
                     <div class="entry highlight-item">
-                        <div class="job-title">Digital Communication AI Fellow</div>
+                        <div class="job-title">Digital Communication AI Intern</div>
                         <div class="job-company">Krones Digital Solutions India</div>
                         <div class="job-date">[09/2025 - CURRENT]</div>
                         <ul>
@@ -221,7 +166,6 @@
                             <li>Researched and tested AI tools for scalable use cases ensuring data privacy.</li>
                         </ul>
                     </div>
-
                     <div class="entry">
                         <div class="job-title">Design Fellow</div>
                         <div class="job-company">Bharat Digital (Govt of Karnataka)</div>
@@ -232,7 +176,6 @@
                             <li>Engineered prompt-driven automation workflows and built reusable prompt libraries.</li>
                         </ul>
                     </div>
-
                     <div class="entry">
                         <div class="job-title">Product Design Intern</div>
                         <div class="job-company">Living Things</div>
@@ -249,25 +192,20 @@
                     <div class="entry" style="margin-bottom: 0;">
                         <div class="job-title">Bachelor of Design</div>
                         <div class="job-company">Indian Institute of Information Technology Jabalpur</div>
-                        <div class="job-date">[2022 - C2026]</div>
-                        <p>Field of study: Human-Computer Interaction (HCI) and Communication Design </p>
+                        <div class="job-date">[2022 - CURRENT]</div>
+                        <p>Field of study: Human-Computer Interaction (HCI) & UX Design</p>
                     </div>
                 </div>
             </div>
 
-            <!-- RIGHT COLUMN: Skills, Awards, and Publications to balance height -->
             <div class="right-column">
-                
-                <!-- Gamified Skills Reveal is moved to the right column to fill vertical space beautifully -->
                 <div class="panel skills-panel highlight-panel" id="skills-panel">
                     <div class="skills-overlay" id="skills-overlay">
                         <p>⚠ DATABANK ENCRYPTED ⚠</p>
-                        <p style="margin-top: 15px; color: var(--neon-pink);">[ CLICK TO HACK & REVEAL SKILLS ]</p>
+                        <p style="margin-top: 15px; color: #ff77da;">[ CLICK TO HACK & REVEAL SKILLS ]</p>
                     </div>
-                    
                     <div class="skills-content" id="skills-content">
                         <h2 class="panel-title">COMPREHENSIVE SKILL TREE</h2>
-                        
                         <div class="tag-category">UX RESEARCH & DESIGN</div>
                         <div class="tag-container">
                             <span class="tag">Mixed-method Research</span> <span class="tag">Info Architecture</span>
@@ -275,14 +213,12 @@
                             <span class="tag">Prototyping</span> <span class="tag">A/B Testing</span>
                             <span class="tag">Usability Testing</span> <span class="tag">UI/UX Design</span>
                         </div>
-
                         <div class="tag-category">AI & INNOVATION</div>
                         <div class="tag-container">
                             <span class="tag">Generative AI</span> <span class="tag">Chatbot Prototyping</span>
                             <span class="tag">Prompt Engineering</span> <span class="tag">Vibe Coding</span>
                             <span class="tag">No-code Tools</span>
                         </div>
-
                         <div class="tag-category">TOOLS & PLATFORMS</div>
                         <div class="tag-container">
                             <span class="tag">Figma</span> <span class="tag">Rhino 3D</span> <span class="tag">AutoCAD</span>
@@ -295,9 +231,9 @@
                 <div class="panel">
                     <h2 class="panel-title">HONOURS & AWARDS</h2>
                     <ul>
-                        <li><strong style="color: var(--neon-cyan);">Build For Bharat Fellowship 2025</strong><br>Top 20 out of 25,000 participants</li>
-                        <li><strong style="color: var(--neon-cyan);">Titan Design Impact Movement 2024</strong><br>Winner out of 3000 participants</li>
-                        <li><strong style="color: var(--neon-cyan);">Certificate of Appreciation</strong><br>Exceptional design work on Panchatantra 2.0 (Govt of Karnataka 2025)</li>
+                        <li><strong style="color: #00ffff;">Build For Bharat Fellowship 2025</strong><br>Top 20 out of 25,000 participants</li>
+                        <li><strong style="color: #00ffff;">Titan Design Impact Movement 2024</strong><br>Winner out of 3000 participants</li>
+                        <li><strong style="color: #00ffff;">Certificate of Appreciation</strong><br>Exceptional design work on Panchatantra 2.0 (Govt of Karnataka 2025)</li>
                     </ul>
                 </div>
 
@@ -316,72 +252,71 @@
                         </ul>
                     </div>
                 </div>
-
             </div>
-
         </section>
     </main>
 
-    <!-- LIVE SYNC GAMIFICATION & INTERACTIONS SCRIPT -->
-    <script>
-        // 1. Live Gamification Engine (Synced with localStorage)
-        let currentCoins = parseInt(localStorage.getItem('shanu_coins')) || 0;
+    <footer>
+        <p>GAME OVER? NEVER.</p>
+        <div class="links">
+            <a href="https://www.behance.net/shanux17" target="_blank" onclick="rewardPlayer(5)">Behance</a> •
+            <a href="https://www.linkedin.com/in/shanupriyagarg" target="_blank" onclick="rewardPlayer(5)">LinkedIn</a> •
+            <a href="mailto:gargshanupriya@gmail.com" onclick="rewardPlayer(2)">Email</a>
+        </div>
+    </footer>
 
-        function updateHUD() {
-            let currentLevel = Math.floor(currentCoins / 50) + 1;
-            document.getElementById('player-coins').innerText = currentCoins;
-            document.getElementById('player-level').innerText = 'LVL ' + currentLevel;
-        }
+</div>
 
-        window.rewardPlayer = function(amount) {
-            currentCoins += amount;
-            localStorage.setItem('shanu_coins', currentCoins);
-            updateHUD();
-        };
-
-        // Initialize HUD on load
+<script src="script.js"></script>
+<script>
+    // --- GAMIFICATION & ENVIRONMENT ENGINE ---
+    let currentCoins = parseInt(localStorage.getItem('shanu_coins')) || 0;
+    function updateHUD() {
+        let currentLevel = Math.floor(currentCoins / 50) + 1;
+        document.getElementById('player-coins').innerText = currentCoins;
+        document.getElementById('player-level').innerText = 'LVL ' + currentLevel;
+    }
+    window.rewardPlayer = function(amount) {
+        currentCoins += amount;
+        localStorage.setItem('shanu_coins', currentCoins);
         updateHUD();
+    };
+    updateHUD();
 
-        // 2. Skills Reveal Interaction
-        const skillsPanel = document.getElementById('skills-panel');
-        const skillsOverlay = document.getElementById('skills-overlay');
-        const skillsContent = document.getElementById('skills-content');
+    const skillsPanel = document.getElementById('skills-panel');
+    const skillsOverlay = document.getElementById('skills-overlay');
+    const skillsContent = document.getElementById('skills-content');
+    skillsPanel.addEventListener('click', () => {
+        if (!skillsOverlay.classList.contains('unlocked')) {
+            skillsOverlay.classList.add('unlocked');
+            skillsContent.classList.add('revealed');
+            rewardPlayer(15); 
+        }
+    });
 
-        skillsPanel.addEventListener('click', () => {
-            if (!skillsOverlay.classList.contains('unlocked')) {
-                skillsOverlay.classList.add('unlocked');
-                skillsContent.classList.add('revealed');
-                
-                // Reward user for interacting with the databank
-                rewardPlayer(15); 
-                
-                // Visual feedback on coin counter
-                const counter = document.querySelector('.coin-counter');
-                counter.style.borderColor = "#00ffff";
-                counter.style.color = "#00ffff";
-                setTimeout(() => {
-                    counter.style.borderColor = "var(--neon-yellow)";
-                    counter.style.color = "var(--neon-yellow)";
-                }, 500);
-            }
-        });
+    const downloadBtn = document.getElementById('download-btn');
+    downloadBtn.addEventListener('click', (e) => {
+        if (!downloadBtn.classList.contains('downloading')) {
+            e.preventDefault(); 
+            downloadBtn.classList.add('downloading');
+            downloadBtn.innerText = "INITIALIZING...";
+            setTimeout(() => {
+                downloadBtn.classList.remove('downloading');
+                downloadBtn.innerText = "↓ DOWNLOAD CV";
+                window.location.href = downloadBtn.getAttribute('href');
+            }, 1000);
+        }
+    });
 
-        // 3. Glitch Download Button
-        const downloadBtn = document.getElementById('download-btn');
-        downloadBtn.addEventListener('click', (e) => {
-            if (!downloadBtn.classList.contains('downloading')) {
-                e.preventDefault(); 
-                downloadBtn.classList.add('downloading');
-                downloadBtn.innerText = "INITIALIZING...";
-                
-                setTimeout(() => {
-                    downloadBtn.classList.remove('downloading');
-                    downloadBtn.innerText = "↓ DOWNLOAD CV";
-                    // Only trigger location change if you have the file ready
-                    window.location.href = downloadBtn.getAttribute('href');
-                }, 1000);
-            }
-        });
-    </script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const world = document.getElementById('main-world');
+        const events = ['normal', 'rain', 'sunny', 'dino', 'robots'];
+        const activeEvent = events[Math.floor(Math.random() * events.length)];
+        if (activeEvent === 'rain') { world.classList.add('weather-rain'); } 
+        else if (activeEvent === 'sunny') { world.classList.add('weather-sunny'); } 
+        else if (activeEvent === 'dino') { world.classList.add('event-dino'); } 
+        else if (activeEvent === 'robots') { world.classList.add('event-robots'); }
+    });
+</script>
 </body>
 </html>
