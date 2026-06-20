@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pixel Portfolio Quest</title>
+    
     <link rel="stylesheet" href="style.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
 
     <style>
-        /* --- NEW DYNAMIC ENVIRONMENT STYLES --- */
-        
         /* 1. Moving Clouds */
         .cloud {
             animation: floatClouds 40s linear infinite;
@@ -40,31 +40,63 @@
             96%, 99% { filter: brightness(2.5); } 
         }
 
-        /* 3. Random Entities (Dinos, Robots, Birds) */
+        /* 3. Random Entities (Emoji Edition for instant testing) */
         .random-entity {
             position: absolute; 
-            background-size: contain; 
-            background-repeat: no-repeat;
             pointer-events: none; 
             z-index: 5; 
             display: none; /* Hidden by default */
+            font-size: 80px; /* Massive emojis */
+            line-height: 1;
         }
         
-        /* Sprite Placeholders - Replace URLs with your actual GIFs/PNGs */
-        .dino-entity { bottom: 10%; width: 120px; height: 120px; background-image: url('dino.gif'); }
-        .robot-entity { bottom: 5%; width: 200px; height: 200px; background-image: url('robot.gif'); }
-        .bird-entity { top: 15%; width: 80px; height: 80px; background-image: url('birds.gif'); }
+        .dino-entity::after { content: '🦖'; }
+        .dino-entity { bottom: 10%; animation: runAcross 15s linear infinite; }
 
-        .event-dino .dino-entity { display: block; animation: runAcross 15s linear infinite; }
-        .event-robots .robot-entity { display: block; animation: walkAcross 25s linear infinite reverse; }
-        .weather-sunny .bird-entity { display: block; animation: runAcross 20s linear infinite; }
+        .robot-entity::after { content: '🤖'; }
+        .robot-entity { bottom: 10%; animation: walkAcross 25s linear infinite reverse; }
+
+        .bird-entity::after { content: '🦅'; font-size: 40px; }
+        .bird-entity { top: 15%; animation: runAcross 20s linear infinite; }
+
+        .event-dino .dino-entity { display: block; }
+        .event-robots .robot-entity { display: block; }
+        .weather-sunny .bird-entity { display: block; }
 
         @keyframes runAcross { 0% { left: -20%; } 100% { left: 120%; } }
         @keyframes walkAcross { 0% { right: -20%; transform: scaleX(-1); } 100% { right: 120%; transform: scaleX(-1); } }
 
-        /* Quest Card Link Fix */
-        .card-link { text-decoration: none; color: inherit; display: block; transition: transform 0.2s; }
+        /* 4. Grid and Card Fixes (Equal Heights) */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            align-items: stretch; /* Forces equal height columns */
+            max-width: 1200px;
+        }
+
+        .card-link { 
+            text-decoration: none; 
+            color: inherit; 
+            display: flex; /* Makes the link a flex container */
+            height: 100%; /* Fills the grid cell entirely */
+            transition: transform 0.2s ease; 
+        }
         .card-link:hover { transform: translateY(-5px); }
+
+        .feature-card {
+            flex: 1; /* Tells the card to expand to fill the link container */
+            background: rgba(13, 17, 23, 0.8);
+            border: 2px solid;
+            padding: 25px 20px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        /* Ensure card headings and icons don't break flex layout */
+        .feature-icon { margin-bottom: 20px; }
+        .feature-card p { margin-top: auto; /* Pushes text to align naturally */ }
     </style>
 </head>
 
@@ -72,7 +104,6 @@
 
 <div class="app-shell scanlines pixel-grid" id="main-world">
 
-    <!-- Background Elements -->
     <div class="star" style="left:8%;top:16%"></div>
     <div class="star" style="left:21%;top:11%;animation-delay:.7s"></div>
     <div class="star" style="left:37%;top:19%;animation-delay:1.2s"></div>
@@ -85,7 +116,6 @@
 
     <div class="mountains"></div>
 
-    <!-- Random Event Entities -->
     <div class="random-entity dino-entity"></div>
     <div class="random-entity robot-entity"></div>
     <div class="random-entity bird-entity"></div>
@@ -110,7 +140,6 @@
                 SHANU.EXE
             </div>
 
-            <!-- FIXED NAVIGATION LINKS -->
             <nav class="nav">
                 <a href="index.html">HOME</a>
                 <a href="work.html" onclick="rewardPlayer(2)">WORK</a>
@@ -145,7 +174,6 @@
                     Crafting meaningful digital worlds where empathy, strategy, and
                     curiosity unlock better experiences.
                 </p>
-                <!-- Added a coin reward for interacting with the main CTA -->
                 <button id="enter-world" class="pixel-btn" onclick="rewardPlayer(10)">
                     ENTER WORLD
                 </button>
@@ -158,11 +186,8 @@
                         <span>WORLD 01</span>
                     </div>
 
-                    <!-- REPLACED GRAPHIC WITH PROFILE PICTURE -->
-                    <!-- Change 'your-photo.jpg' to the actual name of your image file -->
                     <div class="mini-scene" style="background-image: url('your-photo.jpg'); background-size: cover; background-position: center;">
-                        <!-- The inner moon/platform divs were removed to feature your image cleanly -->
-                    </div>
+                        </div>
 
                     <div class="bar-label">HEALTH</div>
                     <div class="bar"><span></span></div>
@@ -180,35 +205,34 @@
 
             <div class="feature-grid">
 
-                <!-- FIXED QUEST LINKS -->
                 <a href="work.html" class="card-link" onclick="rewardPlayer(3)">
-                    <article class="feature-card">
-                        <div class="feature-icon"><i data-lucide="briefcase"></i></div>
-                        <h3>WORK</h3>
+                    <article class="feature-card" style="border-color:#4fb1ff;">
+                        <div class="feature-icon" style="border-color:#4fb1ff; color:#4fb1ff;"><i data-lucide="briefcase"></i></div>
+                        <h3 style="color:#4fb1ff;">WORK</h3>
                         <p>Professional experience, internships, software projects and achievements.</p>
                     </article>
                 </a>
 
                 <a href="activism.html" class="card-link" onclick="rewardPlayer(3)">
-                    <article class="feature-card">
-                        <div class="feature-icon" style="color:#7cff9b"><i data-lucide="heart-handshake"></i></div>
-                        <h3>ACTIVISM</h3>
+                    <article class="feature-card" style="border-color:#7cff9b;">
+                        <div class="feature-icon" style="border-color:#7cff9b; color:#7cff9b;"><i data-lucide="heart-handshake"></i></div>
+                        <h3 style="color:#7cff9b;">ACTIVISM</h3>
                         <p>Community engagement, leadership and social impact initiatives.</p>
                     </article>
                 </a>
 
                 <a href="play.html" class="card-link" onclick="rewardPlayer(3)">
-                    <article class="feature-card">
-                        <div class="feature-icon" style="color:#ffd84f"><i data-lucide="gamepad-2"></i></div>
-                        <h3>PLAY</h3>
+                    <article class="feature-card" style="border-color:#ffd84f;">
+                        <div class="feature-icon" style="border-color:#ffd84f; color:#ffd84f;"><i data-lucide="gamepad-2"></i></div>
+                        <h3 style="color:#ffd84f;">PLAY</h3>
                         <p>Theatre, creativity, hobbies, competitions and exploration.</p>
                     </article>
                 </a>
 
                 <a href="resume.html" class="card-link" onclick="rewardPlayer(5)">
-                    <article class="feature-card">
-                        <div class="feature-icon" style="color:#ff77da"><i data-lucide="scroll-text"></i></div>
-                        <h3>RESUME</h3>
+                    <article class="feature-card" style="border-color:#ff77da;">
+                        <div class="feature-icon" style="border-color:#ff77da; color:#ff77da;"><i data-lucide="scroll-text"></i></div>
+                        <h3 style="color:#ff77da;">RESUME</h3>
                         <p>Education, technical skills, certifications and milestones.</p>
                     </article>
                 </a>
@@ -222,7 +246,6 @@
     <footer>
         <p>GAME OVER? NEVER.</p>
         <div class="links">
-            <!-- Added reward trackers to external links too! -->
             <a href="https://www.behance.net/shanux17" target="_blank" onclick="rewardPlayer(5)">Behance</a> •
             <a href="https://www.linkedin.com/in/shanupriyagarg" target="_blank" onclick="rewardPlayer(5)">LinkedIn</a> •
             <a href="mailto:gargshanupriya@gmail.com" onclick="rewardPlayer(2)">Email</a>
@@ -233,36 +256,28 @@
 
 <script src="script.js"></script>
 
-<!-- NEW GAMIFICATION & ENVIRONMENT LOGIC -->
 <script>
     // 1. --- GAMIFICATION ENGINE ---
-    // Retrieve coins from the browser's local storage (so it persists across page loads)
     let currentCoins = parseInt(localStorage.getItem('shanu_coins')) || 0;
 
     function updateHUD() {
-        // Calculate level (1 level for every 50 coins)
         let currentLevel = Math.floor(currentCoins / 50) + 1;
         
-        // Update the DOM
         document.getElementById('player-coins').innerText = currentCoins;
         document.getElementById('player-level').innerText = 'LVL ' + currentLevel;
         
-        // Update the XP bar width to show progress to next level
         let xpProgress = (currentCoins % 50) / 50 * 100;
         document.querySelector('.bar.xp span').style.width = xpProgress + '%';
     }
 
-    // This function can be called from ANY page if you add this script to them
     window.rewardPlayer = function(amount) {
         currentCoins += amount;
         localStorage.setItem('shanu_coins', currentCoins);
         updateHUD();
     };
 
-    // Initialize HUD on page load
     updateHUD();
 
-    // Give the player 1 point just for visiting the homepage (once per session)
     if (!sessionStorage.getItem('visited_home')) {
         rewardPlayer(1);
         sessionStorage.setItem('visited_home', 'true');
@@ -271,13 +286,9 @@
     // 2. --- RANDOM ENVIRONMENT ENGINE ---
     document.addEventListener('DOMContentLoaded', () => {
         const world = document.getElementById('main-world');
-        // Define the possible random events
         const events = ['normal', 'rain', 'sunny', 'dino', 'robots'];
-        
-        // Pick a random event
         const activeEvent = events[Math.floor(Math.random() * events.length)];
 
-        // Apply the corresponding CSS class to trigger the animations
         if (activeEvent === 'rain') {
             world.classList.add('weather-rain');
             console.log("Weather: Thunderstorm generated.");
