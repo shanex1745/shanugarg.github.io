@@ -3,20 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Pixel Portfolio Quest</title>
-
     <link rel="stylesheet" href="style.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+
+    <style>
+        /* --- NEW DYNAMIC ENVIRONMENT STYLES --- */
+        
+        /* 1. Moving Clouds */
+        .cloud {
+            animation: floatClouds 40s linear infinite;
+        }
+        @keyframes floatClouds {
+            0% { transform: translateX(-15vw) scale(0.85); }
+            100% { transform: translateX(115vw) scale(0.85); }
+        }
+
+        /* 2. Rain & Thunderstorms */
+        .weather-rain::before {
+            content: ''; 
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 100%);
+            background-size: 10px 100px;
+            animation: rainDrop 0.3s linear infinite;
+            pointer-events: none; z-index: 90;
+        }
+        .weather-rain { animation: thunderFlash 12s infinite; }
+        
+        @keyframes rainDrop { 
+            0% { background-position: 0 0; } 
+            100% { background-position: 20px 100vh; } 
+        }
+        @keyframes thunderFlash { 
+            0%, 95%, 98% { filter: brightness(1); } 
+            96%, 99% { filter: brightness(2.5); } 
+        }
+
+        /* 3. Random Entities (Dinos, Robots, Birds) */
+        .random-entity {
+            position: absolute; 
+            background-size: contain; 
+            background-repeat: no-repeat;
+            pointer-events: none; 
+            z-index: 5; 
+            display: none; /* Hidden by default */
+        }
+        
+        /* Sprite Placeholders - Replace URLs with your actual GIFs/PNGs */
+        .dino-entity { bottom: 10%; width: 120px; height: 120px; background-image: url('dino.gif'); }
+        .robot-entity { bottom: 5%; width: 200px; height: 200px; background-image: url('robot.gif'); }
+        .bird-entity { top: 15%; width: 80px; height: 80px; background-image: url('birds.gif'); }
+
+        .event-dino .dino-entity { display: block; animation: runAcross 15s linear infinite; }
+        .event-robots .robot-entity { display: block; animation: walkAcross 25s linear infinite reverse; }
+        .weather-sunny .bird-entity { display: block; animation: runAcross 20s linear infinite; }
+
+        @keyframes runAcross { 0% { left: -20%; } 100% { left: 120%; } }
+        @keyframes walkAcross { 0% { right: -20%; transform: scaleX(-1); } 100% { right: 120%; transform: scaleX(-1); } }
+
+        /* Quest Card Link Fix */
+        .card-link { text-decoration: none; color: inherit; display: block; transition: transform 0.2s; }
+        .card-link:hover { transform: translateY(-5px); }
+    </style>
 </head>
 
 <body>
 
-<div class="app-shell scanlines pixel-grid">
+<div class="app-shell scanlines pixel-grid" id="main-world">
 
+    <!-- Background Elements -->
     <div class="star" style="left:8%;top:16%"></div>
     <div class="star" style="left:21%;top:11%;animation-delay:.7s"></div>
     <div class="star" style="left:37%;top:19%;animation-delay:1.2s"></div>
@@ -25,9 +81,14 @@
     <div class="star" style="left:57%;top:29%;animation-delay:2s"></div>
 
     <div class="cloud" style="left:6%;top:170px"></div>
-    <div class="cloud" style="right:10%;top:130px;transform:scale(.85)"></div>
+    <div class="cloud" style="left:50%;top:130px;transform:scale(.85);animation-delay: -15s;"></div>
 
     <div class="mountains"></div>
+
+    <!-- Random Event Entities -->
+    <div class="random-entity dino-entity"></div>
+    <div class="random-entity robot-entity"></div>
+    <div class="random-entity bird-entity"></div>
 
     <div class="platform" style="left:7%;bottom:320px"></div>
     <div class="platform" style="right:13%;bottom:285px;width:120px"></div>
@@ -49,22 +110,23 @@
                 SHANU.EXE
             </div>
 
+            <!-- FIXED NAVIGATION LINKS -->
             <nav class="nav">
-                <a href="#top">HOME</a>
-                <a href="work.html">WORK</a>
-                <a href="#features">ACTIVISM</a>
-                <a href="#features">PLAY</a>
-                <a href="resume.html">RESUME</a>
+                <a href="index.html">HOME</a>
+                <a href="work.html" onclick="rewardPlayer(2)">WORK</a>
+                <a href="activism.html" onclick="rewardPlayer(2)">ACTIVISM</a>
+                <a href="play.html" onclick="rewardPlayer(2)">PLAY</a>
+                <a href="resume.html" onclick="rewardPlayer(5)">RESUME</a>
             </nav>
 
             <div class="hud-stats">
-                <div class="stat-box">
-                    LVL 99
+                <div class="stat-box" id="player-level">
+                    LVL 1
                 </div>
 
                 <div class="stat-box coin-box">
                     <span class="coin"></span>
-                    999
+                    <span id="player-coins">0</span>
                 </div>
             </div>
 
@@ -76,111 +138,80 @@
         <section class="hero">
 
             <div class="hero-panel">
-
-                <div class="kicker">
-                    PLAYER ONE
-                </div>
-
-                <h1 class="hero-name">
-                    SHANU PRIYA GARG
-                </h1>
-
-                <p class="hero-role">
-                    Product Designer · UX Strategist
-
-                </p>
-
+                <div class="kicker">PLAYER ONE</div>
+                <h1 class="hero-name">SHANU PRIYA GARG</h1>
+                <p class="hero-role">Product Designer · UX Strategist</p>
                 <p class="hero-copy">
                     Crafting meaningful digital worlds where empathy, strategy, and
                     curiosity unlock better experiences.
                 </p>
-
-                <button id="enter-world" class="pixel-btn">
+                <!-- Added a coin reward for interacting with the main CTA -->
+                <button id="enter-world" class="pixel-btn" onclick="rewardPlayer(10)">
                     ENTER WORLD
                 </button>
-
             </div>
 
             <div class="hero-side">
-
                 <div class="game-window">
-
                     <div class="window-top">
                         <span>PLAYER: SPG</span>
                         <span>WORLD 01</span>
                     </div>
 
-                    <div class="mini-scene">
-                        <div class="moon"></div>
-                        <div class="mini-platform"></div>
-                        <div class="mini-platform two"></div>
-                        <div class="mini-cat"></div>
-                        <div class="mini-pipe"></div>
+                    <!-- REPLACED GRAPHIC WITH PROFILE PICTURE -->
+                    <!-- Change 'your-photo.jpg' to the actual name of your image file -->
+                    <div class="mini-scene" style="background-image: url('your-photo.jpg'); background-size: cover; background-position: center;">
+                        <!-- The inner moon/platform divs were removed to feature your image cleanly -->
                     </div>
 
                     <div class="bar-label">HEALTH</div>
                     <div class="bar"><span></span></div>
 
                     <div class="bar-label">XP</div>
-                    <div class="bar xp"><span></span></div>
-
+                    <div class="bar xp" id="xp-bar"><span></span></div>
                 </div>
-
             </div>
 
         </section>
 
         <section id="features" class="section">
 
-            <h2 class="section-title">
-                QUESTS & ACHIEVEMENTS
-            </h2>
+            <h2 class="section-title">QUESTS & ACHIEVEMENTS</h2>
 
             <div class="feature-grid">
 
-                <article class="feature-card">
-                    <div class="feature-icon">
-                        <i data-lucide="briefcase"></i>
-                    </div>
-                    <h3>WORK</h3>
-                    <p>
-                        Professional experience, internships,
-                        software projects and achievements.
-                    </p>
-                </article>
+                <!-- FIXED QUEST LINKS -->
+                <a href="work.html" class="card-link" onclick="rewardPlayer(3)">
+                    <article class="feature-card">
+                        <div class="feature-icon"><i data-lucide="briefcase"></i></div>
+                        <h3>WORK</h3>
+                        <p>Professional experience, internships, software projects and achievements.</p>
+                    </article>
+                </a>
 
-                <article class="feature-card">
-                    <div class="feature-icon" style="color:#7cff9b">
-                        <i data-lucide="heart-handshake"></i>
-                    </div>
-                    <h3>ACTIVISM</h3>
-                    <p>
-                        Community engagement, leadership and
-                        social impact initiatives.
-                    </p>
-                </article>
+                <a href="activism.html" class="card-link" onclick="rewardPlayer(3)">
+                    <article class="feature-card">
+                        <div class="feature-icon" style="color:#7cff9b"><i data-lucide="heart-handshake"></i></div>
+                        <h3>ACTIVISM</h3>
+                        <p>Community engagement, leadership and social impact initiatives.</p>
+                    </article>
+                </a>
 
-                <article class="feature-card">
-                    <div class="feature-icon" style="color:#ffd84f">
-                        <i data-lucide="gamepad-2"></i>
-                    </div>
-                    <h3>PLAY</h3>
-                    <p>
-                        Theatre, creativity, hobbies,
-                        competitions and exploration.
-                    </p>
-                </article>
+                <a href="play.html" class="card-link" onclick="rewardPlayer(3)">
+                    <article class="feature-card">
+                        <div class="feature-icon" style="color:#ffd84f"><i data-lucide="gamepad-2"></i></div>
+                        <h3>PLAY</h3>
+                        <p>Theatre, creativity, hobbies, competitions and exploration.</p>
+                    </article>
+                </a>
 
-                <article class="feature-card">
-                    <div class="feature-icon" style="color:#ff77da">
-                        <i data-lucide="scroll-text"></i>
-                    </div>
-                    <h3>RESUME</h3>
-                    <p>
-                        Education, technical skills,
-                        certifications and milestones.
-                    </p>
-                </article>
+                <a href="resume.html" class="card-link" onclick="rewardPlayer(5)">
+                    <article class="feature-card">
+                        <div class="feature-icon" style="color:#ff77da"><i data-lucide="scroll-text"></i></div>
+                        <h3>RESUME</h3>
+                        <p>Education, technical skills, certifications and milestones.</p>
+                    </article>
+                </a>
 
             </div>
 
@@ -189,23 +220,81 @@
     </main>
 
     <footer>
-
-        <p>
-            GAME OVER? NEVER.
-        </p>
-
+        <p>GAME OVER? NEVER.</p>
         <div class="links">
-    <a href="https://www.behance.net/shanux17">Behance</a> •
-    <a href="www.linkedin.com/in/shanu-priya-garg-74a23322a/">LinkedIn</a> •
-    <a href="mailto:gargshanupriya@gmail.com">Email</a>
-</div>
-
+            <!-- Added reward trackers to external links too! -->
+            <a href="https://www.behance.net/shanux17" target="_blank" onclick="rewardPlayer(5)">Behance</a> •
+            <a href="https://www.linkedin.com/in/shanupriyagarg" target="_blank" onclick="rewardPlayer(5)">LinkedIn</a> •
+            <a href="mailto:gargshanupriya@gmail.com" onclick="rewardPlayer(2)">Email</a>
+        </div>
     </footer>
 
 </div>
 
 <script src="script.js"></script>
 
-</body>
+<!-- NEW GAMIFICATION & ENVIRONMENT LOGIC -->
+<script>
+    // 1. --- GAMIFICATION ENGINE ---
+    // Retrieve coins from the browser's local storage (so it persists across page loads)
+    let currentCoins = parseInt(localStorage.getItem('shanu_coins')) || 0;
 
+    function updateHUD() {
+        // Calculate level (1 level for every 50 coins)
+        let currentLevel = Math.floor(currentCoins / 50) + 1;
+        
+        // Update the DOM
+        document.getElementById('player-coins').innerText = currentCoins;
+        document.getElementById('player-level').innerText = 'LVL ' + currentLevel;
+        
+        // Update the XP bar width to show progress to next level
+        let xpProgress = (currentCoins % 50) / 50 * 100;
+        document.querySelector('.bar.xp span').style.width = xpProgress + '%';
+    }
+
+    // This function can be called from ANY page if you add this script to them
+    window.rewardPlayer = function(amount) {
+        currentCoins += amount;
+        localStorage.setItem('shanu_coins', currentCoins);
+        updateHUD();
+    };
+
+    // Initialize HUD on page load
+    updateHUD();
+
+    // Give the player 1 point just for visiting the homepage (once per session)
+    if (!sessionStorage.getItem('visited_home')) {
+        rewardPlayer(1);
+        sessionStorage.setItem('visited_home', 'true');
+    }
+
+    // 2. --- RANDOM ENVIRONMENT ENGINE ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const world = document.getElementById('main-world');
+        // Define the possible random events
+        const events = ['normal', 'rain', 'sunny', 'dino', 'robots'];
+        
+        // Pick a random event
+        const activeEvent = events[Math.floor(Math.random() * events.length)];
+
+        // Apply the corresponding CSS class to trigger the animations
+        if (activeEvent === 'rain') {
+            world.classList.add('weather-rain');
+            console.log("Weather: Thunderstorm generated.");
+        } else if (activeEvent === 'sunny') {
+            world.classList.add('weather-sunny');
+            console.log("Weather: Sunny, birds incoming.");
+        } else if (activeEvent === 'dino') {
+            world.classList.add('event-dino');
+            console.log("Event: Dinosaur spotted.");
+        } else if (activeEvent === 'robots') {
+            world.classList.add('event-robots');
+            console.log("Event: Giant robots traversing.");
+        } else {
+            console.log("Weather: Normal skies.");
+        }
+    });
+</script>
+
+</body>
 </html>
