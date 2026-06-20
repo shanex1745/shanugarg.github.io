@@ -1,11 +1,5 @@
 /* WORK PAGE CORE */
-.work-main {
-    padding-top: 60px;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    padding-bottom: 50px;
-}
+.work-main { padding-top: 60px; min-height: 100vh; display: flex; justify-content: center; padding-bottom: 50px; }
 
 /* MENU BOX */
 .menu-box {
@@ -51,34 +45,17 @@
 .tag-right { position: absolute; right: -24px; bottom: 20px; background: #6ce8ff; border: 3px solid #ffffff; color: #000; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; padding: 6px 4px; box-shadow: 4px 4px 0 #5a2146; }
 .wallet-label { margin-top: 30px; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; color: #ffd84f; animation: blink 1.5s steps(2) infinite; }
 
-
-/* ========================================= */
-/* THE LOOT (COINS, CASH, SLIPS)             */
-/* ========================================= */
-.loot-container {
-    position: absolute; left: 50%; bottom: 160px; 
-    width: 0; height: 0; z-index: 12; /* Slips land behind the project cards */
-}
-
-.loot {
-    position: absolute; opacity: 0;
-    transform: translate(-50%, 50px) scale(0.5); 
-    /* Slightly longer, smoother float transition for the papers */
-    transition: opacity 0.4s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
+/* THE LOOT (COINS, CASH, SLIPS) */
+.loot-container { position: absolute; left: 50%; bottom: 160px; width: 0; height: 0; z-index: 12; }
+.loot { position: absolute; opacity: 0; transform: translate(-50%, 50px) scale(0.5); transition: opacity 0.4s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); }
 .item-coin { width: 24px; height: 24px; background: #ffd84f; border: 3px solid #fff; border-radius: 50%; box-shadow: 2px 2px 0 #c29d00; z-index: 16; }
 .item-cash { background: #7cff9b; border: 3px solid #fff; color: #000; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; padding: 6px 12px; box-shadow: 3px 3px 0 #2a7241; z-index: 16; }
 .item-slip { background: #fff; border: 2px dashed #000; color: #000; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.7rem; padding: 8px 12px; box-shadow: 4px 4px 0 #f864c4; white-space: nowrap; }
 
 .wallet-stage.is-open .loot { opacity: 1; }
-
-/* Coins/Cash stay bundled straight up above the wallet */
 .wallet-stage.is-open .coin-1 { transform: translate(-40px, -180px) rotate(-15deg); transition-delay: 0.1s; }
 .wallet-stage.is-open .coin-2 { transform: translate(50px, -210px) rotate(20deg); transition-delay: 0.2s; }
 .wallet-stage.is-open .cash-1 { transform: translate(10px, -260px) rotate(-5deg); transition-delay: 0.15s; }
-
-/* Papers scatter radically across the desk */
 .wallet-stage.is-open .slip-1 { transform: translate(-550px, -200px) rotate(-15deg); transition-delay: 0.2s; }
 .wallet-stage.is-open .slip-2 { transform: translate(180px, -450px) rotate(25deg); transition-delay: 0.3s; }
 .wallet-stage.is-open .slip-3 { transform: translate(550px, -100px) rotate(12deg); transition-delay: 0.25s; }
@@ -86,77 +63,58 @@
 .wallet-stage.is-open .slip-5 { transform: translate(600px, -350px) rotate(-18deg); transition-delay: 0.4s; }
 .wallet-stage.is-open .slip-6 { transform: translate(-650px, -50px) rotate(22deg); transition-delay: 0.15s; }
 
-
-/* ========================================= */
-/* PROJECT CARDS (CREDIT CARD STYLE)         */
-/* ========================================= */
+/* PROJECT CARDS (CREDIT CARD STYLE) */
 .project-card {
-    position: absolute; left: 50%; margin-left: -90px; 
-    bottom: 80px; 
-    width: 180px; background: #111; border: 4px solid #fff; box-shadow: 6px 6px 0 #000; 
-    z-index: 5; opacity: 0;
-    transform: translateY(0) scale(0.5); 
-    transition: opacity 0.3s ease, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), margin-top 0.2s ease; cursor: pointer;
+    position: absolute; left: 50%; margin-left: -90px; bottom: 80px; width: 180px; 
+    background: #111; border: 4px solid #fff; box-shadow: 6px 6px 0 #000; z-index: 5; opacity: 0;
+    transform: translateY(0) scale(0.5); transition: opacity 0.3s ease, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), margin-top 0.2s ease; cursor: pointer;
 }
-
 .wallet-stage.is-open .project-card { opacity: 1; z-index: 25; } 
 .project-card:hover { border-color: #ff77da; z-index: 50 !important; margin-top: -10px; box-shadow: 8px 8px 0 #ff77da; }
-
 .card-img-container { width: 100%; aspect-ratio: 16 / 9; border-bottom: 4px solid #fff; background: #000; overflow: hidden; }
 .card-img-container img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.3s; }
 .project-card:hover .card-img-container img { opacity: 1; }
-
 .card-content { padding: 10px; }
 .card-role { font-family: 'Space Mono', monospace; font-size: 0.5rem; color: #ff77da; margin-bottom: 6px; font-weight: bold; text-transform: uppercase;}
 .card-title { font-family: 'Press Start 2P', cursive; font-size: 0.5rem; color: #fff; line-height: 1.4; }
 
-
-/* ========================================= */
 /* THE DESK GRID LAYOUT (Straight & Layered) */
-/* ========================================= */
-/* LEFT SIDE GRID (2x2) */
 .wallet-stage.is-open .card-0 { transform: translate(-420px, -320px); } 
 .wallet-stage.is-open .card-1 { transform: translate(-220px, -320px); } 
 .wallet-stage.is-open .card-2 { transform: translate(-420px, -110px); } 
 .wallet-stage.is-open .card-3 { transform: translate(-220px, -110px); } 
-
-/* RIGHT SIDE GRID (2x2) */
 .wallet-stage.is-open .card-4 { transform: translate(220px, -320px); } 
 .wallet-stage.is-open .card-5 { transform: translate(420px, -320px); } 
 .wallet-stage.is-open .card-6 { transform: translate(220px, -110px); } 
 .wallet-stage.is-open .card-7 { transform: translate(420px, -110px); } 
 
-
-/* TABLET VIEW (Compress spacing) */
+/* TABLET VIEW */
 @media (max-width: 1200px) {
     .project-card { width: 150px; margin-left: -75px; }
     .wallet-stage.is-open .card-0 { transform: translate(-330px, -280px); }
     .wallet-stage.is-open .card-1 { transform: translate(-170px, -280px); }
     .wallet-stage.is-open .card-2 { transform: translate(-330px, -100px); }
     .wallet-stage.is-open .card-3 { transform: translate(-170px, -100px); }
-    
     .wallet-stage.is-open .card-4 { transform: translate(170px, -280px); }
     .wallet-stage.is-open .card-5 { transform: translate(330px, -280px); }
     .wallet-stage.is-open .card-6 { transform: translate(170px, -100px); }
     .wallet-stage.is-open .card-7 { transform: translate(330px, -100px); }
-
-    /* Compress slip scatter slightly for smaller screens */
     .wallet-stage.is-open .slip-1 { transform: translate(-400px, -150px) rotate(-15deg); }
     .wallet-stage.is-open .slip-3 { transform: translate(400px, -100px) rotate(12deg); }
     .wallet-stage.is-open .slip-5 { transform: translate(450px, -350px) rotate(-18deg); }
     .wallet-stage.is-open .slip-6 { transform: translate(-450px, -50px) rotate(22deg); }
 }
 
-/* MOBILE VIEW (Vertical Stack) */
+/* MOBILE VIEW */
 @media (max-width: 768px) {
-    .loot-container { display: none; } /* Hide loot on mobile to keep layout clean */
+    .loot-container { display: none; } 
     .wallet-stage.is-open { display: flex; flex-direction: column; align-items: center; gap: 2rem; padding-top: 2rem; padding-bottom: 250px; min-height: auto; }
     .wallet-stage.is-open .project-card { position: relative; left: auto; margin-left: 0; bottom: auto; transform: none !important; width: 240px; opacity: 1; }
     .wallet-container { position: fixed; bottom: 20px; z-index: 100; transform: translateX(-50%) scale(0.8); }
     .wallet-container.is-open { transform: translateX(-50%) scale(0.8) translateY(10px); }
 }
 
-/* GIANT MODAL POP-UP (Unchanged) */
+/* GIANT MODAL POP-UP */
 .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 999; display: none; justify-content: center; align-items: center; padding: 2rem; }
 .modal-overlay.active { display: flex; }
 .expanded-modal { background: #111; border: 4px solid #fff; box-shadow: 12px 12px 0 #5a2146; width: 100%; max-width: 1000px; max-height: 90vh; overflow-y: auto; padding: 3rem; position: relative; }
