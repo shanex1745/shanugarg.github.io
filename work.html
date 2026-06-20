@@ -13,11 +13,17 @@
 
 <div class="app-shell scanlines pixel-grid">
 
-    <div class="star" style="left:8%;top:16%"></div>
-    <div class="star" style="left:21%;top:11%;animation-delay:.7s"></div>
-    <div class="star" style="left:37%;top:19%;animation-delay:1.2s"></div>
-    <div class="star" style="left:74%;top:13%;animation-delay:.4s"></div>
-    <div class="star" style="left:91%;top:23%;animation-delay:1.5s"></div>
+    <div class="star blink" style="left:5%;top:10%"></div>
+    <div class="star" style="left:18%;top:25%;animation-delay:.7s"></div>
+    <div class="star blink" style="left:37%;top:15%;animation-delay:1.2s"></div>
+    <div class="star" style="left:60%;top:8%;animation-delay:.4s"></div>
+    <div class="star blink" style="left:85%;top:20%;animation-delay:1.5s"></div>
+    <div class="star" style="left:92%;top:45%;animation-delay:0.8s"></div>
+    <div class="star blink" style="left:12%;top:60%;animation-delay:2.1s"></div>
+    <div class="star" style="left:75%;top:65%;animation-delay:0.3s"></div>
+
+    <div class="cloud moving-cloud-1" style="top: 15%;"></div>
+    <div class="cloud moving-cloud-2" style="top: 35%; transform: scale(0.7); opacity: 0.8;"></div>
 
     <div class="ground"></div>
 
@@ -33,15 +39,18 @@
             </nav>
             <div class="hud-stats">
                 <div class="stat-box">LVL 99</div>
-                <div class="stat-box coin-box"><span class="coin"></span> 999</div>
+                <div class="stat-box coin-box"><span class="coin"></span> <span id="coinCounter">999</span></div>
             </div>
         </div>
     </header>
 
     <main id="top" class="work-main">
-        <section class="section">
-            <h2 class="section-title">WORK + PROJECTS</h2>
-            <p class="work-subtitle">Selected UX, brand, and civic design missions. Click the wallet to load.</p>
+        <div class="menu-box">
+            
+            <div class="menu-header">
+                <h2 class="section-title">WORK + PROJECTS</h2>
+                <p class="work-subtitle">Selected UX, brand, and civic design missions.</p>
+            </div>
 
             <div class="wallet-stage" id="walletStage">
                 
@@ -92,7 +101,10 @@
                 </div>
 
             </div>
-        </section>
+            
+            <a href="mailto:gargshanupriya@gmail.com" class="hire-me-btn">HIRE ME <i data-lucide="arrow-right"></i></a>
+            
+        </div>
     </main>
 
     <div class="modal-overlay" id="projectModal" onclick="closeModal(event)">
@@ -102,25 +114,14 @@
                 <div class="modal-role" id="modalRole">[ROLE]</div>
                 <h2 id="modalTitle">[PROJECT TITLE]</h2>
             </div>
-            
             <div class="case-grid">
                 <div class="case-visuals">
                     <img id="modalImage" src="" alt="Project Image">
                 </div>
-                <div class="case-details" id="modalDetails">
-                    </div>
+                <div class="case-details" id="modalDetails"></div>
             </div>
         </div>
     </div>
-
-    <footer>
-        <p>GAME OVER? NEVER.</p>
-        <div class="links">
-            <a href="https://www.behance.net/shanux17" target="_blank">Behance</a> •
-            <a href="https://www.linkedin.com/in/shanu-priya-garg-74a23322a/" target="_blank">LinkedIn</a> •
-            <a href="mailto:gargshanupriya@gmail.com">Email</a>
-        </div>
-    </footer>
 
 </div>
 
