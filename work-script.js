@@ -1,17 +1,14 @@
 // --- LIVE COIN SYSTEM SYNC ---
 const coinCounter = document.getElementById('coinCounter');
 
-// Function to safely get the current coin count
 function getCoins() {
     return parseInt(localStorage.getItem('shanuCoins') || "999");
 }
 
-// Function to update the screen
 function updateCoinsDisplay() {
     coinCounter.innerText = getCoins();
 }
 
-// Function to add a coin and save it
 function addCoin() {
     let currentCoins = getCoins();
     currentCoins += 1;
@@ -19,16 +16,12 @@ function addCoin() {
     updateCoinsDisplay();
 }
 
-// Run on page load
 updateCoinsDisplay();
-
-// Listen for coin updates if they earn coins on another open tab
 window.addEventListener('storage', (e) => {
     if (e.key === 'shanuCoins') {
         updateCoinsDisplay();
     }
 });
-
 
 // --- WALLET ANIMATION LOGIC ---
 const walletTrigger = document.getElementById('walletTrigger');
@@ -46,7 +39,6 @@ walletTrigger.addEventListener('click', () => {
         walletLabel.innerText = "▼ OPEN WALLET";
     }
 });
-
 
 // --- GIANT MODAL LOGIC ---
 const modal = document.getElementById('projectModal');
@@ -104,14 +96,20 @@ const projectData = {
         problem: "Problem statement goes here.",
         process: "Design process and ideation goes here.",
         skills: "Prototyping, Visual Design"
+    },
+    proj8: {
+        title: "Project Eight Placeholder", role: "RESEARCHER",
+        image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400",
+        problem: "Problem statement goes here.",
+        process: "Design process and ideation goes here.",
+        skills: "User Testing, Data Synthesis"
     }
 };
 
 function openModal(projectId) {
     const data = projectData[projectId];
     
-    // Reward the player with a coin!
-    addCoin();
+    addCoin(); // Give the player a coin!
 
     modalTitle.innerText = data.title;
     modalRole.innerText = data.role;
