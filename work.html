@@ -1,4 +1,50 @@
-<main id="top" class="work-main">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work | Pixel Portfolio Quest</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="work-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+<div class="app-shell scanlines pixel-grid">
+
+    <div class="star blink" style="left:5%;top:10%"></div>
+    <div class="star" style="left:18%;top:25%;animation-delay:.7s"></div>
+    <div class="star blink" style="left:37%;top:15%;animation-delay:1.2s"></div>
+    <div class="star" style="left:60%;top:8%;animation-delay:.4s"></div>
+    <div class="star blink" style="left:85%;top:20%;animation-delay:1.5s"></div>
+    <div class="star" style="left:92%;top:45%;animation-delay:0.8s"></div>
+    <div class="star blink" style="left:12%;top:60%;animation-delay:2.1s"></div>
+    <div class="star" style="left:75%;top:65%;animation-delay:0.3s"></div>
+
+    <div class="cloud moving-cloud-1" style="top: 15%;"></div>
+    <div class="cloud moving-cloud-2" style="top: 35%; transform: scale(0.7); opacity: 0.8;"></div>
+
+    <div class="ground"></div>
+
+    <header class="hud">
+        <div class="hud-inner">
+            <div class="brand">SHANU.EXE</div>
+            <nav class="nav">
+                <a href="index.html">HOME</a>
+                <a href="work.html" style="color: #ff77da; text-shadow: 0 0 5px #ff77da;">WORK</a>
+                <a href="activism.html">ACTIVISM</a>
+                <a href="play.html">PLAY</a>
+                <a href="resume.html">RESUME</a>
+            </nav>
+            <div class="hud-stats">
+                <div class="stat-box">LVL 99</div>
+                <div class="stat-box coin-box"><span class="coin"></span> <span id="coinCounter">999</span></div>
+            </div>
+        </div>
+    </header>
+
+    <main id="top" class="work-main">
         <div class="menu-box">
             
             <div class="menu-header">
@@ -77,3 +123,27 @@
             
         </div>
     </main>
+
+    <div class="modal-overlay" id="projectModal" onclick="closeModal(event)">
+        <div class="modal-content expanded-modal" onclick="event.stopPropagation()">
+            <button class="close-btn" onclick="closeModal(event)"><i data-lucide="x"></i> CLOSE</button>
+            <div class="modal-header">
+                <div class="modal-role" id="modalRole">[ROLE]</div>
+                <h2 id="modalTitle">[PROJECT TITLE]</h2>
+            </div>
+            <div class="case-grid">
+                <div class="case-visuals">
+                    <img id="modalImage" src="" alt="Project Image">
+                </div>
+                <div class="case-details" id="modalDetails"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>lucide.createIcons();</script>
+<script src="work-script.js"></script>
+
+</body>
+</html>
