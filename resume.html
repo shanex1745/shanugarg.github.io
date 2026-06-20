@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SG.DEV | Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0e15;
+            --neon-cyan: #00ffff;
+            --neon-pink: #ff00ff;
+            --neon-yellow: #ffff00;
+            --text-main: #e0e0e0;
+            --font-heading: 'Press Start 2P', cursive;
+            --font-body: 'VT323', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            line-height: 1.5;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 2px solid var(--neon-cyan);
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+        }
+
+        .logo { color: var(--neon-cyan); text-transform: uppercase; }
+        
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--neon-cyan); }
+        .nav-links a.active {
+            color: var(--neon-yellow);
+            border: 1px solid var(--neon-yellow);
+            padding: 5px 10px;
+        }
+
+        .nav-actions { display: flex; gap: 15px; }
+        .coin-counter {
+            border: 1px solid var(--neon-yellow);
+            color: var(--neon-yellow);
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .play-btn {
+            border: 1px solid var(--neon-pink);
+            color: var(--neon-pink);
+            padding: 5px 10px;
+            background: transparent;
+            cursor: pointer;
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+        }
+        .play-btn:hover { background: rgba(255, 0, 255, 0.2); }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        .page-header { margin-bottom: 40px; }
+        .subtitle {
+            color: var(--neon-yellow);
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 0px var(--neon-cyan);
+            margin-bottom: 20px;
+        }
+        .intro-text {
+            max-width: 800px;
+            margin-bottom: 30px;
+            font-size: 1.4rem;
+        }
+
+        /* Buttons */
+        .btn-group { display: flex; gap: 15px; }
+        .btn {
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            padding: 12px 20px;
+            background: transparent;
+            border: 2px solid var(--neon-pink);
+            color: #fff;
+            cursor: pointer;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Interactive Download Button */
+        #download-btn { border-color: var(--neon-pink); }
+        #download-btn:hover {
+            background: var(--neon-pink);
+            color: var(--bg-color);
+            box-shadow: 0 0 15px var(--neon-pink);
+        }
+        #download-btn.downloading {
+            animation: glitch 0.5s infinite;
+            background: var(--neon-cyan);
+            border-color: var(--neon-cyan);
+        }
+
+        /* Bento Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .panel {
+            border: 3px solid var(--neon-cyan);
+            padding: 30px;
+            background: rgba(13, 14, 21, 0.8);
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .panel-title {
+            color: var(--neon-yellow);
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        /* Experience Panel Interaction */
+        .panel.experience:hover {
+            box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.2), 0 0 15px rgba(0, 255, 255, 0.4);
+        }
+        .job { margin-bottom: 20px; }
+        .job-title { color: #fff; font-weight: bold; font-size: 1.3rem; }
+        .job-company { color: var(--text-main); font-size: 1.1rem; }
+
+        /* Tags */
+        .tag-container { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+        .tag {
+            border: 1px solid var(--neon-pink);
+            padding: 8px 12px;
+            font-size: 1.1rem;
+            color: #fff;
+            background: rgba(255, 0, 255, 0.05);
+            transition: all 0.2s;
+        }
+        .tag:hover {
+            background: var(--neon-pink);
+            color: var(--bg-color);
+            cursor: crosshair;
+        }
+
+        /* --- Interactive Skills Overlay (The Mini-Game Element) --- */
+        .panel.skills { position: relative; overflow: hidden; }
+        .skills-content {
+            opacity: 0;
+            filter: blur(5px);
+            transition: opacity 0.8s, filter 0.8s;
+        }
+        .skills-content.revealed {
+            opacity: 1;
+            filter: blur(0);
+        }
+        
+        .skills-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 255, 255, 0.1),
+                rgba(0, 255, 255, 0.1) 2px,
+                transparent 2px,
+                transparent 4px
+            ), var(--bg-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            cursor: pointer;
+            transition: transform 0.6s cubic-bezier(0.87, 0, 0.13, 1), opacity 0.6s;
+        }
+        .skills-overlay p {
+            font-family: var(--font-heading);
+            color: var(--neon-yellow);
+            animation: blink 1s infinite;
+            text-align: center;
+            font-size: 0.8rem;
+            line-height: 2;
+        }
+        .skills-overlay.unlocked {
+            transform: scaleY(0);
+            transform-origin: top;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Animations */
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        @keyframes glitch {
+            0% { transform: translate(2px, 2px); }
+            25% { transform: translate(-2px, -2px); }
+            50% { transform: translate(2px, -2px); }
+            75% { transform: translate(-2px, 2px); }
+            100% { transform: translate(2px, 2px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .bento-grid { grid-template-columns: 1fr; }
+            nav { flex-direction: column; gap: 20px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">SG.DEV</div>
+        <div class="nav-links">
+            <a href="#">HOME</a>
+            <a href="#">WORK</a>
+            <a href="#">PHOTO</a>
+            <a href="#">ACTIVISM</a>
+            <a href="#">PLAY</a>
+            <a href="#" class="active">RESUME</a>
+        </div>
+        <div class="nav-actions">
+            <div class="coin-counter">🪙 1</div>
+            <button class="play-btn">▶ PLAY</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="page-header">
+            <div class="subtitle">CREDENTIALS</div>
+            <h1>RESUME + SKILLS</h1>
+            <p class="intro-text">
+                Design and research professional blending complex systems with human needs through research-led, accessible design, Al-assisted workflows, and civic tech. Open to full-time and fellowship roles.
+            </p>
+            <div class="btn-group">
+                <!-- Replace 'your-resume.pdf' with the actual path in your repo -->
+                <a href="your-resume.pdf" download="Shanu_Priya_Garg_Resume.pdf" class="btn" id="download-btn">↓ DOWNLOAD CV</a>
+                <a href="https://www.behance.net/shanux17" target="_blank" class="btn">BEHANCE</a>
+                <a href="https://www.linkedin.com/in/shanupriyagarg" target="_blank" class="btn">LINKEDIN</a>
+            </div>
+        </header>
+
+        <section class="bento-grid">
+            
+            <!-- ABOUT PANEL -->
+            <div class="panel about">
+                <h2 class="panel-title">ABOUT</h2>
+                <p>UX Designer, researcher, and civic technologist based in Bengaluru. Experienced in mixed-method research, generative AI prototyping, and scalable digital systems.</p>
+                <br>
+                <p><strong>Education:</strong> Bachelor of Design (HCI & UX)<br>
+                Indian Institute of Information Technology Jabalpur (2022-Current)</p>
+                <br>
+                <p><strong>Awards & Patents:</strong><br>
+                > Build For Bharat Fellowship 2025 (Top 20)<br>
+                > Titan Design Impact Movement 2024 Winner<br>
+                > 3 Active Patents filed in AR & Sustainability</p>
+            </div>
+
+            <!-- EXPERIENCE PANEL (Hover Interaction) -->
+            <div class="panel experience">
+                <h2 class="panel-title">EXPERIENCE</h2>
+                <div class="job">
+                    <div class="job-title">Digital Communication AI Intern</div>
+                    <div class="job-company">Krones Digital Solutions India (09/2025 - Present)</div>
+                    <p>Prototyped AI-driven chatbots and productivity tools. Applied Generative AI and prompt engineering to streamline workflows.</p>
+                </div>
+                <div class="job">
+                    <div class="job-title">Design Fellow</div>
+                    <div class="job-company">Bharat Digital (Govt of Karnataka) (05/2025 - 07/2025)</div>
+                    <p>Conducted UX research with 30+ rural participants. Redesigned the Meeting Management Module (Panchatantra 2.0) using AI + LLM features.</p>
+                </div>
+                <div class="job">
+                    <div class="job-title">Product Design Intern</div>
+                    <div class="job-company">Living Things (03/2025 - 05/2025)</div>
+                    <p>Designed UI flows, 3D/CAD models, and contributed to research-to-prototype translation.</p>
+                </div>
+            </div>
+
+            <!-- SKILLS PANEL (Click Interaction) -->
+            <div class="panel skills" id="skills-panel">
+                <div class="skills-overlay" id="skills-overlay">
+                    <p>⚠ RESTRICTED DATABANK ⚠</p>
+                    <p>[ CLICK TO DECRYPT SKILLS ]</p>
+                </div>
+                <div class="skills-content" id="skills-content">
+                    <h2 class="panel-title">UX + AI SKILLS</h2>
+                    <div class="tag-container">
+                        <span class="tag">UX Research</span>
+                        <span class="tag">Information Arch.</span>
+                        <span class="tag">Usability Testing</span>
+                        <span class="tag">Accessibility</span>
+                        <span class="tag">Chatbot Prototyping</span>
+                        <span class="tag">Prompt Engineering</span>
+                        <span class="tag">Vibe Coding</span>
+                        <span class="tag">A/B Testing</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TOOLS PANEL -->
+            <div class="panel tools">
+                <h2 class="panel-title">TOOLS + TECH</h2>
+                <div class="tag-container">
+                    <span class="tag">Figma</span>
+                    <span class="tag">Rhino 3D</span>
+                    <span class="tag">HTML/CSS</span>
+                    <span class="tag">React</span>
+                    <span class="tag">Google AI Studio</span>
+                    <span class="tag">NotebookLM</span>
+                    <span class="tag">Runway ML</span>
+                    <span class="tag">Midjourney</span>
+                </div>
+                <h2 class="panel-title" style="margin-top: 20px;">SOFT SKILLS</h2>
+                <div class="tag-container">
+                    <span class="tag">Visual Communication</span>
+                    <span class="tag">Data Analysis</span>
+                    <span class="tag">Strategy</span>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        // Interactive Skill Unlocking Game Mechanic
+        const skillsPanel = document.getElementById('skills-panel');
+        const overlay = document.getElementById('skills-overlay');
+        const content = document.getElementById('skills-content');
+
+        skillsPanel.addEventListener('click', () => {
+            if (!overlay.classList.contains('unlocked')) {
+                // Play an optional 8-bit sound here if you integrate the Web Audio API later!
+                overlay.classList.add('unlocked');
+                content.classList.add('revealed');
+                
+                // Optional: award a coin to the user for discovering it!
+                const coinCounter = document.querySelector('.coin-counter');
+                coinCounter.innerHTML = "🪙 2";
+                coinCounter.style.color = "#00ffff"; // Flash cyan
+                setTimeout(() => coinCounter.style.color = "var(--neon-yellow)", 500);
+            }
+        });
+
+        // Download Button Glitch Interaction
+        const downloadBtn = document.getElementById('download-btn');
+        downloadBtn.addEventListener('click', (e) => {
+            // Prevent immediate download to show animation
+            if (!downloadBtn.classList.contains('downloading')) {
+                e.preventDefault(); 
+                downloadBtn.classList.add('downloading');
+                downloadBtn.innerText = "INITIALIZING...";
+                
+                setTimeout(() => {
+                    downloadBtn.classList.remove('downloading');
+                    downloadBtn.innerText = "↓ DOWNLOAD CV";
+                    // Trigger the actual download by re-clicking programmatically or altering window.location
+                    window.location.href = downloadBtn.getAttribute('href');
+                }, 1200);
+            }
+        });
+    </script>
+</body>
+</html>
