@@ -4,21 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work | Pixel Portfolio Quest</title>
-
-    <!-- Links to your main theme -->
     <link rel="stylesheet" href="style.css">
-    <!-- Links to the specific styles for the work page elements -->
     <link rel="stylesheet" href="work-style.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
 </head>
-
 <body>
 
 <div class="app-shell scanlines pixel-grid">
 
-    <!-- Background Elements from your theme -->
     <div class="star" style="left:8%;top:16%"></div>
     <div class="star" style="left:21%;top:11%;animation-delay:.7s"></div>
     <div class="star" style="left:37%;top:19%;animation-delay:1.2s"></div>
@@ -27,7 +21,6 @@
 
     <div class="ground"></div>
 
-    <!-- HUD / Navigation -->
     <header class="hud">
         <div class="hud-inner">
             <div class="brand">SHANU.EXE</div>
@@ -40,95 +33,86 @@
             </nav>
             <div class="hud-stats">
                 <div class="stat-box">LVL 99</div>
-                <div class="stat-box coin-box">
-                    <span class="coin"></span>
-                    999
-                </div>
+                <div class="stat-box coin-box"><span class="coin"></span> 999</div>
             </div>
         </div>
     </header>
 
-    <!-- Main Work Content -->
     <main id="top" class="work-main">
         <section class="section">
             <h2 class="section-title">WORK + PROJECTS</h2>
-            <p class="work-subtitle">Selected UX, brand, and civic design missions. Click the inventory to fan out the cards.</p>
+            <p class="work-subtitle">Selected UX, brand, and civic design missions. Click the wallet to load.</p>
 
             <div class="wallet-stage" id="walletStage">
                 
-                <!-- Project 1 -->
-                <article class="project-card card-0" onclick="openModal('nps')">
-                    <div class="card-img-container">
-                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400&q=80" alt="NPS Project">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-role">LEAD UX DESIGNER</div>
-                        <h3 class="card-title">National Pension System</h3>
-                    </div>
+                <article class="project-card card-0" onclick="openModal('proj1')">
+                    <div class="card-img-container"><img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=400" alt="Proj 1"></div>
+                    <div class="card-content"><div class="card-role">LEAD UX</div><h3 class="card-title">National Pension System</h3></div>
                 </article>
 
-                <!-- Project 2 -->
-                <article class="project-card card-1" onclick="openModal('koscars')">
-                    <div class="card-img-container">
-                        <img src="https://images.unsplash.com/photo-1680016661694-1cd3faf31c3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400&q=80" alt="K-Oscars 2025">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-role" style="color: #7cff9b;">CREATIVE DIRECTOR</div>
-                        <h3 class="card-title">K-Oscars 2025 Event Systems</h3>
-                    </div>
+                <article class="project-card card-1" onclick="openModal('proj2')">
+                    <div class="card-img-container"><img src="https://images.unsplash.com/photo-1680016661694-1cd3faf31c3a?w=400" alt="Proj 2"></div>
+                    <div class="card-content"><div class="card-role">CREATIVE DIR</div><h3 class="card-title">K-Oscars 2025</h3></div>
                 </article>
 
-                <!-- Project 3 -->
-                <article class="project-card card-2" onclick="openModal('nai')">
-                    <div class="card-img-container">
-                        <img src="https://images.unsplash.com/photo-1561070791-36c11767b26a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400&q=80" alt="National Accessibility Initiative">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-role" style="color: #ffd84f;">UX RESEARCHER</div>
-                        <h3 class="card-title">National Accessibility Initiative</h3>
-                    </div>
+                <article class="project-card card-2" onclick="openModal('proj3')">
+                    <div class="card-img-container"><img src="https://images.unsplash.com/photo-1561070791-36c11767b26a?w=400" alt="Proj 3"></div>
+                    <div class="card-content"><div class="card-role">UX RESEARCH</div><h3 class="card-title">Accessibility Initiative</h3></div>
                 </article>
 
-                <!-- Project 4 -->
-                <article class="project-card card-3" onclick="openModal('rdpr')">
-                    <div class="card-img-container">
-                        <img src="https://images.unsplash.com/photo-1560461396-ec0ef7bb29dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400&q=80" alt="RDPR">
-                    </div>
-                    <div class="card-content">
-                        <div class="card-role" style="color: #6ce8ff;">UX LEAD</div>
-                        <h3 class="card-title">RDPR Public Info Portal</h3>
-                    </div>
+                <article class="project-card card-3" onclick="openModal('proj4')">
+                    <div class="card-img-container"><img src="https://images.unsplash.com/photo-1560461396-ec0ef7bb29dd?w=400" alt="Proj 4"></div>
+                    <div class="card-content"><div class="card-role">UX LEAD</div><h3 class="card-title">RDPR Portal</h3></div>
                 </article>
 
-                <!-- Wallet/Inventory Trigger -->
+                <article class="project-card card-4" onclick="openModal('proj5')">
+                    <div class="card-img-container"><img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=400" alt="Proj 5"></div>
+                    <div class="card-content"><div class="card-role">DESIGNER</div><h3 class="card-title">Project Five</h3></div>
+                </article>
+
+                <article class="project-card card-5" onclick="openModal('proj6')">
+                    <div class="card-img-container"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400" alt="Proj 6"></div>
+                    <div class="card-content"><div class="card-role">STRATEGIST</div><h3 class="card-title">Project Six</h3></div>
+                </article>
+
+                <article class="project-card card-6" onclick="openModal('proj7')">
+                    <div class="card-img-container"><img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400" alt="Proj 7"></div>
+                    <div class="card-content"><div class="card-role">UI/UX</div><h3 class="card-title">Project Seven</h3></div>
+                </article>
+
                 <div class="wallet-container" id="walletTrigger">
-                    <div class="wallet">
-                        <div class="wallet-flap"></div>
-                        <div class="wallet-slot"></div>
-                        <div class="wallet-badge"><i data-lucide="briefcase"></i></div>
+                    <div class="wallet-btn">
+                        <div class="tag-left">01</div>
+                        <div class="wallet-inner-top"></div>
+                        <div class="wallet-text">SG</div>
+                        <div class="wallet-inner-bottom"></div>
+                        <div class="tag-right">LOAD</div>
                     </div>
-                    <div class="wallet-label" id="walletLabel">▼ OPEN INVENTORY</div>
+                    <div class="wallet-label" id="walletLabel">▼ OPEN WALLET</div>
                 </div>
 
             </div>
         </section>
     </main>
 
-    <!-- Modal / Drawer -->
     <div class="modal-overlay" id="projectModal" onclick="closeModal(event)">
-        <div class="modal-content pixel-border" onclick="event.stopPropagation()">
-            <button class="close-btn" onclick="closeModal(event)"><i data-lucide="x"></i></button>
+        <div class="modal-content expanded-modal" onclick="event.stopPropagation()">
+            <button class="close-btn" onclick="closeModal(event)"><i data-lucide="x"></i> CLOSE</button>
             <div class="modal-header">
-                <h2 id="modalTitle">[PROJECT TITLE]</h2>
                 <div class="modal-role" id="modalRole">[ROLE]</div>
+                <h2 id="modalTitle">[PROJECT TITLE]</h2>
             </div>
-            <div class="modal-body" id="modalBody">
-                [Project details load here.]
+            
+            <div class="case-grid">
+                <div class="case-visuals">
+                    <img id="modalImage" src="" alt="Project Image">
+                </div>
+                <div class="case-details" id="modalDetails">
+                    </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer from your theme -->
     <footer>
         <p>GAME OVER? NEVER.</p>
         <div class="links">
@@ -140,7 +124,6 @@
 
 </div>
 
-<!-- Initialize Icons and Logic -->
 <script>lucide.createIcons();</script>
 <script src="work-script.js"></script>
 
