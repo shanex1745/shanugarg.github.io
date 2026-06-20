@@ -96,7 +96,7 @@
 .project-card:hover { 
     border-color: #ff77da; 
     z-index: 10 !important; 
-    transform: translateY(-10px) !important;
+    transform: -15px;
 }
 
 /* Vertical 9:16 constraints */
