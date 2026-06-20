@@ -19,7 +19,7 @@
     position: relative;
     min-height: 600px;
     width: 100%;
-    max-width: 1400px; /* Widened to allow more card spacing */
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -81,12 +81,13 @@
     position: absolute;
     left: 50%;
     top: 60px;
-    width: 170px; /* Reduced to make them smaller and cleaner */
+    width: 150px; /* Reduced width for smaller footprint */
     background: #111;
     border: 4px solid #fff;
     box-shadow: 6px 6px 0 #000;
     z-index: 2;
     opacity: 0;
+    /* Closed State */
     transform: translate(-50%, 100px) scale(0.7);
     transition: opacity 0.4s ease, transform 0.4s ease, margin-top 0.2s ease;
     cursor: pointer;
@@ -98,10 +99,10 @@
     margin-top: -20px; 
 }
 
-/* Updated 10:16 Aspect Ratio - More compact footprint */
+/* Shorter 3:4 Aspect ratio for that "Credit Card" feel */
 .card-img-container { 
     width: 100%; 
-    aspect-ratio: 10 / 16; 
+    aspect-ratio: 3 / 4; 
     border-bottom: 4px solid #fff; 
     background: #000; 
     overflow: hidden; 
@@ -116,29 +117,36 @@
 .project-card:hover .card-img-container img { opacity: 1; }
 
 .card-content { padding: 12px; }
-.card-role { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #ff77da; margin-bottom: 8px; font-weight: bold; }
-.card-title { font-family: 'Press Start 2P', cursive; font-size: 0.6rem; color: #fff; line-height: 1.4; }
+.card-role { font-family: 'Space Mono', monospace; font-size: 0.55rem; color: #ff77da; margin-bottom: 8px; font-weight: bold; }
+.card-title { font-family: 'Press Start 2P', cursive; font-size: 0.55rem; color: #fff; line-height: 1.4; }
 
-/* THE CLEAN DESKTOP FAN (Wider spacing, subtle flat angles) */
+
+/* ========================================= */
+/* THE PERFECTLY CENTERED DESKTOP FAN        */
+/* Using calc(-50% + offset) for perfect math*/
+/* ========================================= */
+
 .wallet-stage.is-open .project-card { opacity: 1; }
-.wallet-stage.is-open .card-0 { transform: translate(-540px, 40px) rotate(-6deg); }
-.wallet-stage.is-open .card-1 { transform: translate(-360px, 15px) rotate(-4deg); }
-.wallet-stage.is-open .card-2 { transform: translate(-180px, 0px) rotate(-2deg); }
-.wallet-stage.is-open .card-3 { transform: translate(0px, -5px) rotate(0deg); }
-.wallet-stage.is-open .card-4 { transform: translate(180px, 0px) rotate(2deg); }
-.wallet-stage.is-open .card-5 { transform: translate(360px, 15px) rotate(4deg); }
-.wallet-stage.is-open .card-6 { transform: translate(540px, 40px) rotate(6deg); }
 
-/* TABLET VIEW (Slightly compressed width) */
+.wallet-stage.is-open .card-0 { transform: translateX(calc(-50% - 480px)) translateY(80px) rotate(-12deg); }
+.wallet-stage.is-open .card-1 { transform: translateX(calc(-50% - 320px)) translateY(35px) rotate(-8deg); }
+.wallet-stage.is-open .card-2 { transform: translateX(calc(-50% - 160px)) translateY(10px) rotate(-4deg); }
+.wallet-stage.is-open .card-3 { transform: translateX(-50%) translateY(0px) rotate(0deg); }
+.wallet-stage.is-open .card-4 { transform: translateX(calc(-50% + 160px)) translateY(10px) rotate(4deg); }
+.wallet-stage.is-open .card-5 { transform: translateX(calc(-50% + 320px)) translateY(35px) rotate(8deg); }
+.wallet-stage.is-open .card-6 { transform: translateX(calc(-50% + 480px)) translateY(80px) rotate(12deg); }
+
+
+/* TABLET VIEW (Slightly tighter spacing) */
 @media (max-width: 1200px) {
-    .project-card { width: 150px; }
-    .wallet-stage.is-open .card-0 { transform: translate(-450px, 40px) rotate(-6deg); }
-    .wallet-stage.is-open .card-1 { transform: translate(-300px, 15px) rotate(-4deg); }
-    .wallet-stage.is-open .card-2 { transform: translate(-150px, 0px) rotate(-2deg); }
-    .wallet-stage.is-open .card-3 { transform: translate(0px, -5px) rotate(0deg); }
-    .wallet-stage.is-open .card-4 { transform: translate(150px, 0px) rotate(2deg); }
-    .wallet-stage.is-open .card-5 { transform: translate(300px, 15px) rotate(4deg); }
-    .wallet-stage.is-open .card-6 { transform: translate(450px, 40px) rotate(6deg); }
+    .project-card { width: 140px; }
+    .wallet-stage.is-open .card-0 { transform: translateX(calc(-50% - 360px)) translateY(60px) rotate(-12deg); }
+    .wallet-stage.is-open .card-1 { transform: translateX(calc(-50% - 240px)) translateY(25px) rotate(-8deg); }
+    .wallet-stage.is-open .card-2 { transform: translateX(calc(-50% - 120px)) translateY(10px) rotate(-4deg); }
+    .wallet-stage.is-open .card-3 { transform: translateX(-50%) translateY(0px) rotate(0deg); }
+    .wallet-stage.is-open .card-4 { transform: translateX(calc(-50% + 120px)) translateY(10px) rotate(4deg); }
+    .wallet-stage.is-open .card-5 { transform: translateX(calc(-50% + 240px)) translateY(25px) rotate(8deg); }
+    .wallet-stage.is-open .card-6 { transform: translateX(calc(-50% + 360px)) translateY(60px) rotate(12deg); }
 }
 
 /* MOBILE VIEW - PURE VERTICAL STACK */
@@ -149,22 +157,22 @@
         align-items: center;
         gap: 2rem;
         padding-top: 2rem;
-        padding-bottom: 250px; /* Leaves space for the wallet at the bottom */
+        padding-bottom: 250px; 
         min-height: auto;
     }
     .wallet-stage.is-open .project-card {
         position: relative;
         left: auto;
         top: auto;
-        transform: none !important; /* Disables fanning */
-        width: 240px; /* Makes them highly readable on phones */
+        transform: none !important; 
+        width: 240px; 
         opacity: 1;
     }
     .wallet-container {
         position: fixed;
         bottom: 20px;
         z-index: 100;
-        transform: translateX(-50%) scale(0.8); /* Shrinks wallet slightly on mobile */
+        transform: translateX(-50%) scale(0.8); 
     }
     .wallet-container.is-open {
         transform: translateX(-50%) scale(0.8) translateY(10px);
@@ -197,7 +205,7 @@
 .modal-header h2 { font-family: 'Press Start 2P', cursive; font-size: 1.2rem; color: #6ce8ff; line-height: 1.5; }
 
 .case-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; }
-.case-visuals { width: 100%; aspect-ratio: 10 / 16; border: 4px solid #fff; background: #000; }
+.case-visuals { width: 100%; aspect-ratio: 9 / 16; border: 4px solid #fff; background: #000; }
 .case-visuals img { width: 100%; height: 100%; object-fit: cover; }
 
 .case-details { display: flex; flex-direction: column; gap: 1.5rem; }
