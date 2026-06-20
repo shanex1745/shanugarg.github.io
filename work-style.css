@@ -1,3 +1,4 @@
+/* WORK PAGE CORE */
 .work-main {
     padding-top: 80px;
     min-height: 100vh;
@@ -13,7 +14,7 @@
     font-size: 1.1rem;
 }
 
-/* Wallet Stage */
+/* WALLET STAGE & BUTTON */
 .wallet-stage {
     position: relative;
     min-height: 600px;
@@ -22,7 +23,6 @@
     margin: 0 auto;
 }
 
-/* Exact Wallet Design */
 .wallet-container {
     position: absolute;
     left: 50%;
@@ -76,11 +76,11 @@
 }
 @keyframes blink { 50% { opacity: 0.3; } }
 
-/* Fanning Project Cards (Updated for 7 cards) */
+/* PROJECT CARDS (Hidden by default) */
 .project-card {
     position: absolute;
     left: 50%;
-    top: 40px;
+    top: 60px;
     width: 200px;
     background: #111;
     border: 4px solid #fff;
@@ -88,35 +88,72 @@
     z-index: 2;
     opacity: 0;
     transform: translate(-50%, 100px) scale(0.7);
-    transition: opacity 0.4s cubic-bezier(.2,.8,.2,1), transform 0.4s cubic-bezier(.2,.8,.2,1), margin-top 0.2s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease, margin-top 0.2s ease;
     cursor: pointer;
 }
-/* This prevents the hovering glitch we fixed earlier! */
+/* Flawless hover animation using margin to prevent glitching */
 .project-card:hover { 
     border-color: #ff77da; 
-    z-index: 20 !important; 
-    margin-top: -15px; 
+    z-index: 50 !important; 
+    margin-top: -20px; 
 }
 
-.card-img-container { width: 100%; aspect-ratio: 9 / 16; border-bottom: 4px solid #fff; background: #000; overflow: hidden; }
-.card-img-container img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.3s; }
+/* 9:16 Vertical Poster Enforcement */
+.card-img-container { 
+    width: 100%; 
+    aspect-ratio: 9 / 16; 
+    border-bottom: 4px solid #fff; 
+    background: #000; 
+    overflow: hidden; 
+}
+.card-img-container img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    opacity: 0.8; 
+    transition: opacity 0.3s; 
+}
 .project-card:hover .card-img-container img { opacity: 1; }
 
 .card-content { padding: 12px; }
 .card-role { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #ff77da; margin-bottom: 8px; font-weight: bold; }
 .card-title { font-family: 'Press Start 2P', cursive; font-size: 0.6rem; color: #fff; line-height: 1.4; }
 
-/* The 7 Card Fanned Out States */
+/* THE FANNING ANIMATION (Desktop Wide Arc) */
 .wallet-stage.is-open .project-card { opacity: 1; }
-.wallet-stage.is-open .card-0 { transform: translate(-550px, 60px) rotate(-9deg); }
-.wallet-stage.is-open .card-1 { transform: translate(-370px, 10px) rotate(-6deg); }
-.wallet-stage.is-open .card-2 { transform: translate(-190px, -20px) rotate(-3deg); }
-.wallet-stage.is-open .card-3 { transform: translate(-10px, -30px) rotate(0deg); }
-.wallet-stage.is-open .card-4 { transform: translate(170px, -20px) rotate(3deg); }
-.wallet-stage.is-open .card-5 { transform: translate(350px, 10px) rotate(6deg); }
-.wallet-stage.is-open .card-6 { transform: translate(530px, 60px) rotate(9deg); }
+.wallet-stage.is-open .card-0 { transform: translate(-450px, 80px) rotate(-15deg); }
+.wallet-stage.is-open .card-1 { transform: translate(-300px, 30px) rotate(-10deg); }
+.wallet-stage.is-open .card-2 { transform: translate(-150px, -5px) rotate(-5deg); }
+.wallet-stage.is-open .card-3 { transform: translate(0px, -20px) rotate(0deg); }
+.wallet-stage.is-open .card-4 { transform: translate(150px, -5px) rotate(5deg); }
+.wallet-stage.is-open .card-5 { transform: translate(300px, 30px) rotate(10deg); }
+.wallet-stage.is-open .card-6 { transform: translate(450px, 80px) rotate(15deg); }
 
-/* Giant Modal Pop-Up */
+/* FANNING ANIMATION (Tablet/Medium Screens) */
+@media (max-width: 1100px) {
+    .project-card { width: 160px; }
+    .wallet-stage.is-open .card-0 { transform: translate(-330px, 60px) rotate(-15deg); }
+    .wallet-stage.is-open .card-1 { transform: translate(-220px, 20px) rotate(-10deg); }
+    .wallet-stage.is-open .card-2 { transform: translate(-110px, -5px) rotate(-5deg); }
+    .wallet-stage.is-open .card-3 { transform: translate(0px, -15px) rotate(0deg); }
+    .wallet-stage.is-open .card-4 { transform: translate(110px, -5px) rotate(5deg); }
+    .wallet-stage.is-open .card-5 { transform: translate(220px, 20px) rotate(10deg); }
+    .wallet-stage.is-open .card-6 { transform: translate(330px, 60px) rotate(15deg); }
+}
+
+/* FANNING ANIMATION (Mobile Phones - Tight Deck) */
+@media (max-width: 600px) {
+    .project-card { width: 120px; }
+    .wallet-stage.is-open .card-0 { transform: translate(-130px, 40px) rotate(-15deg); }
+    .wallet-stage.is-open .card-1 { transform: translate(-90px, 15px) rotate(-10deg); }
+    .wallet-stage.is-open .card-2 { transform: translate(-45px, -5px) rotate(-5deg); }
+    .wallet-stage.is-open .card-3 { transform: translate(0px, -10px) rotate(0deg); }
+    .wallet-stage.is-open .card-4 { transform: translate(45px, -5px) rotate(5deg); }
+    .wallet-stage.is-open .card-5 { transform: translate(90px, 15px) rotate(10deg); }
+    .wallet-stage.is-open .card-6 { transform: translate(130px, 40px) rotate(15deg); }
+}
+
+/* GIANT MODAL POP-UP */
 .modal-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0,0,0,0.9); z-index: 999;
@@ -149,19 +186,7 @@
 .detail-section h4 { font-family: 'Press Start 2P', cursive; font-size: 0.8rem; color: #ff77da; margin-bottom: 0.8rem; line-height: 1.4;}
 .detail-section p { font-family: 'Space Mono', monospace; font-size: 1rem; line-height: 1.6; color: #ccc; }
 
-/* Responsive adjustments for 7 cards on smaller screens */
-@media (max-width: 1200px) {
-    .wallet-stage.is-open .card-0 { transform: translate(-300px, 10px) rotate(-4deg); }
-    .wallet-stage.is-open .card-1 { transform: translate(-100px, 0px) rotate(-2deg); }
-    .wallet-stage.is-open .card-2 { transform: translate(100px, 0px) rotate(2deg); }
-    .wallet-stage.is-open .card-3 { transform: translate(300px, 10px) rotate(4deg); }
-    .wallet-stage.is-open .card-4 { transform: translate(-200px, 350px) rotate(-2deg); }
-    .wallet-stage.is-open .card-5 { transform: translate(0px, 350px) rotate(0deg); }
-    .wallet-stage.is-open .card-6 { transform: translate(200px, 350px) rotate(2deg); }
-    .wallet-stage { min-height: 900px; }
-}
 @media (max-width: 768px) {
     .case-grid { grid-template-columns: 1fr; }
-    .wallet-stage.is-open .project-card { position: relative; top: auto; left: auto; transform: none !important; margin: 0 auto 2rem auto; }
-    .wallet-stage.is-open { display: flex; flex-direction: column; align-items: center; padding-top: 2rem; }
+    .expanded-modal { padding: 1.5rem; }
 }
