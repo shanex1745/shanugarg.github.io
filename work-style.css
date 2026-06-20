@@ -7,19 +7,11 @@
     padding-bottom: 50px;
 }
 
-/* NEW MENU BOX */
+/* MENU BOX */
 .menu-box {
-    background: rgba(15, 15, 30, 0.85);
-    border: 4px solid #4a4a8c;
-    box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.5);
-    width: 95%;
-    max-width: 1400px;
-    padding: 3rem 2rem 5rem;
-    position: relative;
-    border-radius: 4px;
-    backdrop-filter: blur(4px);
+    background: rgba(15, 15, 30, 0.85); border: 4px solid #4a4a8c; box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.5);
+    width: 95%; max-width: 1400px; padding: 3rem 2rem 5rem; position: relative; border-radius: 4px; backdrop-filter: blur(4px);
 }
-
 .menu-header { text-align: center; margin-bottom: 2rem; }
 .work-subtitle { font-family: 'Space Mono', monospace; color: #b8b0d9; font-size: 1.1rem; margin-top: 1rem; }
 
@@ -34,23 +26,19 @@
 .hire-me-btn {
     position: absolute; bottom: -20px; right: 40px; background: #6ce8ff; color: #092138;
     border: 4px solid #fff; box-shadow: 6px 6px 0 #244d66; font-family: 'Press Start 2P', cursive;
-    font-size: 0.9rem; padding: 1rem 1.5rem; text-decoration: none; display: flex; align-items: center;
-    gap: 10px; transition: transform 0.1s, box-shadow 0.1s; z-index: 20;
+    font-size: 0.9rem; padding: 1rem 1.5rem; text-decoration: none; display: flex; align-items: center; gap: 10px; transition: transform 0.1s, box-shadow 0.1s; z-index: 20;
 }
 .hire-me-btn:hover { transform: translate(-4px, -4px); box-shadow: 10px 10px 0 #244d66; background: #fff; }
 .hire-me-btn:active { transform: translate(2px, 2px); box-shadow: 4px 4px 0 #244d66; }
 
-/* WALLET STAGE & BUTTON */
-.wallet-stage { position: relative; min-height: 480px; width: 100%; }
+/* WALLET STAGE */
+.wallet-stage { position: relative; min-height: 550px; width: 100%; }
 
 .wallet-container {
     position: absolute; left: 50%; bottom: 80px; transform: translateX(-50%);
-    z-index: 10; /* Lowered so cards go in front */
-    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); text-align: center;
+    z-index: 15; transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); text-align: center;
 }
-
-/* SHIFT WALLET DOWN FURTHER WHEN OPEN */
-.wallet-container.is-open { transform: translateX(-50%) translateY(140px); }
+.wallet-container.is-open { transform: translateX(-50%) translateY(40px); } 
 
 .wallet-btn { width: 280px; height: 180px; background: #f864c4; border: 4px solid #ffffff; box-shadow: 10px 10px 0 #5a2146; position: relative; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; transition: transform 0.1s ease, box-shadow 0.1s ease; }
 .wallet-btn:hover { transform: translate(-4px, -4px); box-shadow: 14px 14px 0 #5a2146; }
@@ -61,79 +49,109 @@
 
 .tag-left { position: absolute; left: -24px; top: 40px; background: #f8f66a; border: 3px solid #ffffff; color: #000; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; padding: 8px 6px; box-shadow: 4px 4px 0 #5a2146; }
 .tag-right { position: absolute; right: -24px; bottom: 20px; background: #6ce8ff; border: 3px solid #ffffff; color: #000; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; padding: 6px 4px; box-shadow: 4px 4px 0 #5a2146; }
+.wallet-label { margin-top: 30px; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; color: #ffd84f; animation: blink 1.5s steps(2) infinite; }
 
-.wallet-label { margin-top: 30px; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; color: #ffd84f; animation: blink 1.5s steps(2) infinite; transition: transform 0.3s; }
-@keyframes blink { 50% { opacity: 0.3; } }
+
+/* ========================================= */
+/* THE LOOT (COINS, CASH, SLIPS)             */
+/* ========================================= */
+.loot-container {
+    position: absolute; left: 50%; bottom: 160px; 
+    width: 0; height: 0; z-index: 12; /* Slips land behind the project cards */
+}
+
+.loot {
+    position: absolute; opacity: 0;
+    transform: translate(-50%, 50px) scale(0.5); 
+    /* Slightly longer, smoother float transition for the papers */
+    transition: opacity 0.4s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.item-coin { width: 24px; height: 24px; background: #ffd84f; border: 3px solid #fff; border-radius: 50%; box-shadow: 2px 2px 0 #c29d00; z-index: 16; }
+.item-cash { background: #7cff9b; border: 3px solid #fff; color: #000; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; padding: 6px 12px; box-shadow: 3px 3px 0 #2a7241; z-index: 16; }
+.item-slip { background: #fff; border: 2px dashed #000; color: #000; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.7rem; padding: 8px 12px; box-shadow: 4px 4px 0 #f864c4; white-space: nowrap; }
+
+.wallet-stage.is-open .loot { opacity: 1; }
+
+/* Coins/Cash stay bundled straight up above the wallet */
+.wallet-stage.is-open .coin-1 { transform: translate(-40px, -180px) rotate(-15deg); transition-delay: 0.1s; }
+.wallet-stage.is-open .coin-2 { transform: translate(50px, -210px) rotate(20deg); transition-delay: 0.2s; }
+.wallet-stage.is-open .cash-1 { transform: translate(10px, -260px) rotate(-5deg); transition-delay: 0.15s; }
+
+/* Papers scatter radically across the desk */
+.wallet-stage.is-open .slip-1 { transform: translate(-550px, -200px) rotate(-15deg); transition-delay: 0.2s; }
+.wallet-stage.is-open .slip-2 { transform: translate(180px, -450px) rotate(25deg); transition-delay: 0.3s; }
+.wallet-stage.is-open .slip-3 { transform: translate(550px, -100px) rotate(12deg); transition-delay: 0.25s; }
+.wallet-stage.is-open .slip-4 { transform: translate(-350px, -420px) rotate(-8deg); transition-delay: 0.35s; }
+.wallet-stage.is-open .slip-5 { transform: translate(600px, -350px) rotate(-18deg); transition-delay: 0.4s; }
+.wallet-stage.is-open .slip-6 { transform: translate(-650px, -50px) rotate(22deg); transition-delay: 0.15s; }
 
 
 /* ========================================= */
 /* PROJECT CARDS (CREDIT CARD STYLE)         */
 /* ========================================= */
 .project-card {
-    position: absolute; 
-    left: 50%; 
-    margin-left: -85px; /* Exactly negative half of the 170px width */
-    top: 60px; 
-    width: 170px; /* Broader width to fit 7 comfortably */
-    background: #111; 
-    border: 4px solid #fff; 
-    box-shadow: 6px 6px 0 #000; 
-    z-index: 5; /* Starts behind */
-    opacity: 0;
-    transform: translateY(80px) scale(0.7); 
-    transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), margin-top 0.2s ease; 
-    cursor: pointer;
+    position: absolute; left: 50%; margin-left: -90px; 
+    bottom: 80px; 
+    width: 180px; background: #111; border: 4px solid #fff; box-shadow: 6px 6px 0 #000; 
+    z-index: 5; opacity: 0;
+    transform: translateY(0) scale(0.5); 
+    transition: opacity 0.3s ease, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), margin-top 0.2s ease; cursor: pointer;
 }
 
-/* CARDS JUMP TO FRONT WHEN OPEN */
 .wallet-stage.is-open .project-card { opacity: 1; z-index: 25; } 
+.project-card:hover { border-color: #ff77da; z-index: 50 !important; margin-top: -10px; box-shadow: 8px 8px 0 #ff77da; }
 
-.project-card:hover { border-color: #ff77da; z-index: 50 !important; margin-top: -15px; }
-
-/* 16:9 LANDSCAPE ASPECT RATIO (Short height, wide feel) */
-.card-img-container { 
-    width: 100%; 
-    aspect-ratio: 16 / 9; 
-    border-bottom: 4px solid #fff; 
-    background: #000; 
-    overflow: hidden; 
-}
+.card-img-container { width: 100%; aspect-ratio: 16 / 9; border-bottom: 4px solid #fff; background: #000; overflow: hidden; }
 .card-img-container img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.3s; }
 .project-card:hover .card-img-container img { opacity: 1; }
 
 .card-content { padding: 10px; }
-.card-role { font-family: 'Space Mono', monospace; font-size: 0.5rem; color: #ff77da; margin-bottom: 6px; font-weight: bold; }
+.card-role { font-family: 'Space Mono', monospace; font-size: 0.5rem; color: #ff77da; margin-bottom: 6px; font-weight: bold; text-transform: uppercase;}
 .card-title { font-family: 'Press Start 2P', cursive; font-size: 0.5rem; color: #fff; line-height: 1.4; }
 
-/* THE PERFECTLY CENTERED DESKTOP FAN (Adjusted for wider cards) */
-.wallet-stage.is-open .card-0 { transform: translateX(-470px) translateY(70px) rotate(-15deg); }
-.wallet-stage.is-open .card-1 { transform: translateX(-310px) translateY(20px) rotate(-10deg); }
-.wallet-stage.is-open .card-2 { transform: translateX(-155px) translateY(-10px) rotate(-5deg); }
-.wallet-stage.is-open .card-3 { transform: translateX(0px) translateY(-20px) rotate(0deg); } 
-.wallet-stage.is-open .card-4 { transform: translateX(155px) translateY(-10px) rotate(5deg); }
-.wallet-stage.is-open .card-5 { transform: translateX(310px) translateY(20px) rotate(10deg); }
-.wallet-stage.is-open .card-6 { transform: translateX(470px) translateY(70px) rotate(15deg); }
 
-/* TABLET VIEW */
-@media (max-width: 1300px) {
-    .project-card { width: 140px; margin-left: -70px; }
-    .wallet-stage.is-open .card-0 { transform: translateX(-370px) translateY(60px) rotate(-12deg); }
-    .wallet-stage.is-open .card-1 { transform: translateX(-245px) translateY(25px) rotate(-8deg); }
-    .wallet-stage.is-open .card-2 { transform: translateX(-120px) translateY(0px) rotate(-4deg); }
-    .wallet-stage.is-open .card-3 { transform: translateX(0px) translateY(-10px) rotate(0deg); }
-    .wallet-stage.is-open .card-4 { transform: translateX(120px) translateY(0px) rotate(4deg); }
-    .wallet-stage.is-open .card-5 { transform: translateX(245px) translateY(25px) rotate(8deg); }
-    .wallet-stage.is-open .card-6 { transform: translateX(370px) translateY(60px) rotate(12deg); }
+/* ========================================= */
+/* THE DESK GRID LAYOUT (Straight & Layered) */
+/* ========================================= */
+/* LEFT SIDE GRID (2x2) */
+.wallet-stage.is-open .card-0 { transform: translate(-420px, -320px); } 
+.wallet-stage.is-open .card-1 { transform: translate(-220px, -320px); } 
+.wallet-stage.is-open .card-2 { transform: translate(-420px, -110px); } 
+.wallet-stage.is-open .card-3 { transform: translate(-220px, -110px); } 
+
+/* RIGHT SIDE GRID (2x2) */
+.wallet-stage.is-open .card-4 { transform: translate(220px, -320px); } 
+.wallet-stage.is-open .card-5 { transform: translate(420px, -320px); } 
+.wallet-stage.is-open .card-6 { transform: translate(220px, -110px); } 
+.wallet-stage.is-open .card-7 { transform: translate(420px, -110px); } 
+
+
+/* TABLET VIEW (Compress spacing) */
+@media (max-width: 1200px) {
+    .project-card { width: 150px; margin-left: -75px; }
+    .wallet-stage.is-open .card-0 { transform: translate(-330px, -280px); }
+    .wallet-stage.is-open .card-1 { transform: translate(-170px, -280px); }
+    .wallet-stage.is-open .card-2 { transform: translate(-330px, -100px); }
+    .wallet-stage.is-open .card-3 { transform: translate(-170px, -100px); }
+    
+    .wallet-stage.is-open .card-4 { transform: translate(170px, -280px); }
+    .wallet-stage.is-open .card-5 { transform: translate(330px, -280px); }
+    .wallet-stage.is-open .card-6 { transform: translate(170px, -100px); }
+    .wallet-stage.is-open .card-7 { transform: translate(330px, -100px); }
+
+    /* Compress slip scatter slightly for smaller screens */
+    .wallet-stage.is-open .slip-1 { transform: translate(-400px, -150px) rotate(-15deg); }
+    .wallet-stage.is-open .slip-3 { transform: translate(400px, -100px) rotate(12deg); }
+    .wallet-stage.is-open .slip-5 { transform: translate(450px, -350px) rotate(-18deg); }
+    .wallet-stage.is-open .slip-6 { transform: translate(-450px, -50px) rotate(22deg); }
 }
 
-/* MOBILE VIEW */
+/* MOBILE VIEW (Vertical Stack) */
 @media (max-width: 768px) {
-    .menu-box { padding: 2rem 1rem 4rem; }
-    .hire-me-btn { right: 50%; transform: translateX(50%); bottom: -25px; }
-    .hire-me-btn:hover { transform: translateX(50%) translateY(-4px); }
-    
+    .loot-container { display: none; } /* Hide loot on mobile to keep layout clean */
     .wallet-stage.is-open { display: flex; flex-direction: column; align-items: center; gap: 2rem; padding-top: 2rem; padding-bottom: 250px; min-height: auto; }
-    .wallet-stage.is-open .project-card { position: relative; left: auto; margin-left: 0; top: auto; transform: none !important; width: 240px; opacity: 1; }
+    .wallet-stage.is-open .project-card { position: relative; left: auto; margin-left: 0; bottom: auto; transform: none !important; width: 240px; opacity: 1; }
     .wallet-container { position: fixed; bottom: 20px; z-index: 100; transform: translateX(-50%) scale(0.8); }
     .wallet-container.is-open { transform: translateX(-50%) scale(0.8) translateY(10px); }
 }
