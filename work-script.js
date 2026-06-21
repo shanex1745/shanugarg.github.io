@@ -43,7 +43,7 @@ if (walletTrigger && walletStage) {
 // --- 3. DYNAMIC PROJECT DATA RENDERER (FULL PDF CONTENT) ---
 const projectData = {
     proj1: { // NPS
-        title: "NPS: Intent-First Design", role: "UX DESIGNER & RESEARCHER", timeline: "Hackathon Sprint (2026)", themeIcons: ['🇮🇳', '💸', '📱', '🗣️'],
+        title: "NPS: Intent-First Design", role: "UX DESIGNER & RESEARCHER", timeline: "Hackathon Sprint (2026)", themeIcons: ['🇮🇳', '💸', '📱', '🗣️'], behanceLink: "https://www.behance.net/shanux17",
         tldr: {
             problem: "The NPS app prioritized rigid government compliance over human understanding—forcing users through complex KYC and error-prone OTP verifications before letting them see the plans.",
             solution: "An 'Intent-First' digital experience utilizing familiar e-commerce mental models and a Multilingual AI Voice Assistant.",
@@ -51,11 +51,11 @@ const projectData = {
         },
         dynamicHTML: `
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
-                <h3 class="section-heading">2. The Context & Problem Space</h3>
+                <h3 class="section-heading">The Context & Problem Space</h3>
                 <p><strong>The Systemic Flaw:</strong> Nearly 80% of working Indians are financially unprepared for retirement. The government's tool meant to solve this (NPS) was failing at the grassroots level. The onboarding demanded upfront identity verification, causing massive technical friction and drop-offs due to OTP errors, all while confusing users with dense financial jargon.</p>
                 <p><strong>Primary Stakeholders:</strong> Working Citizens (especially youth/informal sector) needing retirement planning, Corporate HR forced to manually collect paper forms due to app complexity, and the PFRDA (Government).</p>
                 
-                <h3 class="section-heading">3. Research & Discovery</h3>
+                <h3 class="section-heading">Research & Discovery</h3>
                 <p>We conducted Primary Heuristic Research, mapped the "As-Is" friction points, and performed Large-Scale Sentiment Analysis of over 100 recent app store reviews. We discovered that the "Compliance Wall" caused 60-70% of drop-offs due to OTP errors early in the process. Furthermore, asking for sensitive personal details (Biodata) before users understood the value proposition destroyed trust.</p>
             </div>
 
@@ -74,21 +74,21 @@ const projectData = {
             </div>
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
-                <h3 class="section-heading">5. Design Execution & AI Integration</h3>
+                <h3 class="section-heading">Design Execution & AI Integration</h3>
                 <p><strong>Major Design Challenge:</strong> How do you make highly complex financial forecasts accessible to low-literacy or first-time investors from the informal sector? Simplified text wasn't enough; we integrated a Multilingual AI Voice Assistant. If users were confused by a chart, they could ask the AI to clarify in their regional language.</p>
             </div>
             
             <div class="hero-image-placeholder" style="aspect-ratio: 21/9; margin-top: 1rem; margin-bottom: 2rem;">[IMAGE: AI Voice Assistant Interface translating financial jargon]</div>
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
-                <h3 class="section-heading">7. Impact & Core Learnings</h3>
+                <h3 class="section-heading">Impact & Core Learnings</h3>
                 <p>During testing, informal sector users naturally explored plans before committing, vastly improving their clarity. The AI voice support fascinated users, transitioning from a fallback to a primary engagement tool. We proved that public utilities can serve the marginalized without compromising on technical security or compliance.</p>
             </div>
         `
     },
 
     proj2: { // Corporate K-Oscars
-        title: "Moral Infrastructure", role: "LEAD UX & VISUAL DESIGNER", timeline: "Corporate Campaigns Sprint", themeIcons: ['🏢', '🎨', '🤖', '✨'],
+        title: "KDSI", role: "DIGITAL COMMUNICATION AI FELLOW", timeline: "Corporate Campaigns Sprint", themeIcons: ['🏢', '🎨', '🤖', '✨'], behanceLink: "https://www.behance.net/shanux17",
         tldr: {
             problem: "Internal comms suffered from generic templates lacking empathy, desktop-focused layouts, and AI-generated assets eroding trust through unchecked hallucinations.",
             solution: "A 4-phase human-centric design framework that established a unified visual identity from scratch and implemented strict human QA protocols.",
@@ -96,7 +96,7 @@ const projectData = {
         },
         dynamicHTML: `
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
-                <h3 class="section-heading">2. The Context & Problem Space</h3>
+                <h3 class="section-heading">The Context & Problem Space</h3>
                 <p>The organization's internal ecosystem was fragmented by "Breaking Down the Gaps": The Empathy Gap (generic templates), The Identity Gap (no baseline visual language), The Format Gap (desktop layouts vs mobile habits), and The Trust Gap (AI hallucinatory errors requiring heavy manual correction).</p>
             </div>
 
@@ -121,14 +121,14 @@ const projectData = {
             </div>
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
-                <h3 class="section-heading">6. Ethical & Governance Alignment</h3>
+                <h3 class="section-heading">Ethical & Governance Alignment</h3>
                 <p>This framework acts as "moral infrastructure." By conducting deep empathy research, we eliminated tokenism. Furthermore, by enforcing rigorous human oversight models on AI, we protected the organization's integrity, ensuring efficiency never superseded truth and accuracy.</p>
             </div>
         `
     },
 
     proj3: { // NAI
-        title: "National Archives of India", role: "UX RESEARCHER & UI DESIGNER", timeline: "Redesign Sprint", themeIcons: ['📜', '🏛️', '🔍', '♿'],
+        title: "National Archives of India", role: "UX RESEARCHER & UI DESIGNER", timeline: "Redesign Sprint", themeIcons: ['📜', '🏛️', '🔍', '♿'], behanceLink: "https://www.behance.net/gallery/217962985/Redesigning-National-Archives-of-India",
         tldr: {
             problem: "The National Archives platform functioned as a digital gatekeeper, suffering from an inaccessible architecture that systematically excluded screen-reader users and the public.",
             solution: "A modernized, WCAG-compliant digital repository with streamlined information architecture, intuitive search, and multilingual support.",
@@ -136,7 +136,7 @@ const projectData = {
         },
         dynamicHTML: `
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
-                <h3 class="section-heading">3. Research & Discovery</h3>
+                <h3 class="section-heading">Research & Discovery</h3>
                 <p>Through Heuristic Evaluation and Global Competitive Analysis, we uncovered severe Accessibility Barriers. Linguistic gatekeeping and three overlapping navigation bars with four levels of nested sub-menus caused massive navigational paralysis.</p>
             </div>
 
@@ -252,7 +252,11 @@ const projectData = {
     },
 
     proj4: { // Panchamitra & Meeting Management
-        title: "Mobile Panchamitra", role: "LEAD UX RESEARCHER & UI/UX DESIGNER", timeline: "FY 24-25 Focus", themeIcons: ['🌾', '📱', '🔊', '📊'],
+        title: "Mobile Panchamitra", 
+        behanceLink: "https://www.behance.net/shanux17",
+        role: "LEAD UX RESEARCHER & UI/UX DESIGNER", 
+        timeline: "FY 24-25 Focus", 
+        themeIcons: ['🌾', '📱', '🔊', '📊'],
         tldr: {
             problem: "Despite digitizing local governance data across 6,000 Gram Panchayats, rural citizens were entirely excluded from the platform due to systemic barriers in digital, numerical, and linguistic literacy.",
             solution: "An audio-first, low-data mobile platform for citizens, paired with a streamlined, error-preventing Meeting Management system for Panchayat officials.",
@@ -264,148 +268,40 @@ const projectData = {
                 <p>1-on-1 Usability Testing revealed "The Number Barrier": users completely failed to comprehend percentages or decimals. Furthermore, officials were manually copying shorthand notes under time pressure, resulting in vague civic records.</p>
             </div>
 
-            <h3 class="section-heading">DECODING THE BUREAUCRATIC MIND MAP</h3>
+            <h3 class="section-heading">I.A. DASHBOARD: THE MACRO SYSTEM</h3>
             <p style="color:#ccc; font-family: 'Space Mono', monospace; font-size:0.9rem; margin-bottom: 2rem; line-height: 1.6;">
-                Below is the complete, unedited structural blueprint mapping both the massive Panchatantra 2.0 ecosystem and the deep administrative Meeting Management (M.O.M) flows.
+                The original architecture possessed a deeply nested, overwhelming structure. I reorganized the core navigation into a unified dashboard, separating internal administrative tools from citizen-facing services.
             </p>
 
-            <div style="background: #0a0a12; padding: 2rem; border: 2px solid #333; border-radius: 8px; margin-bottom: 2rem; overflow-x: auto;">
+            <div style="display: flex; gap: 2rem; background: #050d1f; padding: 2.5rem; border: 2px solid #333; border-radius: 8px; margin-bottom: 3rem; overflow-x: auto; box-shadow: inset 0 0 20px rgba(0,0,0,0.5);">
                 
-                <!-- 1. PANCHATANTRA 2.0 MACRO MIND MAP (Pink) -->
-                <div style="margin-bottom: 3rem;">
-                    <div style="color: #ff77da; font-family: 'Press Start 2P', cursive; font-size: 0.7rem; margin-bottom: 1.5rem; text-shadow: 0 0 10px rgba(255,119,218,0.4);">[1] MODULES UNDER PANCHATANTRA 2.0</div>
+                <div style="width: 220px; flex-shrink: 0;">
+                    <div style="font-family: 'Press Start 2P', cursive; font-size: 0.6rem; color: rgba(108, 232, 255, 0.6); text-align: center; padding: 10px; border: 2px solid rgba(108, 232, 255, 0.2); background: #0a1535; margin-bottom: 15px; letter-spacing: 2px;">
+                        ◄ MAIN MENU ►
+                    </div>
                     
-                    <div style="display: flex; align-items: center; min-width: 900px; padding: 1rem 0;">
-                        <!-- Root -->
-                        <div style="background: rgba(255,119,218,0.1); border: 2px solid #ff77da; color: #ff77da; padding: 12px 20px; font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: bold; border-radius: 6px;">PANCHATANTRA ROOT</div>
-                        <div style="width: 30px; height: 2px; background: #ff77da;"></div>
-                        
-                        <!-- Level 1 Spine -->
-                        <div style="display: flex; flex-direction: column; border-left: 2px solid #ff77da; padding: 15px 0; gap: 15px;">
-                            
-                            <!-- Branch 1: Home Modules -->
-                            <div style="display: flex; align-items: flex-start;">
-                                <div style="width: 30px; height: 2px; background: #ff77da; margin-top: 15px;"></div>
-                                <div style="border: 1px solid #ff77da; color: #ff77da; padding: 8px 15px; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: bold; background: #111; min-width: 150px;">Home Modules</div>
-                                <div style="width: 30px; height: 2px; background: #ff77da; opacity: 0.5; margin-top: 15px;"></div>
-                                <div style="display: flex; flex-direction: column; border-left: 1px dashed #ff77da; padding: 5px 0; gap: 8px; opacity: 0.9;">
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff77da;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.65rem; color: #ff77da;">Citizen Services</div></div>
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff77da;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.65rem; color: #ff77da;">Revenue & Finance</div></div>
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff77da;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.65rem; color: #fff; background: rgba(255,255,255,0.2); padding: 2px 6px; font-weight: bold; border-radius: 2px;">Meeting Management (MOM)</div></div>
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff77da;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.65rem; color: #ff77da;">HRM Module (Recruitment, Payroll)</div></div>
-                                </div>
-                            </div>
-
-                            <!-- Branch 2: Search Flows -->
-                            <div style="display: flex; align-items: flex-start;">
-                                <div style="width: 30px; height: 2px; background: #ff77da; margin-top: 15px;"></div>
-                                <div style="border: 1px solid #ff77da; color: #ff77da; padding: 8px 15px; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: bold; background: #111; min-width: 150px;">Data Search Flows</div>
-                                <div style="width: 30px; height: 2px; background: #ff77da; opacity: 0.5; margin-top: 15px;"></div>
-                                <div style="display: flex; flex-direction: column; border-left: 1px dashed #ff77da; padding: 5px 0; gap: 8px; opacity: 0.9;">
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff77da;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.65rem; color: #ff77da;">Staff / Employee Details</div></div>
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff77da;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.65rem; color: #ff77da;">Total Meetings</div></div>
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff77da;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.65rem; color: #ff77da;">Events Conducted & Galleries</div></div>
-                                </div>
-                            </div>
-
+                    <div style="display: flex; flex-direction: column; gap: 6px;">
+                        <div style="padding: 12px; border: 2px solid #6ce8ff; background: rgba(108, 232, 255, 0.15); color: #6ce8ff; box-shadow: 0 0 15px rgba(108, 232, 255, 0.3), inset 0 0 10px rgba(108, 232, 255, 0.1); font-family: 'Press Start 2P', cursive; font-size: 0.6rem; line-height: 1.8;">
+                            ► HOME<br><span style="font-size: 0.5rem; opacity: 0.7; font-family: 'Space Mono', monospace;">PANCHATANTRA 2.0</span>
                         </div>
+                        <div style="padding: 12px 12px 12px 24px; border: 2px solid rgba(108, 232, 255, 0.2); background: #060d20; color: rgba(108, 232, 255, 0.5); font-family: 'Press Start 2P', cursive; font-size: 0.6rem;">ABOUT US</div>
+                        <div style="padding: 12px 12px 12px 24px; border: 2px solid rgba(108, 232, 255, 0.2); background: #060d20; color: rgba(108, 232, 255, 0.5); font-family: 'Press Start 2P', cursive; font-size: 0.6rem;">CONTACT US</div>
+                        <div style="padding: 12px 12px 12px 24px; border: 2px solid rgba(108, 232, 255, 0.2); background: #060d20; color: rgba(108, 232, 255, 0.5); font-family: 'Press Start 2P', cursive; font-size: 0.6rem;">RECRUITMENT</div>
+                        <div style="padding: 12px 12px 12px 24px; border: 2px solid rgba(108, 232, 255, 0.2); background: #060d20; color: rgba(108, 232, 255, 0.5); font-family: 'Press Start 2P', cursive; font-size: 0.6rem;">DOWNLOAD</div>
+                        <div style="padding: 12px 12px 12px 24px; border: 2px solid rgba(108, 232, 255, 0.2); background: #060d20; color: rgba(108, 232, 255, 0.5); font-family: 'Press Start 2P', cursive; font-size: 0.6rem;">ATTENDANCE</div>
+                        <div style="padding: 12px 12px 12px 24px; border: 2px solid rgba(108, 232, 255, 0.2); background: #060d20; color: rgba(108, 232, 255, 0.5); font-family: 'Press Start 2P', cursive; font-size: 0.6rem;">FEEDBACK</div>
                     </div>
                 </div>
 
-                <hr style="border: 0; border-top: 2px dashed #333; margin: 2rem 0;">
-
-                <!-- 2. MEETING MANAGEMENT MICRO MIND MAP (Cyan) -->
-                <div>
-                    <div style="color: #6ce8ff; font-family: 'Press Start 2P', cursive; font-size: 0.7rem; margin-bottom: 1.5rem; text-shadow: 0 0 10px rgba(108,232,255,0.4);">[2] M.O.M. ARCHITECTURE (FULL DEPTH)</div>
-                    
-                    <div style="display: flex; align-items: center; min-width: 1000px; padding: 1rem 0;">
-                        <!-- Root -->
-                        <div style="background: rgba(108,232,255,0.1); border: 2px solid #6ce8ff; color: #6ce8ff; padding: 12px 20px; font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: bold; border-radius: 6px;">M.O.M. PORTAL</div>
-                        <div style="width: 30px; height: 2px; background: #6ce8ff;"></div>
-                        
-                        <!-- Level 1 Spine -->
-                        <div style="display: flex; flex-direction: column; border-left: 2px solid #6ce8ff; padding: 10px 0; gap: 12px;">
-                            
-                            <!-- Create Meeting -->
-                            <div style="display: flex; align-items: flex-start;">
-                                <div style="width: 30px; height: 2px; background: #6ce8ff; margin-top: 15px;"></div>
-                                <div style="border: 1px solid #6ce8ff; color: #6ce8ff; padding: 8px 15px; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: bold; background: #111; min-width: 200px;">Create Meeting</div>
-                                <div style="width: 30px; height: 2px; background: #6ce8ff; opacity: 0.5; margin-top: 15px;"></div>
-                                <div style="display: flex; flex-direction: column; border-left: 1px dashed #6ce8ff; padding: 5px 0; gap: 6px; opacity: 0.8;">
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #6ce8ff;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6ce8ff;">List of Meetings</div></div>
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #6ce8ff;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6ce8ff;">Meeting Details</div></div>
-                                </div>
-                            </div>
-
-                            <!-- Add Participants -->
-                            <div style="display: flex; align-items: flex-start;">
-                                <div style="width: 30px; height: 2px; background: #6ce8ff; margin-top: 15px;"></div>
-                                <div style="border: 1px solid #6ce8ff; color: #6ce8ff; padding: 8px 15px; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: bold; background: #111; min-width: 200px;">Add New Participants</div>
-                                <div style="width: 30px; height: 2px; background: #6ce8ff; opacity: 0.5; margin-top: 15px;"></div>
-                                <div style="display: flex; flex-direction: column; border-left: 1px dashed #6ce8ff; padding: 5px 0; gap: 6px; opacity: 0.8;">
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #6ce8ff;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6ce8ff;">New Participant Details</div></div>
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #6ce8ff;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6ce8ff;">List of Participants</div></div>
-                                </div>
-                            </div>
-
-                            <!-- Start Meeting -->
-                            <div style="display: flex; align-items: flex-start;">
-                                <div style="width: 30px; height: 2px; background: #6ce8ff; margin-top: 15px;"></div>
-                                <div style="border: 1px solid #6ce8ff; color: #6ce8ff; padding: 8px 15px; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: bold; background: #111; min-width: 200px;">Start Meeting</div>
-                                <div style="width: 30px; height: 2px; background: #6ce8ff; opacity: 0.5; margin-top: 15px;"></div>
-                                <div style="display: flex; flex-direction: column; border-left: 1px dashed #6ce8ff; padding: 5px 0; gap: 6px; opacity: 0.8;">
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #6ce8ff;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6ce8ff;">Past / Today's / Future Meetings</div></div>
-                                </div>
-                            </div>
-
-                            <!-- Proceedings -->
-                            <div style="display: flex; align-items: flex-start;">
-                                <div style="width: 30px; height: 2px; background: #6ce8ff; margin-top: 15px;"></div>
-                                <div style="border: 1px solid #6ce8ff; color: #6ce8ff; padding: 8px 15px; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: bold; background: #111; min-width: 200px;">Meeting Proceeding</div>
-                                <div style="width: 30px; height: 2px; background: #6ce8ff; opacity: 0.5; margin-top: 15px;"></div>
-                                <div style="display: flex; flex-direction: column; border-left: 1px dashed #6ce8ff; padding: 5px 0; gap: 6px; opacity: 0.8;">
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #6ce8ff;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6ce8ff;">View Meeting & Details</div></div>
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #6ce8ff;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6ce8ff;">View / Sign Proceedings</div></div>
-                                </div>
-                            </div>
-
-                            <!-- Meeting List -->
-                            <div style="display: flex; align-items: flex-start;">
-                                <div style="width: 30px; height: 2px; background: #6ce8ff; margin-top: 15px;"></div>
-                                <div style="border: 1px solid #6ce8ff; color: #6ce8ff; padding: 8px 15px; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: bold; background: #111; min-width: 200px;">Meeting List</div>
-                                <div style="width: 30px; height: 2px; background: #6ce8ff; opacity: 0.5; margin-top: 15px;"></div>
-                                <div style="display: flex; flex-direction: column; border-left: 1px dashed #6ce8ff; padding: 5px 0; gap: 6px; opacity: 0.8;">
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #6ce8ff;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6ce8ff;">Notice / Cancel / Adjourn</div></div>
-                                </div>
-                            </div>
-
-                            <!-- Completed Remarks & ATR -->
-                            <div style="display: flex; align-items: flex-start;">
-                                <div style="width: 30px; height: 2px; background: #6ce8ff; margin-top: 15px;"></div>
-                                <div style="border: 1px solid #6ce8ff; color: #6ce8ff; padding: 8px 15px; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: bold; background: #111; min-width: 200px;">Completed Remarks & ATR</div>
-                                <div style="width: 30px; height: 2px; background: #6ce8ff; opacity: 0.5; margin-top: 15px;"></div>
-                                <div style="display: flex; flex-direction: column; border-left: 1px dashed #6ce8ff; padding: 5px 0; gap: 6px; opacity: 0.8;">
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #6ce8ff;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6ce8ff;">List / View / Print Proceedings</div></div>
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #6ce8ff;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6ce8ff;">Agenda List & Details</div></div>
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #6ce8ff;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6ce8ff;">Upload Leave Document</div></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                <div style="display: flex; flex-direction: column; justify-content: flex-start; padding-top: 72px;">
+                    <div style="color: #6ce8ff; font-family: monospace; font-size: 24px; text-shadow: 0 0 14px #6ce8ff; letter-spacing: -2px;">═════►</div>
                 </div>
 
-            </div>
-
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
-                <h3 class="section-heading">7. Impact & Reflections</h3>
-                <p>Data visualizations alone failed. But pairing animated visuals with Kannada audio narrations resulted in an 8x increase in comprehension. Stripping away decimals and formal language wasn't "dumbing down" the app; it was an act of profound respect for the user's cognitive load and reality.</p>
-            </div>
-        `
-    },
+                <div style="flex: 1; min-width: 400px;">
+                    <div style="display: inline-flex; align-items: center; gap: 10px; border: 2px solid #6ce8ff; background: rgba(108, 232, 255, 0.1); padding: 12px 20px
 
     proj5: { // Salt
-        title: "Salt: Urban Relocation Gap", role: "UX RESEARCHER & UI/UX DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['🏙️', '📦', '🗺️', '🐘'],
+        title: "Salt: Urban Relocation Gap", role: "UX RESEARCHER & UI/UX DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['🏙️', '📦', '🗺️', '🐘'], behanceLink: "https://www.behance.net/shanux17",
         tldr: {
             problem: "Residents relocating to new cities suffer from severe cognitive overload and isolation due to fragmented, unreliable access to daily essentials, transport, and culture.",
             solution: "Salt, a unified, community-driven 'super-app' that consolidates local commerce and transport comparison, while gamifying cultural integration.",
@@ -441,7 +337,7 @@ const projectData = {
     },
 
     proj6: { // Navya
-        title: "Navya: Dignified CP Care", role: "UX RESEARCHER & PRODUCT DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['♿', '🚿', '🦽', '❤️'],
+        title: "Navya: Dignified CP Care", role: "UX RESEARCHER & PRODUCT DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['♿', '🚿', '🦽', '❤️'], behanceLink: "https://www.behance.net/gallery/229048977/Baithing-Aid-for-Cerebral-Palsy-Children",
         tldr: {
             problem: "Bathing a growing child with Cerebral Palsy in a compact Indian bathroom is a hazardous, physically draining task causing caregiver burnout and patient guilt.",
             solution: "Navya, a compact, adaptable side-transfer bathing wheelchair specifically engineered for small spaces, eliminating the need to physically lift the child.",
@@ -477,7 +373,7 @@ const projectData = {
     },
 
     proj7: { // EZAM
-        title: "EZAM: Tactile Game Design", role: "UX RESEARCHER & UI/UX DESIGNER", timeline: "Design Impact Movement", themeIcons: ['🎲', '🧲', '🤝', '🧩'],
+        title: "EZAM: Tactile Game Design", role: "UX RESEARCHER & UI/UX DESIGNER", timeline: "Design Impact Movement", themeIcons: ['🎲', '🧲', '🤝', '🧩'], behanceLink: "https://www.behance.net/gallery/214356517/Portfolio",
         tldr: {
             problem: "Visually impaired (VI) and visually abled (VA) children lacked an equitable way to play; existing games gave VA children an advantage, leading to dynamics of pity.",
             solution: "EZAM, a tactile board game featuring a hidden magnetic maze that completely neutralizes visual advantages, forcing all players to rely on spatial memory.",
@@ -512,7 +408,7 @@ const projectData = {
     },
 
     proj8: { // CoolieCo
-        title: "CoolieCo: Formalizing Labor", role: "UX RESEARCHER & UI DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['🚂', '🧳', '🎫', '🤝'],
+        title: "CoolieCo: Formalizing Labor", role: "UX RESEARCHER & UI DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['🚂', '🧳', '🎫', '🤝'], behanceLink: "https://www.behance.net/gallery/219800943/CoolieCo",
         tldr: {
             problem: "A severe breakdown of trust between Indian railway travelers and coolies (porters) led to mutual avoidance, passenger injuries, and financial instability for labor.",
             solution: "An intuitive digital platform that formalizes baggage handling through standardized pricing, live tracking, and secure OTP-handshakes.",
@@ -563,7 +459,18 @@ window.openModal = function(projectId) {
     document.getElementById('modalSolution').innerText = data.tldr.solution;
     document.getElementById('modalImpact').innerText = data.tldr.impact;
     
-    document.getElementById('dynamicContentArea').innerHTML = data.dynamicHTML;
+    // Create the stylized SEE MORE button
+    const linkUrl = data.behanceLink || "https://www.behance.net/shanux17";
+    const buttonHTML = `
+        <div style="text-align: center; margin-top: 4rem; padding-bottom: 2rem;">
+            <a href="${linkUrl}" target="_blank" onmouseover="this.style.transform='translate(-4px, -4px)'; this.style.boxShadow='10px 10px 0 #244d66';" onmouseout="this.style.transform='none'; this.style.boxShadow='6px 6px 0 #244d66';" style="background: #6ce8ff; color: #092138; border: 4px solid #fff; box-shadow: 6px 6px 0 #244d66; font-family: 'Press Start 2P', cursive; font-size: 0.9rem; padding: 1rem 1.5rem; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: transform 0.1s, box-shadow 0.1s; cursor: pointer;">
+                SEE MORE ON BEHANCE <span style="font-family: sans-serif; font-size: 1.2rem; font-weight: bold;">↗</span>
+            </a>
+        </div>
+    `;
+
+    // Inject the dynamic HTML plus the new button
+    document.getElementById('dynamicContentArea').innerHTML = data.dynamicHTML + buttonHTML;
     
     const themeBox = document.getElementById('modalThemeGraphics');
     themeBox.innerHTML = '';
