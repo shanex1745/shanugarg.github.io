@@ -10,21 +10,24 @@
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
 
     <style>
-        /* --- UNLOCK SCROLLING --- */
-        html, body {
+        /* --- 1. UNLOCK SCROLLING --- */
+        html, body, .app-shell, #main-world {
             overflow-y: auto !important; 
             height: auto !important; 
             min-height: 100vh;
         }
-        
-        .app-shell, #main-world {
-            overflow-y: auto !important;
-            height: auto !important;
-            min-height: 100vh;
-}
-        /* --- DYNAMIC ENVIRONMENT (Same as Homepage) --- */
+
+        /* --- 2. NAVIGATION & CLICK FIX --- */
+        .hud { position: relative; z-index: 1000 !important; }
+        .nav { display: flex; gap: 25px; }
+        .nav a { color: #c9d1d9; text-decoration: none; transition: 0.3s; text-transform: uppercase; }
+        .nav a:hover { color: #7cff9b; }
+        .nav a.active { color: #7cff9b !important; border-bottom: 2px solid #7cff9b; padding-bottom: 4px; text-shadow: 0 0 10px rgba(124,255,155,0.4); }
+
+        /* --- DYNAMIC ENVIRONMENT --- */
         .cloud { animation: floatClouds 40s linear infinite; }
         @keyframes floatClouds { 0% { transform: translateX(-15vw) scale(0.85); } 100% { transform: translateX(115vw) scale(0.85); } }
+        
         .weather-rain::before {
             content: ''; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 100%);
@@ -33,6 +36,7 @@
         .weather-rain { animation: thunderFlash 12s infinite; }
         @keyframes rainDrop { 0% { background-position: 0 0; } 100% { background-position: 20px 100vh; } }
         @keyframes thunderFlash { 0%, 95%, 98% { filter: brightness(1); } 96%, 99% { filter: brightness(2.5); } }
+        
         .random-entity { position: absolute; pointer-events: none; z-index: 5; display: none; font-size: 80px; line-height: 1; }
         .dino-entity::after { content: '🦖'; } .dino-entity { bottom: 10%; animation: runAcross 15s linear infinite; }
         .robot-entity::after { content: '🤖'; } .robot-entity { bottom: 10%; animation: walkAcross 25s linear infinite reverse; }
@@ -66,7 +70,7 @@
         }
         .tv-screen-wrapper { position: relative; overflow: hidden; border-radius: 30px; border: 5px solid #222; aspect-ratio: 16/9; background: #0a0a0a; }
         .tv-screen { width: 100%; height: 100%; background-size: cover; background-position: center; transition: filter 0.1s; }
-        .scanlines { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06)); background-size: 100% 4px, 3px 100%; pointer-events: none; }
+        .scanlines-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06)); background-size: 100% 4px, 3px 100%; pointer-events: none; }
         .tv-glitch { filter: brightness(3) contrast(2) hue-rotate(90deg) saturate(0) !important; }
         .tv-controls { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding: 0 20px; }
         .tv-btn {
@@ -100,7 +104,6 @@
         .hobby-icon { font-size: 3rem; margin-bottom: 15px; filter: drop-shadow(2px 2px 0px #000); }
         .hobby-name { font-family: 'Press Start 2P', cursive; font-size: 0.6rem; color: #fff; }
         
-        /* Specific Button Colors for retro flair */
         .h-volleyball { border-color: #ff9900; } .h-swimming { border-color: #00ffff; }
         .h-badminton { border-color: #ff77da; } .h-movies { border-color: #ffd84f; }
         .h-anime { border-color: #7cff9b; }     .h-writing { border-color: #4fb1ff; }
@@ -108,7 +111,7 @@
 
         @media (max-width: 900px) {
             .hobbies-grid { grid-template-columns: repeat(2, 1fr); }
-            nav { flex-direction: column; gap: 15px; }
+            .nav { flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
@@ -116,7 +119,6 @@
 
 <div class="app-shell scanlines pixel-grid" id="main-world">
 
-    <!-- HOMEPAGE BACKGROUND ELEMENTS -->
     <div class="star" style="left:8%;top:16%"></div>
     <div class="star" style="left:21%;top:11%;animation-delay:.7s"></div>
     <div class="star" style="left:37%;top:19%;animation-delay:1.2s"></div>
@@ -138,14 +140,13 @@
     <div class="cat" style="left:42%"></div>
     <div class="ground"></div>
 
-    <!-- HUD NAVIGATION -->
     <header class="hud">
         <div class="hud-inner">
             <div class="brand">SHANU.EXE</div>
             <nav class="nav">
                 <a href="index.html">HOME</a>
                 <a href="work.html" onclick="rewardPlayer(2)">WORK</a>
-                <a href="activity.html" class="active">ACTIVITY</a> <!-- RENAMED! -->
+                <a href="activity.html" class="active">ACTIVITY</a>
                 <a href="play.html" onclick="rewardPlayer(2)">PLAY</a>
                 <a href="resume.html" onclick="rewardPlayer(5)">RESUME</a>
             </nav>
@@ -161,12 +162,10 @@
 
     <main id="top" class="container">
         
-        <!-- SECTION 1: PHOTO JOURNAL -->
         <div class="section-kicker">MODULE 01</div>
         <h1 class="section-title">PHOTO JOURNAL</h1>
         
         <div class="photo-grid">
-            <!-- Replace 'your-photo-1.jpg' with actual image paths -->
             <div class="polaroid" style="transform: rotate(-3deg);" onclick="rewardPlayer(2)">
                 <div class="polaroid-img" style="background: url('your-photo-1.jpg') center/cover;">[IMG_01]</div>
                 <div class="polaroid-caption">BLR_STREETS.JPG</div>
@@ -185,15 +184,13 @@
             </div>
         </div>
 
-        <!-- SECTION 2: ACHIEVEMENTS TV CAROUSEL -->
         <div class="section-kicker">MODULE 02</div>
         <h1 class="section-title">MILESTONES BROADCAST</h1>
         
         <div class="tv-container">
             <div class="tv-screen-wrapper">
-                <!-- TV Screen Image -->
                 <div class="tv-screen" id="tv-display" style="background-image: url('achievement-1.jpg'); background-color: #2a2a2a;"></div>
-                <div class="scanlines"></div>
+                <div class="scanlines-overlay"></div>
             </div>
             <div class="tv-controls">
                 <button class="tv-btn" onclick="prevChannel()">◀ CH-</button>
@@ -202,7 +199,6 @@
             </div>
         </div>
 
-        <!-- SECTION 3: POETRY FLIPBOOK / TERMINAL -->
         <div class="section-kicker">MODULE 03</div>
         <h1 class="section-title">THOUGHT ARCHIVE</h1>
         
@@ -217,7 +213,6 @@
             <button class="terminal-btn" onclick="nextPoem()">EXECUTE NEXT_FILE.EXE</button>
         </div>
 
-        <!-- SECTION 4: HOBBIES ARCADE BOARD -->
         <div class="section-kicker">MODULE 04</div>
         <h1 class="section-title">SKILL & HOBBY DECK</h1>
 
@@ -301,7 +296,6 @@
     });
 
     // --- 1. TV CAROUSEL LOGIC ---
-    // Add your achievement image paths here
     const tvChannels = [
         { img: 'url("achievement-1.jpg")', text: "CH 01: TITAN DESIGN WINNER" },
         { img: 'url("achievement-2.jpg")', text: "CH 02: BHARAT FELLOWSHIP TOP 20" },
@@ -313,10 +307,8 @@
     const tvCaption = document.getElementById('tv-caption');
 
     function changeChannelLogic(direction) {
-        // Trigger Glitch
         tvScreen.classList.add('tv-glitch');
-        rewardPlayer(1); // Reward for interacting
-        
+        rewardPlayer(1);
         setTimeout(() => {
             currentCh = (currentCh + direction + tvChannels.length) % tvChannels.length;
             tvScreen.style.backgroundImage = tvChannels[currentCh].img;
@@ -328,7 +320,6 @@
     function prevChannel() { changeChannelLogic(-1); }
 
     // --- 2. TERMINAL TYPEWRITER LOGIC ---
-    // Add your actual poems/writings here!
     const files = [
         { name: "SYSTEM_THOUGHTS.TXT", content: "Design is not just how it looks.\nIt is how the system breathes.\nWe build the invisible architecture\nso humans can walk without stumbling." },
         { name: "EMPATHY_LOG.TXT", content: "Lines of code.\nPixels on a screen.\nBut behind every data point,\nthere is a beating heart." },
@@ -344,7 +335,7 @@
         if (typeIndex < files[currentFile].content.length) {
             typeOutput.innerHTML += files[currentFile].content.charAt(typeIndex);
             typeIndex++;
-            typeInterval = setTimeout(typeWriter, 30); // Speed of typing
+            typeInterval = setTimeout(typeWriter, 30);
         }
     }
 
@@ -354,13 +345,10 @@
         fileNameDisplay.innerText = files[currentFile].name;
         typeOutput.innerHTML = "";
         typeIndex = 0;
-        rewardPlayer(2); // Reward for reading
+        rewardPlayer(2); 
         typeWriter();
     }
-
-    // Start typing first poem on load
     setTimeout(typeWriter, 1000);
-
 </script>
 </body>
 </html>
