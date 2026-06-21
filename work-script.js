@@ -141,25 +141,76 @@ const projectData = {
             </div>
 
             <h3 class="section-heading">THE ARCHITECTURAL OVERHAUL</h3>
-            <div class="before-after-grid" style="margin-bottom: 2rem;">
+            <div class="before-after-grid" style="margin-bottom: 3rem;">
                 <div class="ba-box">
                     <div class="ba-label label-before">BEFORE: THE MAZE</div>
-                    <div class="wireframe-placeholder" style="aspect-ratio: 16/9;">[IMAGE: Old NAI Homepage with 3 overlapping menus]</div>
+                    <div class="wireframe-placeholder" style="aspect-ratio: 16/9;">[IMAGE: Old NAI Homepage]</div>
                 </div>
                 <div class="ba-box">
                     <div class="ba-label label-after">AFTER: INTENT-DRIVEN</div>
-                    <div class="wireframe-placeholder" style="aspect-ratio: 16/9; border-color: #7cff9b; color:#7cff9b;">[IMAGE: New NAI Homepage with prominent search]</div>
+                    <div class="wireframe-placeholder" style="aspect-ratio: 16/9; border-color: #7cff9b; color:#7cff9b;">[IMAGE: New NAI Homepage]</div>
                 </div>
             </div>
             
-            <h3 class="section-heading">INTERACTIVE I.A. RESTRUCTURE</h3>
-            <div class="ia-tree-container" style="margin-bottom: 2rem;">
-                <div class="ia-node">ABHILEKH PATAL (ROOT)</div>
-                <div style="width: 2px; height: 20px; background: #6ce8ff;"></div>
-                <div class="ia-branches">
-                    <div class="ia-branch"><div class="ia-node">Record Search</div></div>
-                    <div class="ia-branch"><div class="ia-node">Research & Reference</div></div>
-                    <div class="ia-branch"><div class="ia-node">Learning & Training</div></div>
+            <h3 class="section-heading">I.A. RESTRUCTURE: FROM MAZE TO CLARITY</h3>
+            
+            <div style="display: flex; flex-direction: column; gap: 3rem; background: #111; padding: 3rem 1rem; border: 2px dashed #444; border-radius: 8px; margin-bottom: 2rem;">
+                
+                <div>
+                    <div class="ba-label label-before" style="text-align: center; margin-bottom: 1.5rem;">BEFORE: COGNITIVE OVERLOAD (4 Levels Deep)</div>
+                    <div style="display: flex; flex-direction: column; align-items: center; opacity: 0.6;">
+                        <div style="border: 2px dashed #ff5555; color: #ff5555; padding: 8px 16px; font-family: 'Space Mono', monospace; font-size: 0.8rem;">OLD NAI PORTAL</div>
+                        <div style="width: 2px; height: 15px; background: #ff5555;"></div>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; max-width: 600px;">
+                            <div style="border: 1px solid #ff5555; color: #ff5555; padding: 6px 12px; font-size: 0.6rem; font-family: 'Space Mono', monospace;">About Us</div>
+                            <div style="border: 1px solid #ff5555; color: #ff5555; padding: 6px 12px; font-size: 0.6rem; font-family: 'Space Mono', monospace;">Records</div>
+                            <div style="border: 1px solid #ff5555; color: #ff5555; padding: 6px 12px; font-size: 0.6rem; font-family: 'Space Mono', monospace;">Exhibitions</div>
+                            <div style="border: 1px solid #ff5555; color: #ff5555; padding: 6px 12px; font-size: 0.6rem; font-family: 'Space Mono', monospace;">Publications</div>
+                            <div style="border: 1px solid #ff5555; color: #ff5555; padding: 6px 12px; font-size: 0.6rem; font-family: 'Space Mono', monospace;">Public Relations</div>
+                            <div style="border: 1px solid #ff5555; color: #ff5555; padding: 6px 12px; font-size: 0.6rem; font-family: 'Space Mono', monospace;">RTI</div>
+                            <div style="border: 1px solid #ff5555; color: #ff5555; padding: 6px 12px; font-size: 0.6rem; font-family: 'Space Mono', monospace;">Tenders</div>
+                            <div style="border: 1px dashed #ff5555; color: #ff5555; padding: 6px 12px; font-size: 0.6rem; font-family: 'Space Mono', monospace;">...and 3 deeper sub-levels</div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr style="border: 0; border-top: 2px solid #333; margin: 0 2rem;">
+
+                <div>
+                    <div class="ba-label label-after" style="text-align: center; margin-bottom: 2rem;">AFTER: 3-PILLAR INTENT SYSTEM</div>
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        
+                        <div style="background: #fff; color: #000; font-weight: bold; padding: 15px 30px; font-family: 'Space Mono', monospace; border-radius: 4px; box-shadow: 0 6px 20px rgba(255,255,255,0.15); z-index: 2;">
+                            ABHILEKH PATAL
+                        </div>
+                        <div style="width: 3px; height: 30px; background: #fff;"></div>
+                        
+                        <div style="display: flex; width: 100%; max-width: 650px; justify-content: space-between; position: relative;">
+                            
+                            <div style="position: absolute; top: 0; left: 16%; right: 16%; height: 3px; background: #fff;"></div>
+                            
+                            <div style="display: flex; flex-direction: column; align-items: center; width: 30%; position: relative;">
+                                <div style="width: 3px; height: 25px; background: #fff;"></div>
+                                <div style="background: #fff; color: #000; padding: 12px; font-family: 'Space Mono', monospace; font-size: 0.8rem; text-align: center; border-radius: 4px; width: 100%; font-weight: bold;">
+                                    🔍 Record Search
+                                </div>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; align-items: center; width: 30%; position: relative;">
+                                <div style="width: 3px; height: 25px; background: #fff;"></div>
+                                <div style="background: #fff; color: #000; padding: 12px; font-family: 'Space Mono', monospace; font-size: 0.8rem; text-align: center; border-radius: 4px; width: 100%; font-weight: bold;">
+                                    📚 Research & Ref
+                                </div>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; align-items: center; width: 30%; position: relative;">
+                                <div style="width: 3px; height: 25px; background: #fff;"></div>
+                                <div style="background: #fff; color: #000; padding: 12px; font-family: 'Space Mono', monospace; font-size: 0.8rem; text-align: center; border-radius: 4px; width: 100%; font-weight: bold;">
+                                    🎓 Learning
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
