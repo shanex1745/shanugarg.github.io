@@ -127,48 +127,48 @@
             <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gargshanupriya@gmail.com" target="_blank" class="hire-me-btn">HIRE ME <i data-lucide="arrow-right"></i></a>
             
         </div>
-   </main>
-
-    <div class="modal-overlay" id="projectModal" onclick="closeModal(event)">
-        <div class="modal-content advanced-modal" onclick="event.stopPropagation()">
-            <button class="close-btn" onclick="closeModal(event)"><i data-lucide="x"></i> ESCAPE</button>
-            
-            <div id="modalThemeGraphics" class="theme-graphics"></div>
-
-            <div class="modal-hero">
-                <div class="modal-tags">
-                    <span class="role-tag" id="modalRole">[ROLE]</span>
-                    <span class="time-tag" id="modalTimeline">[TIMELINE]</span>
-                </div>
-                <h2 id="modalTitle" class="glitch-title">[PROJECT TITLE]</h2>
+       </main>
+    
+        <div class="modal-overlay" id="projectModal" onclick="closeModal(event)">
+            <div class="modal-content advanced-modal" onclick="event.stopPropagation()">
+                <button class="close-btn" onclick="closeModal(event)"><i data-lucide="x"></i> ESCAPE</button>
                 
-                <div class="hero-image-placeholder" id="modalHeroImg">
-                    <span>[HERO IMAGE PLACEHOLDER: 16:9 Context Shot]</span>
+                <div id="modalThemeGraphics" class="theme-graphics"></div>
+    
+                <div class="modal-hero">
+                    <div class="modal-tags">
+                        <span class="role-tag" id="modalRole">[ROLE]</span>
+                        <span class="time-tag" id="modalTimeline">[TIMELINE]</span>
+                    </div>
+                    <h2 id="modalTitle" class="glitch-title">[PROJECT TITLE]</h2>
+                    
+                    <div class="hero-image-placeholder" id="modalHeroImg">
+                        <span>[HERO IMAGE PLACEHOLDER: 16:9 Context Shot]</span>
+                    </div>
                 </div>
+    
+                <div class="tldr-section">
+                    <h3>> SYSTEM SNAPSHOT</h3>
+                    <div class="tldr-grid">
+                        <div class="tldr-box problem-box">
+                            <h4>THE FLAW</h4>
+                            <p id="modalProblem"></p>
+                        </div>
+                        <div class="tldr-box solution-box">
+                            <h4>THE FIX</h4>
+                            <p id="modalSolution"></p>
+                        </div>
+                        <div class="tldr-box impact-box">
+                            <h4>THE IMPACT</h4>
+                            <p id="modalImpact"></p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div id="dynamicContentArea" class="dynamic-content-area">
+                    </div>
+    
             </div>
-
-            <div class="tldr-section">
-                <h3>> SYSTEM SNAPSHOT</h3>
-                <div class="tldr-grid">
-                    <div class="tldr-box problem-box">
-                        <h4>THE FLAW</h4>
-                        <p id="modalProblem"></p>
-                    </div>
-                    <div class="tldr-box solution-box">
-                        <h4>THE FIX</h4>
-                        <p id="modalSolution"></p>
-                    </div>
-                    <div class="tldr-box impact-box">
-                        <h4>THE IMPACT</h4>
-                        <p id="modalImpact"></p>
-                    </div>
-                </div>
-            </div>
-
-            <div id="dynamicContentArea" class="dynamic-content-area">
-                </div>
-
-        </div>
     </div>
     
 </div> <script>lucide.createIcons();</script>
