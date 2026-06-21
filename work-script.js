@@ -253,7 +253,7 @@ const projectData = {
 
     proj4: { // Panchamitra & Meeting Management
         title: "Mobile Panchamitra", 
-        behanceLink: "https://www.behance.net/shanux17",
+        behanceLink: "https://www.youtube.com/watch?v=QuULupXWl8M",
         role: "LEAD UX RESEARCHER & UI/UX DESIGNER", 
         timeline: "FY 24-25 Focus", 
         themeIcons: ['🌾', '📱', '🔊', '📊'],
@@ -596,7 +596,7 @@ const projectData = {
             </div>
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
-                <h3 class="section-heading">7. Impact & Reflections</h3>
+                <h3 class="section-heading">Impact & Reflections</h3>
                 <p>Data visualizations alone failed. But pairing animated visuals with Kannada audio narrations resulted in an 8x increase in comprehension. Stripping away decimals and formal language wasn't "dumbing down" the app; it was an act of profound respect for the user's cognitive load and reality.</p>
             </div>
         `
