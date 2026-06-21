@@ -298,7 +298,196 @@ const projectData = {
                 </div>
 
                 <div style="flex: 1; min-width: 400px;">
-                    <div style="display: inline-flex; align-items: center; gap: 10px; border: 2px solid #6ce8ff; background: rgba(108, 232, 255, 0.1); padding: 12px 20px
+                    <div style="display: inline-flex; align-items: center; gap: 10px; border: 2px solid #6ce8ff; background: rgba(108, 232, 255, 0.1); padding: 12px 20px; font-family: 'Press Start 2P', cursive; font-size: 0.7rem; color: #6ce8ff; text-shadow: 0 0 10px #6ce8ff; margin-bottom: 25px; box-shadow: 0 0 20px rgba(108, 232, 255, 0.2);">
+                        ► HOME / PANCHATANTRA 2.0
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; border-left: 2px solid #6ce8ff; margin-left: 20px; padding: 10px 0; gap: 10px;">
+                        <div style="display: flex; align-items: center;">
+                            <div style="width: 30px; height: 2px; background: #6ce8ff;"></div>
+                            <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 10px 15px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.8rem; min-width: 250px;">FINANCE & ACCOUNTING</div>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <div style="width: 30px; height: 2px; background: #6ce8ff;"></div>
+                            <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 10px 15px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.8rem; min-width: 250px;">REVENUE COLLECTION</div>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <div style="width: 30px; height: 2px; background: #6ce8ff;"></div>
+                            <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 10px 15px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.8rem; min-width: 250px;">CITIZEN SERVICES</div>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <div style="width: 30px; height: 2px; background: #6ce8ff;"></div>
+                            <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 10px 15px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.8rem; min-width: 250px;">PLANNING</div>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <div style="width: 30px; height: 2px; background: #6ce8ff;"></div>
+                            <div style="border: 2px solid #6ce8ff; background: #6ce8ff; color: #000; padding: 10px 15px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.8rem; min-width: 250px; box-shadow: 0 0 15px #6ce8ff;">HRMS MODULE</div>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <div style="width: 30px; height: 2px; background: #6ce8ff;"></div>
+                            <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 10px 15px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.8rem; min-width: 250px;">PUBLIC INFO PORTAL</div>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <div style="width: 30px; height: 2px; background: #6ce8ff;"></div>
+                            <div style="border: 2px solid #6ce8ff; background: #6ce8ff; color: #000; padding: 10px 15px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.8rem; min-width: 250px; box-shadow: 0 0 15px #6ce8ff;">MEETING MANAGEMENT (MOM)</div>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <div style="width: 30px; height: 2px; background: #6ce8ff;"></div>
+                            <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 10px 15px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.8rem; min-width: 250px;">OTHER DEPT. SERVICES</div>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <div style="width: 30px; height: 2px; background: #6ce8ff;"></div>
+                            <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 10px 15px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.8rem; min-width: 250px;">LEARNING & KNOWLEDGE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="section-heading" style="margin-top: 4rem;">I.A. TREE: MEETING MANAGEMENT (M.O.M)</h3>
+            <p style="color:#ccc; font-family: 'Space Mono', monospace; font-size:0.9rem; margin-bottom: 2rem; line-height: 1.6;">
+                Zooming into the administrative side, the Meeting Management architecture was rebuilt into a linear, sequential flow to eliminate data entry errors by Panchayat officials.
+            </p>
+
+            <div style="display: flex; gap: 2rem; background: #050d1f; padding: 2.5rem; border: 2px solid #333; border-radius: 8px; margin-bottom: 3rem; overflow-x: auto; box-shadow: inset 0 0 20px rgba(0,0,0,0.5);">
+                
+                <div style="flex-shrink: 0; display: flex; align-items: flex-start; padding-top: 10px;">
+                    <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 12px 15px; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; text-align: center; box-shadow: 0 0 15px rgba(108,232,255,0.3); line-height: 1.6;">
+                        MEETING<br>MODULE
+                    </div>
+                    <div style="color: #6ce8ff; font-family: monospace; font-size: 20px; text-shadow: 0 0 10px #6ce8ff; margin-left: 10px; margin-top: 8px;">════►</div>
+                </div>
+
+                <div style="flex: 1; border-left: 2px solid rgba(108,232,255,0.3); padding-left: 15px; display: flex; flex-direction: column; gap: 12px; min-width: max-content;">
+
+                    <div style="display: flex; flex-direction: column; gap: 6px;">
+                        <div style="display: flex; align-items: center;">
+                            <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
+                            <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">CREATE MEETING</div>
+                            <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
+                            <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">LIST OF MEETINGS</div>
+                            <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
+                            <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">MEETING DETAILS</div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 6px; margin-left: 30px; border-left: 2px solid rgba(108,232,255,0.2); padding-left: 15px;">
+                            <div style="display: flex; align-items: center;">
+                                <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">└►</span>
+                                <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">ADD NEW PARTICIPANTS</div>
+                                <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
+                                <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">NEW PARTICIPANT DETAILS</div>
+                            </div>
+                            <div style="display: flex; align-items: center; margin-left: 30px; border-left: 2px solid rgba(108,232,255,0.2); padding-left: 15px;">
+                                <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">└►</span>
+                                <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">LIST OF PARTICIPANTS</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center;">
+                        <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
+                        <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">START MEETING</div>
+                        <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
+                        <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">PAST MEETINGS</div>
+                        <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
+                        <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">TODAY'S MEETING</div>
+                        <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
+                        <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">FUTURE MEETINGS</div>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 6px;">
+                        <div style="display: flex; align-items: center;">
+                            <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
+                            <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">MEETING PROCEEDING</div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 6px; margin-left: 30px; border-left: 2px solid rgba(108,232,255,0.2); padding-left: 15px;">
+                            <div style="display: flex; align-items: center;">
+                                <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
+                                <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">VIEW MEETING...</div>
+                                <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
+                                <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">VIEW PROCEEDINGS</div>
+                                <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
+                                <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">SIGN PROCEEDINGS</div>
+                            </div>
+                            <div style="display: flex; align-items: center;">
+                                <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">└►</span>
+                                <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">MEETING DETAILS</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; align-items: center;">
+                        <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
+                        <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">MEETING LIST</div>
+                        <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
+                        <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">VIEW MEETING</div>
+                        <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
+                        <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">MEETING NOTICE</div>
+                        <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
+                        <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">CANCEL MEETING</div>
+                        <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
+                        <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">ADJOURN MEETING</div>
+                    </div>
+
+                    <div style="display: flex; align-items: center;">
+                        <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
+                        <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">PARTICIPANT DETAILS</div>
+                    </div>
+
+                    <div style="display: flex; align-items: center;">
+                        <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
+                        <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">COMPLETED REMARK</div>
+                        <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
+                        <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">LIST OF MEETINGS</div>
+                        <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
+                        <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">VIEW PROCEEDINGS</div>
+                        <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
+                        <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">SIGN NOTICE</div>
+                        <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
+                        <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">PRINT PROCEEDINGS</div>
+                    </div>
+
+                    <div style="display: flex; align-items: center;">
+                        <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
+                        <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">SUB COMMITTEE MAP</div>
+                    </div>
+
+                    <div style="display: flex; align-items: center;">
+                        <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
+                        <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">ADD MAPPING</div>
+                    </div>
+
+                    <div style="display: flex; align-items: center;">
+                        <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
+                        <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">ATR UPDATE</div>
+                        <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
+                        <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">AGENDA LIST</div>
+                        <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
+                        <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">AGENDA DETAILS</div>
+                    </div>
+
+                    <div style="display: flex; align-items: center;">
+                        <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">└►</span>
+                        <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">UPLOAD LEAVE DOC</div>
+                        <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
+                        <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">MEETING NAME</div>
+                        <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
+                        <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">LIST OF ENTRIES</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <h3 class="section-heading">AUDIO-FIRST DATA VISUALIZATION</h3>
+            <div class="hero-image-placeholder" style="aspect-ratio: 21/9; margin-bottom: 2rem;">
+                <img src="assets/rdpr-audio-ui.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Mobile Panchamitra UI" onerror="this.style.display='none'">
+                <span style="position: absolute; pointer-events: none;">[IMAGE: High-contrast progress bars with spoken Kannada 'Audio' buttons]</span>
+            </div>
+
+            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
+                <h3 class="section-heading">7. Impact & Reflections</h3>
+                <p>Data visualizations alone failed. But pairing animated visuals with Kannada audio narrations resulted in an 8x increase in comprehension. Stripping away decimals and formal language wasn't "dumbing down" the app; it was an act of profound respect for the user's cognitive load and reality.</p>
+            </div>
+        `
+    },
 
     proj5: { // Salt
         title: "Salt: Urban Relocation Gap", role: "UX RESEARCHER & UI/UX DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['🏙️', '📦', '🗺️', '🐘'], behanceLink: "https://www.behance.net/shanux17",
