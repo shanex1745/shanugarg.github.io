@@ -140,27 +140,29 @@ const projectData = {
         },
         dynamicHTML: `
             <style>
-                /* Cyberpunk/Retro IA Shared Styles */
-                .retro-title { font-family: 'Press Start 2P', cursive; font-size: 7px; padding: 10px 16px; letter-spacing: 1px; border: 2px solid; background: #060d20; display: inline-block; margin-bottom: -2px; position: relative; z-index: 2; white-space: nowrap; text-shadow: none; box-shadow: none; }
-                .retro-content { border: 2px solid; background: #050d1f; padding: 20px 16px; overflow: hidden; margin-bottom: 25px; box-shadow: none; }
+                /* Cyberpunk/Retro Clean IA Styles */
+                .retro-title { font-family: 'Press Start 2P', cursive; font-size: 7px; padding: 8px 14px; letter-spacing: 1px; border: 1px solid; background: #060d20; display: inline-block; margin-bottom: -1px; position: relative; z-index: 2; white-space: nowrap; }
+                .retro-content { border: 1px solid; background: #050d1f; padding: 20px 16px; overflow: hidden; margin-bottom: 25px; }
                 
-                /* Tree Typography and Spacing */
-                .ia-parent { border: 1px solid; padding: 6px 10px; font-family: 'Space Mono', monospace; font-size: 10px; white-space: nowrap; flex-shrink: 0; background: rgba(0,0,0,0.3); }
-                .ia-tag { border: 1px solid; padding: 4px 8px; font-size: 9px; font-family: 'Space Mono', monospace; background: rgba(0,0,0,0.2); }
-                .branch-icon { font-family: monospace; font-size: 12px; margin-right: 8px; margin-top: 4px; flex-shrink: 0; opacity: 0.6; }
-                .flow-icon { font-family: monospace; font-size: 12px; margin: 4px 8px 0; flex-shrink: 0; opacity: 0.4; }
+                /* Old IA Grid Elements */
+                .ia-parent { border: 1px solid; padding: 6px 10px; font-family: 'Space Mono', monospace; font-size: 9px; white-space: nowrap; flex-shrink: 0; background: rgba(0,0,0,0.3); }
+                .ia-tag { border: 1px solid; padding: 3px 6px; font-size: 8px; font-family: 'Space Mono', monospace; background: rgba(0,0,0,0.2); }
+                .branch-icon { font-family: monospace; font-size: 12px; margin-right: 8px; margin-top: 2px; flex-shrink: 0; opacity: 0.6; }
+                .flow-icon { font-family: monospace; font-size: 12px; margin: 2px 8px 0; flex-shrink: 0; opacity: 0.4; }
                 
-                /* Vertical Deep Tree Styles */
-                .v-node { border: 1px solid; padding: 5px 10px; font-family: 'Space Mono', monospace; font-size: 9px; display: inline-block; background: rgba(0,0,0,0.2); }
-                .v-row { display: flex; align-items: flex-start; margin-bottom: 8px; }
-                .v-children { border-left: 1px dashed; margin-left: 12px; padding-left: 16px; margin-bottom: 12px; padding-top: 4px; display: flex; flex-direction: column; }
+                /* Old IA Vertical Tree */
+                .v-node { border: 1px solid; padding: 5px 10px; font-family: 'Space Mono', monospace; font-size: 9px; display: inline-block; background: rgba(0,0,0,0.3); }
+                .v-row { display: flex; align-items: flex-start; margin-bottom: 6px; }
+                .v-children { border-left: 1px dashed; margin-left: 12px; padding-left: 16px; margin-bottom: 10px; padding-top: 4px; display: flex; flex-direction: column; }
+                .v-tree-icon { font-family: monospace; font-size: 12px; margin-right: 8px; flex-shrink: 0; line-height: 20px; opacity: 0.6; }
                 
-                /* New IA Horizontal Tree Styles */
-                .t-root { border: 2px solid; padding: 12px 16px; font-family: 'Press Start 2P', cursive; font-size: 9px; letter-spacing: 2px; text-align: center; background: #060d20; z-index: 2; position: relative; }
-                .t-node { border: 1px solid; padding: 6px 10px; font-family: 'Space Mono', monospace; font-size: 9px; font-weight: bold; flex-shrink: 0; white-space: nowrap; background: #050d1f; }
-                .t-h { height: 1px; flex-shrink: 0; }
-                .t-v { border-left: 1px dashed; display: flex; flex-direction: column; gap: 8px; padding-left: 0; margin-top: 0; }
-                .t-branch { display: flex; align-items: center; }
+                /* New IA Horizontal Expanding Tree */
+                .h-root { border: 1px solid; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 8px; letter-spacing: 1px; background: rgba(0,0,0,0.4); display: inline-block; margin-top: 4px;}
+                .h-node { border: 1px solid; padding: 5px 10px; font-family: 'Space Mono', monospace; font-size: 9px; background: rgba(0,0,0,0.3); white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+                .h-leaf { border: 1px solid; padding: 4px 8px; font-family: 'Space Mono', monospace; font-size: 8px; background: rgba(0,0,0,0.2); white-space: nowrap; flex-shrink: 0; margin-top: 1px;}
+                .h-branch { display: flex; align-items: flex-start; gap: 6px; margin-bottom: 4px; }
+                .h-children { display: flex; flex-direction: column; border-left: 1px dashed; padding-left: 14px; margin-left: 8px; margin-bottom: 4px;}
+                .h-icon { font-family: monospace; font-size: 12px; flex-shrink: 0; opacity: 0.6; margin-top: 2px; }
             </style>
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 3rem;">
@@ -173,10 +175,13 @@ const projectData = {
                 The legacy architecture forced users to navigate three entirely separate, conflicting navigation structures, alongside a deep 5-level vertical tree. Below is the exhaustive map of the old system's cognitive overload.
             </p>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 2rem; align-items: start;">
+            <!-- OLD I.A. PERFECTLY BALANCED GRID LAYOUT -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 2rem; align-items: stretch;">
                 
+                <!-- LEFT COLUMN: Categories & Horizontal Navs -->
                 <div style="display: flex; flex-direction: column; min-width: 0;">
                     
+                    <!-- Explore Archive -->
                     <div>
                         <div class="retro-title" style="color: #00ffff; border-color: #00ffff;">► EXPLORE NATIONAL ARCHIVE</div>
                         <div class="retro-content" style="border-color: #00ffff;">
@@ -195,6 +200,7 @@ const projectData = {
                         </div>
                     </div>
 
+                    <!-- National Archives -->
                     <div>
                         <div class="retro-title" style="color: #ff6655; border-color: #ff6655;">► NATIONAL ARCHIVES</div>
                         <div class="retro-content" style="border-color: #ff6655;">
@@ -207,6 +213,7 @@ const projectData = {
                         </div>
                     </div>
 
+                    <!-- Resources -->
                     <div>
                         <div class="retro-title" style="color: #ffbb44; border-color: #ffbb44;">► RESOURCES</div>
                         <div class="retro-content" style="border-color: #ffbb44;">
@@ -221,9 +228,10 @@ const projectData = {
                         </div>
                     </div>
 
+                    <!-- Horizontal Navigation BARS (Moved into left column to balance layout) -->
                     <div>
                         <div class="retro-title" style="color: #ff44cc; border-color: #ff44cc;">► HORIZONTAL NAVIGATION BARS</div>
-                        <div class="retro-content" style="border-color: #ff44cc;">
+                        <div class="retro-content" style="border-color: #ff44cc; margin-bottom: 0;">
                             <div style="border-left: 1px solid rgba(255,68,204,0.3); padding-left: 12px; display: flex; flex-direction: column; gap: 20px;">
                                 <div>
                                     <div style="display: flex; align-items: flex-start;">
@@ -247,12 +255,15 @@ const projectData = {
 
                 </div>
 
+                <!-- RIGHT COLUMN: Vertical Deep Navigation (Heights matched to left column) -->
                 <div style="display: flex; flex-direction: column; min-width: 0; height: 100%;">
                     <div class="retro-title" style="color: #4488ff; border-color: #4488ff;">► VERTICAL NAVIGATION (DEEP TREE OVERLAP)</div>
-                    <div class="retro-content" style="border-color: #4488ff; flex: 1;">
+                    <div class="retro-content" style="border-color: #4488ff; flex: 1; margin-bottom: 0;">
                         
+                        <!-- L1 ROOT -->
                         <div class="v-row"><div class="v-node" style="color: #4488ff; border-color: #4488ff;">HOME</div></div>
                         
+                        <!-- L2 About Us -->
                         <div class="v-children" style="border-color: rgba(68,136,255,0.3);">
                             <div class="v-row"><span class="v-tree-icon" style="color: #44dd88;">├►</span><div class="v-node" style="color: #44dd88; border-color: #44dd88;">ABOUT US</div></div>
                             <div class="v-children" style="border-color: rgba(68,221,136,0.3);">
@@ -268,6 +279,7 @@ const projectData = {
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">└►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">GOVERNANCE</div></div>
                             </div>
                             
+                            <!-- L2 Collections -->
                             <div class="v-row"><span class="v-tree-icon" style="color: #44dd88;">├►</span><div class="v-node" style="color: #44dd88; border-color: #44dd88;">COLLECTIONS</div></div>
                             <div class="v-children" style="border-color: rgba(68,221,136,0.3);">
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">├►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">DIGITAL ARCHIVE</div></div>
@@ -282,6 +294,7 @@ const projectData = {
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">└►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">SPECIAL COLLECTIONS</div></div>
                             </div>
 
+                            <!-- L2 Research -->
                             <div class="v-row"><span class="v-tree-icon" style="color: #44dd88;">├►</span><div class="v-node" style="color: #44dd88; border-color: #44dd88;">RESEARCH</div></div>
                             <div class="v-children" style="border-color: rgba(68,221,136,0.3);">
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">├►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">READING ROOM</div></div>
@@ -293,6 +306,7 @@ const projectData = {
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">└►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">RESEARCH GUIDANCE</div></div>
                             </div>
 
+                            <!-- L2 Exhibitions & Education -->
                             <div class="v-row"><span class="v-tree-icon" style="color: #44dd88;">├►</span><div class="v-node" style="color: #44dd88; border-color: #44dd88;">EXHIBITIONS</div></div>
                             <div class="v-children" style="border-color: rgba(68,221,136,0.3);">
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">├►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">CURRENT EXHIBITIONS</div></div>
@@ -300,12 +314,14 @@ const projectData = {
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">└►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">PERMANENT EXHIBITION</div></div>
                             </div>
 
+                            <!-- L2 Education -->
                             <div class="v-row"><span class="v-tree-icon" style="color: #44dd88;">├►</span><div class="v-node" style="color: #44dd88; border-color: #44dd88;">EDUCATION</div></div>
                             <div class="v-children" style="border-color: rgba(68,221,136,0.3);">
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">├►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">SCHOOLS PROGRAMME</div></div>
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">└►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">WORKSHOPS</div></div>
                             </div>
 
+                            <!-- L2 Services -->
                             <div class="v-row"><span class="v-tree-icon" style="color: #44dd88;">├►</span><div class="v-node" style="color: #44dd88; border-color: #44dd88;">SERVICES</div></div>
                             <div class="v-children" style="border-color: rgba(68,221,136,0.3);">
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">├►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">ORDERING RECORDS</div></div>
@@ -316,6 +332,7 @@ const projectData = {
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">└►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">CONSERVATION</div></div>
                             </div>
                             
+                            <!-- Other Root Items -->
                             <div class="v-row"><span class="v-tree-icon" style="color: #44dd88;">├►</span><div class="v-node" style="color: #44dd88; border-color: #44dd88;">CIVIL REGISTRATION</div></div>
                             <div class="v-children" style="border-color: rgba(68,221,136,0.3);">
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">├►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">HISTORICAL RECORDS</div></div>
@@ -350,197 +367,188 @@ const projectData = {
             </div>
 
 
+            <!-- AFTER STATE: THE UNIFIED TREE -->
             <h3 class="section-heading" style="color: #7cff9b;">AFTER: THE UNIFIED I.A. TREE</h3>
             <p style="color:#aaa; font-family: 'Space Mono', monospace; font-size:0.85rem; margin-bottom: 2rem;">
-                I dismantled the bloated hierarchies and merged all conflicting navigation structures into a single, logical, intent-driven horizontal tree.
+                I dismantled the bloated hierarchies and merged all conflicting navigation structures into a single, logical, intent-driven expanding map.
             </p>
 
-            <div style="background: #050d1f; border: 2px solid #333; border-radius: 8px; padding: 2rem; overflow-x: auto; margin-bottom: 3rem; box-shadow: inset 0 0 30px rgba(0,0,0,0.8);">
+            <div style="background: #050d1f; border: 2px solid #333; border-radius: 8px; padding: 2.5rem; overflow-x: auto; margin-bottom: 3rem;">
                 
-                <div style="display: flex; align-items: center; min-width: max-content;">
+                <div style="display: flex; align-items: flex-start; min-width: max-content; gap: 8px;">
                     
-                    <div class="t-root" style="color: #ff55cc; border-color: #ff55cc;">HOME / NAI</div>
-                    <div class="t-h" style="width: 25px; background: rgba(255,85,204,0.5);"></div>
+                    <!-- L1: ROOT (Pink) -->
+                    <div class="h-root" style="color: #ff55cc; border-color: #ff55cc;">HOME / NAI</div>
+                    <div class="h-icon" style="color: #ff55cc; margin-top: 10px;">══►</div>
                     
-                    <div class="t-v" style="border-color: rgba(255,85,204,0.4); padding: 10px 0; gap: 12px;">
+                    <!-- L1 Spine -->
+                    <div class="h-children" style="border-color: rgba(255,85,204,0.3); padding-top: 5px;">
                         
-                        <div class="t-branch">
-                            <div class="t-h" style="width: 20px; background: rgba(255,85,204,0.4);"></div>
-                            <div class="t-node" style="color: #5599ff; border-color: #5599ff; background: rgba(85,153,255,0.1);">ABOUT US</div>
-                            <div class="t-h" style="width: 20px; background: rgba(85,153,255,0.4);"></div>
-                            <div class="t-v" style="border-color: rgba(85,153,255,0.3); padding: 5px 0; gap: 8px;">
-                                <div class="t-branch">
-                                    <div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">BACKGROUND</div>
-                                    <div class="t-h" style="width: 15px; background: rgba(68,238,136,0.4);"></div>
-                                    <div class="t-v" style="border-color: rgba(68,238,136,0.3); padding: 5px 0; gap: 6px;">
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">HISTORY OF NAI</div></div>
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">MISSION & VISION</div></div>
+                        <!-- L2: ABOUT US -->
+                        <div class="h-branch">
+                            <span class="h-icon" style="color: #ff55cc;">├─►</span>
+                            <div class="h-node" style="color: #5599ff; border-color: #5599ff;">ABOUT US</div>
+                            <div class="h-children" style="border-color: rgba(85,153,255,0.3);">
+                                <div class="h-branch">
+                                    <span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">BACKGROUND</div>
+                                    <div class="h-children" style="border-color: rgba(68,238,136,0.3);">
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">├─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">HISTORY OF NAI</div></div>
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">└─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">MISSION & VISION</div></div>
                                     </div>
                                 </div>
-                                <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">ORGANISATIONAL STRUCTURE</div></div>
-                                <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">STAFF INFORMATION</div></div>
-                                <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">ADVISORY COMMITTEE</div></div>
-                                <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">VENUE & LOCATION</div></div>
-                                <div class="t-branch">
-                                    <div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">ANNUAL REPORTS</div>
-                                    <div class="t-h" style="width: 15px; background: rgba(68,238,136,0.4);"></div>
-                                    <div class="t-v" style="border-color: rgba(68,238,136,0.3); padding: 5px 0; gap: 6px;">
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">ANNUAL REPORT 2022-23</div></div>
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">PREVIOUS REPORTS</div></div>
+                                <div class="h-branch"><span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">ORGANISATIONAL STRUCTURE</div></div>
+                                <div class="h-branch"><span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">STAFF INFORMATION</div></div>
+                                <div class="h-branch"><span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">ADVISORY COMMITTEE</div></div>
+                                <div class="h-branch"><span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">VENUE & LOCATION</div></div>
+                                <div class="h-branch">
+                                    <span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">ANNUAL REPORTS</div>
+                                    <div class="h-children" style="border-color: rgba(68,238,136,0.3);">
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">├─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">ANNUAL REPORT 2022-23</div></div>
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">└─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">PREVIOUS REPORTS</div></div>
                                     </div>
                                 </div>
-                                <div class="t-branch">
-                                    <div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">RIGHT TO INFORMATION</div>
-                                    <div class="t-h" style="width: 15px; background: rgba(68,238,136,0.4);"></div>
-                                    <div class="t-v" style="border-color: rgba(68,238,136,0.3); padding: 5px 0; gap: 6px;">
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">RTI ACT</div></div>
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">RTI APPLICATIONS</div></div>
+                                <div class="h-branch">
+                                    <span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">RIGHT TO INFORMATION</div>
+                                    <div class="h-children" style="border-color: rgba(68,238,136,0.3);">
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">├─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">RTI ACT</div></div>
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">└─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">RTI APPLICATIONS</div></div>
                                     </div>
                                 </div>
-                                <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">CONTACT US</div></div>
-                                <div class="t-branch">
-                                    <div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">RECRUITMENT</div>
-                                    <div class="t-h" style="width: 15px; background: rgba(68,238,136,0.4);"></div>
-                                    <div class="t-v" style="border-color: rgba(68,238,136,0.3); padding: 5px 0; gap: 6px;">
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">CURRENT OPENINGS</div></div>
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">ARCHIVE</div></div>
+                                <div class="h-branch"><span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">CONTACT US</div></div>
+                                <div class="h-branch">
+                                    <span class="h-icon" style="color: #5599ff;">└─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">RECRUITMENT</div>
+                                    <div class="h-children" style="border-color: rgba(68,238,136,0.3);">
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">├─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">CURRENT OPENINGS</div></div>
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">└─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">ARCHIVE</div></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="t-branch">
-                            <div class="t-h" style="width: 20px; background: rgba(255,85,204,0.4);"></div>
-                            <div class="t-node" style="color: #5599ff; border-color: #5599ff; background: rgba(85,153,255,0.1);">ARCHIVES</div>
-                            <div class="t-h" style="width: 20px; background: rgba(85,153,255,0.4);"></div>
-                            <div class="t-v" style="border-color: rgba(85,153,255,0.3); padding: 5px 0; gap: 8px;">
-                                <div class="t-branch">
-                                    <div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">PRE-INDEPENDENCE RECORDS</div>
-                                    <div class="t-h" style="width: 15px; background: rgba(68,238,136,0.4);"></div>
-                                    <div class="t-v" style="border-color: rgba(68,238,136,0.3); padding: 5px 0; gap: 6px;">
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">CENTRAL RECORDS</div></div>
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">STATE RECORDS</div></div>
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">PRIVATE PAPERS</div></div>
+                        <!-- L2: ARCHIVES -->
+                        <div class="h-branch">
+                            <span class="h-icon" style="color: #ff55cc;">├─►</span>
+                            <div class="h-node" style="color: #5599ff; border-color: #5599ff;">ARCHIVES</div>
+                            <div class="h-children" style="border-color: rgba(85,153,255,0.3);">
+                                <div class="h-branch">
+                                    <span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">PRE-INDEPENDENCE RECORDS</div>
+                                    <div class="h-children" style="border-color: rgba(68,238,136,0.3);">
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">├─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">CENTRAL RECORDS</div></div>
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">├─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">STATE RECORDS</div></div>
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">└─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">PRIVATE PAPERS</div></div>
                                     </div>
                                 </div>
-                                <div class="t-branch">
-                                    <div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">POST-INDEPENDENCE RECORDS</div>
-                                    <div class="t-h" style="width: 15px; background: rgba(68,238,136,0.4);"></div>
-                                    <div class="t-v" style="border-color: rgba(68,238,136,0.3); padding: 5px 0; gap: 6px;">
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">GOVERNMENT RECORDS</div></div>
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">MAPS & CHARTS</div></div>
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">PHOTOGRAPHS</div></div>
+                                <div class="h-branch">
+                                    <span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">POST-INDEPENDENCE RECORDS</div>
+                                    <div class="h-children" style="border-color: rgba(68,238,136,0.3);">
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">├─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">GOVERNMENT RECORDS</div></div>
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">├─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">MAPS & CHARTS</div></div>
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">└─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">PHOTOGRAPHS</div></div>
                                     </div>
                                 </div>
-                                <div class="t-branch">
-                                    <div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">FINDING AIDS</div>
-                                    <div class="t-h" style="width: 15px; background: rgba(68,238,136,0.4);"></div>
-                                    <div class="t-v" style="border-color: rgba(68,238,136,0.3); padding: 5px 0; gap: 6px;">
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">SEARCH ONLINE</div></div>
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">PHYSICAL CATALOGUE</div></div>
+                                <div class="h-branch">
+                                    <span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">FINDING AIDS</div>
+                                    <div class="h-children" style="border-color: rgba(68,238,136,0.3);">
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">├─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">SEARCH ONLINE</div></div>
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">└─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">PHYSICAL CATALOGUE</div></div>
                                     </div>
                                 </div>
-                                <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">MICROFILM SECTION</div></div>
-                                <div class="t-branch">
-                                    <div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">DIGITISATION</div>
-                                    <div class="t-h" style="width: 15px; background: rgba(68,238,136,0.4);"></div>
-                                    <div class="t-v" style="border-color: rgba(68,238,136,0.3); padding: 5px 0; gap: 6px;">
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">DIGITISED RECORDS</div></div>
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">DIGITISATION POLICY</div></div>
+                                <div class="h-branch"><span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">MICROFILM SECTION</div></div>
+                                <div class="h-branch">
+                                    <span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">DIGITISATION</div>
+                                    <div class="h-children" style="border-color: rgba(68,238,136,0.3);">
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">├─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">DIGITISED RECORDS</div></div>
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">└─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">DIGITISATION POLICY</div></div>
                                     </div>
                                 </div>
-                                <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">DIGITAL ARCHIVES</div></div>
+                                <div class="h-branch"><span class="h-icon" style="color: #5599ff;">└─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">DIGITAL ARCHIVES</div></div>
                             </div>
                         </div>
 
-                        <div class="t-branch">
-                            <div class="t-h" style="width: 20px; background: rgba(255,85,204,0.4);"></div>
-                            <div class="t-node" style="color: #5599ff; border-color: #5599ff; background: rgba(85,153,255,0.1);">ARCHIVAL TREASURES</div>
-                            <div class="t-h" style="width: 20px; background: rgba(85,153,255,0.4);"></div>
-                            <div class="t-v" style="border-color: rgba(85,153,255,0.3); padding: 5px 0; gap: 8px;">
-                                <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">RARE DOCUMENTS</div></div>
-                                <div class="t-branch">
-                                    <div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">HISTORICAL MAPS</div>
-                                    <div class="t-h" style="width: 15px; background: rgba(68,238,136,0.4);"></div>
-                                    <div class="t-v" style="border-color: rgba(68,238,136,0.3); padding: 5px 0; gap: 6px;">
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">MAP COLLECTION</div></div>
+                        <!-- L2: ARCHIVAL TREASURES -->
+                        <div class="h-branch">
+                            <span class="h-icon" style="color: #ff55cc;">├─►</span>
+                            <div class="h-node" style="color: #5599ff; border-color: #5599ff;">ARCHIVAL TREASURES</div>
+                            <div class="h-children" style="border-color: rgba(85,153,255,0.3);">
+                                <div class="h-branch"><span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">RARE DOCUMENTS</div></div>
+                                <div class="h-branch">
+                                    <span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">HISTORICAL MAPS</div>
+                                    <div class="h-children" style="border-color: rgba(68,238,136,0.3);">
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">└─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">MAP COLLECTION</div></div>
                                     </div>
                                 </div>
-                                <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">MANUSCRIPTS</div></div>
-                                <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">PHOTOGRAPHS</div></div>
-                                <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">NEWSPAPER ARCHIVES</div></div>
+                                <div class="h-branch"><span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">MANUSCRIPTS</div></div>
+                                <div class="h-branch"><span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">PHOTOGRAPHS</div></div>
+                                <div class="h-branch"><span class="h-icon" style="color: #5599ff;">└─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">NEWSPAPER ARCHIVES</div></div>
                             </div>
                         </div>
 
-                        <div class="t-branch">
-                            <div class="t-h" style="width: 20px; background: rgba(255,85,204,0.4);"></div>
-                            <div class="t-node" style="color: #5599ff; border-color: #5599ff; background: rgba(85,153,255,0.1);">LEGISLATION / POLICY</div>
-                            <div class="t-h" style="width: 20px; background: rgba(85,153,255,0.4);"></div>
-                            <div class="t-v" style="border-color: rgba(85,153,255,0.3); padding: 5px 0; gap: 8px;">
-                                <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">PUBLIC RECORDS ACT 1993</div></div>
-                                <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">PUBLIC RECORDS RULES</div></div>
-                                <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">RTI FRAMEWORK</div></div>
-                                <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">ARCHIVAL GUIDELINES</div></div>
+                        <!-- L2: LEGISLATION / POLICY -->
+                        <div class="h-branch">
+                            <span class="h-icon" style="color: #ff55cc;">├─►</span>
+                            <div class="h-node" style="color: #5599ff; border-color: #5599ff;">LEGISLATION / POLICY</div>
+                            <div class="h-children" style="border-color: rgba(85,153,255,0.3);">
+                                <div class="h-branch"><span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">PUBLIC RECORDS ACT 1993</div></div>
+                                <div class="h-branch"><span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">PUBLIC RECORDS RULES</div></div>
+                                <div class="h-branch"><span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">RTI FRAMEWORK</div></div>
+                                <div class="h-branch"><span class="h-icon" style="color: #5599ff;">└─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">ARCHIVAL GUIDELINES</div></div>
                             </div>
                         </div>
 
-                        <div class="t-branch">
-                            <div class="t-h" style="width: 20px; background: rgba(255,85,204,0.4);"></div>
-                            <div class="t-node" style="color: #5599ff; border-color: #5599ff; background: rgba(85,153,255,0.1);">RESEARCH & REFERENCE</div>
-                            <div class="t-h" style="width: 20px; background: rgba(85,153,255,0.4);"></div>
-                            <div class="t-v" style="border-color: rgba(85,153,255,0.3); padding: 5px 0; gap: 8px;">
-                                <div class="t-branch">
-                                    <div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">READING ROOM</div>
-                                    <div class="t-h" style="width: 15px; background: rgba(68,238,136,0.4);"></div>
-                                    <div class="t-v" style="border-color: rgba(68,238,136,0.3); padding: 5px 0; gap: 6px;">
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">ACCESS RULES</div></div>
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">BOOKING</div></div>
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">TIMINGS</div></div>
+                        <!-- L2: RESEARCH & REFERENCE -->
+                        <div class="h-branch">
+                            <span class="h-icon" style="color: #ff55cc;">├─►</span>
+                            <div class="h-node" style="color: #5599ff; border-color: #5599ff;">RESEARCH & REFERENCE</div>
+                            <div class="h-children" style="border-color: rgba(85,153,255,0.3);">
+                                <div class="h-branch">
+                                    <span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">READING ROOM</div>
+                                    <div class="h-children" style="border-color: rgba(68,238,136,0.3);">
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">├─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">ACCESS RULES</div></div>
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">├─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">BOOKING</div></div>
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">└─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">TIMINGS</div></div>
                                     </div>
                                 </div>
-                                <div class="t-branch">
-                                    <div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">REFERENCE SERVICES</div>
-                                    <div class="t-h" style="width: 15px; background: rgba(68,238,136,0.4);"></div>
-                                    <div class="t-v" style="border-color: rgba(68,238,136,0.3); padding: 5px 0; gap: 6px;">
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">WITHDRAWAL OF RECORDS</div></div>
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">REQUISITIONING</div></div>
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">REGISTRATION & ADMISSION</div></div>
+                                <div class="h-branch">
+                                    <span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">REFERENCE SERVICES</div>
+                                    <div class="h-children" style="border-color: rgba(68,238,136,0.3);">
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">├─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">WITHDRAWAL OF RECORDS</div></div>
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">├─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">REQUISITIONING</div></div>
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">└─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">REGISTRATION & ADMISSION</div></div>
                                     </div>
                                 </div>
-                                <div class="t-branch">
-                                    <div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">REPROGRAPHIC SERVICES</div>
-                                    <div class="t-h" style="width: 15px; background: rgba(68,238,136,0.4);"></div>
-                                    <div class="t-v" style="border-color: rgba(68,238,136,0.3); padding: 5px 0; gap: 6px;">
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">DIGITAL PHOTOGRAPHY</div></div>
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">PHOTOCOPIES</div></div>
+                                <div class="h-branch">
+                                    <span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">REPROGRAPHIC SERVICES</div>
+                                    <div class="h-children" style="border-color: rgba(68,238,136,0.3);">
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">├─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">DIGITAL PHOTOGRAPHY</div></div>
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">└─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">PHOTOCOPIES</div></div>
                                     </div>
                                 </div>
-                                <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">MICROFILM FACILITIES</div></div>
+                                <div class="h-branch"><span class="h-icon" style="color: #5599ff;">└─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">MICROFILM FACILITIES</div></div>
                             </div>
                         </div>
 
-                        <div class="t-branch">
-                            <div class="t-h" style="width: 20px; background: rgba(255,85,204,0.4);"></div>
-                            <div class="t-node" style="color: #5599ff; border-color: #5599ff; background: rgba(85,153,255,0.1);">WHAT'S NEW</div>
-                            <div class="t-h" style="width: 20px; background: rgba(85,153,255,0.4);"></div>
-                            <div class="t-v" style="border-color: rgba(85,153,255,0.3); padding: 5px 0; gap: 8px;">
-                                <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">TENDERS</div></div>
-                                <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">NOTICES & CIRCULARS</div></div>
-                                <div class="t-branch">
-                                    <div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">EVENTS & EXHIBITIONS</div>
-                                    <div class="t-h" style="width: 15px; background: rgba(68,238,136,0.4);"></div>
-                                    <div class="t-v" style="border-color: rgba(68,238,136,0.3); padding: 5px 0; gap: 6px;">
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">EVENTS CALENDAR</div></div>
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); font-size: 8px;">PAST EVENTS</div></div>
+                        <!-- L2: WHAT'S NEW -->
+                        <div class="h-branch">
+                            <span class="h-icon" style="color: #ff55cc;">└─►</span>
+                            <div class="h-node" style="color: #5599ff; border-color: #5599ff;">WHAT'S NEW</div>
+                            <div class="h-children" style="border-color: rgba(85,153,255,0.3);">
+                                <div class="h-branch"><span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">TENDERS</div></div>
+                                <div class="h-branch"><span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">NOTICES & CIRCULARS</div></div>
+                                <div class="h-branch">
+                                    <span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">EVENTS & EXHIBITIONS</div>
+                                    <div class="h-children" style="border-color: rgba(68,238,136,0.3);">
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">├─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">EVENTS CALENDAR</div></div>
+                                        <div class="h-branch"><span class="h-icon" style="color: #44ee88;">└─►</span><div class="h-leaf" style="color: #ff7755; border-color: #ff7755;">PAST EVENTS</div></div>
                                     </div>
                                 </div>
-                                <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">ANNOUNCEMENTS</div></div>
-                                <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">ADVERTISEMENTS</div></div>
-                                <div class="t-branch">
-                                    <div class="t-h" style="width: 15px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">PHOTO GALLERY</div>
-                                    <div class="t-h" style="width: 15px; background: rgba(68,238,136,0.4);"></div>
-                                    <div class="t-v" style="border-color: rgba(68,238,136,0.3); padding: 5px 0; gap: 6px;">
-                                        <div class="t-branch"><div class="t-h" style="width: 10px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ffdd33; border-color: #ffdd33; background: rgba(255,221,51,0.1); font-size: 8px;">VIDEO GALLERY</div></div>
+                                <div class="h-branch"><span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">ANNOUNCEMENTS</div></div>
+                                <div class="h-branch"><span class="h-icon" style="color: #5599ff;">├─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">ADVERTISEMENTS</div></div>
+                                <div class="h-branch">
+                                    <span class="h-icon" style="color: #5599ff;">└─►</span><div class="h-node" style="color: #44ee88; border-color: #44ee88;">PHOTO GALLERY</div>
+                                    <div class="h-children" style="border-color: rgba(68,238,136,0.3);">
+                                        <div class="h-branch">
+                                            <span class="h-icon" style="color: #44ee88;">└─►</span><div class="h-leaf" style="color: #ffdd33; border-color: #ffdd33;">VIDEO GALLERY</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -549,12 +557,13 @@ const projectData = {
                     </div>
                 </div>
 
+                <!-- Color Legend -->
                 <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px; border-top: 2px solid #222; padding-top: 20px; flex-wrap: wrap;">
                     <div style="display: flex; align-items: center; gap: 6px;"><div style="width: 10px; height: 10px; background: rgba(255,85,204,0.2); border: 2px solid #ff55cc;"></div><span style="font-family: 'Press Start 2P', cursive; font-size: 5px; color: #ff55cc;">L1 (ROOT)</span></div>
                     <div style="display: flex; align-items: center; gap: 6px;"><div style="width: 10px; height: 10px; background: rgba(85,153,255,0.2); border: 2px solid #5599ff;"></div><span style="font-family: 'Press Start 2P', cursive; font-size: 5px; color: #5599ff;">L2</span></div>
                     <div style="display: flex; align-items: center; gap: 6px;"><div style="width: 10px; height: 10px; background: rgba(68,238,136,0.2); border: 2px solid #44ee88;"></div><span style="font-family: 'Press Start 2P', cursive; font-size: 5px; color: #44ee88;">L3</span></div>
                     <div style="display: flex; align-items: center; gap: 6px;"><div style="width: 10px; height: 10px; background: rgba(255,119,85,0.2); border: 2px solid #ff7755;"></div><span style="font-family: 'Press Start 2P', cursive; font-size: 5px; color: #ff7755;">L4</span></div>
-                    <div style="display: flex; align-items: center; gap: 6px;"><div style="width: 10px; height: 10px; background: rgba(255,221,51,0.2); border: 2px solid #ffdd33;"></div><span style="font-family: 'Press Start 2P', cursive; font-size: 5px; color: #ffdd33;">L5</span></div>
+                    <div style="display: flex; align-items: center; gap: 6px;"><div style="width: 10px; height: 10px; background: rgba(255,221,51,0.2); border: 2px solid #ffdd33;"></div><span style="font-family: 'Press Start 2P', cursive; font-size: 5px; color: #ffdd33;">L5 (LEAF)</span></div>
                 </div>
 
             </div>
