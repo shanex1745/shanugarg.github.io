@@ -221,12 +221,12 @@ const projectData = {
         `
     },
 
-    proj4: { // Panchamitra
+    proj4: { // Panchamitra & Meeting Management
         title: "Mobile Panchamitra", role: "LEAD UX RESEARCHER & UI/UX DESIGNER", timeline: "FY 24-25 Focus", themeIcons: ['🌾', '📱', '🔊', '📊'],
         tldr: {
-            problem: "Despite digitizing local governance data, rural citizens were entirely excluded due to systemic barriers in digital, numerical, and linguistic literacy.",
-            solution: "An audio-first, low-data mobile platform for citizens, paired with an error-preventing Meeting Management system for Panchayat officials.",
-            impact: "Dramatically improved data comprehension among illiterate users (from 1/12 to 8/12 charts), transforming raw civic data into moral infrastructure."
+            problem: "Despite digitizing local governance data across 6,000 Gram Panchayats, rural citizens were entirely excluded from the platform due to systemic barriers in digital, numerical, and linguistic literacy.",
+            solution: "An audio-first, low-data mobile platform for citizens, paired with a streamlined, error-preventing Meeting Management system for Panchayat officials.",
+            impact: "Dramatically improved data comprehension among illiterate users (from 1/12 to 8/12 charts understood), transforming raw civic data into moral infrastructure."
         },
         dynamicHTML: `
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
@@ -234,19 +234,101 @@ const projectData = {
                 <p>Conducted Ethnographic Field Studies by attending Special Grama Sabha meetings in villages like Kabbali. 1-on-1 Usability Testing revealed "The Number Barrier": users completely failed to comprehend percentages, decimals, or numbers larger than 3 digits. Furthermore, officials were manually copying shorthand notes under time pressure, resulting in vague civic records.</p>
             </div>
 
-            <h3 class="section-heading">I.A. RADICAL SIMPLIFICATION</h3>
-            <div class="ia-tree-container" style="margin-bottom: 2rem;">
-                <div class="ia-node">CITIZEN HOME (6 Main Actions)</div>
-                <div style="width: 2px; height: 20px; background: #6ce8ff;"></div>
-                <div class="ia-branches">
-                    <div class="ia-branch"><div class="ia-node">Home</div></div>
-                    <div class="ia-branch"><div class="ia-node">AI Radio (Audio)</div></div>
-                    <div class="ia-branch"><div class="ia-node">Local Contacts</div></div>
+            <h3 class="section-heading">DECODING THE BUREAUCRATIC MAZE</h3>
+            <p style="color:#ccc; font-family: 'Space Mono', monospace; font-size:0.9rem; margin-bottom: 2rem; line-height: 1.6;">
+                The original Panchatantra 2.0 possessed a deeply nested architecture (15+ complex modules). We had to untangle this massive web into two distinct, user-centric flows: one for Citizens (Mobile Panchamitra) and one for Officials (Meeting Management).
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 4rem; background: #111; padding: 3rem 1rem; border: 2px dashed #444; border-radius: 8px; margin-bottom: 2rem; overflow-x: auto;">
+                
+                <div>
+                    <div class="ba-label" style="text-align: center; margin-bottom: 2rem; color: #ff77da;">1. PANCHATANTRA 2.0 (THE MACRO SYSTEM)</div>
+                    <div style="display: flex; flex-direction: column; align-items: center; min-width: 800px;">
+                        
+                        <div style="background: #fff; color: #000; font-weight: bold; padding: 12px 24px; font-family: 'Space Mono', monospace; border-radius: 4px; box-shadow: 0 4px 15px rgba(255,255,255,0.1); z-index: 2;">
+                            PANCHATANTRA 2.0
+                        </div>
+                        <div style="width: 2px; height: 20px; background: #fff;"></div>
+                        
+                        <div style="display: flex; width: 90%; justify-content: space-between; position: relative;">
+                            <div style="position: absolute; top: 0; left: 10%; right: 10%; height: 2px; background: #fff;"></div>
+                            
+                            <div style="display: flex; flex-direction: column; align-items: center; width: 20%; position: relative;">
+                                <div style="width: 2px; height: 20px; background: #fff;"></div>
+                                <div style="background: transparent; border: 2px solid #fff; color: #fff; padding: 10px; font-family: 'Space Mono', monospace; font-size: 0.7rem; text-align: center; width: 90%; border-radius: 4px;">Citizen Services</div>
+                            </div>
+                            <div style="display: flex; flex-direction: column; align-items: center; width: 20%; position: relative;">
+                                <div style="width: 2px; height: 20px; background: #fff;"></div>
+                                <div style="background: transparent; border: 2px solid #fff; color: #fff; padding: 10px; font-family: 'Space Mono', monospace; font-size: 0.7rem; text-align: center; width: 90%; border-radius: 4px;">Revenue Collection</div>
+                            </div>
+                            <div style="display: flex; flex-direction: column; align-items: center; width: 20%; position: relative;">
+                                <div style="width: 2px; height: 20px; background: #fff;"></div>
+                                <div style="background: transparent; border: 2px solid #fff; color: #fff; padding: 10px; font-family: 'Space Mono', monospace; font-size: 0.7rem; text-align: center; width: 90%; border-radius: 4px;">HRM Module</div>
+                            </div>
+                            <div style="display: flex; flex-direction: column; align-items: center; width: 20%; position: relative;">
+                                <div style="width: 2px; height: 20px; background: #fff;"></div>
+                                <div style="background: #fff; color: #000; font-weight: bold; padding: 10px; font-family: 'Space Mono', monospace; font-size: 0.7rem; text-align: center; width: 90%; border-radius: 4px; box-shadow: 0 0 15px #6ce8ff;">Meeting Mgmt (MOM)</div>
+                            </div>
+                            <div style="display: flex; flex-direction: column; align-items: center; width: 20%; position: relative;">
+                                <div style="width: 2px; height: 20px; background: #fff;"></div>
+                                <div style="background: transparent; border: 2px solid #fff; color: #fff; padding: 10px; font-family: 'Space Mono', monospace; font-size: 0.7rem; text-align: center; width: 90%; border-radius: 4px;">Public Info Portal</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <hr style="border: 0; border-top: 2px dashed #444; margin: 0 2rem;">
+
+                <div>
+                    <div class="ba-label" style="text-align: center; margin-bottom: 2rem; color: #6ce8ff;">2. MEETING MANAGEMENT (THE MICRO SYSTEM)</div>
+                    <div style="display: flex; flex-direction: column; align-items: center; min-width: 800px;">
+                        
+                        <div style="background: #6ce8ff; color: #000; font-weight: bold; padding: 12px 24px; font-family: 'Space Mono', monospace; border-radius: 4px; z-index: 2;">
+                            M.O.M. PORTAL
+                        </div>
+                        <div style="width: 2px; height: 20px; background: #6ce8ff;"></div>
+                        
+                        <div style="display: flex; width: 90%; justify-content: space-between; position: relative;">
+                            <div style="position: absolute; top: 0; left: 12.5%; right: 12.5%; height: 2px; background: #6ce8ff;"></div>
+                            
+                            <div style="display: flex; flex-direction: column; align-items: center; width: 25%; position: relative;">
+                                <div style="width: 2px; height: 20px; background: #6ce8ff;"></div>
+                                <div style="background: #111; border: 2px solid #6ce8ff; color: #fff; padding: 10px; font-family: 'Space Mono', monospace; font-size: 0.7rem; text-align: center; width: 80%; border-radius: 4px; margin-bottom: 10px;">Create Meeting</div>
+                                <div style="width: 2px; height: 10px; background: #444;"></div>
+                                <div style="background: transparent; border: 1px dashed #6ce8ff; color: #aaa; padding: 8px; font-family: 'Space Mono', monospace; font-size: 0.6rem; text-align: center; width: 70%; border-radius: 4px;">Add Participants</div>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; align-items: center; width: 25%; position: relative;">
+                                <div style="width: 2px; height: 20px; background: #6ce8ff;"></div>
+                                <div style="background: #111; border: 2px solid #6ce8ff; color: #fff; padding: 10px; font-family: 'Space Mono', monospace; font-size: 0.7rem; text-align: center; width: 80%; border-radius: 4px; margin-bottom: 10px;">Start Meeting</div>
+                                <div style="width: 2px; height: 10px; background: #444;"></div>
+                                <div style="background: transparent; border: 1px dashed #6ce8ff; color: #aaa; padding: 8px; font-family: 'Space Mono', monospace; font-size: 0.6rem; text-align: center; width: 70%; border-radius: 4px;">Record Proceedings</div>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; align-items: center; width: 25%; position: relative;">
+                                <div style="width: 2px; height: 20px; background: #6ce8ff;"></div>
+                                <div style="background: #111; border: 2px solid #6ce8ff; color: #fff; padding: 10px; font-family: 'Space Mono', monospace; font-size: 0.7rem; text-align: center; width: 80%; border-radius: 4px; margin-bottom: 10px;">Meeting List</div>
+                                <div style="width: 2px; height: 10px; background: #444;"></div>
+                                <div style="background: transparent; border: 1px dashed #6ce8ff; color: #aaa; padding: 8px; font-family: 'Space Mono', monospace; font-size: 0.6rem; text-align: center; width: 70%; border-radius: 4px;">View / Adjourn / Cancel</div>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; align-items: center; width: 25%; position: relative;">
+                                <div style="width: 2px; height: 20px; background: #6ce8ff;"></div>
+                                <div style="background: #111; border: 2px solid #6ce8ff; color: #fff; padding: 10px; font-family: 'Space Mono', monospace; font-size: 0.7rem; text-align: center; width: 80%; border-radius: 4px; margin-bottom: 10px;">Agenda & ATR</div>
+                                <div style="width: 2px; height: 10px; background: #444;"></div>
+                                <div style="background: transparent; border: 1px dashed #6ce8ff; color: #aaa; padding: 8px; font-family: 'Space Mono', monospace; font-size: 0.6rem; text-align: center; width: 70%; border-radius: 4px;">Update Status</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <h3 class="section-heading">AUDIO-FIRST DATA VISUALIZATION</h3>
-            <div class="hero-image-placeholder" style="aspect-ratio: 21/9; margin-bottom: 2rem;">[IMAGE: High-contrast progress bars with spoken Kannada 'Audio/Play' buttons]</div>
+            <div class="hero-image-placeholder" style="aspect-ratio: 21/9; margin-bottom: 2rem;">
+                <img src="assets/rdpr-audio-ui.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Mobile Panchamitra UI" onerror="this.style.display='none'">
+                <span style="position: absolute; pointer-events: none;">[IMAGE: High-contrast progress bars with spoken Kannada 'Audio' buttons]</span>
+            </div>
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
                 <h3 class="section-heading">7. Impact & Reflections</h3>
