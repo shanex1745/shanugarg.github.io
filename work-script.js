@@ -270,20 +270,24 @@ const projectData = {
 
             <h3 class="section-heading">I.A. DASHBOARD: THE MACRO SYSTEM</h3>
             <p style="color:#ccc; font-family: 'Space Mono', monospace; font-size:0.9rem; margin-bottom: 2rem; line-height: 1.6;">
-                The original architecture possessed a deeply nested, overwhelming structure. I reorganized the core navigation into a unified dashboard, separating internal administrative tools from citizen-facing services.
+                The original architecture possessed a deeply nested, overwhelming structure. I reorganized the core navigation into a unified dashboard. Below is the complete expansion of the <strong>HOME</strong> module, detailing the deep horizontal task flows required for data retrieval.
             </p>
 
+            <!-- DASHBOARD UI I.A. STRUCTURE WITH FULL HOME EXPANSION -->
             <div style="display: flex; gap: 2rem; background: #050d1f; padding: 2.5rem; border: 2px solid #333; border-radius: 8px; margin-bottom: 3rem; overflow-x: auto; box-shadow: inset 0 0 20px rgba(0,0,0,0.5);">
                 
+                <!-- Left Panel: Main Menu -->
                 <div style="width: 220px; flex-shrink: 0;">
                     <div style="font-family: 'Press Start 2P', cursive; font-size: 0.6rem; color: rgba(108, 232, 255, 0.6); text-align: center; padding: 10px; border: 2px solid rgba(108, 232, 255, 0.2); background: #0a1535; margin-bottom: 15px; letter-spacing: 2px;">
                         ◄ MAIN MENU ►
                     </div>
                     
                     <div style="display: flex; flex-direction: column; gap: 6px;">
+                        <!-- Active Item -->
                         <div style="padding: 12px; border: 2px solid #6ce8ff; background: rgba(108, 232, 255, 0.15); color: #6ce8ff; box-shadow: 0 0 15px rgba(108, 232, 255, 0.3), inset 0 0 10px rgba(108, 232, 255, 0.1); font-family: 'Press Start 2P', cursive; font-size: 0.6rem; line-height: 1.8;">
                             ► HOME<br><span style="font-size: 0.5rem; opacity: 0.7; font-family: 'Space Mono', monospace;">PANCHATANTRA 2.0</span>
                         </div>
+                        <!-- Inactive Items -->
                         <div style="padding: 12px 12px 12px 24px; border: 2px solid rgba(108, 232, 255, 0.2); background: #060d20; color: rgba(108, 232, 255, 0.5); font-family: 'Press Start 2P', cursive; font-size: 0.6rem;">ABOUT US</div>
                         <div style="padding: 12px 12px 12px 24px; border: 2px solid rgba(108, 232, 255, 0.2); background: #060d20; color: rgba(108, 232, 255, 0.5); font-family: 'Press Start 2P', cursive; font-size: 0.6rem;">CONTACT US</div>
                         <div style="padding: 12px 12px 12px 24px; border: 2px solid rgba(108, 232, 255, 0.2); background: #060d20; color: rgba(108, 232, 255, 0.5); font-family: 'Press Start 2P', cursive; font-size: 0.6rem;">RECRUITMENT</div>
@@ -293,52 +297,146 @@ const projectData = {
                     </div>
                 </div>
 
+                <!-- Connector Arrow -->
                 <div style="display: flex; flex-direction: column; justify-content: flex-start; padding-top: 72px;">
                     <div style="color: #6ce8ff; font-family: monospace; font-size: 24px; text-shadow: 0 0 14px #6ce8ff; letter-spacing: -2px;">═════►</div>
                 </div>
 
-                <div style="flex: 1; min-width: 400px;">
+                <!-- Right Panel: Expanded Home Architecture -->
+                <div style="flex: 1; min-width: max-content;">
                     <div style="display: inline-flex; align-items: center; gap: 10px; border: 2px solid #6ce8ff; background: rgba(108, 232, 255, 0.1); padding: 12px 20px; font-family: 'Press Start 2P', cursive; font-size: 0.7rem; color: #6ce8ff; text-shadow: 0 0 10px #6ce8ff; margin-bottom: 25px; box-shadow: 0 0 20px rgba(108, 232, 255, 0.2);">
                         ► HOME / PANCHATANTRA 2.0
                     </div>
 
-                    <div style="display: flex; flex-direction: column; border-left: 2px solid #6ce8ff; margin-left: 20px; padding: 10px 0; gap: 10px;">
-                        <div style="display: flex; align-items: center;">
-                            <div style="width: 30px; height: 2px; background: #6ce8ff;"></div>
-                            <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 10px 15px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.8rem; min-width: 250px;">FINANCE & ACCOUNTING</div>
+                    <!-- CSS Classes mapped to your strict color schema -->
+                    <style>
+                        .ia-node { border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 10px 15px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.75rem; width: 220px; flex-shrink: 0; box-shadow: inset 0 0 8px rgba(108,232,255,0.1); display: flex; align-items: center; }
+                        .ia-node-expanded { box-shadow: 0 0 10px rgba(108,232,255,0.2), inset 0 0 10px rgba(108,232,255,0.2); }
+                        .ia-sub-node { border: 1px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.7rem; width: 200px; flex-shrink: 0; }
+                        .ia-filter { border: 1px solid #3a4a7a; background: #080f28; color: #7a9acc; padding: 6px 12px; font-family: 'Space Mono', monospace; font-size: 0.65rem; white-space: nowrap; box-shadow: 0 0 4px rgba(58,74,122,0.3); flex-shrink: 0; }
+                        .ia-search { border: 1px solid #00cc66; background: #001a0d; color: #00ff88; padding: 6px 12px; font-family: 'Space Mono', monospace; font-size: 0.65rem; white-space: nowrap; box-shadow: 0 0 8px rgba(0,204,102,0.4); flex-shrink: 0; }
+                        .ia-arrow { color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 6px; font-size: 14px; user-select: none; }
+                        .ia-arrow-flow { color: rgba(58,74,122,0.8); font-family: monospace; margin: 0 4px; font-size: 12px; user-select: none; }
+                    </style>
+
+                    <!-- Home Sub-sections -->
+                    <div style="display: flex; flex-direction: column; border-left: 2px solid rgba(108,232,255,0.4); margin-left: 20px; padding: 5px 0; gap: 10px;">
+                        
+                        <!-- Top Standard Nodes -->
+                        <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node">FINANCE & ACCOUNTING</div></div>
+                        <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node">REVENUE COLLECTION</div></div>
+                        <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node">CITIZEN SERVICES</div></div>
+                        <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node">PLANNING</div></div>
+
+                        <!-- HRMS MODULE (EXPANDED) -->
+                        <div style="display: flex; flex-direction: column; gap: 6px;">
+                            <div style="display: flex; align-items: center;">
+                                <div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div>
+                                <div class="ia-node ia-node-expanded">▼ HRMS MODULE</div>
+                            </div>
+                            <div style="display: flex; flex-direction: column; border-left: 1px dashed rgba(108,232,255,0.4); margin-left: 40px; padding: 5px 0; gap: 8px;">
+                                <!-- Flow 1 -->
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 15px; height: 1px; background: rgba(108,232,255,0.4);"></div>
+                                    <div class="ia-sub-node">► GENERAL BODY MEMBERS</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">DISTRICT</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">TALUK</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">GRAM PANCHAYAT</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-search">SEARCH</div>
+                                </div>
+                                <!-- Flow 2 -->
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 15px; height: 1px; background: rgba(108,232,255,0.4);"></div>
+                                    <div class="ia-sub-node">► TOTAL STAFF</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">DISTRICT</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">TALUK</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">GRAM PANCHAYAT</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">STAFF TYPE</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-search">SEARCH</div>
+                                </div>
+                            </div>
                         </div>
+
+                        <!-- PUBLIC INFO PORTAL (FLOW) -->
                         <div style="display: flex; align-items: center;">
-                            <div style="width: 30px; height: 2px; background: #6ce8ff;"></div>
-                            <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 10px 15px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.8rem; min-width: 250px;">REVENUE COLLECTION</div>
+                            <div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div>
+                            <div class="ia-node">PUBLIC INFO PORTAL</div>
+                            <span class="ia-arrow-flow" style="margin-left: 10px;">──►</span><div class="ia-filter">DISTRICT</div>
+                            <span class="ia-arrow-flow">──►</span><div class="ia-filter">TALUK</div>
+                            <span class="ia-arrow-flow">──►</span><div class="ia-filter">GRAM PANCHAYAT</div>
+                            <span class="ia-arrow-flow">──►</span><div class="ia-search">SEARCH</div>
                         </div>
-                        <div style="display: flex; align-items: center;">
-                            <div style="width: 30px; height: 2px; background: #6ce8ff;"></div>
-                            <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 10px 15px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.8rem; min-width: 250px;">CITIZEN SERVICES</div>
+
+                        <!-- MEETING MANAGEMENT (EXPANDED) -->
+                        <div style="display: flex; flex-direction: column; gap: 6px;">
+                            <div style="display: flex; align-items: center;">
+                                <div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div>
+                                <div class="ia-node ia-node-expanded">▼ MEETING MANAGEMENT</div>
+                            </div>
+                            <div style="display: flex; flex-direction: column; border-left: 1px dashed rgba(108,232,255,0.4); margin-left: 40px; padding: 5px 0; gap: 8px;">
+                                <!-- Flow 1 -->
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 15px; height: 1px; background: rgba(108,232,255,0.4);"></div>
+                                    <div class="ia-sub-node">► TOTAL MEETINGS</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">DISTRICT</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">TALUK</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">GRAM PANCHAYAT</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">MEETING TYPE</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">FROM DATE</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">TO DATE</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-search">SEARCH</div>
+                                </div>
+                                <!-- Flow 2 -->
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 15px; height: 1px; background: rgba(108,232,255,0.4);"></div>
+                                    <div class="ia-sub-node">► TOTAL DEMAND</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">DISTRICT</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">TALUK</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">GRAM PANCHAYAT</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">FINANCIAL YEAR</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-search">SEARCH</div>
+                                </div>
+                                <!-- Flow 3 -->
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 15px; height: 1px; background: rgba(108,232,255,0.4);"></div>
+                                    <div class="ia-sub-node">EVENTS CONDUCTED</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">DISTRICT</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">TALUK</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">GRAM PANCHAYAT</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">EVENT TYPE</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">START FROM</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">END AT</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-search">SEARCH</div>
+                                </div>
+                                <!-- Sub Node -->
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 15px; height: 1px; background: rgba(108,232,255,0.4);"></div>
+                                    <div class="ia-sub-node">► EVENTS</div>
+                                </div>
+                                <!-- Flow 4 -->
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 15px; height: 1px; background: rgba(108,232,255,0.4);"></div>
+                                    <div class="ia-sub-node">INITIATIVES</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">DISTRICT</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">TALUK</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">GRAM PANCHAYAT</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">INITIATIVE TYPE</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">START FROM</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-filter">END AT</div>
+                                    <span class="ia-arrow-flow">──►</span><div class="ia-search">SEARCH</div>
+                                </div>
+                                <!-- Sub Node -->
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 15px; height: 1px; background: rgba(108,232,255,0.4);"></div>
+                                    <div class="ia-sub-node">► TOTAL CITIZEN APPLICATIONS</div>
+                                </div>
+                            </div>
                         </div>
-                        <div style="display: flex; align-items: center;">
-                            <div style="width: 30px; height: 2px; background: #6ce8ff;"></div>
-                            <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 10px 15px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.8rem; min-width: 250px;">PLANNING</div>
-                        </div>
-                        <div style="display: flex; align-items: center;">
-                            <div style="width: 30px; height: 2px; background: #6ce8ff;"></div>
-                            <div style="border: 2px solid #6ce8ff; background: #6ce8ff; color: #000; padding: 10px 15px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.8rem; min-width: 250px; box-shadow: 0 0 15px #6ce8ff;">HRMS MODULE</div>
-                        </div>
-                        <div style="display: flex; align-items: center;">
-                            <div style="width: 30px; height: 2px; background: #6ce8ff;"></div>
-                            <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 10px 15px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.8rem; min-width: 250px;">PUBLIC INFO PORTAL</div>
-                        </div>
-                        <div style="display: flex; align-items: center;">
-                            <div style="width: 30px; height: 2px; background: #6ce8ff;"></div>
-                            <div style="border: 2px solid #6ce8ff; background: #6ce8ff; color: #000; padding: 10px 15px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.8rem; min-width: 250px; box-shadow: 0 0 15px #6ce8ff;">MEETING MANAGEMENT (MOM)</div>
-                        </div>
-                        <div style="display: flex; align-items: center;">
-                            <div style="width: 30px; height: 2px; background: #6ce8ff;"></div>
-                            <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 10px 15px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.8rem; min-width: 250px;">OTHER DEPT. SERVICES</div>
-                        </div>
-                        <div style="display: flex; align-items: center;">
-                            <div style="width: 30px; height: 2px; background: #6ce8ff;"></div>
-                            <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 10px 15px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.8rem; min-width: 250px;">LEARNING & KNOWLEDGE</div>
-                        </div>
+
+                        <!-- Bottom Standard Nodes -->
+                        <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node">OTHER DEPT. SERVICES</div></div>
+                        <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node">LEARNING & KNOWLEDGE</div></div>
+
                     </div>
                 </div>
             </div>
@@ -348,8 +446,10 @@ const projectData = {
                 Zooming into the administrative side, the Meeting Management architecture was rebuilt into a linear, sequential flow to eliminate data entry errors by Panchayat officials.
             </p>
 
+            <!-- 2. M.O.M. FLOW TREE (MICRO) -->
             <div style="display: flex; gap: 2rem; background: #050d1f; padding: 2.5rem; border: 2px solid #333; border-radius: 8px; margin-bottom: 3rem; overflow-x: auto; box-shadow: inset 0 0 20px rgba(0,0,0,0.5);">
                 
+                <!-- Root -->
                 <div style="flex-shrink: 0; display: flex; align-items: flex-start; padding-top: 10px;">
                     <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 12px 15px; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; text-align: center; box-shadow: 0 0 15px rgba(108,232,255,0.3); line-height: 1.6;">
                         MEETING<br>MODULE
@@ -357,8 +457,10 @@ const projectData = {
                     <div style="color: #6ce8ff; font-family: monospace; font-size: 20px; text-shadow: 0 0 10px #6ce8ff; margin-left: 10px; margin-top: 8px;">════►</div>
                 </div>
 
+                <!-- Tree -->
                 <div style="flex: 1; border-left: 2px solid rgba(108,232,255,0.3); padding-left: 15px; display: flex; flex-direction: column; gap: 12px; min-width: max-content;">
 
+                    <!-- Item 1: Create Meeting -->
                     <div style="display: flex; flex-direction: column; gap: 6px;">
                         <div style="display: flex; align-items: center;">
                             <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
@@ -368,6 +470,7 @@ const projectData = {
                             <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
                             <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">MEETING DETAILS</div>
                         </div>
+                        <!-- Sub: Add Participants -->
                         <div style="display: flex; flex-direction: column; gap: 6px; margin-left: 30px; border-left: 2px solid rgba(108,232,255,0.2); padding-left: 15px;">
                             <div style="display: flex; align-items: center;">
                                 <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">└►</span>
@@ -375,6 +478,7 @@ const projectData = {
                                 <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
                                 <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">NEW PARTICIPANT DETAILS</div>
                             </div>
+                            <!-- Sub: List of Participants -->
                             <div style="display: flex; align-items: center; margin-left: 30px; border-left: 2px solid rgba(108,232,255,0.2); padding-left: 15px;">
                                 <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">└►</span>
                                 <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">LIST OF PARTICIPANTS</div>
@@ -382,6 +486,7 @@ const projectData = {
                         </div>
                     </div>
 
+                    <!-- Item 2: Start Meeting -->
                     <div style="display: flex; align-items: center;">
                         <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
                         <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">START MEETING</div>
@@ -393,6 +498,7 @@ const projectData = {
                         <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">FUTURE MEETINGS</div>
                     </div>
 
+                    <!-- Item 3: Meeting Proceeding -->
                     <div style="display: flex; flex-direction: column; gap: 6px;">
                         <div style="display: flex; align-items: center;">
                             <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
@@ -414,6 +520,7 @@ const projectData = {
                         </div>
                     </div>
 
+                    <!-- Item 4: Meeting List -->
                     <div style="display: flex; align-items: center;">
                         <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
                         <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">MEETING LIST</div>
@@ -427,11 +534,13 @@ const projectData = {
                         <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">ADJOURN MEETING</div>
                     </div>
 
+                    <!-- Item 5: Participant Details -->
                     <div style="display: flex; align-items: center;">
                         <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
                         <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">PARTICIPANT DETAILS</div>
                     </div>
 
+                    <!-- Item 6: Completed Remark -->
                     <div style="display: flex; align-items: center;">
                         <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
                         <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">COMPLETED REMARK</div>
@@ -445,16 +554,19 @@ const projectData = {
                         <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">PRINT PROCEEDINGS</div>
                     </div>
 
+                    <!-- Item 7: User Sub Committee -->
                     <div style="display: flex; align-items: center;">
                         <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
                         <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">SUB COMMITTEE MAP</div>
                     </div>
 
+                    <!-- Item 8: Add Sub Committee -->
                     <div style="display: flex; align-items: center;">
                         <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
                         <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">ADD MAPPING</div>
                     </div>
 
+                    <!-- Item 9: ATR Update -->
                     <div style="display: flex; align-items: center;">
                         <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
                         <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">ATR UPDATE</div>
@@ -464,6 +576,7 @@ const projectData = {
                         <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">AGENDA DETAILS</div>
                     </div>
 
+                    <!-- Item 10: Upload Leave -->
                     <div style="display: flex; align-items: center;">
                         <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">└►</span>
                         <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">UPLOAD LEAVE DOC</div>
@@ -653,7 +766,7 @@ window.openModal = function(projectId) {
     const buttonHTML = `
         <div style="text-align: center; margin-top: 4rem; padding-bottom: 2rem;">
             <a href="${linkUrl}" target="_blank" onmouseover="this.style.transform='translate(-4px, -4px)'; this.style.boxShadow='10px 10px 0 #244d66';" onmouseout="this.style.transform='none'; this.style.boxShadow='6px 6px 0 #244d66';" style="background: #6ce8ff; color: #092138; border: 4px solid #fff; box-shadow: 6px 6px 0 #244d66; font-family: 'Press Start 2P', cursive; font-size: 0.9rem; padding: 1rem 1.5rem; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: transform 0.1s, box-shadow 0.1s; cursor: pointer;">
-                SEE MORE ON BEHANCE <span style="font-family: sans-serif; font-size: 1.2rem; font-weight: bold;">↗</span>
+                SEE MORE <span style="font-family: sans-serif; font-size: 1.2rem; font-weight: bold;">↗</span>
             </a>
         </div>
     `;
