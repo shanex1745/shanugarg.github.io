@@ -245,7 +245,7 @@ const projectData = {
             </div>
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
-                <h3 class="section-heading">6. The Final Solution & Ethics</h3>
+                <h3 class="section-heading">The Final Solution & Ethics</h3>
                 <p>By implementing robust screen-reader support, scalable text, and high-contrast modes, the redesign champions inclusivity. These choices frame the platform as "moral infrastructure"—treating equitable access to national heritage as a fundamental civic right.</p>
             </div>
         `
@@ -264,7 +264,7 @@ const projectData = {
         },
         dynamicHTML: `
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
-                <h3 class="section-heading">3. Research & Discovery</h3>
+                <h3 class="section-heading">Research & Discovery</h3>
                 <p>1-on-1 Usability Testing revealed "The Number Barrier": users completely failed to comprehend percentages or decimals. Furthermore, officials were manually copying shorthand notes under time pressure, resulting in vague civic records.</p>
             </div>
 
@@ -611,7 +611,7 @@ const projectData = {
         },
         dynamicHTML: `
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
-                <h3 class="section-heading">2. Context & Systemic Flaw</h3>
+                <h3 class="section-heading">Context & Systemic Flaw</h3>
                 <p>The transition into a new city is highly fragmented ("Three apps. One pizza. Zero clarity"). Existing real estate platforms function as mere directories; they severely lack "life in the area" guidance or trust signals (safety, curfews), leaving newcomers isolated.</p>
             </div>
 
@@ -632,7 +632,7 @@ const projectData = {
             </div>
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
-                <h3 class="section-heading">6. Moral Infrastructure</h3>
+                <h3 class="section-heading">Moral Infrastructure</h3>
                 <p>The platform name, "Salt," is rooted in social impact—in India, salt is a traditional housewarming gift symbolizing warmth. The platform features an "All-in-one directory" that elevates unorganized local service providers (house helps, electricians), giving marginalized grassroots workers equal digital real estate.</p>
             </div>
         `
@@ -647,7 +647,7 @@ const projectData = {
         },
         dynamicHTML: `
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
-                <h3 class="section-heading">3. Research & Discovery</h3>
+                <h3 class="section-heading">Research & Discovery</h3>
                 <p>Through Contextual Ethnography, we found the "Transfer Bottleneck" was the hardest part—transferring a heavy child from bed to wet bathroom. Emotional trauma overpowered physical limitation; children felt immense guilt over being a "burden." Existing imported solutions required massive remodeling and constant electricity, making them useless in India.</p>
             </div>
 
@@ -668,7 +668,7 @@ const projectData = {
             </div>
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
-                <h3 class="section-heading">7. Reflections & Impact</h3>
+                <h3 class="section-heading">Reflections & Impact</h3>
                 <p>Protecting the vulnerable patient meant I first had to protect the caregiver. Empathy requires contextual realism: a $30,000 automated tub is a failed design if it doesn't fit the user's environment. True user-centric design adapts to the user's reality; it doesn't demand the user adapt to the design.</p>
             </div>
         `
@@ -683,7 +683,7 @@ const projectData = {
         },
         dynamicHTML: `
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
-                <h3 class="section-heading">3. Research & Insights</h3>
+                <h3 class="section-heading">Research & Insights</h3>
                 <p>When VI and VA children played mainstream games, VA children played with sympathy, making VI children feel insecure and like a "liability." VI children actively rejected being coddled, displaying heightened cognitive abilities and excelling in spatial and tactile memory.</p>
             </div>
 
@@ -703,7 +703,7 @@ const projectData = {
             <div class="hero-image-placeholder" style="aspect-ratio: 21/9; margin-bottom: 2rem;">[IMAGE: Hexagonal tactile die and distinct magnetic pawns]</div>
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
-                <h3 class="section-heading">7. Reflections</h3>
+                <h3 class="section-heading">Reflections</h3>
                 <p>True Inclusion means removing advantage, not just adding accommodations. Designing for accessibility isn't always about creating an assistive feature; sometimes, it is about strategically stripping away the inherent advantages of the privileged user to create a truly level playing field.</p>
             </div>
         `
@@ -718,7 +718,7 @@ const projectData = {
         },
         dynamicHTML: `
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
-                <h3 class="section-heading">3. Research & Discovery</h3>
+                <h3 class="section-heading">Research & Discovery</h3>
                 <p>Observational Ethnography and quantitative surveys revealed that <strong>Bargaining is the True Bottleneck</strong>. 80% of passengers were willing to pay for a porter, but only if the system removed the anxiety of haggling. Physical hardware solutions (stair-climbing trolleys) were unviable in crowded stations.</p>
             </div>
 
@@ -739,7 +739,7 @@ const projectData = {
             </div>
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
-                <h3 class="section-heading">7. UX as Social Mediation</h3>
+                <h3 class="section-heading">UX as Social Mediation</h3>
                 <p>By standardizing rates and formalizing the labor process, the app acts as moral infrastructure. It ensures passengers aren't extorted, while simultaneously guaranteeing marginalized laborers a predictable, dignified living wage without forcing them to beg or haggle.</p>
             </div>
         `
