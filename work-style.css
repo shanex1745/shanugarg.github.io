@@ -162,3 +162,68 @@
 .detail-section h4 { font-family: 'Press Start 2P', cursive; font-size: 0.8rem; color: #ff77da; margin-bottom: 0.8rem; line-height: 1.4;}
 .detail-section p { font-family: 'Space Mono', monospace; font-size: 1rem; line-height: 1.6; color: #ccc; }
 @media (max-width: 768px) { .case-grid { grid-template-columns: 1fr; } .expanded-modal { padding: 1.5rem; } }
+
+/* --- ADVANCED MODAL BASE --- */
+.advanced-modal {
+    background: #0d1117; border: 4px solid #fff; box-shadow: 15px 15px 0 #5a2146;
+    width: 95%; max-width: 1200px; height: 90vh; overflow-y: auto; padding: 0; position: relative;
+    border-radius: 8px;
+}
+.advanced-modal::-webkit-scrollbar { width: 10px; }
+.advanced-modal::-webkit-scrollbar-thumb { background: #ff77da; }
+
+.modal-hero { padding: 4rem 3rem 2rem; border-bottom: 4px dashed #333; position: relative; z-index: 2; }
+.modal-tags { display: flex; gap: 15px; margin-bottom: 1rem; }
+.role-tag, .time-tag { font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: bold; padding: 5px 10px; border: 2px solid; }
+.role-tag { color: #000; background: #f8f66a; border-color: #fff; }
+.time-tag { color: #6ce8ff; border-color: #6ce8ff; }
+.glitch-title { font-family: 'Press Start 2P', cursive; font-size: 1.8rem; color: #fff; line-height: 1.4; margin-bottom: 2rem; text-transform: uppercase; }
+
+/* Image Placeholders */
+.hero-image-placeholder { width: 100%; aspect-ratio: 21/9; background: #222; border: 4px solid #444; display: flex; align-items: center; justify-content: center; color: #666; font-family: 'Space Mono', monospace; font-size: 0.9rem; text-align: center; }
+.wireframe-placeholder { width: 100%; aspect-ratio: 4/3; background: repeating-linear-gradient(45deg, #111, #111 10px, #1a1a1a 10px, #1a1a1a 20px); border: 4px dashed #ff77da; display: flex; align-items: center; justify-content: center; color: #ff77da; font-family: 'Space Mono', monospace; }
+
+/* TL;DR Grid */
+.tldr-section { padding: 3rem; background: #151b23; }
+.tldr-section h3 { font-family: 'Press Start 2P', cursive; font-size: 1rem; color: #fff; margin-bottom: 2rem; }
+.tldr-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.tldr-box { padding: 20px; border: 3px solid #333; font-family: 'Space Mono', monospace; font-size: 0.9rem; line-height: 1.6; color: #ccc; }
+.tldr-box h4 { font-family: 'Press Start 2P', cursive; font-size: 0.7rem; margin-bottom: 15px; }
+.problem-box h4 { color: #ff5555; }
+.solution-box h4 { color: #7cff9b; }
+.impact-box h4 { color: #ffd84f; }
+
+/* Dynamic Layouts (IA Trees, Before/After, Booklets) */
+.dynamic-content-area { padding: 3rem; }
+.section-heading { font-family: 'Press Start 2P', cursive; font-size: 1.2rem; color: #ff77da; margin-bottom: 2rem; text-transform: uppercase; }
+
+/* 1. Before & After Grid */
+.before-after-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; position: relative; }
+.ba-box { border: 4px solid #444; padding: 15px; background: #000; }
+.ba-label { font-family: 'Press Start 2P', cursive; font-size: 0.8rem; text-align: center; margin-bottom: 15px; }
+.label-before { color: #ff5555; }
+.label-after { color: #7cff9b; }
+
+/* 2. Interactive IA Tree (RDPR / NAI) */
+.ia-tree-container { display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 2rem; background: rgba(108, 232, 255, 0.05); border: 2px dashed #6ce8ff; }
+.ia-node { background: #111; border: 2px solid #6ce8ff; color: #fff; padding: 10px 20px; font-family: 'Space Mono', monospace; font-weight: bold; border-radius: 4px; z-index: 2; }
+.ia-branches { display: flex; gap: 40px; position: relative; }
+.ia-branches::before { content: ''; position: absolute; top: -20px; left: 20%; right: 20%; height: 2px; background: #6ce8ff; }
+.ia-branch { display: flex; flex-direction: column; align-items: center; gap: 15px; position: relative; }
+.ia-branch::before { content: ''; position: absolute; top: -20px; width: 2px; height: 20px; background: #6ce8ff; }
+
+/* 3. Salt Booklet / User Flow Carousel */
+.booklet-carousel { display: flex; overflow-x: auto; gap: 20px; padding-bottom: 20px; scroll-snap-type: x mandatory; }
+.booklet-page { min-width: 80%; scroll-snap-align: center; border: 4px solid #ffd84f; background: #1a1a1a; padding: 20px; }
+.booklet-page img { width: 100%; aspect-ratio: 16/9; background: #000; object-fit: cover; border: 2px solid #444; margin-bottom: 15px; }
+.booklet-desc { font-family: 'Space Mono', monospace; color: #ccc; font-size: 0.9rem; }
+
+/* Thematic Background Graphics */
+.theme-graphics { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; z-index: 1; opacity: 0.1; }
+.theme-icon { position: absolute; font-size: 4rem; filter: grayscale(100%); }
+
+@media (max-width: 900px) {
+    .tldr-grid, .before-after-grid { grid-template-columns: 1fr; }
+    .ia-branches { flex-direction: column; gap: 20px; }
+    .ia-branches::before, .ia-branch::before { display: none; }
+}
