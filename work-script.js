@@ -137,7 +137,7 @@ const projectData = {
         dynamicHTML: `
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
                 <h3 class="section-heading">3. Research & Discovery</h3>
-                <p>Through Heuristic Evaluation and Global Competitive Analysis (benchmarking against Germany, Japan, and Russia), we uncovered severe Accessibility Barriers: the search bar and side menus were invisible to screen readers. Linguistic gatekeeping and three overlapping navigation bars with four levels of nested sub-menus caused navigational paralysis.</p>
+                <p>Through Heuristic Evaluation and Global Competitive Analysis, we uncovered severe Accessibility Barriers. Linguistic gatekeeping and three overlapping navigation bars with four levels of nested sub-menus caused massive navigational paralysis.</p>
             </div>
 
             <h3 class="section-heading">THE ARCHITECTURAL OVERHAUL</h3>
@@ -152,114 +152,93 @@ const projectData = {
                 </div>
             </div>
             
-            <h3 class="section-heading">I.A. RESTRUCTURE: FROM MAZE TO CLARITY</h3>
+            <h3 class="section-heading">I.A. MIND MAP: UNTANGLING THE MAZE</h3>
             
-            <div style="display: flex; flex-direction: column; gap: 3rem; background: #111; padding: 3rem 1rem; border: 2px dashed #444; border-radius: 8px; margin-bottom: 2rem; overflow-x: auto;">
+            <div style="display: flex; flex-direction: column; gap: 3rem; background: #0d1117; padding: 2rem; border: 2px solid #333; border-radius: 8px; margin-bottom: 2rem; overflow-x: auto;">
                 
-                <!-- OLD I.A. (3 Conflicting Nav Bars) -->
+                <!-- OLD I.A. MIND MAP (Red / Chaotic) -->
                 <div>
-                    <div class="ba-label label-before" style="text-align: center; margin-bottom: 1.5rem;">BEFORE: 3 CONFLICTING NAVIGATION BARS (4 Levels Deep)</div>
-                    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; opacity: 0.7;">
+                    <div class="ba-label label-before" style="margin-bottom: 1.5rem; text-align: left; color: #ff5555;">BEFORE: 3 CONFLICTING NAV BARS</div>
+                    
+                    <div style="display: flex; align-items: center; min-width: 800px; padding: 1rem 0;">
+                        <!-- Root -->
+                        <div style="border: 2px dashed #ff5555; background: rgba(255,85,85,0.1); color: #ff5555; padding: 10px 20px; font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: bold; border-radius: 6px;">NAI PORTAL</div>
+                        <div style="width: 30px; height: 2px; background: #ff5555;"></div>
                         
-                        <!-- Nav 1: Central -->
-                        <div style="border: 1px dashed #ff5555; padding: 15px; width: 30%; min-width: 220px; background: rgba(255,85,85,0.05);">
-                            <div style="font-weight: bold; color: #ff5555; font-size: 0.7rem; border-bottom: 1px solid #ff5555; margin-bottom: 10px; padding-bottom: 5px; font-family: 'Space Mono', monospace;">CENTRAL NAV BAR</div>
-                            <ul style="color: #ff5555; font-size: 0.6rem; padding-left: 15px; margin: 0; line-height: 1.6; font-family: 'Space Mono', monospace;">
-                                <li>HOME</li>
-                                <li>ABOUT NAI
-                                    <ul>
-                                        <li>History</li>
-                                        <li>Organization</li>
-                                        <li>Record Centres</li>
-                                        <li><i>...deep nested locations</i></li>
-                                    </ul>
-                                </li>
-                                <li>RECORDS
-                                    <ul>
-                                        <li>Public Records</li>
-                                        <li>Private Papers</li>
-                                        <li>Microfilms</li>
-                                    </ul>
-                                </li>
-                                <li>RECORD MANAGEMENT</li>
-                            </ul>
-                        </div>
-
-                        <!-- Nav 2: Side Nav -->
-                        <div style="border: 1px dashed #ff5555; padding: 15px; width: 30%; min-width: 220px; background: rgba(255,85,85,0.05);">
-                            <div style="font-weight: bold; color: #ff5555; font-size: 0.7rem; border-bottom: 1px solid #ff5555; margin-bottom: 10px; padding-bottom: 5px; font-family: 'Space Mono', monospace;">SIDE NAV BAR</div>
-                            <ul style="color: #ff5555; font-size: 0.6rem; padding-left: 15px; margin: 0; line-height: 1.6; font-family: 'Space Mono', monospace;">
-                                <li>Explore National Archives</li>
-                                <li>Current Exhibition</li>
-                                <li>Digital Exhibition
-                                    <ul>
-                                        <li>VR Library</li>
-                                    </ul>
-                                </li>
-                                <li>Abhilekh Patal Portal</li>
-                                <li><i>...redundant links</i></li>
-                            </ul>
-                        </div>
-
-                        <!-- Nav 3: Resources -->
-                        <div style="border: 1px dashed #ff5555; padding: 15px; width: 30%; min-width: 220px; background: rgba(255,85,85,0.05);">
-                            <div style="font-weight: bold; color: #ff5555; font-size: 0.7rem; border-bottom: 1px solid #ff5555; margin-bottom: 10px; padding-bottom: 5px; font-family: 'Space Mono', monospace;">RESOURCES & GUIDELINES</div>
-                            <ul style="color: #ff5555; font-size: 0.6rem; padding-left: 15px; margin: 0; line-height: 1.6; font-family: 'Space Mono', monospace;">
-                                <li>Learning & Training</li>
-                                <li>Reference Tools</li>
-                                <li>Registration & Admission</li>
-                                <li>General Instructions</li>
-                                <li>Working Hours</li>
-                                <li><i>...duplicate forms</i></li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- DIVIDER -->
-                <hr style="border: 0; border-top: 2px solid #333; margin: 0 2rem;">
-
-                <!-- NEW I.A. (Clean White Boxes) -->
-                <div>
-                    <div class="ba-label label-after" style="text-align: center; margin-bottom: 2rem;">AFTER: UNIFIED 3-PILLAR INTENT SYSTEM</div>
-                    <div style="display: flex; flex-direction: column; align-items: center;">
-                        
-                        <!-- Root Node -->
-                        <div style="background: #fff; color: #000; font-weight: bold; padding: 15px 30px; font-family: 'Space Mono', monospace; border-radius: 4px; box-shadow: 0 6px 20px rgba(255,255,255,0.15); z-index: 2;">
-                            ABHILEKH PATAL (ROOT)
-                        </div>
-                        <div style="width: 3px; height: 30px; background: #fff;"></div>
-                        
-                        <!-- Connecting Lines & Branches -->
-                        <div style="display: flex; width: 100%; max-width: 650px; justify-content: space-between; position: relative;">
-                            
-                            <!-- Horizontal Line -->
-                            <div style="position: absolute; top: 0; left: 16%; right: 16%; height: 3px; background: #fff;"></div>
+                        <!-- Level 1 Spine -->
+                        <div style="display: flex; flex-direction: column; border-left: 2px solid #ff5555; padding: 15px 0; gap: 20px;">
                             
                             <!-- Branch 1 -->
-                            <div style="display: flex; flex-direction: column; align-items: center; width: 30%; position: relative;">
-                                <div style="width: 3px; height: 25px; background: #fff;"></div>
-                                <div style="background: #fff; color: #000; padding: 12px; font-family: 'Space Mono', monospace; font-size: 0.8rem; text-align: center; border-radius: 4px; width: 100%; font-weight: bold;">
-                                    🔍 Record Search
+                            <div style="display: flex; align-items: center;">
+                                <div style="width: 30px; height: 2px; background: #ff5555;"></div>
+                                <div style="border: 1px solid #ff5555; color: #ff5555; padding: 8px 15px; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: bold; background: #111;">Central Nav Bar</div>
+                                <div style="width: 30px; height: 2px; background: #ff5555; opacity: 0.5;"></div>
+                                <div style="display: flex; flex-direction: column; border-left: 1px dashed #ff5555; padding: 10px 0; gap: 10px; opacity: 0.8;">
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff5555;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #ff5555;">History & Organization</div></div>
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff5555;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #ff5555;">Records (Public, Private, Microfilms)</div></div>
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff5555;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #ff5555;">Record Management Forms</div></div>
                                 </div>
                             </div>
 
                             <!-- Branch 2 -->
-                            <div style="display: flex; flex-direction: column; align-items: center; width: 30%; position: relative;">
-                                <div style="width: 3px; height: 25px; background: #fff;"></div>
-                                <div style="background: #fff; color: #000; padding: 12px; font-family: 'Space Mono', monospace; font-size: 0.8rem; text-align: center; border-radius: 4px; width: 100%; font-weight: bold;">
-                                    📚 Research & Ref
+                            <div style="display: flex; align-items: center;">
+                                <div style="width: 30px; height: 2px; background: #ff5555;"></div>
+                                <div style="border: 1px solid #ff5555; color: #ff5555; padding: 8px 15px; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: bold; background: #111;">Side Nav Bar</div>
+                                <div style="width: 30px; height: 2px; background: #ff5555; opacity: 0.5;"></div>
+                                <div style="display: flex; flex-direction: column; border-left: 1px dashed #ff5555; padding: 10px 0; gap: 10px; opacity: 0.8;">
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff5555;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #ff5555;">Explore National Archives</div></div>
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff5555;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #ff5555;">Digital & Current Exhibitions</div></div>
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff5555;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #ff5555;">Abhilekh Patal Portal Link</div></div>
                                 </div>
                             </div>
 
                             <!-- Branch 3 -->
-                            <div style="display: flex; flex-direction: column; align-items: center; width: 30%; position: relative;">
-                                <div style="width: 3px; height: 25px; background: #fff;"></div>
-                                <div style="background: #fff; color: #000; padding: 12px; font-family: 'Space Mono', monospace; font-size: 0.8rem; text-align: center; border-radius: 4px; width: 100%; font-weight: bold;">
-                                    🎓 Learning
+                            <div style="display: flex; align-items: center;">
+                                <div style="width: 30px; height: 2px; background: #ff5555;"></div>
+                                <div style="border: 1px solid #ff5555; color: #ff5555; padding: 8px 15px; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: bold; background: #111;">Resources Nav Bar</div>
+                                <div style="width: 30px; height: 2px; background: #ff5555; opacity: 0.5;"></div>
+                                <div style="display: flex; flex-direction: column; border-left: 1px dashed #ff5555; padding: 10px 0; gap: 10px; opacity: 0.8;">
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff5555;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #ff5555;">Learning & Training</div></div>
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff5555;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #ff5555;">Reference Tools & Rules</div></div>
                                 </div>
                             </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <hr style="border: 0; border-top: 2px solid #333; margin: 1rem 0;">
+
+                <!-- NEW I.A. MIND MAP (Green / Clean) -->
+                <div>
+                    <div class="ba-label label-after" style="margin-bottom: 1.5rem; text-align: left; color: #7cff9b;">AFTER: UNIFIED 3-PILLAR SYSTEM</div>
+                    
+                    <div style="display: flex; align-items: center; min-width: 600px; padding: 1rem 0;">
+                        <!-- Root -->
+                        <div style="background: #fff; color: #000; padding: 12px 24px; font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: bold; border-radius: 6px; box-shadow: 0 0 15px rgba(255,255,255,0.2);">ABHILEKH PATAL</div>
+                        <div style="width: 40px; height: 2px; background: #fff;"></div>
+                        
+                        <!-- Level 1 Spine -->
+                        <div style="display: flex; flex-direction: column; border-left: 2px solid #fff; padding: 20px 0; gap: 25px;">
+                            
+                            <!-- Branch 1 -->
+                            <div style="display: flex; align-items: center;">
+                                <div style="width: 40px; height: 2px; background: #fff;"></div>
+                                <div style="background: #111; border: 2px solid #fff; color: #fff; padding: 10px 20px; font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: bold; border-radius: 4px;">🔍 Record Search</div>
+                            </div>
+
+                            <!-- Branch 2 -->
+                            <div style="display: flex; align-items: center;">
+                                <div style="width: 40px; height: 2px; background: #fff;"></div>
+                                <div style="background: #111; border: 2px solid #fff; color: #fff; padding: 10px 20px; font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: bold; border-radius: 4px;">📚 Research & Reference</div>
+                            </div>
+
+                            <!-- Branch 3 -->
+                            <div style="display: flex; align-items: center;">
+                                <div style="width: 40px; height: 2px; background: #fff;"></div>
+                                <div style="background: #111; border: 2px solid #fff; color: #fff; padding: 10px 20px; font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: bold; border-radius: 4px;">🎓 Learning & Training</div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -267,7 +246,7 @@ const projectData = {
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
                 <h3 class="section-heading">6. The Final Solution & Ethics</h3>
-                <p>I engineered a Design System balancing aesthetics with usability, utilizing manuscript-inspired colors and the Marcellus font. By implementing robust screen-reader support, scalable text, and high-contrast modes, the redesign champions inclusivity. These choices frame the platform as "moral infrastructure"—treating equitable access to national heritage as a fundamental civic right.</p>
+                <p>By implementing robust screen-reader support, scalable text, and high-contrast modes, the redesign champions inclusivity. These choices frame the platform as "moral infrastructure"—treating equitable access to national heritage as a fundamental civic right.</p>
             </div>
         `
     },
@@ -277,178 +256,145 @@ const projectData = {
         tldr: {
             problem: "Despite digitizing local governance data across 6,000 Gram Panchayats, rural citizens were entirely excluded from the platform due to systemic barriers in digital, numerical, and linguistic literacy.",
             solution: "An audio-first, low-data mobile platform for citizens, paired with a streamlined, error-preventing Meeting Management system for Panchayat officials.",
-            impact: "Dramatically improved data comprehension among illiterate users (from 1/12 to 8/12 charts understood), transforming raw civic data into moral infrastructure."
+            impact: "Dramatically improved data comprehension among illiterate users, transforming raw civic data into moral infrastructure."
         },
         dynamicHTML: `
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
                 <h3 class="section-heading">3. Research & Discovery</h3>
-                <p>Conducted Ethnographic Field Studies by attending Special Grama Sabha meetings in villages like Kabbali. 1-on-1 Usability Testing revealed "The Number Barrier": users completely failed to comprehend percentages, decimals, or numbers larger than 3 digits. Furthermore, officials were manually copying shorthand notes under time pressure, resulting in vague civic records.</p>
+                <p>1-on-1 Usability Testing revealed "The Number Barrier": users completely failed to comprehend percentages or decimals. Furthermore, officials were manually copying shorthand notes under time pressure, resulting in vague civic records.</p>
             </div>
 
-            <h3 class="section-heading">DECODING THE BUREAUCRATIC MAZE</h3>
+            <h3 class="section-heading">DECODING THE BUREAUCRATIC MIND MAP</h3>
             <p style="color:#ccc; font-family: 'Space Mono', monospace; font-size:0.9rem; margin-bottom: 2rem; line-height: 1.6;">
-                The original architecture possessed a deeply nested, overwhelming structure. Below is the complete, unedited structural blueprint mapping both the massive Panchatantra 2.0 ecosystem and the deep administrative Meeting Management (M.O.M) flows.
+                Below is the complete, unedited structural blueprint mapping both the massive Panchatantra 2.0 ecosystem and the deep administrative Meeting Management (M.O.M) flows.
             </p>
 
-            <!-- PURE CODE IA DIAGRAMS (FULL DEPTH) -->
-            <div style="background: #0a0a12; padding: 2rem; border: 2px solid #333; border-radius: 8px; margin-bottom: 2rem; overflow-x: auto; box-shadow: inset 0 0 20px rgba(0,0,0,0.8);">
+            <div style="background: #0a0a12; padding: 2rem; border: 2px solid #333; border-radius: 8px; margin-bottom: 2rem; overflow-x: auto;">
                 
-                <!-- 1. PANCHATANTRA 2.0 (MACRO I.A.) -->
-                <div style="margin-bottom: 4rem;">
-                    <div style="color: #ff77da; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; margin-bottom: 1.5rem; text-shadow: 0 0 10px rgba(255,119,218,0.4);">[1] MODULES UNDER PANCHATANTRA 2.0</div>
-                    <div style="background: rgba(255,119,218,0.1); border: 1px solid #ff77da; color: #fff; padding: 10px 20px; display: inline-block; font-family: 'Space Mono', monospace; font-weight: bold; margin-bottom: 20px;">PANCHATANTRA ROOT</div>
+                <!-- 1. PANCHATANTRA 2.0 MACRO MIND MAP (Pink) -->
+                <div style="margin-bottom: 3rem;">
+                    <div style="color: #ff77da; font-family: 'Press Start 2P', cursive; font-size: 0.7rem; margin-bottom: 1.5rem; text-shadow: 0 0 10px rgba(255,119,218,0.4);">[1] MODULES UNDER PANCHATANTRA 2.0</div>
                     
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #e0e0e0; margin-left: 20px;">
+                    <div style="display: flex; align-items: center; min-width: 900px; padding: 1rem 0;">
+                        <!-- Root -->
+                        <div style="background: rgba(255,119,218,0.1); border: 2px solid #ff77da; color: #ff77da; padding: 12px 20px; font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: bold; border-radius: 6px;">PANCHATANTRA ROOT</div>
+                        <div style="width: 30px; height: 2px; background: #ff77da;"></div>
                         
-                        <!-- Col 1: Home Modules -->
-                        <div style="border-left: 1px solid #ff77da; padding-left: 20px;">
-                            <div style="color: #ff77da; font-weight: bold; margin-bottom: 10px;">HOME MODULES</div>
-                            <div style="margin-bottom: 8px;">├── Citizen Services</div>
-                            <div style="margin-bottom: 8px;">├── Revenue Collection</div>
-                            <div style="margin-bottom: 8px;">├── Finance and Accounting</div>
-                            <div style="margin-bottom: 8px;">├── Other Department Services</div>
-                            <div style="margin-bottom: 8px;">├── Learning and Knowledge</div>
-                            <div style="margin-bottom: 8px;">├── Meeting Management (MOM)</div>
-                            <div style="margin-bottom: 8px;">├── Information Portal
-                                <div style="margin-left: 20px; color: #aaa; margin-top: 4px;">├─ General Body Members</div>
-                                <div style="margin-left: 20px; color: #aaa;">└─ Dashboard</div>
-                            </div>
-                            <div style="margin-bottom: 8px;">└── HRM Module
-                                <div style="margin-left: 20px; color: #aaa; margin-top: 4px;">├─ Recruitment</div>
-                                <div style="margin-left: 20px; color: #aaa;">├─ Attendance</div>
-                                <div style="margin-left: 20px; color: #aaa;">└─ Payroll</div>
-                            </div>
-                        </div>
-
-                        <!-- Col 2: Deep Search Flows -->
-                        <div style="border-left: 1px solid #ff77da; padding-left: 20px;">
-                            <div style="color: #ff77da; font-weight: bold; margin-bottom: 10px;">DATA SEARCH & DOWNLOAD FLOWS</div>
+                        <!-- Level 1 Spine -->
+                        <div style="display: flex; flex-direction: column; border-left: 2px solid #ff77da; padding: 15px 0; gap: 15px;">
                             
-                            <div style="margin-bottom: 15px;">├── Staff Details / Employee Details
-                                <div style="margin-left: 20px; color: #aaa; margin-top: 4px;">└─ District → Taluk → Gram Panchayat → Search</div>
-                                <div style="margin-left: 40px; color: #888;">└─ Employer Details → Select State/Taluk/GP</div>
-                                <div style="margin-left: 60px; color: #666;">└─ Category/Designation → Male/Female</div>
-                                <div style="margin-left: 80px; color: #ff77da;">└─ Generate Download / Rep. Details</div>
+                            <!-- Branch 1: Home Modules -->
+                            <div style="display: flex; align-items: flex-start;">
+                                <div style="width: 30px; height: 2px; background: #ff77da; margin-top: 15px;"></div>
+                                <div style="border: 1px solid #ff77da; color: #ff77da; padding: 8px 15px; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: bold; background: #111; min-width: 150px;">Home Modules</div>
+                                <div style="width: 30px; height: 2px; background: #ff77da; opacity: 0.5; margin-top: 15px;"></div>
+                                <div style="display: flex; flex-direction: column; border-left: 1px dashed #ff77da; padding: 5px 0; gap: 8px; opacity: 0.9;">
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff77da;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.65rem; color: #ff77da;">Citizen Services</div></div>
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff77da;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.65rem; color: #ff77da;">Revenue & Finance</div></div>
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff77da;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.65rem; color: #fff; background: rgba(255,255,255,0.2); padding: 2px 6px; font-weight: bold; border-radius: 2px;">Meeting Management (MOM)</div></div>
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff77da;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.65rem; color: #ff77da;">HRM Module (Recruitment, Payroll)</div></div>
+                                </div>
                             </div>
 
-                            <div style="margin-bottom: 15px;">├── Total Meetings
-                                <div style="margin-left: 20px; color: #aaa; margin-top: 4px;">└─ District → Taluk → Gram Panchayat</div>
-                                <div style="margin-left: 40px; color: #888;">└─ Meeting Type → From Date → To Date</div>
-                                <div style="margin-left: 60px; color: #ff77da;">└─ Search → Completed Meeting → Search Details</div>
+                            <!-- Branch 2: Search Flows -->
+                            <div style="display: flex; align-items: flex-start;">
+                                <div style="width: 30px; height: 2px; background: #ff77da; margin-top: 15px;"></div>
+                                <div style="border: 1px solid #ff77da; color: #ff77da; padding: 8px 15px; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: bold; background: #111; min-width: 150px;">Data Search Flows</div>
+                                <div style="width: 30px; height: 2px; background: #ff77da; opacity: 0.5; margin-top: 15px;"></div>
+                                <div style="display: flex; flex-direction: column; border-left: 1px dashed #ff77da; padding: 5px 0; gap: 8px; opacity: 0.9;">
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff77da;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.65rem; color: #ff77da;">Staff / Employee Details</div></div>
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff77da;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.65rem; color: #ff77da;">Total Meetings</div></div>
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff77da;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.65rem; color: #ff77da;">Events Conducted & Galleries</div></div>
+                                </div>
                             </div>
 
-                            <div style="margin-bottom: 15px;">├── Events Conducted / Activities
-                                <div style="margin-left: 20px; color: #aaa; margin-top: 4px;">└─ District → Taluk → Gram Panchayat</div>
-                                <div style="margin-left: 40px; color: #888;">└─ Type of Event / Activities → Photo / Video Gallery</div>
-                                <div style="margin-left: 60px; color: #ff77da;">└─ Type and At → Search</div>
-                            </div>
-
-                            <div style="margin-bottom: 15px;">├── Total Demand & Collection
-                                <div style="margin-left: 20px; color: #aaa; margin-top: 4px;">└─ Category wise Demand / Collection</div>
-                            </div>
-                            
-                            <div style="margin-bottom: 8px;">└── Total Received Applications
-                                <div style="margin-left: 20px; color: #aaa; margin-top: 4px;">└─ Upcoming Proceedings → Download → View Download</div>
-                            </div>
                         </div>
                     </div>
                 </div>
 
-                <hr style="border: 0; border-top: 2px dashed #333; margin: 3rem 0;">
+                <hr style="border: 0; border-top: 2px dashed #333; margin: 2rem 0;">
 
-                <!-- 2. MEETING MANAGEMENT (MICRO I.A.) -->
+                <!-- 2. MEETING MANAGEMENT MICRO MIND MAP (Cyan) -->
                 <div>
-                    <div style="color: #6ce8ff; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; margin-bottom: 1.5rem; text-shadow: 0 0 10px rgba(108,232,255,0.4);">[2] MEETING MANAGEMENT STRUCTURE (M.O.M.)</div>
-                    <div style="background: rgba(108,232,255,0.1); border: 1px solid #6ce8ff; color: #fff; padding: 10px 20px; display: inline-block; font-family: 'Space Mono', monospace; font-weight: bold; margin-bottom: 20px;">MEETING ROOT</div>
+                    <div style="color: #6ce8ff; font-family: 'Press Start 2P', cursive; font-size: 0.7rem; margin-bottom: 1.5rem; text-shadow: 0 0 10px rgba(108,232,255,0.4);">[2] M.O.M. ARCHITECTURE (FULL DEPTH)</div>
                     
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; font-family: 'Space Mono', monospace; font-size: 0.7rem; color: #e0e0e0; margin-left: 20px;">
+                    <div style="display: flex; align-items: center; min-width: 1000px; padding: 1rem 0;">
+                        <!-- Root -->
+                        <div style="background: rgba(108,232,255,0.1); border: 2px solid #6ce8ff; color: #6ce8ff; padding: 12px 20px; font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: bold; border-radius: 6px;">M.O.M. PORTAL</div>
+                        <div style="width: 30px; height: 2px; background: #6ce8ff;"></div>
                         
-                        <!-- Col 1 -->
-                        <div style="border-left: 1px solid #6ce8ff; padding-left: 20px;">
+                        <!-- Level 1 Spine -->
+                        <div style="display: flex; flex-direction: column; border-left: 2px solid #6ce8ff; padding: 10px 0; gap: 12px;">
                             
-                            <div style="margin-bottom: 15px; border: 1px solid #444; padding: 8px; background: #111;">
-                                <span style="color: #6ce8ff; font-weight: bold;">Create Meeting</span>
-                                <div style="margin-left: 15px; color: #aaa; margin-top: 6px;">├─ List of Meetings</div>
-                                <div style="margin-left: 15px; color: #aaa;">└─ Meeting Details</div>
+                            <!-- Create Meeting -->
+                            <div style="display: flex; align-items: flex-start;">
+                                <div style="width: 30px; height: 2px; background: #6ce8ff; margin-top: 15px;"></div>
+                                <div style="border: 1px solid #6ce8ff; color: #6ce8ff; padding: 8px 15px; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: bold; background: #111; min-width: 200px;">Create Meeting</div>
+                                <div style="width: 30px; height: 2px; background: #6ce8ff; opacity: 0.5; margin-top: 15px;"></div>
+                                <div style="display: flex; flex-direction: column; border-left: 1px dashed #6ce8ff; padding: 5px 0; gap: 6px; opacity: 0.8;">
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #6ce8ff;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6ce8ff;">List of Meetings</div></div>
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #6ce8ff;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6ce8ff;">Meeting Details</div></div>
+                                </div>
                             </div>
 
-                            <div style="margin-bottom: 15px; border: 1px solid #444; padding: 8px; background: #111;">
-                                <span style="color: #6ce8ff; font-weight: bold;">Add New Participants</span>
-                                <div style="margin-left: 15px; color: #aaa; margin-top: 6px;">├─ New Participant Details</div>
-                                <div style="margin-left: 15px; color: #aaa;">└─ List of Participants</div>
+                            <!-- Add Participants -->
+                            <div style="display: flex; align-items: flex-start;">
+                                <div style="width: 30px; height: 2px; background: #6ce8ff; margin-top: 15px;"></div>
+                                <div style="border: 1px solid #6ce8ff; color: #6ce8ff; padding: 8px 15px; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: bold; background: #111; min-width: 200px;">Add New Participants</div>
+                                <div style="width: 30px; height: 2px; background: #6ce8ff; opacity: 0.5; margin-top: 15px;"></div>
+                                <div style="display: flex; flex-direction: column; border-left: 1px dashed #6ce8ff; padding: 5px 0; gap: 6px; opacity: 0.8;">
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #6ce8ff;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6ce8ff;">New Participant Details</div></div>
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #6ce8ff;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6ce8ff;">List of Participants</div></div>
+                                </div>
                             </div>
 
-                            <div style="margin-bottom: 15px; border: 1px solid #444; padding: 8px; background: #111;">
-                                <span style="color: #6ce8ff; font-weight: bold;">Start Meeting</span>
-                                <div style="margin-left: 15px; color: #aaa; margin-top: 6px;">├─ Past Meetings</div>
-                                <div style="margin-left: 15px; color: #aaa;">├─ Today's Meeting</div>
-                                <div style="margin-left: 15px; color: #aaa;">└─ Future Meetings</div>
+                            <!-- Start Meeting -->
+                            <div style="display: flex; align-items: flex-start;">
+                                <div style="width: 30px; height: 2px; background: #6ce8ff; margin-top: 15px;"></div>
+                                <div style="border: 1px solid #6ce8ff; color: #6ce8ff; padding: 8px 15px; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: bold; background: #111; min-width: 200px;">Start Meeting</div>
+                                <div style="width: 30px; height: 2px; background: #6ce8ff; opacity: 0.5; margin-top: 15px;"></div>
+                                <div style="display: flex; flex-direction: column; border-left: 1px dashed #6ce8ff; padding: 5px 0; gap: 6px; opacity: 0.8;">
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #6ce8ff;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6ce8ff;">Past / Today's / Future Meetings</div></div>
+                                </div>
                             </div>
 
-                            <div style="margin-bottom: 15px; border: 1px solid #444; padding: 8px; background: #111;">
-                                <span style="color: #6ce8ff; font-weight: bold;">Meeting Proceeding</span>
-                                <div style="margin-left: 15px; color: #aaa; margin-top: 6px;">├─ View Meeting</div>
-                                <div style="margin-left: 15px; color: #aaa;">├─ View Proceedings</div>
-                                <div style="margin-left: 15px; color: #aaa;">└─ Sign Proceedings</div>
+                            <!-- Proceedings -->
+                            <div style="display: flex; align-items: flex-start;">
+                                <div style="width: 30px; height: 2px; background: #6ce8ff; margin-top: 15px;"></div>
+                                <div style="border: 1px solid #6ce8ff; color: #6ce8ff; padding: 8px 15px; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: bold; background: #111; min-width: 200px;">Meeting Proceeding</div>
+                                <div style="width: 30px; height: 2px; background: #6ce8ff; opacity: 0.5; margin-top: 15px;"></div>
+                                <div style="display: flex; flex-direction: column; border-left: 1px dashed #6ce8ff; padding: 5px 0; gap: 6px; opacity: 0.8;">
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #6ce8ff;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6ce8ff;">View Meeting & Details</div></div>
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #6ce8ff;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6ce8ff;">View / Sign Proceedings</div></div>
+                                </div>
                             </div>
 
-                            <div style="margin-bottom: 15px; border: 1px solid #444; padding: 8px; background: #111;">
-                                <span style="color: #6ce8ff; font-weight: bold;">Meeting List</span>
-                                <div style="margin-left: 15px; color: #aaa; margin-top: 6px;">├─ View Meeting</div>
-                                <div style="margin-left: 15px; color: #aaa;">├─ Meeting Notice</div>
-                                <div style="margin-left: 15px; color: #aaa;">├─ Cancel Meeting</div>
-                                <div style="margin-left: 15px; color: #aaa;">└─ Adjourn Meeting</div>
+                            <!-- Meeting List -->
+                            <div style="display: flex; align-items: flex-start;">
+                                <div style="width: 30px; height: 2px; background: #6ce8ff; margin-top: 15px;"></div>
+                                <div style="border: 1px solid #6ce8ff; color: #6ce8ff; padding: 8px 15px; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: bold; background: #111; min-width: 200px;">Meeting List</div>
+                                <div style="width: 30px; height: 2px; background: #6ce8ff; opacity: 0.5; margin-top: 15px;"></div>
+                                <div style="display: flex; flex-direction: column; border-left: 1px dashed #6ce8ff; padding: 5px 0; gap: 6px; opacity: 0.8;">
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #6ce8ff;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6ce8ff;">Notice / Cancel / Adjourn</div></div>
+                                </div>
                             </div>
 
-                            <div style="margin-bottom: 15px; border: 1px solid #444; padding: 8px; background: #111;">
-                                <span style="color: #6ce8ff; font-weight: bold;">Meeting Participant Details</span>
-                                <div style="margin-left: 15px; color: #aaa; margin-top: 6px;">└─ (Direct Data View)</div>
-                            </div>
-                        </div>
-
-                        <!-- Col 2 -->
-                        <div style="border-left: 1px solid #6ce8ff; padding-left: 20px;">
-                            
-                            <div style="margin-bottom: 15px; border: 1px solid #444; padding: 8px; background: #111;">
-                                <span style="color: #6ce8ff; font-weight: bold;">Completed Meeting Remark</span>
-                                <div style="margin-left: 15px; color: #aaa; margin-top: 6px;">├─ List of Meetings</div>
-                                <div style="margin-left: 15px; color: #aaa;">├─ View Proceedings</div>
-                                <div style="margin-left: 15px; color: #aaa;">├─ Sign Meeting Notice</div>
-                                <div style="margin-left: 15px; color: #aaa;">├─ Print Proceedings</div>
-                                <div style="margin-left: 15px; color: #aaa;">├─ Winmark</div>
-                                <div style="margin-left: 15px; color: #aaa;">└─ View Meeting</div>
-                            </div>
-
-                            <div style="margin-bottom: 15px; border: 1px solid #444; padding: 8px; background: #111;">
-                                <span style="color: #6ce8ff; font-weight: bold;">User Sub Committee Map...</span>
-                            </div>
-
-                            <div style="margin-bottom: 15px; border: 1px solid #444; padding: 8px; background: #111;">
-                                <span style="color: #6ce8ff; font-weight: bold;">Add Participants Sub Committee Mapping</span>
-                            </div>
-
-                            <div style="margin-bottom: 15px; border: 1px solid #444; padding: 8px; background: #111;">
-                                <span style="color: #6ce8ff; font-weight: bold;">ATR Update</span>
-                                <div style="margin-left: 15px; color: #aaa; margin-top: 6px;">├─ Agenda List</div>
-                                <div style="margin-left: 15px; color: #aaa;">└─ Agenda Details</div>
-                            </div>
-
-                            <div style="margin-bottom: 15px; border: 1px solid #444; padding: 8px; background: #111;">
-                                <span style="color: #6ce8ff; font-weight: bold;">Upload Leave Document</span>
-                                <div style="margin-left: 15px; color: #aaa; margin-top: 6px;">├─ Meeting Name</div>
-                                <div style="margin-left: 15px; color: #aaa;">└─ List of Entries</div>
+                            <!-- Completed Remarks & ATR -->
+                            <div style="display: flex; align-items: flex-start;">
+                                <div style="width: 30px; height: 2px; background: #6ce8ff; margin-top: 15px;"></div>
+                                <div style="border: 1px solid #6ce8ff; color: #6ce8ff; padding: 8px 15px; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: bold; background: #111; min-width: 200px;">Completed Remarks & ATR</div>
+                                <div style="width: 30px; height: 2px; background: #6ce8ff; opacity: 0.5; margin-top: 15px;"></div>
+                                <div style="display: flex; flex-direction: column; border-left: 1px dashed #6ce8ff; padding: 5px 0; gap: 6px; opacity: 0.8;">
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #6ce8ff;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6ce8ff;">List / View / Print Proceedings</div></div>
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #6ce8ff;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6ce8ff;">Agenda List & Details</div></div>
+                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #6ce8ff;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #6ce8ff;">Upload Leave Document</div></div>
+                                </div>
                             </div>
 
                         </div>
                     </div>
                 </div>
 
-            </div>
-
-            <h3 class="section-heading">AUDIO-FIRST DATA VISUALIZATION</h3>
-            <div class="hero-image-placeholder" style="aspect-ratio: 21/9; margin-bottom: 2rem;">
-                <img src="assets/rdpr-audio-ui.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Mobile Panchamitra UI" onerror="this.style.display='none'">
-                <span style="position: absolute; pointer-events: none;">[IMAGE: High-contrast progress bars with spoken Kannada 'Audio' buttons]</span>
             </div>
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
