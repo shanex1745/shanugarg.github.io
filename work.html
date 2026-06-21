@@ -130,21 +130,6 @@
     </main>
 
     <div class="modal-overlay" id="projectModal" onclick="closeModal(event)">
-        <div class="modal-content expanded-modal" onclick="event.stopPropagation()">
-            <button class="close-btn" onclick="closeModal(event)"><i data-lucide="x"></i> CLOSE</button>
-            <div class="modal-header">
-                <div class="modal-role" id="modalRole">[ROLE]</div>
-                <h2 id="modalTitle">[PROJECT TITLE]</h2>
-            </div>
-            <div class="case-grid">
-                <div class="case-visuals">
-                    <img id="modalImage" src="" alt="Project Image">
-                </div>
-                <div class="case-details" id="modalDetails"></div>
-            </div>
-        </div>
-    </div>
-    <div class="modal-overlay" id="projectModal" onclick="closeModal(event)">
         <div class="modal-content advanced-modal" onclick="event.stopPropagation()">
             <button class="close-btn" onclick="closeModal(event)"><i data-lucide="x"></i> ESCAPE</button>
             
@@ -160,6 +145,30 @@
                     <span>[HERO IMAGE PLACEHOLDER: 16:9 High-Impact Context Shot]</span>
                 </div>
             </div>
+
+            <div class="tldr-section">
+                <h3>> SYSTEM SNAPSHOT</h3>
+                <div class="tldr-grid">
+                    <div class="tldr-box problem-box">
+                        <h4>THE FLAW</h4>
+                        <p id="modalProblem"></p>
+                    </div>
+                    <div class="tldr-box solution-box">
+                        <h4>THE FIX</h4>
+                        <p id="modalSolution"></p>
+                    </div>
+                    <div class="tldr-box impact-box">
+                        <h4>THE IMPACT</h4>
+                        <p id="modalImpact"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="dynamicContentArea" class="dynamic-content-area">
+                </div>
+
+        </div>
+    </div>
 
             <div class="tldr-section">
                 <h3>> SYSTEM SNAPSHOT</h3>
