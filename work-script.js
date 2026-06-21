@@ -128,124 +128,207 @@ const projectData = {
     },
 
     proj3: { // NAI
-        title: "National Archives of India", role: "UX RESEARCHER & UI DESIGNER", timeline: "Redesign Sprint", themeIcons: ['📜', '🏛️', '🔍', '♿'], behanceLink: "https://www.behance.net/gallery/217962985/Redesigning-National-Archives-of-India",
+        title: "National Archives of India", 
+        behanceLink: "https://www.behance.net/shanux17",
+        role: "UX RESEARCHER & UI DESIGNER", 
+        timeline: "Redesign Sprint", 
+        themeIcons: ['📜', '🏛️', '🔍', '♿'],
         tldr: {
             problem: "The National Archives platform functioned as a digital gatekeeper, suffering from an inaccessible architecture that systematically excluded screen-reader users and the public.",
             solution: "A modernized, WCAG-compliant digital repository with streamlined information architecture, intuitive search, and multilingual support.",
             impact: "Eliminated massive cognitive overload by collapsing a 4-level navigation system, democratizing access to over 3.7 million historical records."
         },
         dynamicHTML: `
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
-                <h3 class="section-heading">Research & Discovery</h3>
-                <p>Through Heuristic Evaluation and Global Competitive Analysis, we uncovered severe Accessibility Barriers. Linguistic gatekeeping and three overlapping navigation bars with four levels of nested sub-menus caused massive navigational paralysis.</p>
-            </div>
-
-            <h3 class="section-heading">THE ARCHITECTURAL OVERHAUL</h3>
-            <div class="before-after-grid" style="margin-bottom: 3rem;">
-                <div class="ba-box">
-                    <div class="ba-label label-before">BEFORE: THE MAZE</div>
-                    <div class="wireframe-placeholder" style="aspect-ratio: 16/9;">[IMAGE: Old NAI Homepage]</div>
-                </div>
-                <div class="ba-box">
-                    <div class="ba-label label-after">AFTER: INTENT-DRIVEN</div>
-                    <div class="wireframe-placeholder" style="aspect-ratio: 16/9; border-color: #7cff9b; color:#7cff9b;">[IMAGE: New NAI Homepage]</div>
-                </div>
-            </div>
-            
-            <h3 class="section-heading">I.A. MIND MAP: UNTANGLING THE MAZE</h3>
-            
-            <div style="display: flex; flex-direction: column; gap: 3rem; background: #0d1117; padding: 2rem; border: 2px solid #333; border-radius: 8px; margin-bottom: 2rem; overflow-x: auto;">
+            <style>
+                /* Cyberpunk/Retro IA Shared Styles */
+                .retro-title { font-family: 'Press Start 2P', cursive; font-size: 8px; padding: 10px 18px; letter-spacing: 2px; border: 3px solid; background: #060d20; display: inline-block; margin-bottom: -3px; position: relative; z-index: 2; white-space: nowrap; }
+                .retro-content { border: 3px solid; background: #050d1f; padding: 20px; overflow-x: auto; margin-bottom: 25px; box-shadow: inset 0 0 20px rgba(0,0,0,0.5); }
+                .ia-card { border: 2px solid; padding: 8px 12px; font-family: 'Space Mono', monospace; font-size: 11px; margin-bottom: 8px; box-shadow: 0 0 8px; white-space: nowrap; flex-shrink: 0; }
+                .ia-subcard { border: 2px solid; padding: 8px 12px; font-family: 'Space Mono', monospace; font-size: 10px; margin-bottom: 8px; flex: 1; line-height: 1.4; }
                 
-                <!-- OLD I.A. MIND MAP (Red / Chaotic) -->
-                <div>
-                    <div class="ba-label label-before" style="margin-bottom: 1.5rem; text-align: left; color: #ff5555;">BEFORE: 3 CONFLICTING NAV BARS</div>
+                /* Horizontal Tree Styles */
+                .t-root { border: 3px solid; padding: 16px 20px; font-family: 'Press Start 2P', cursive; font-size: 10px; letter-spacing: 2px; text-align: center; background: #060d20; box-shadow: 0 0 20px; z-index: 2; position: relative; }
+                .t-node { border: 2px solid; padding: 8px 12px; font-family: 'Space Mono', monospace; font-size: 11px; flex-shrink: 0; box-shadow: 0 0 8px; white-space: nowrap; background: #050d1f; }
+                .t-h { height: 2px; flex-shrink: 0; }
+                .t-v { border-left: 2px solid; display: flex; flex-direction: column; gap: 10px; padding-left: 0; margin-top: 0; }
+                .t-branch { display: flex; align-items: center; }
+            </style>
+
+            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 3rem;">
+                <h3 class="section-heading">3. Research & Discovery</h3>
+                <p>Through Heuristic Evaluation and Global Competitive Analysis, we uncovered severe Accessibility Barriers. Linguistic gatekeeping and overlapping navigation bars with nested sub-menus caused massive navigational paralysis.</p>
+            </div>
+
+            <h3 class="section-heading" style="color: #ff5555; text-shadow: 0 0 10px rgba(255,85,85,0.4);">BEFORE: THE NAVIGATIONAL MAZE</h3>
+            <p style="color:#aaa; font-family: 'Space Mono', monospace; font-size:0.85rem; margin-bottom: 2rem;">
+                The legacy architecture suffered from extreme cognitive overload, forcing users to navigate three entirely separate, conflicting navigation structures.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 4rem;">
+                
+                <div style="display: flex; flex-direction: column;">
                     
-                    <div style="display: flex; align-items: center; min-width: 800px; padding: 1rem 0;">
-                        <!-- Root -->
-                        <div style="border: 2px dashed #ff5555; background: rgba(255,85,85,0.1); color: #ff5555; padding: 10px 20px; font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: bold; border-radius: 6px;">NAI PORTAL</div>
-                        <div style="width: 30px; height: 2px; background: #ff5555;"></div>
-                        
-                        <!-- Level 1 Spine -->
-                        <div style="display: flex; flex-direction: column; border-left: 2px solid #ff5555; padding: 15px 0; gap: 20px;">
-                            
-                            <!-- Branch 1 -->
-                            <div style="display: flex; align-items: center;">
-                                <div style="width: 30px; height: 2px; background: #ff5555;"></div>
-                                <div style="border: 1px solid #ff5555; color: #ff5555; padding: 8px 15px; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: bold; background: #111;">Central Nav Bar</div>
-                                <div style="width: 30px; height: 2px; background: #ff5555; opacity: 0.5;"></div>
-                                <div style="display: flex; flex-direction: column; border-left: 1px dashed #ff5555; padding: 10px 0; gap: 10px; opacity: 0.8;">
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff5555;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #ff5555;">History & Organization</div></div>
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff5555;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #ff5555;">Records (Public, Private, Microfilms)</div></div>
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff5555;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #ff5555;">Record Management Forms</div></div>
-                                </div>
-                            </div>
-
-                            <!-- Branch 2 -->
-                            <div style="display: flex; align-items: center;">
-                                <div style="width: 30px; height: 2px; background: #ff5555;"></div>
-                                <div style="border: 1px solid #ff5555; color: #ff5555; padding: 8px 15px; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: bold; background: #111;">Side Nav Bar</div>
-                                <div style="width: 30px; height: 2px; background: #ff5555; opacity: 0.5;"></div>
-                                <div style="display: flex; flex-direction: column; border-left: 1px dashed #ff5555; padding: 10px 0; gap: 10px; opacity: 0.8;">
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff5555;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #ff5555;">Explore National Archives</div></div>
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff5555;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #ff5555;">Digital & Current Exhibitions</div></div>
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff5555;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #ff5555;">Abhilekh Patal Portal Link</div></div>
-                                </div>
-                            </div>
-
-                            <!-- Branch 3 -->
-                            <div style="display: flex; align-items: center;">
-                                <div style="width: 30px; height: 2px; background: #ff5555;"></div>
-                                <div style="border: 1px solid #ff5555; color: #ff5555; padding: 8px 15px; font-family: 'Space Mono', monospace; font-size: 0.7rem; font-weight: bold; background: #111;">Resources Nav Bar</div>
-                                <div style="width: 30px; height: 2px; background: #ff5555; opacity: 0.5;"></div>
-                                <div style="display: flex; flex-direction: column; border-left: 1px dashed #ff5555; padding: 10px 0; gap: 10px; opacity: 0.8;">
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff5555;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #ff5555;">Learning & Training</div></div>
-                                    <div style="display: flex; align-items: center;"><div style="width: 20px; height: 1px; background: #ff5555;"></div><div style="font-family: 'Space Mono', monospace; font-size: 0.6rem; color: #ff5555;">Reference Tools & Rules</div></div>
-                                </div>
-                            </div>
-
+                    <div>
+                        <div class="retro-title" style="color: #00ffff; border-color: #00ffff; text-shadow: 0 0 8px #00ffff; box-shadow: 0 0 14px rgba(0,255,255,0.3);">► EXPLORE NATIONAL ARCHIVE</div>
+                        <div class="retro-content" style="border-color: #00ffff; box-shadow: 0 0 14px rgba(0,255,255,0.1);">
+                            <div style="display: flex; gap: 10px;"><div class="ia-card" style="color: #00ffff; border-color: #00ffff; background: rgba(0,255,255,0.1);">Research and References</div><div class="ia-subcard" style="color: rgba(0,255,255,0.7); border-color: rgba(0,255,255,0.3); background: rgba(0,255,255,0.05);">Access Rules · Withdrawal · Reprographic Services</div></div>
+                            <div style="display: flex; gap: 10px;"><div class="ia-card" style="color: #00ffff; border-color: #00ffff; background: rgba(0,255,255,0.1);">Microfilm Section</div><div class="ia-subcard" style="color: rgba(0,255,255,0.7); border-color: rgba(0,255,255,0.3); background: rgba(0,255,255,0.05);">Catalogue · Viewing Facility · Prints on Demand</div></div>
+                            <div style="display: flex; gap: 10px;"><div class="ia-card" style="color: #00ffff; border-color: #00ffff; background: rgba(0,255,255,0.1);">Finding Aids</div><div class="ia-subcard" style="color: rgba(0,255,255,0.7); border-color: rgba(0,255,255,0.3); background: rgba(0,255,255,0.05);">Accession Registers · Index Volumes</div></div>
+                            <div style="display: flex; gap: 10px;"><div class="ia-card" style="color: #00ffff; border-color: #00ffff; background: rgba(0,255,255,0.1);">Digital Archives</div></div>
                         </div>
+                    </div>
+
+                    <div>
+                        <div class="retro-title" style="color: #ffbb44; border-color: #ffbb44; text-shadow: 0 0 8px #ffbb44; box-shadow: 0 0 14px rgba(255,187,68,0.3);">► RESOURCES</div>
+                        <div class="retro-content" style="border-color: #ffbb44; box-shadow: 0 0 14px rgba(255,187,68,0.1);">
+                            <div style="display: flex; gap: 10px;"><div class="ia-card" style="color: #ffbb44; border-color: #ffbb44; background: rgba(255,187,68,0.1);">Events & Talks</div><div class="ia-subcard" style="color: rgba(255,187,68,0.7); border-color: rgba(255,187,68,0.3); background: rgba(255,187,68,0.05);">Upcoming · Past Events · Register</div></div>
+                            <div style="display: flex; gap: 10px;"><div class="ia-card" style="color: #ffbb44; border-color: #ffbb44; background: rgba(255,187,68,0.1);">National Glossary</div></div>
+                            <div style="display: flex; gap: 10px;"><div class="ia-card" style="color: #ffbb44; border-color: #ffbb44; background: rgba(255,187,68,0.1);">Learning@NAI</div></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div style="display: flex; flex-direction: column;">
+                    
+                    <div style="flex: 1;">
+                        <div class="retro-title" style="color: #4488ff; border-color: #4488ff; text-shadow: 0 0 8px #4488ff; box-shadow: 0 0 14px rgba(68,136,255,0.3);">► VERTICAL NAVIGATION (OVERLAP)</div>
+                        <div class="retro-content" style="border-color: #4488ff; box-shadow: 0 0 14px rgba(68,136,255,0.1); height: 100%;">
+                            <div class="ia-card" style="color: #4488ff; border-color: #4488ff; background: rgba(68,136,255,0.1);">HOME</div>
+                            <div style="margin-left: 20px; border-left: 2px solid rgba(68,136,255,0.3); padding-left: 15px; display: flex; flex-direction: column; gap: 8px; margin-bottom: 15px;">
+                                <div class="ia-card" style="color: #44dd88; border-color: #44dd88; background: rgba(68,221,136,0.1);">ABOUT US</div>
+                                <div style="margin-left: 20px; border-left: 2px solid rgba(68,221,136,0.3); padding-left: 15px; display: flex; flex-direction: column; gap: 8px;">
+                                    <div class="ia-card" style="color: #aa55ff; border-color: #aa55ff; background: rgba(170,85,255,0.1);">OUR HISTORY</div>
+                                    <div style="margin-left: 20px; border-left: 2px solid rgba(170,85,255,0.3); padding-left: 15px; display: flex; flex-direction: column; gap: 8px;">
+                                        <div class="ia-card" style="color: #ffcc33; border-color: #ffcc33; background: rgba(255,204,51,0.1);">ORGANISATION</div>
+                                        <div class="ia-card" style="color: #ffcc33; border-color: #ffcc33; background: rgba(255,204,51,0.1);">STRATEGIC PLAN</div>
+                                    </div>
+                                </div>
+                                <div class="ia-card" style="color: #44dd88; border-color: #44dd88; background: rgba(68,221,136,0.1);">COLLECTIONS</div>
+                                <div style="margin-left: 20px; border-left: 2px solid rgba(68,221,136,0.3); padding-left: 15px; display: flex; flex-direction: column; gap: 8px;">
+                                    <div class="ia-card" style="color: #aa55ff; border-color: #aa55ff; background: rgba(170,85,255,0.1);">DIGITAL ARCHIVE</div>
+                                    <div class="ia-card" style="color: #aa55ff; border-color: #aa55ff; background: rgba(170,85,255,0.1);">NATIONAL COLLECTION</div>
+                                </div>
+                            </div>
+                            <div class="ia-card" style="color: #4488ff; border-color: #4488ff; background: rgba(68,136,255,0.1);">CIVIL REGISTRATION</div>
+                            <div class="ia-card" style="color: #4488ff; border-color: #4488ff; background: rgba(68,136,255,0.1);">BIBLIOGRAPHY</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <h3 class="section-heading" style="color: #7cff9b; text-shadow: 0 0 10px rgba(124,255,155,0.4); margin-top: 3rem;">AFTER: UNIFIED I.A. TREE</h3>
+            <p style="color:#aaa; font-family: 'Space Mono', monospace; font-size:0.85rem; margin-bottom: 2rem;">
+                I dismantled the bloated hierarchies and merged all conflicting navigation structures into a single, logical, intent-driven tree.
+            </p>
+
+            <div style="background: #050d1f; border: 2px solid #333; border-radius: 8px; padding: 3rem 2rem; overflow-x: auto; margin-bottom: 3rem; box-shadow: inset 0 0 30px rgba(0,0,0,0.8);">
+                
+                <div style="display: flex; align-items: center; min-width: max-content;">
+                    
+                    <div class="t-root" style="color: #ff55cc; border-color: #ff55cc; text-shadow: 0 0 10px #ff55cc; box-shadow: 0 0 20px rgba(255,85,204,0.3), inset 0 0 10px rgba(255,85,204,0.1);">
+                        HOME / NAI
+                    </div>
+                    <div class="t-h" style="width: 30px; background: rgba(255,85,204,0.5);"></div>
+                    
+                    <div class="t-v" style="border-color: rgba(255,85,204,0.4); padding: 15px 0; gap: 20px;">
+                        
+                        <div class="t-branch">
+                            <div class="t-h" style="width: 25px; background: rgba(255,85,204,0.4);"></div>
+                            <div class="t-node" style="color: #5599ff; border-color: #5599ff; background: rgba(85,153,255,0.1); box-shadow: 0 0 10px rgba(85,153,255,0.2);">ABOUT US</div>
+                            <div class="t-h" style="width: 30px; background: rgba(85,153,255,0.4);"></div>
+                            <div class="t-v" style="border-color: rgba(85,153,255,0.3); padding: 10px 0; gap: 12px;">
+                                <div class="t-branch"><div class="t-h" style="width: 20px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">BACKGROUND</div></div>
+                                <div class="t-branch"><div class="t-h" style="width: 20px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">ORGANISATIONAL STRUCTURE</div></div>
+                                <div class="t-branch">
+                                    <div class="t-h" style="width: 20px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">RIGHT TO INFORMATION</div>
+                                    <div class="t-h" style="width: 20px; background: rgba(68,238,136,0.4);"></div>
+                                    <div class="t-v" style="border-color: rgba(68,238,136,0.3); padding: 5px 0; gap: 8px;">
+                                        <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); padding: 4px 8px; font-size: 10px;">RTI ACT</div></div>
+                                        <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); padding: 4px 8px; font-size: 10px;">RTI APPLICATIONS</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="t-branch">
+                            <div class="t-h" style="width: 25px; background: rgba(255,85,204,0.4);"></div>
+                            <div class="t-node" style="color: #5599ff; border-color: #5599ff; background: rgba(85,153,255,0.1); box-shadow: 0 0 10px rgba(85,153,255,0.2);">ARCHIVES</div>
+                            <div class="t-h" style="width: 30px; background: rgba(85,153,255,0.4);"></div>
+                            <div class="t-v" style="border-color: rgba(85,153,255,0.3); padding: 10px 0; gap: 12px;">
+                                <div class="t-branch">
+                                    <div class="t-h" style="width: 20px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">PRE-INDEPENDENCE</div>
+                                    <div class="t-h" style="width: 20px; background: rgba(68,238,136,0.4);"></div>
+                                    <div class="t-v" style="border-color: rgba(68,238,136,0.3); padding: 5px 0; gap: 8px;">
+                                        <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); padding: 4px 8px; font-size: 10px;">CENTRAL RECORDS</div></div>
+                                        <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); padding: 4px 8px; font-size: 10px;">STATE RECORDS</div></div>
+                                    </div>
+                                </div>
+                                <div class="t-branch">
+                                    <div class="t-h" style="width: 20px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">FINDING AIDS</div>
+                                </div>
+                                <div class="t-branch">
+                                    <div class="t-h" style="width: 20px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">DIGITISATION</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="t-branch">
+                            <div class="t-h" style="width: 25px; background: rgba(255,85,204,0.4);"></div>
+                            <div class="t-node" style="color: #5599ff; border-color: #5599ff; background: rgba(85,153,255,0.1); box-shadow: 0 0 10px rgba(85,153,255,0.2);">ARCHIVAL TREASURES</div>
+                            <div class="t-h" style="width: 30px; background: rgba(85,153,255,0.4);"></div>
+                            <div class="t-v" style="border-color: rgba(85,153,255,0.3); padding: 10px 0; gap: 12px;">
+                                <div class="t-branch"><div class="t-h" style="width: 20px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">RARE DOCUMENTS</div></div>
+                                <div class="t-branch"><div class="t-h" style="width: 20px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">HISTORICAL MAPS</div></div>
+                                <div class="t-branch"><div class="t-h" style="width: 20px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">MANUSCRIPTS</div></div>
+                            </div>
+                        </div>
+
+                        <div class="t-branch">
+                            <div class="t-h" style="width: 25px; background: rgba(255,85,204,0.4);"></div>
+                            <div class="t-node" style="color: #5599ff; border-color: #5599ff; background: rgba(85,153,255,0.1); box-shadow: 0 0 10px rgba(85,153,255,0.2);">RESEARCH & REFERENCE</div>
+                            <div class="t-h" style="width: 30px; background: rgba(85,153,255,0.4);"></div>
+                            <div class="t-v" style="border-color: rgba(85,153,255,0.3); padding: 10px 0; gap: 12px;">
+                                <div class="t-branch">
+                                    <div class="t-h" style="width: 20px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">READING ROOM</div>
+                                    <div class="t-h" style="width: 20px; background: rgba(68,238,136,0.4);"></div>
+                                    <div class="t-v" style="border-color: rgba(68,238,136,0.3); padding: 5px 0; gap: 8px;">
+                                        <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); padding: 4px 8px; font-size: 10px;">ACCESS RULES</div></div>
+                                        <div class="t-branch"><div class="t-h" style="width: 15px; background: rgba(68,238,136,0.3);"></div><div class="t-node" style="color: #ff7755; border-color: #ff7755; background: rgba(255,119,85,0.1); padding: 4px 8px; font-size: 10px;">BOOKING & TIMINGS</div></div>
+                                    </div>
+                                </div>
+                                <div class="t-branch"><div class="t-h" style="width: 20px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">REFERENCE SERVICES</div></div>
+                                <div class="t-branch"><div class="t-h" style="width: 20px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">REPROGRAPHIC SERVICES</div></div>
+                            </div>
+                        </div>
+
+                        <div class="t-branch">
+                            <div class="t-h" style="width: 25px; background: rgba(255,85,204,0.4);"></div>
+                            <div class="t-node" style="color: #5599ff; border-color: #5599ff; background: rgba(85,153,255,0.1); box-shadow: 0 0 10px rgba(85,153,255,0.2);">WHAT'S NEW</div>
+                            <div class="t-h" style="width: 30px; background: rgba(85,153,255,0.4);"></div>
+                            <div class="t-v" style="border-color: rgba(85,153,255,0.3); padding: 10px 0; gap: 12px;">
+                                <div class="t-branch"><div class="t-h" style="width: 20px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">TENDERS & NOTICES</div></div>
+                                <div class="t-branch"><div class="t-h" style="width: 20px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">EVENTS & EXHIBITIONS</div></div>
+                                <div class="t-branch"><div class="t-h" style="width: 20px; background: rgba(85,153,255,0.3);"></div><div class="t-node" style="color: #44ee88; border-color: #44ee88; background: rgba(68,238,136,0.1);">PHOTO GALLERY</div></div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
-                <hr style="border: 0; border-top: 2px solid #333; margin: 1rem 0;">
-
-                <!-- NEW I.A. MIND MAP (Green / Clean) -->
-                <div>
-                    <div class="ba-label label-after" style="margin-bottom: 1.5rem; text-align: left; color: #7cff9b;">AFTER: UNIFIED 3-PILLAR SYSTEM</div>
-                    
-                    <div style="display: flex; align-items: center; min-width: 600px; padding: 1rem 0;">
-                        <!-- Root -->
-                        <div style="background: #fff; color: #000; padding: 12px 24px; font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: bold; border-radius: 6px; box-shadow: 0 0 15px rgba(255,255,255,0.2);">ABHILEKH PATAL</div>
-                        <div style="width: 40px; height: 2px; background: #fff;"></div>
-                        
-                        <!-- Level 1 Spine -->
-                        <div style="display: flex; flex-direction: column; border-left: 2px solid #fff; padding: 20px 0; gap: 25px;">
-                            
-                            <!-- Branch 1 -->
-                            <div style="display: flex; align-items: center;">
-                                <div style="width: 40px; height: 2px; background: #fff;"></div>
-                                <div style="background: #111; border: 2px solid #fff; color: #fff; padding: 10px 20px; font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: bold; border-radius: 4px;">🔍 Record Search</div>
-                            </div>
-
-                            <!-- Branch 2 -->
-                            <div style="display: flex; align-items: center;">
-                                <div style="width: 40px; height: 2px; background: #fff;"></div>
-                                <div style="background: #111; border: 2px solid #fff; color: #fff; padding: 10px 20px; font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: bold; border-radius: 4px;">📚 Research & Reference</div>
-                            </div>
-
-                            <!-- Branch 3 -->
-                            <div style="display: flex; align-items: center;">
-                                <div style="width: 40px; height: 2px; background: #fff;"></div>
-                                <div style="background: #111; border: 2px solid #fff; color: #fff; padding: 10px 20px; font-family: 'Space Mono', monospace; font-size: 0.75rem; font-weight: bold; border-radius: 4px;">🎓 Learning & Training</div>
-                            </div>
-
-                        </div>
-                    </div>
+                <div style="display: flex; gap: 20px; justify-content: center; margin-top: 30px; border-top: 2px solid #222; padding-top: 20px;">
+                    <div style="display: flex; align-items: center; gap: 8px;"><div style="width: 15px; height: 10px; background: rgba(255,85,204,0.2); border: 2px solid #ff55cc;"></div><span style="font-family: 'Press Start 2P', cursive; font-size: 6px; color: #ff55cc;">ROOT</span></div>
+                    <div style="display: flex; align-items: center; gap: 8px;"><div style="width: 15px; height: 10px; background: rgba(85,153,255,0.2); border: 2px solid #5599ff;"></div><span style="font-family: 'Press Start 2P', cursive; font-size: 6px; color: #5599ff;">L2 SECTIONS</span></div>
+                    <div style="display: flex; align-items: center; gap: 8px;"><div style="width: 15px; height: 10px; background: rgba(68,238,136,0.2); border: 2px solid #44ee88;"></div><span style="font-family: 'Press Start 2P', cursive; font-size: 6px; color: #44ee88;">L3 SUB-SECTIONS</span></div>
+                    <div style="display: flex; align-items: center; gap: 8px;"><div style="width: 15px; height: 10px; background: rgba(255,119,85,0.2); border: 2px solid #ff7755;"></div><span style="font-family: 'Press Start 2P', cursive; font-size: 6px; color: #ff7755;">L4 LEAVES</span></div>
                 </div>
+
             </div>
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
-                <h3 class="section-heading">The Final Solution & Ethics</h3>
+                <h3 class="section-heading">6. The Final Solution & Ethics</h3>
                 <p>By implementing robust screen-reader support, scalable text, and high-contrast modes, the redesign champions inclusivity. These choices frame the platform as "moral infrastructure"—treating equitable access to national heritage as a fundamental civic right.</p>
             </div>
         `
