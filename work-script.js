@@ -144,6 +144,12 @@ const projectData = {
                 .retro-title { font-family: 'Press Start 2P', cursive; font-size: 7px; padding: 8px 14px; letter-spacing: 1px; border: 1px solid; background: #060d20; display: inline-block; margin-bottom: -1px; position: relative; z-index: 2; white-space: nowrap; }
                 .retro-content { border: 1px solid; background: #050d1f; padding: 20px 16px; overflow: hidden; margin-bottom: 25px; }
                 
+                /* Custom Scrollbar for Screenshots */
+                .scroll-ui::-webkit-scrollbar { width: 8px; }
+                .scroll-ui::-webkit-scrollbar-track { background: #050d1f; border-left: 1px solid #333; }
+                .scroll-ui-old::-webkit-scrollbar-thumb { background: #ff5555; }
+                .scroll-ui-new::-webkit-scrollbar-thumb { background: #7cff9b; }
+                
                 /* Old IA Grid Elements */
                 .ia-parent { border: 1px solid; padding: 6px 10px; font-family: 'Space Mono', monospace; font-size: 9px; white-space: nowrap; flex-shrink: 0; background: rgba(0,0,0,0.3); }
                 .ia-tag { border: 1px solid; padding: 3px 6px; font-size: 8px; font-family: 'Space Mono', monospace; background: rgba(0,0,0,0.2); }
@@ -170,18 +176,39 @@ const projectData = {
                 <p>Through Heuristic Evaluation and Global Competitive Analysis, we uncovered severe Accessibility Barriers. Linguistic gatekeeping and overlapping navigation bars with nested sub-menus caused massive navigational paralysis.</p>
             </div>
 
+            <h3 class="section-heading">THE UI OVERHAUL</h3>
+            <p style="color:#aaa; font-family: 'Space Mono', monospace; font-size:0.85rem; margin-bottom: 2rem;">
+                Scroll inside the windows below to view the legacy interface versus the modernized, WCAG-compliant redesign.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 5rem;">
+                <div style="display: flex; flex-direction: column;">
+                    <div class="retro-title" style="color: #ff5555; border-color: #ff5555; width: max-content;">► BEFORE: THE MAZE</div>
+                    <div class="scroll-ui scroll-ui-old" style="border: 2px solid #ff5555; background: #000; height: 450px; overflow-y: auto; padding: 0;">
+                        <img src="assets/nai-old.jpg" alt="Old NAI Website" style="width: 100%; display: block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display: none; padding: 40px 20px; text-align: center; color: #ff5555; font-family: 'Space Mono', monospace; font-size: 12px;">[MISSING: assets/nai-old.jpg]</div>
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-direction: column;">
+                    <div class="retro-title" style="color: #7cff9b; border-color: #7cff9b; width: max-content;">► AFTER: INTENT-DRIVEN</div>
+                    <div class="scroll-ui scroll-ui-new" style="border: 2px solid #7cff9b; background: #000; height: 450px; overflow-y: auto; padding: 0; box-shadow: 0 0 20px rgba(124,255,155,0.15);">
+                        <img src="assets/nai-new.jpg" alt="New NAI Website" style="width: 100%; display: block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display: none; padding: 40px 20px; text-align: center; color: #7cff9b; font-family: 'Space Mono', monospace; font-size: 12px;">[MISSING: assets/nai-new.jpg]</div>
+                    </div>
+                </div>
+            </div>
+
+
             <h3 class="section-heading" style="color: #ff5555;">BEFORE: THE NAVIGATIONAL MAZE (FULL SCOPE)</h3>
             <p style="color:#aaa; font-family: 'Space Mono', monospace; font-size:0.85rem; margin-bottom: 2rem;">
                 The legacy architecture forced users to navigate three entirely separate, conflicting navigation structures, alongside a deep 5-level vertical tree. Below is the exhaustive map of the old system's cognitive overload.
             </p>
 
-            <!-- OLD I.A. PERFECTLY BALANCED GRID LAYOUT -->
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 2rem; align-items: stretch;">
                 
-                <!-- LEFT COLUMN: Categories & Horizontal Navs -->
                 <div style="display: flex; flex-direction: column; min-width: 0;">
                     
-                    <!-- Explore Archive -->
                     <div>
                         <div class="retro-title" style="color: #00ffff; border-color: #00ffff;">► EXPLORE NATIONAL ARCHIVE</div>
                         <div class="retro-content" style="border-color: #00ffff;">
@@ -200,7 +227,6 @@ const projectData = {
                         </div>
                     </div>
 
-                    <!-- National Archives -->
                     <div>
                         <div class="retro-title" style="color: #ff6655; border-color: #ff6655;">► NATIONAL ARCHIVES</div>
                         <div class="retro-content" style="border-color: #ff6655;">
@@ -213,7 +239,6 @@ const projectData = {
                         </div>
                     </div>
 
-                    <!-- Resources -->
                     <div>
                         <div class="retro-title" style="color: #ffbb44; border-color: #ffbb44;">► RESOURCES</div>
                         <div class="retro-content" style="border-color: #ffbb44;">
@@ -228,7 +253,6 @@ const projectData = {
                         </div>
                     </div>
 
-                    <!-- Horizontal Navigation BARS (Moved into left column to balance layout) -->
                     <div>
                         <div class="retro-title" style="color: #ff44cc; border-color: #ff44cc;">► HORIZONTAL NAVIGATION BARS</div>
                         <div class="retro-content" style="border-color: #ff44cc; margin-bottom: 0;">
@@ -255,15 +279,12 @@ const projectData = {
 
                 </div>
 
-                <!-- RIGHT COLUMN: Vertical Deep Navigation (Heights matched to left column) -->
                 <div style="display: flex; flex-direction: column; min-width: 0; height: 100%;">
                     <div class="retro-title" style="color: #4488ff; border-color: #4488ff;">► VERTICAL NAVIGATION (DEEP TREE OVERLAP)</div>
                     <div class="retro-content" style="border-color: #4488ff; flex: 1; margin-bottom: 0;">
                         
-                        <!-- L1 ROOT -->
                         <div class="v-row"><div class="v-node" style="color: #4488ff; border-color: #4488ff;">HOME</div></div>
                         
-                        <!-- L2 About Us -->
                         <div class="v-children" style="border-color: rgba(68,136,255,0.3);">
                             <div class="v-row"><span class="v-tree-icon" style="color: #44dd88;">├►</span><div class="v-node" style="color: #44dd88; border-color: #44dd88;">ABOUT US</div></div>
                             <div class="v-children" style="border-color: rgba(68,221,136,0.3);">
@@ -279,7 +300,6 @@ const projectData = {
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">└►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">GOVERNANCE</div></div>
                             </div>
                             
-                            <!-- L2 Collections -->
                             <div class="v-row"><span class="v-tree-icon" style="color: #44dd88;">├►</span><div class="v-node" style="color: #44dd88; border-color: #44dd88;">COLLECTIONS</div></div>
                             <div class="v-children" style="border-color: rgba(68,221,136,0.3);">
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">├►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">DIGITAL ARCHIVE</div></div>
@@ -294,7 +314,6 @@ const projectData = {
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">└►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">SPECIAL COLLECTIONS</div></div>
                             </div>
 
-                            <!-- L2 Research -->
                             <div class="v-row"><span class="v-tree-icon" style="color: #44dd88;">├►</span><div class="v-node" style="color: #44dd88; border-color: #44dd88;">RESEARCH</div></div>
                             <div class="v-children" style="border-color: rgba(68,221,136,0.3);">
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">├►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">READING ROOM</div></div>
@@ -306,7 +325,6 @@ const projectData = {
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">└►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">RESEARCH GUIDANCE</div></div>
                             </div>
 
-                            <!-- L2 Exhibitions & Education -->
                             <div class="v-row"><span class="v-tree-icon" style="color: #44dd88;">├►</span><div class="v-node" style="color: #44dd88; border-color: #44dd88;">EXHIBITIONS</div></div>
                             <div class="v-children" style="border-color: rgba(68,221,136,0.3);">
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">├►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">CURRENT EXHIBITIONS</div></div>
@@ -314,14 +332,12 @@ const projectData = {
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">└►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">PERMANENT EXHIBITION</div></div>
                             </div>
 
-                            <!-- L2 Education -->
                             <div class="v-row"><span class="v-tree-icon" style="color: #44dd88;">├►</span><div class="v-node" style="color: #44dd88; border-color: #44dd88;">EDUCATION</div></div>
                             <div class="v-children" style="border-color: rgba(68,221,136,0.3);">
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">├►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">SCHOOLS PROGRAMME</div></div>
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">└►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">WORKSHOPS</div></div>
                             </div>
 
-                            <!-- L2 Services -->
                             <div class="v-row"><span class="v-tree-icon" style="color: #44dd88;">├►</span><div class="v-node" style="color: #44dd88; border-color: #44dd88;">SERVICES</div></div>
                             <div class="v-children" style="border-color: rgba(68,221,136,0.3);">
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">├►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">ORDERING RECORDS</div></div>
@@ -332,7 +348,6 @@ const projectData = {
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">└►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">CONSERVATION</div></div>
                             </div>
                             
-                            <!-- Other Root Items -->
                             <div class="v-row"><span class="v-tree-icon" style="color: #44dd88;">├►</span><div class="v-node" style="color: #44dd88; border-color: #44dd88;">CIVIL REGISTRATION</div></div>
                             <div class="v-children" style="border-color: rgba(68,221,136,0.3);">
                                 <div class="v-row"><span class="v-tree-icon" style="color: #aa55ff;">├►</span><div class="v-node" style="color: #aa55ff; border-color: #aa55ff;">HISTORICAL RECORDS</div></div>
@@ -367,7 +382,6 @@ const projectData = {
             </div>
 
 
-            <!-- AFTER STATE: THE UNIFIED TREE -->
             <h3 class="section-heading" style="color: #7cff9b;">AFTER: THE UNIFIED I.A. TREE</h3>
             <p style="color:#aaa; font-family: 'Space Mono', monospace; font-size:0.85rem; margin-bottom: 2rem;">
                 I dismantled the bloated hierarchies and merged all conflicting navigation structures into a single, logical, intent-driven expanding map.
@@ -377,14 +391,11 @@ const projectData = {
                 
                 <div style="display: flex; align-items: flex-start; min-width: max-content; gap: 8px;">
                     
-                    <!-- L1: ROOT (Pink) -->
                     <div class="h-root" style="color: #ff55cc; border-color: #ff55cc;">HOME / NAI</div>
                     <div class="h-icon" style="color: #ff55cc; margin-top: 10px;">══►</div>
                     
-                    <!-- L1 Spine -->
                     <div class="h-children" style="border-color: rgba(255,85,204,0.3); padding-top: 5px;">
                         
-                        <!-- L2: ABOUT US -->
                         <div class="h-branch">
                             <span class="h-icon" style="color: #ff55cc;">├─►</span>
                             <div class="h-node" style="color: #5599ff; border-color: #5599ff;">ABOUT US</div>
@@ -425,7 +436,6 @@ const projectData = {
                             </div>
                         </div>
 
-                        <!-- L2: ARCHIVES -->
                         <div class="h-branch">
                             <span class="h-icon" style="color: #ff55cc;">├─►</span>
                             <div class="h-node" style="color: #5599ff; border-color: #5599ff;">ARCHIVES</div>
@@ -465,7 +475,6 @@ const projectData = {
                             </div>
                         </div>
 
-                        <!-- L2: ARCHIVAL TREASURES -->
                         <div class="h-branch">
                             <span class="h-icon" style="color: #ff55cc;">├─►</span>
                             <div class="h-node" style="color: #5599ff; border-color: #5599ff;">ARCHIVAL TREASURES</div>
@@ -483,7 +492,6 @@ const projectData = {
                             </div>
                         </div>
 
-                        <!-- L2: LEGISLATION / POLICY -->
                         <div class="h-branch">
                             <span class="h-icon" style="color: #ff55cc;">├─►</span>
                             <div class="h-node" style="color: #5599ff; border-color: #5599ff;">LEGISLATION / POLICY</div>
@@ -495,7 +503,6 @@ const projectData = {
                             </div>
                         </div>
 
-                        <!-- L2: RESEARCH & REFERENCE -->
                         <div class="h-branch">
                             <span class="h-icon" style="color: #ff55cc;">├─►</span>
                             <div class="h-node" style="color: #5599ff; border-color: #5599ff;">RESEARCH & REFERENCE</div>
@@ -527,7 +534,6 @@ const projectData = {
                             </div>
                         </div>
 
-                        <!-- L2: WHAT'S NEW -->
                         <div class="h-branch">
                             <span class="h-icon" style="color: #ff55cc;">└─►</span>
                             <div class="h-node" style="color: #5599ff; border-color: #5599ff;">WHAT'S NEW</div>
@@ -557,13 +563,12 @@ const projectData = {
                     </div>
                 </div>
 
-                <!-- Color Legend -->
                 <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px; border-top: 2px solid #222; padding-top: 20px; flex-wrap: wrap;">
-                    <div style="display: flex; align-items: center; gap: 6px;"><div style="width: 10px; height: 10px; background: rgba(255,85,204,0.2); border: 2px solid #ff55cc;"></div><span style="font-family: 'Press Start 2P', cursive; font-size: 5px; color: #ff55cc;">L1 (ROOT)</span></div>
-                    <div style="display: flex; align-items: center; gap: 6px;"><div style="width: 10px; height: 10px; background: rgba(85,153,255,0.2); border: 2px solid #5599ff;"></div><span style="font-family: 'Press Start 2P', cursive; font-size: 5px; color: #5599ff;">L2</span></div>
-                    <div style="display: flex; align-items: center; gap: 6px;"><div style="width: 10px; height: 10px; background: rgba(68,238,136,0.2); border: 2px solid #44ee88;"></div><span style="font-family: 'Press Start 2P', cursive; font-size: 5px; color: #44ee88;">L3</span></div>
-                    <div style="display: flex; align-items: center; gap: 6px;"><div style="width: 10px; height: 10px; background: rgba(255,119,85,0.2); border: 2px solid #ff7755;"></div><span style="font-family: 'Press Start 2P', cursive; font-size: 5px; color: #ff7755;">L4</span></div>
-                    <div style="display: flex; align-items: center; gap: 6px;"><div style="width: 10px; height: 10px; background: rgba(255,221,51,0.2); border: 2px solid #ffdd33;"></div><span style="font-family: 'Press Start 2P', cursive; font-size: 5px; color: #ffdd33;">L5 (LEAF)</span></div>
+                    <div style="display: flex; align-items: center; gap: 6px;"><div style="width: 10px; height: 10px; background: rgba(255,85,204,0.2); border: 1px solid #ff55cc;"></div><span style="font-family: 'Press Start 2P', cursive; font-size: 5px; color: #ff55cc;">L1 (ROOT)</span></div>
+                    <div style="display: flex; align-items: center; gap: 6px;"><div style="width: 10px; height: 10px; background: rgba(85,153,255,0.2); border: 1px solid #5599ff;"></div><span style="font-family: 'Press Start 2P', cursive; font-size: 5px; color: #5599ff;">L2</span></div>
+                    <div style="display: flex; align-items: center; gap: 6px;"><div style="width: 10px; height: 10px; background: rgba(68,238,136,0.2); border: 1px solid #44ee88;"></div><span style="font-family: 'Press Start 2P', cursive; font-size: 5px; color: #44ee88;">L3</span></div>
+                    <div style="display: flex; align-items: center; gap: 6px;"><div style="width: 10px; height: 10px; background: rgba(255,119,85,0.2); border: 1px solid #ff7755;"></div><span style="font-family: 'Press Start 2P', cursive; font-size: 5px; color: #ff7755;">L4</span></div>
+                    <div style="display: flex; align-items: center; gap: 6px;"><div style="width: 10px; height: 10px; background: rgba(255,221,51,0.2); border: 1px solid #ffdd33;"></div><span style="font-family: 'Press Start 2P', cursive; font-size: 5px; color: #ffdd33;">L5 (LEAF)</span></div>
                 </div>
 
             </div>
