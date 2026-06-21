@@ -1,52 +1,55 @@
-// --- LIVE COIN SYSTEM SYNC ---
-const coinCounter = document.getElementById('coinCounter');
+// --- 1. GLOBAL GAMIFICATION & COIN SYNC ---
+// This uses the exact same memory key ('shanu_coins') as your Play page
+let currentCoins = parseInt(localStorage.getItem('shanu_coins')) || 0;
 
-function getCoins() {
-    return parseInt(localStorage.getItem('shanuCoins') || "999");
+function updateHUD() {
+    let currentLevel = Math.floor(currentCoins / 50) + 1;
+    
+    // Failsafes to find the correct text elements
+    const coinEl = document.getElementById('player-coins') || document.getElementById('coinCounter');
+    const lvlEl = document.getElementById('player-level');
+    
+    if(coinEl) coinEl.innerText = currentCoins;
+    if(lvlEl) lvlEl.innerText = 'LVL ' + currentLevel;
 }
 
-function updateCoinsDisplay() {
-    coinCounter.innerText = getCoins();
-}
+// Make the reward system globally available for your Navbar links
+window.rewardPlayer = function(amount) {
+    currentCoins += amount;
+    localStorage.setItem('shanu_coins', currentCoins);
+    updateHUD();
+};
 
-function addCoin() {
-    let currentCoins = getCoins();
-    currentCoins += 1;
-    localStorage.setItem('shanuCoins', currentCoins);
-    updateCoinsDisplay();
-}
+// Initialize the HUD as soon as the page loads
+updateHUD();
 
-updateCoinsDisplay();
+// Listen for cross-tab sync (if they earn coins on the Play tab, it updates here instantly)
 window.addEventListener('storage', (e) => {
-    if (e.key === 'shanuCoins') {
-        updateCoinsDisplay();
+    if (e.key === 'shanu_coins') {
+        currentCoins = parseInt(localStorage.getItem('shanu_coins')) || 0;
+        updateHUD();
     }
 });
 
-// --- WALLET ANIMATION LOGIC ---
+
+// --- 2. WALLET DESK LOGIC ---
 const walletTrigger = document.getElementById('walletTrigger');
 const walletStage = document.getElementById('walletStage');
-const walletLabel = document.getElementById('walletLabel');
-let isWalletOpen = false;
 
-walletTrigger.addEventListener('click', () => {
-    isWalletOpen = !isWalletOpen;
-    if (isWalletOpen) {
-        walletStage.classList.add('is-open');
-        walletLabel.innerText = "▲ CLOSE WALLET";
-    } else {
-        walletStage.classList.remove('is-open');
-        walletLabel.innerText = "▼ OPEN WALLET";
-    }
-});
+if (walletTrigger && walletStage) {
+    walletTrigger.addEventListener('click', () => {
+        walletStage.classList.toggle('is-open');
+        
+        // Change the text from OPEN to CLOSE
+        const label = document.querySelector('.wallet-label');
+        if (label) {
+            label.innerText = walletStage.classList.contains('is-open') ? "▲ CLOSE WALLET" : "▼ OPEN WALLET";
+        }
+    });
+}
 
-// --- GIANT MODAL LOGIC ---
-const modal = document.getElementById('projectModal');
-const modalTitle = document.getElementById('modalTitle');
-const modalRole = document.getElementById('modalRole');
-const modalImage = document.getElementById('modalImage');
-const modalDetails = document.getElementById('modalDetails');
 
+// --- 3. PROJECT MODAL LOGIC ---
 const projectData = {
     proj1: {
         title: "National Pension System", role: "LEAD UX DESIGNER",
@@ -106,27 +109,32 @@ const projectData = {
     }
 };
 
-function openModal(projectId) {
+window.openModal = function(projectId) {
     const data = projectData[projectId];
     
-    addCoin(); // Give the player a coin!
+    // Reward player 1 coin for exploring a project!
+    window.rewardPlayer(1);
 
-    modalTitle.innerText = data.title;
-    modalRole.innerText = data.role;
-    modalImage.src = data.image;
+    const modal = document.getElementById('projectModal');
+    if (!modal) return; // Safety check if the modal HTML is missing
+
+    document.getElementById('modalTitle').innerText = data.title;
+    document.getElementById('modalRole').innerText = data.role;
+    document.getElementById('modalImage').src = data.image;
     
-    modalDetails.innerHTML = `
+    document.getElementById('modalDetails').innerHTML = `
         <div class="detail-section"><h4>> PROBLEM STATEMENT</h4><p>${data.problem}</p></div>
         <div class="detail-section"><h4>> DESIGN PROCESS & IDEATION</h4><p>${data.process}</p></div>
         <div class="detail-section"><h4>> SKILLS USED</h4><p>${data.skills}</p></div>
     `;
     
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; 
-}
+    document.body.style.overflow = 'hidden'; // Stop the background from scrolling
+};
 
-function closeModal(e) {
-    if(e) e.preventDefault();
-    modal.classList.remove('active');
-    document.body.style.overflow = 'auto'; 
-}
+window.closeModal = function(e) {
+    if (e) e.preventDefault();
+    const modal = document.getElementById('projectModal');
+    if (modal) modal.classList.remove('active');
+    document.body.style.overflow = 'auto'; // Restore background scrolling
+};
