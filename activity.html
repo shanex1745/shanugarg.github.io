@@ -10,6 +10,18 @@
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
 
     <style>
+        /* --- UNLOCK SCROLLING --- */
+        html, body {
+            overflow-y: auto !important; 
+            height: auto !important; 
+            min-height: 100vh;
+        }
+        
+        .app-shell, #main-world {
+            overflow-y: auto !important;
+            height: auto !important;
+            min-height: 100vh;
+}
         /* --- DYNAMIC ENVIRONMENT (Same as Homepage) --- */
         .cloud { animation: floatClouds 40s linear infinite; }
         @keyframes floatClouds { 0% { transform: translateX(-15vw) scale(0.85); } 100% { transform: translateX(115vw) scale(0.85); } }
