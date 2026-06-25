@@ -167,19 +167,19 @@
         
         <div class="photo-grid">
             <div class="polaroid" style="transform: rotate(-3deg);" onclick="rewardPlayer(2)">
-                <div class="polaroid-img" style="background: url('view.heic') center/cover;">[IMG_01]</div>
+                <div class="polaroid-img" style="background: url('view.heic') center/cover;"></div>
                 <div class="polaroid-caption">AMER_FORT.JPG</div>
             </div>
             <div class="polaroid" style="transform: rotate(4deg);" onclick="rewardPlayer(2)">
-                <div class="polaroid-img" style="background: url('samsung.jpg') center/cover;">[IMG_02]</div>
-                <div class="polaroid-caption">SAMSUNG_PRODUCTSHOOT.JPG</div>
+                <div class="polaroid-img" style="background: url('samsung.jpg') center/cover;"></div>
+                <div class="polaroid-caption">SAMSUNG_SHOOT.JPG</div>
             </div>
             <div class="polaroid" style="transform: rotate(-2deg);" onclick="rewardPlayer(2)">
-                <div class="polaroid-img" style="background: url('clouds.jpg') center/cover;">[IMG_03]</div>
+                <div class="polaroid-img" style="background: url('clouds.jpg') center/cover;"></div>
                 <div class="polaroid-caption">CLOUDS.JPG</div>
             </div>
             <div class="polaroid" style="transform: rotate(5deg);" onclick="rewardPlayer(2)">
-                <div class="polaroid-img" style="background: url('aesthetics.jpg') center/cover;">[IMG_04]</div>
+                <div class="polaroid-img" style="background: url('aesthetics.jpg') center/cover;"></div>
                 <div class="polaroid-caption">AESTHETICS.JPG</div>
             </div>
         </div>
@@ -300,7 +300,8 @@
         { img: 'url("dim.png")', text: "CH 01: TITAN DESIGN WINNER" },
         { img: 'url("bf.jpg")', text: "CH 02: BHARAT FELLOWSHIP TOP 20" },
         { img: 'url("rdpr.jpg")', text: "CH 03: FORMAL APPRECIATION\nFROM ACS.UMA MAHADEVAN" },
-        { img: 'url("serv.png.jpg")', text: "CH 04: SERVDES PUBLICATION 2025" }
+        { img: 'url("serv.png")', text: "CH 04: SERVDES PUBLICATION 2025" },
+        { img: 'url("news.png")', text: "CH 05: INWED RECOGNITION" },
     ];
     let currentCh = 0;
     const tvScreen = document.getElementById('tv-display');
@@ -321,8 +322,9 @@
 
     // --- 2. TERMINAL TYPEWRITER LOGIC ---
     const files = [
-        { name: "LOSS.TXT", content: "Trembling tears falling down my cheeks\nYou are the redemption that I seek.\nPull those daggers underneath my skin\nTo God I ask, how can you be my only sin?" },
+        { name: "LOSS.TXT", content: "Trembling tears falling down my cheeks\nYou are the redemption that I seek.\nPull those daggers underneath my skin\nTo God I ask, how can you be my only sin?\n\nYou pleased my anguish with your kiss,\nThose salty lips were always hard to resist.\nUnder the starlight lost with you in the abyss,\nTracing back the lines you once inked." },
         { name: "TRUST.TXT", content: "Will I ever be able to feel it again?\nMy thoughts filling up to the ceiling again.\nI ask my mind what is it thinking?\nLeave my eyes lost and blinking.\nNot suffice with the words on my tongue,\nFrom this fear of life it forever runs.\nRumbling cries inside but will still take the burn\nHollow but soul so kind it never learns,\nFrom the scars not too far old yet so firm. " },
+        { name: "UMBRELLA.TXT", content: "The umbrella I hold upon me\nhide the shadows underneath.\nHow does it stay up so calmly?\ntaking upon the thunder rain,\nI know that it is beyond me.\nWill it quiver at the hands of my sin?\nno blessing takes away what lies within" },
     ];
     let currentFile = 0;
     let typeIndex = 0;
