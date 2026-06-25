@@ -44,7 +44,7 @@ if (walletTrigger && walletStage) {
 const projectData = {
     proj1: { // NPS
         title: "NPS: Intent-First Design", 
-        heroImage: "nps-main-hero.jpg", // <--- ADDED HERO IMAGE
+        heroImage: "nps-hero.png", // <--- ADDED HERO IMAGE
         role: "UX DESIGNER & RESEARCHER", timeline: "Hackathon Sprint (2026)", themeIcons: ['🇮🇳', '💸', '📱', '🗣️'], behanceLink: "https://www.behance.net/shanux17",
         tldr: {
             problem: "The NPS app prioritized rigid government compliance over human understanding—forcing users through complex KYC and error-prone OTP verifications before letting them see the plans.",
@@ -66,14 +66,14 @@ const projectData = {
                 <div class="ba-box">
                     <div class="ba-label label-before">BEFORE: THE COMPLIANCE WALL</div>
                     <div class="wireframe-placeholder" style="aspect-ratio: 9/16; background: #050d1f; border-radius: 8px; overflow: hidden;">
-                        <img src="nps-old.jpg" alt="Old OTP/KYC Screens" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                        <img src="nps-old.png" alt="Old OTP/KYC Screens" style="width: 100%; height: 100%; object-fit: contain; display: block;">
                     </div>
                     <p style="color:#ccc; font-family:monospace; font-size:0.8rem; margin-top:10px;">Flow: OTP -> Biodata -> Nominee -> Validate -> Preview.</p>
                 </div>
                 <div class="ba-box">
                     <div class="ba-label label-after">AFTER: INTENT-FIRST EXPLORATION</div>
                     <div class="wireframe-placeholder" style="aspect-ratio: 9/16; border-color: #7cff9b; color:#7cff9b; background: #050d1f; border-radius: 8px; overflow: hidden;">
-                        <img src="nps-new.jpg" alt="New Amazon-style Plan Selection" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                        <img src="nps-new.png" alt="New Amazon-style Plan Selection" style="width: 100%; height: 100%; object-fit: contain; display: block;">
                     </div>
                     <p style="color:#ccc; font-family:monospace; font-size:0.8rem; margin-top:10px;">Flow: Explore Plans -> Add to Cart -> KYC & Payment. Clarity before compliance.</p>
                 </div>
@@ -85,7 +85,7 @@ const projectData = {
             </div>
             
             <div class="hero-image-placeholder" style="aspect-ratio: 21/9; margin-top: 1rem; margin-bottom: 2rem; background: #050d1f; border-radius: 8px; overflow: hidden; border: 2px solid #333;">
-                <img src="nps-ai.jpg" alt="AI Voice Assistant Interface translating financial jargon" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                <img src="nps-ai.png" alt="AI Voice Assistant Interface translating financial jargon" style="width: 100%; height: 100%; object-fit: contain; display: block;">
             </div>
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
@@ -97,7 +97,7 @@ const projectData = {
 
     proj2: { // Corporate K-Oscars
         title: "KDSI", 
-        heroImage: "kdsi-main-hero.jpg", // <--- ADDED HERO IMAGE
+        heroImage: "kdsi-hero.png", // <--- ADDED HERO IMAGE
         role: "DIGITAL COMMUNICATION AI FELLOW", timeline: "Corporate Campaigns Sprint", themeIcons: ['🏢', '🎨', '🤖', '✨'], behanceLink: "https://www.behance.net/shanux17",
         tldr: {
             problem: "Internal comms suffered from generic templates lacking empathy, desktop-focused layouts, and AI-generated assets eroding trust through unchecked hallucinations.",
@@ -114,25 +114,25 @@ const projectData = {
             <div class="booklet-carousel" style="margin-bottom: 2rem;">
                 <div class="booklet-page">
                     <div class="hero-image-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden; border: 2px solid #444;">
-                        <img src="kdsi-hero.jpg" alt="Contextual Discovery / Empathy Mapping" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                        <img src="kdsi-hero.png" alt="Contextual Discovery / Empathy Mapping" style="width: 100%; height: 100%; object-fit: contain; display: block;">
                     </div>
                     <p class="booklet-desc">Phase 1: Grounding design in human research. Discovered that stock photos alienate users; specific cultural nuance was mandatory for DEI/Pride.</p>
                 </div>
                 <div class="booklet-page">
                     <div class="hero-image-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden; border: 2px solid #444;">
-                        <img src="kdsi-ui.jpg" alt="Modern Brutalist / Bangalore Style UI" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                        <img src="kdsi-ui.png" alt="Modern Brutalist / Bangalore Style UI" style="width: 100%; height: 100%; object-fit: contain; display: block;">
                     </div>
                     <p class="booklet-desc">Phase 2: Defining Inclusive Semantics and standardizing the visual language from zero brand equity.</p>
                 </div>
                 <div class="booklet-page">
                     <div class="hero-image-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden; border: 2px solid #444;">
-                        <img src="kdsi-logos.jpg" alt="K-Oscars 3D Metallic Logos & Templates" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                        <img src="kdsi-logos.png" alt="K-Oscars 3D Metallic Logos & Templates" style="width: 100%; height: 100%; object-fit: contain; display: block;">
                     </div>
                     <p class="booklet-desc">Phase 3: Democratizing Architecture via reusable Figma templates for non-designers to edit safely.</p>
                 </div>
                 <div class="booklet-page">
                     <div class="hero-image-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden; border: 2px solid #444;">
-                        <img src="kdsi-qa.jpg" alt="3-Tier Human QA Pipeline" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                        <img src="kdsi-qa.png" alt="3-Tier Human QA Pipeline" style="width: 100%; height: 100%; object-fit: contain; display: block;">
                     </div>
                     <p class="booklet-desc">Phase 4: Rigorous System Deployment via self-peer-mentor QA to actively correct AI hallucinations (like fixing the year to 2025).</p>
                 </div>
@@ -147,7 +147,7 @@ const projectData = {
 
     proj3: { // NAI
         title: "National Archives of India", 
-        heroImage: "nai-main-hero.jpg", // <--- ADDED HERO IMAGE
+        heroImage: "nai-hero.png", // <--- ADDED HERO IMAGE
         behanceLink: "https://www.behance.net/shanux17",
         role: "UX RESEARCHER & UI DESIGNER", 
         timeline: "Redesign Sprint", 
@@ -204,8 +204,8 @@ const projectData = {
                 <div style="display: flex; flex-direction: column;">
                     <div class="retro-title" style="color: #ff5555; border-color: #ff5555; width: max-content;">► BEFORE: THE MAZE</div>
                     <div class="scroll-ui scroll-ui-old" style="border: 2px solid #ff5555; background: #000; height: 450px; overflow-y: auto; padding: 0;">
-                        <img src="nai-old.jpg" alt="Old NAI Website" style="width: 100%; height: auto; display: block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <div style="display: none; padding: 40px 20px; text-align: center; color: #ff5555; font-family: 'Space Mono', monospace; font-size: 12px;">[MISSING: nai-old.jpg]</div>
+                        <img src="nai-old.png" alt="Old NAI Website" style="width: 100%; height: auto; display: block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display: none; padding: 40px 20px; text-align: center; color: #ff5555; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
                     </div>
                 </div>
 
@@ -213,7 +213,7 @@ const projectData = {
                     <div class="retro-title" style="color: #7cff9b; border-color: #7cff9b; width: max-content;">► AFTER: INTENT-DRIVEN</div>
                     <div class="scroll-ui scroll-ui-new" style="border: 2px solid #7cff9b; background: #000; height: 450px; overflow-y: auto; padding: 0; box-shadow: 0 0 20px rgba(124,255,155,0.15);">
                         <img src="nai-new.jpg" alt="New NAI Website" style="width: 100%; height: auto; display: block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <div style="display: none; padding: 40px 20px; text-align: center; color: #7cff9b; font-family: 'Space Mono', monospace; font-size: 12px;">[MISSING: nai-new.jpg]</div>
+                        <div style="display: none; padding: 40px 20px; text-align: center; color: #7cff9b; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
                     </div>
                 </div>
             </div>
@@ -591,7 +591,7 @@ const projectData = {
             </div>
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
-                <h3 class="section-heading">6. The Final Solution & Ethics</h3>
+                <h3 class="section-heading">The Final Solution & Ethics</h3>
                 <p>By implementing robust screen-reader support, scalable text, and high-contrast modes, the redesign champions inclusivity. These choices frame the platform as "moral infrastructure"—treating equitable access to national heritage as a fundamental civic right.</p>
             </div>
         `
@@ -599,7 +599,7 @@ const projectData = {
 
     proj4: { // Panchamitra & Meeting Management
         title: "Mobile Panchamitra", 
-        heroImage: "rdpr-main-hero.jpg", // <--- ADDED HERO IMAGE
+        heroImage: "rdpr-hero.png", // <--- ADDED HERO IMAGE
         behanceLink: "https://www.youtube.com/watch?v=QuULupXWl8M",
         role: "LEAD UX RESEARCHER & UI/UX DESIGNER", 
         timeline: "FY 24-25 Focus", 
@@ -902,7 +902,7 @@ const projectData = {
 
             <h3 class="section-heading">AUDIO-FIRST DATA VISUALIZATION</h3>
             <div class="hero-image-placeholder" style="aspect-ratio: 21/9; margin-bottom: 2rem; background: #050d1f; border-radius: 8px; overflow: hidden;">
-                <img src="rdpr-ai.jpg" alt="Mobile Panchamitra UI" style="width: 100%; height: 100%; object-fit: contain; display: block;" onerror="this.style.display='none'">
+                <img src="rdpr-ai.png" alt="Mobile Panchamitra UI" style="width: 100%; height: 100%; object-fit: contain; display: block;" onerror="this.style.display='none'">
             </div>
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
@@ -914,7 +914,7 @@ const projectData = {
 
     proj5: { // Salt
         title: "Salt: Urban Relocation Gap", 
-        heroImage: "salt-main-hero.jpg", // <--- ADDED HERO IMAGE
+        heroImage: "salt-hero.png", // <--- ADDED HERO IMAGE
         role: "UX RESEARCHER & UI/UX DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['🏙️', '📦', '🗺️', '🐘'], behanceLink: "https://www.behance.net/shanux17",
         tldr: {
             problem: "Residents relocating to new cities suffer from severe cognitive overload and isolation due to fragmented, unreliable access to daily essentials, transport, and culture.",
@@ -931,19 +931,19 @@ const projectData = {
             <div class="booklet-carousel" style="margin-bottom: 2rem;">
                 <div class="booklet-page">
                     <div class="hero-image-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden;">
-                        <img src="salt-hero.jpg" alt="Participatory Open Card Sorting" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                        <img src="salt-hero.png" alt="Participatory Open Card Sorting" style="width: 100%; height: 100%; object-fit: contain; display: block;">
                     </div>
                     <p class="booklet-desc">Mathematical UX: Calculated priority scores to dictate the 4 hubs (Home, Travel, Explore, Learn). Safety features explicitly overrode convenience.</p>
                 </div>
                 <div class="booklet-page">
                     <div class="wireframe-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden;">
-                        <img src="salt-ui.jpg" alt="Aggregated Decision UI" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                        <img src="salt-ui.png" alt="Aggregated Decision UI" style="width: 100%; height: 100%; object-fit: contain; display: block;">
                     </div>
                     <p class="booklet-desc">Aggregated Decision Making: Comparing Uber/Ola/Rapido side-by-side to eliminate app-hopping decision fatigue.</p>
                 </div>
                 <div class="booklet-page">
                     <div class="hero-image-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden;">
-                        <img src="salt-pakhi.jpg" alt="Pakhi Gamification Zone" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                        <img src="salt-pakhi.png" alt="Pakhi Gamification Zone" style="width: 100%; height: 100%; object-fit: contain; display: block;">
                     </div>
                     <p class="booklet-desc">To make the directory app feel warm, I introduced "Pakhi" the elephant. Daily trivia transforms passive scrolling into joyful engagement.</p>
                 </div>
@@ -958,7 +958,7 @@ const projectData = {
 
     proj6: { // Navya
         title: "Navya: Dignified CP Care", 
-        heroImage: "navya-main-hero.jpg", // <--- ADDED HERO IMAGE
+        heroImage: "navya-hero.png", // <--- ADDED HERO IMAGE
         role: "UX RESEARCHER & PRODUCT DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['♿', '🚿', '🦽', '❤️'], behanceLink: "https://www.behance.net/gallery/229048977/Baithing-Aid-for-Cerebral-Palsy-Children",
         tldr: {
             problem: "Bathing a growing child with Cerebral Palsy in a compact Indian bathroom is a hazardous, physically draining task causing caregiver burnout and patient guilt.",
@@ -975,19 +975,19 @@ const projectData = {
             <div class="booklet-carousel" style="margin-bottom: 2rem;">
                 <div class="booklet-page">
                     <div class="wireframe-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden;">
-                        <img src="navya-journey.jpg" alt="Contextual Ethnography / Empathy Mapping" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                        <img src="navya-journey.png" alt="Contextual Ethnography / Empathy Mapping" style="width: 100%; height: 100%; object-fit: contain; display: block;">
                     </div>
                     <p class="booklet-desc">The "As-Is" chaotic journey: Bed -> Lift -> Carry -> Place in Tub -> Bathe -> Lift -> Carry -> Bed.</p>
                 </div>
                 <div class="booklet-page">
                     <div class="hero-image-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden;">
-                        <img src="navya-marrket.jpg" alt="Bathing Aid Market Study" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                        <img src="navya-marrket.png" alt="Bathing Aid Market Study" style="width: 100%; height: 100%; object-fit: contain; display: block;">
                     </div>
                     <p class="booklet-desc">The existing products did not account for space constraints one face in Indian houses.</p>
                 </div>
                 <div class="booklet-page">
                     <div class="hero-image-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden;">
-                        <img src="navya.jpg" alt="Foldable Side-Bracket System" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                        <img src="navya.png" alt="Foldable Side-Bracket System" style="width: 100%; height: 100%; object-fit: contain; display: block;">
                     </div>
                     <p class="booklet-desc">Eradicating the vertical lift. The side folds down to create a horizontal canvas bridge from bed to chair.</p>
                 </div>
@@ -1002,7 +1002,7 @@ const projectData = {
 
     proj7: { // EZAM
         title: "EZAM: Tactile Game Design", 
-        heroImage: "ezam-main-hero.jpg", // <--- ADDED HERO IMAGE
+        heroImage: "ezam-hero.png", // <--- ADDED HERO IMAGE
         role: "UX RESEARCHER & UI/UX DESIGNER", timeline: "Design Impact Movement", themeIcons: ['🎲', '🧲', '🤝', '🧩'], behanceLink: "https://www.behance.net/gallery/214356517/Portfolio",
         tldr: {
             problem: "Visually impaired (VI) and visually abled (VA) children lacked an equitable way to play; existing games gave VA children an advantage, leading to dynamics of pity.",
@@ -1020,20 +1020,20 @@ const projectData = {
                 <div class="ba-box">
                     <div class="ba-label label-before">THE FLAW: VISUAL WAYFINDING</div>
                     <div class="wireframe-placeholder" style="aspect-ratio: 1; background: #050d1f; border-radius: 8px; overflow: hidden;">
-                        <img src="ezam-tr.jpg" alt="Traditional Games causing isolation" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                        <img src="ezam-tr.png" alt="Traditional Games causing isolation" style="width: 100%; height: 100%; object-fit: contain; display: block;">
                     </div>
                 </div>
                 <div class="ba-box">
                     <div class="ba-label label-after">THE FIX: DUAL-LAYER ARCHITECTURE</div>
                     <div class="wireframe-placeholder" style="aspect-ratio: 1; border-color: #7cff9b; color:#7cff9b; background: #050d1f; border-radius: 8px; overflow: hidden;">
-                        <img src="ezam-bg.jpg" alt="EZAM Top Tactile Grid & Hidden Magnetic Maze" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                        <img src="ezam-bg.png" alt="EZAM Top Tactile Grid & Hidden Magnetic Maze" style="width: 100%; height: 100%; object-fit: contain; display: block;">
                     </div>
                 </div>
             </div>
             
             <h3 class="section-heading">PHYSICAL PRODUCT DETAILS</h3>
             <div class="hero-image-placeholder" style="aspect-ratio: 21/9; margin-bottom: 2rem; background: #050d1f; border-radius: 8px; overflow: hidden;">
-                <img src="ezam-play.jpg" alt="Hexagonal tactile die and distinct magnetic pawns" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                <img src="ezam-play.png" alt="Hexagonal tactile die and distinct magnetic pawns" style="width: 100%; height: 100%; object-fit: contain; display: block;">
             </div>
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
@@ -1045,7 +1045,7 @@ const projectData = {
 
     proj8: { // CoolieCo
         title: "CoolieCo: Formalizing Labor", 
-        heroImage: "coolieco-main-hero.jpg", // <--- ADDED HERO IMAGE
+        heroImage: "coolie-hero.png", // <--- ADDED HERO IMAGE
         role: "UX RESEARCHER & UI DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['🚂', '🧳', '🎫', '🤝'], behanceLink: "https://www.behance.net/gallery/219800943/CoolieCo",
         tldr: {
             problem: "A severe breakdown of trust between Indian railway travelers and coolies (porters) led to mutual avoidance, passenger injuries, and financial instability for labor.",
@@ -1062,19 +1062,19 @@ const projectData = {
             <div class="booklet-carousel" style="margin-bottom: 2rem;">
                 <div class="booklet-page">
                     <div class="wireframe-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden;">
-                        <img src="coolie-id.jpg" alt="Low-Fi Physical Sticky-Note Maps" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                        <img src="coolie-id.png" alt="Low-Fi Physical Sticky-Note Maps" style="width: 100%; height: 100%; object-fit: contain; display: block;">
                     </div>
                     <p class="booklet-desc">Card Sorting exercises mapped the complex backend logistics into a seamless frontend experience matching the "Real World" hiring model.</p>
                 </div>
                 <div class="booklet-page">
                     <div class="wireframe-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden;">
-                        <img src="coolie-low.jpg" alt="Mid-Fi Booking Screens" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                        <img src="coolie-low.png" alt="Mid-Fi Booking Screens" style="width: 100%; height: 100%; object-fit: contain; display: block;">
                     </div>
                     <p class="booklet-desc">One Action Per Screen: Reduced cognitive load for chaotic railway environments (Train No. -> Luggage -> Pickup) with Dynamic Pricing.</p>
                 </div>
                 <div class="booklet-page">
                     <div class="hero-image-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden;">
-                        <img src="coolie-hi.jpg" alt="High-Fi UI / OTP Handshake" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                        <img src="coolie-hi.png" alt="High-Fi UI / OTP Handshake" style="width: 100%; height: 100%; object-fit: contain; display: block;">
                     </div>
                     <p class="booklet-desc">The OTP Handshake: The coolie only takes possession, and the timer begins, once the digital OTP is shared in person—establishing mutual trust.</p>
                 </div>
