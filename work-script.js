@@ -40,7 +40,7 @@ if (walletTrigger && walletStage) {
 }
 
 
-// --- 3. DYNAMIC PROJECT DATA RENDERER (FULL PDF CONTENT) ---
+// --- DYNAMIC PROJECT DATA RENDERER (FULL PDF CONTENT) ---
 const projectData = {
     proj1: { // NPS
         title: "NPS: Intent-First Design", role: "UX DESIGNER & RESEARCHER", timeline: "Hackathon Sprint (2026)", themeIcons: ['🇮🇳', '💸', '📱', '🗣️'], behanceLink: "https://www.behance.net/shanux17",
@@ -63,12 +63,16 @@ const projectData = {
             <div class="before-after-grid" style="margin-bottom: 2rem;">
                 <div class="ba-box">
                     <div class="ba-label label-before">BEFORE: THE COMPLIANCE WALL</div>
-                    <div class="wireframe-placeholder" style="aspect-ratio: 9/16;">[IMAGE: Old OTP/KYC Drop-off Screens]</div>
+                    <div class="wireframe-placeholder" style="aspect-ratio: 9/16; background: #050d1f; border-radius: 8px; overflow: hidden;">
+                        <img src="nps-old.jpg" alt="Old OTP/KYC Screens" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                    </div>
                     <p style="color:#ccc; font-family:monospace; font-size:0.8rem; margin-top:10px;">Flow: OTP -> Biodata -> Nominee -> Validate -> Preview.</p>
                 </div>
                 <div class="ba-box">
                     <div class="ba-label label-after">AFTER: INTENT-FIRST EXPLORATION</div>
-                    <div class="wireframe-placeholder" style="aspect-ratio: 9/16; border-color: #7cff9b; color:#7cff9b;">[IMAGE: New Amazon-style 'Add to Cart' Plan Selection]</div>
+                    <div class="wireframe-placeholder" style="aspect-ratio: 9/16; border-color: #7cff9b; color:#7cff9b; background: #050d1f; border-radius: 8px; overflow: hidden;">
+                        <img src="nps-new.jpg" alt="New Amazon-style Plan Selection" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                    </div>
                     <p style="color:#ccc; font-family:monospace; font-size:0.8rem; margin-top:10px;">Flow: Explore Plans -> Add to Cart -> KYC & Payment. Clarity before compliance.</p>
                 </div>
             </div>
@@ -78,7 +82,9 @@ const projectData = {
                 <p><strong>Major Design Challenge:</strong> How do you make highly complex financial forecasts accessible to low-literacy or first-time investors from the informal sector? Simplified text wasn't enough; we integrated a Multilingual AI Voice Assistant. If users were confused by a chart, they could ask the AI to clarify in their regional language.</p>
             </div>
             
-            <div class="hero-image-placeholder" style="aspect-ratio: 21/9; margin-top: 1rem; margin-bottom: 2rem;">[IMAGE: AI Voice Assistant Interface translating financial jargon]</div>
+            <div class="hero-image-placeholder" style="aspect-ratio: 21/9; margin-top: 1rem; margin-bottom: 2rem; background: #050d1f; border-radius: 8px; overflow: hidden; border: 2px solid #333;">
+                <img src="nps-ai.jpg" alt="AI Voice Assistant Interface translating financial jargon" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+            </div>
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
                 <h3 class="section-heading">Impact & Core Learnings</h3>
@@ -103,19 +109,27 @@ const projectData = {
             <h3 class="section-heading">4-PHASE EXECUTION BOOKLET</h3>
             <div class="booklet-carousel" style="margin-bottom: 2rem;">
                 <div class="booklet-page">
-                    <div class="hero-image-placeholder">[IMAGE: Contextual Discovery / Empathy Mapping]</div>
+                    <div class="hero-image-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden; border: 2px solid #444;">
+                        <img src="kdsi-hero.jpg" alt="Contextual Discovery / Empathy Mapping" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                    </div>
                     <p class="booklet-desc">Phase 1: Grounding design in human research. Discovered that stock photos alienate users; specific cultural nuance was mandatory for DEI/Pride.</p>
                 </div>
                 <div class="booklet-page">
-                    <div class="hero-image-placeholder">[IMAGE: Modern Brutalist / Bangalore Style UI]</div>
+                    <div class="hero-image-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden; border: 2px solid #444;">
+                        <img src="kdsi-ui.jpg" alt="Modern Brutalist / Bangalore Style UI" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                    </div>
                     <p class="booklet-desc">Phase 2: Defining Inclusive Semantics and standardizing the visual language from zero brand equity.</p>
                 </div>
                 <div class="booklet-page">
-                    <div class="hero-image-placeholder">[IMAGE: K-Oscars 3D Metallic Logos & Templates]</div>
+                    <div class="hero-image-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden; border: 2px solid #444;">
+                        <img src="kdsi-logos.jpg" alt="K-Oscars 3D Metallic Logos & Templates" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                    </div>
                     <p class="booklet-desc">Phase 3: Democratizing Architecture via reusable Figma templates for non-designers to edit safely.</p>
                 </div>
                 <div class="booklet-page">
-                    <div class="hero-image-placeholder">[IMAGE: 3-Tier Human QA Pipeline]</div>
+                    <div class="hero-image-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden; border: 2px solid #444;">
+                        <img src="kdsi-qa.jpg" alt="3-Tier Human QA Pipeline" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                    </div>
                     <p class="booklet-desc">Phase 4: Rigorous System Deployment via self-peer-mentor QA to actively correct AI hallucinations (like fixing the year to 2025).</p>
                 </div>
             </div>
@@ -172,7 +186,7 @@ const projectData = {
             </style>
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 3rem;">
-                <h3 class="section-heading">3. Research & Discovery</h3>
+                <h3 class="section-heading">Research & Discovery</h3>
                 <p>Through Heuristic Evaluation and Global Competitive Analysis, we uncovered severe Accessibility Barriers. Linguistic gatekeeping and overlapping navigation bars with nested sub-menus caused massive navigational paralysis.</p>
             </div>
 
@@ -185,20 +199,19 @@ const projectData = {
                 <div style="display: flex; flex-direction: column;">
                     <div class="retro-title" style="color: #ff5555; border-color: #ff5555; width: max-content;">► BEFORE: THE MAZE</div>
                     <div class="scroll-ui scroll-ui-old" style="border: 2px solid #ff5555; background: #000; height: 450px; overflow-y: auto; padding: 0;">
-                        <img src="assets/nai-old.jpg" alt="Old NAI Website" style="width: 100%; display: block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <div style="display: none; padding: 40px 20px; text-align: center; color: #ff5555; font-family: 'Space Mono', monospace; font-size: 12px;">[MISSING: assets/nai-old.jpg]</div>
+                        <img src="nai-old.jpg" alt="Old NAI Website" style="width: 100%; height: auto; display: block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display: none; padding: 40px 20px; text-align: center; color: #ff5555; font-family: 'Space Mono', monospace; font-size: 12px;">[MISSING: nai-old.jpg]</div>
                     </div>
                 </div>
 
                 <div style="display: flex; flex-direction: column;">
                     <div class="retro-title" style="color: #7cff9b; border-color: #7cff9b; width: max-content;">► AFTER: INTENT-DRIVEN</div>
                     <div class="scroll-ui scroll-ui-new" style="border: 2px solid #7cff9b; background: #000; height: 450px; overflow-y: auto; padding: 0; box-shadow: 0 0 20px rgba(124,255,155,0.15);">
-                        <img src="assets/nai-new.jpg" alt="New NAI Website" style="width: 100%; display: block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <div style="display: none; padding: 40px 20px; text-align: center; color: #7cff9b; font-family: 'Space Mono', monospace; font-size: 12px;">[MISSING: assets/nai-new.jpg]</div>
+                        <img src="nai-new.jpg" alt="New NAI Website" style="width: 100%; height: auto; display: block;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display: none; padding: 40px 20px; text-align: center; color: #7cff9b; font-family: 'Space Mono', monospace; font-size: 12px;">[MISSING: nai-new.jpg]</div>
                     </div>
                 </div>
             </div>
-
 
             <h3 class="section-heading" style="color: #ff5555;">BEFORE: THE NAVIGATIONAL MAZE (FULL SCOPE)</h3>
             <p style="color:#aaa; font-family: 'Space Mono', monospace; font-size:0.85rem; margin-bottom: 2rem;">
@@ -380,7 +393,6 @@ const projectData = {
                     </div>
                 </div>
             </div>
-
 
             <h3 class="section-heading" style="color: #7cff9b;">AFTER: THE UNIFIED I.A. TREE</h3>
             <p style="color:#aaa; font-family: 'Space Mono', monospace; font-size:0.85rem; margin-bottom: 2rem;">
@@ -602,21 +614,17 @@ const projectData = {
                 The original architecture possessed a deeply nested, overwhelming structure. I reorganized the core navigation into a unified dashboard. Below is the complete expansion of the <strong>HOME</strong> module, detailing the deep horizontal task flows required for data retrieval.
             </p>
 
-            <!-- DASHBOARD UI I.A. STRUCTURE WITH FULL HOME EXPANSION -->
             <div style="display: flex; gap: 2rem; background: #050d1f; padding: 2.5rem; border: 2px solid #333; border-radius: 8px; margin-bottom: 3rem; overflow-x: auto; box-shadow: inset 0 0 20px rgba(0,0,0,0.5);">
                 
-                <!-- Left Panel: Main Menu -->
                 <div style="width: 220px; flex-shrink: 0;">
                     <div style="font-family: 'Press Start 2P', cursive; font-size: 0.6rem; color: rgba(108, 232, 255, 0.6); text-align: center; padding: 10px; border: 2px solid rgba(108, 232, 255, 0.2); background: #0a1535; margin-bottom: 15px; letter-spacing: 2px;">
                         ◄ MAIN MENU ►
                     </div>
                     
                     <div style="display: flex; flex-direction: column; gap: 6px;">
-                        <!-- Active Item -->
                         <div style="padding: 12px; border: 2px solid #6ce8ff; background: rgba(108, 232, 255, 0.15); color: #6ce8ff; box-shadow: 0 0 15px rgba(108, 232, 255, 0.3), inset 0 0 10px rgba(108, 232, 255, 0.1); font-family: 'Press Start 2P', cursive; font-size: 0.6rem; line-height: 1.8;">
                             ► HOME<br><span style="font-size: 0.5rem; opacity: 0.7; font-family: 'Space Mono', monospace;">PANCHATANTRA 2.0</span>
                         </div>
-                        <!-- Inactive Items -->
                         <div style="padding: 12px 12px 12px 24px; border: 2px solid rgba(108, 232, 255, 0.2); background: #060d20; color: rgba(108, 232, 255, 0.5); font-family: 'Press Start 2P', cursive; font-size: 0.6rem;">ABOUT US</div>
                         <div style="padding: 12px 12px 12px 24px; border: 2px solid rgba(108, 232, 255, 0.2); background: #060d20; color: rgba(108, 232, 255, 0.5); font-family: 'Press Start 2P', cursive; font-size: 0.6rem;">CONTACT US</div>
                         <div style="padding: 12px 12px 12px 24px; border: 2px solid rgba(108, 232, 255, 0.2); background: #060d20; color: rgba(108, 232, 255, 0.5); font-family: 'Press Start 2P', cursive; font-size: 0.6rem;">RECRUITMENT</div>
@@ -626,18 +634,15 @@ const projectData = {
                     </div>
                 </div>
 
-                <!-- Connector Arrow -->
                 <div style="display: flex; flex-direction: column; justify-content: flex-start; padding-top: 72px;">
                     <div style="color: #6ce8ff; font-family: monospace; font-size: 24px; text-shadow: 0 0 14px #6ce8ff; letter-spacing: -2px;">═════►</div>
                 </div>
 
-                <!-- Right Panel: Expanded Home Architecture -->
                 <div style="flex: 1; min-width: max-content;">
                     <div style="display: inline-flex; align-items: center; gap: 10px; border: 2px solid #6ce8ff; background: rgba(108, 232, 255, 0.1); padding: 12px 20px; font-family: 'Press Start 2P', cursive; font-size: 0.7rem; color: #6ce8ff; text-shadow: 0 0 10px #6ce8ff; margin-bottom: 25px; box-shadow: 0 0 20px rgba(108, 232, 255, 0.2);">
                         ► HOME / PANCHATANTRA 2.0
                     </div>
 
-                    <!-- CSS Classes mapped to your strict color schema -->
                     <style>
                         .ia-node { border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 10px 15px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.75rem; width: 220px; flex-shrink: 0; box-shadow: inset 0 0 8px rgba(108,232,255,0.1); display: flex; align-items: center; }
                         .ia-node-expanded { box-shadow: 0 0 10px rgba(108,232,255,0.2), inset 0 0 10px rgba(108,232,255,0.2); }
@@ -648,23 +653,19 @@ const projectData = {
                         .ia-arrow-flow { color: rgba(58,74,122,0.8); font-family: monospace; margin: 0 4px; font-size: 12px; user-select: none; }
                     </style>
 
-                    <!-- Home Sub-sections -->
                     <div style="display: flex; flex-direction: column; border-left: 2px solid rgba(108,232,255,0.4); margin-left: 20px; padding: 5px 0; gap: 10px;">
                         
-                        <!-- Top Standard Nodes -->
                         <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node">FINANCE & ACCOUNTING</div></div>
                         <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node">REVENUE COLLECTION</div></div>
                         <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node">CITIZEN SERVICES</div></div>
                         <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node">PLANNING</div></div>
 
-                        <!-- HRMS MODULE (EXPANDED) -->
                         <div style="display: flex; flex-direction: column; gap: 6px;">
                             <div style="display: flex; align-items: center;">
                                 <div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div>
                                 <div class="ia-node ia-node-expanded">▼ HRMS MODULE</div>
                             </div>
                             <div style="display: flex; flex-direction: column; border-left: 1px dashed rgba(108,232,255,0.4); margin-left: 40px; padding: 5px 0; gap: 8px;">
-                                <!-- Flow 1 -->
                                 <div style="display: flex; align-items: center;">
                                     <div style="width: 15px; height: 1px; background: rgba(108,232,255,0.4);"></div>
                                     <div class="ia-sub-node">► GENERAL BODY MEMBERS</div>
@@ -673,7 +674,6 @@ const projectData = {
                                     <span class="ia-arrow-flow">──►</span><div class="ia-filter">GRAM PANCHAYAT</div>
                                     <span class="ia-arrow-flow">──►</span><div class="ia-search">SEARCH</div>
                                 </div>
-                                <!-- Flow 2 -->
                                 <div style="display: flex; align-items: center;">
                                     <div style="width: 15px; height: 1px; background: rgba(108,232,255,0.4);"></div>
                                     <div class="ia-sub-node">► TOTAL STAFF</div>
@@ -686,7 +686,6 @@ const projectData = {
                             </div>
                         </div>
 
-                        <!-- PUBLIC INFO PORTAL (FLOW) -->
                         <div style="display: flex; align-items: center;">
                             <div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div>
                             <div class="ia-node">PUBLIC INFO PORTAL</div>
@@ -696,14 +695,12 @@ const projectData = {
                             <span class="ia-arrow-flow">──►</span><div class="ia-search">SEARCH</div>
                         </div>
 
-                        <!-- MEETING MANAGEMENT (EXPANDED) -->
                         <div style="display: flex; flex-direction: column; gap: 6px;">
                             <div style="display: flex; align-items: center;">
                                 <div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div>
                                 <div class="ia-node ia-node-expanded">▼ MEETING MANAGEMENT</div>
                             </div>
                             <div style="display: flex; flex-direction: column; border-left: 1px dashed rgba(108,232,255,0.4); margin-left: 40px; padding: 5px 0; gap: 8px;">
-                                <!-- Flow 1 -->
                                 <div style="display: flex; align-items: center;">
                                     <div style="width: 15px; height: 1px; background: rgba(108,232,255,0.4);"></div>
                                     <div class="ia-sub-node">► TOTAL MEETINGS</div>
@@ -715,7 +712,6 @@ const projectData = {
                                     <span class="ia-arrow-flow">──►</span><div class="ia-filter">TO DATE</div>
                                     <span class="ia-arrow-flow">──►</span><div class="ia-search">SEARCH</div>
                                 </div>
-                                <!-- Flow 2 -->
                                 <div style="display: flex; align-items: center;">
                                     <div style="width: 15px; height: 1px; background: rgba(108,232,255,0.4);"></div>
                                     <div class="ia-sub-node">► TOTAL DEMAND</div>
@@ -725,7 +721,6 @@ const projectData = {
                                     <span class="ia-arrow-flow">──►</span><div class="ia-filter">FINANCIAL YEAR</div>
                                     <span class="ia-arrow-flow">──►</span><div class="ia-search">SEARCH</div>
                                 </div>
-                                <!-- Flow 3 -->
                                 <div style="display: flex; align-items: center;">
                                     <div style="width: 15px; height: 1px; background: rgba(108,232,255,0.4);"></div>
                                     <div class="ia-sub-node">EVENTS CONDUCTED</div>
@@ -737,12 +732,10 @@ const projectData = {
                                     <span class="ia-arrow-flow">──►</span><div class="ia-filter">END AT</div>
                                     <span class="ia-arrow-flow">──►</span><div class="ia-search">SEARCH</div>
                                 </div>
-                                <!-- Sub Node -->
                                 <div style="display: flex; align-items: center;">
                                     <div style="width: 15px; height: 1px; background: rgba(108,232,255,0.4);"></div>
                                     <div class="ia-sub-node">► EVENTS</div>
                                 </div>
-                                <!-- Flow 4 -->
                                 <div style="display: flex; align-items: center;">
                                     <div style="width: 15px; height: 1px; background: rgba(108,232,255,0.4);"></div>
                                     <div class="ia-sub-node">INITIATIVES</div>
@@ -754,7 +747,6 @@ const projectData = {
                                     <span class="ia-arrow-flow">──►</span><div class="ia-filter">END AT</div>
                                     <span class="ia-arrow-flow">──►</span><div class="ia-search">SEARCH</div>
                                 </div>
-                                <!-- Sub Node -->
                                 <div style="display: flex; align-items: center;">
                                     <div style="width: 15px; height: 1px; background: rgba(108,232,255,0.4);"></div>
                                     <div class="ia-sub-node">► TOTAL CITIZEN APPLICATIONS</div>
@@ -762,7 +754,6 @@ const projectData = {
                             </div>
                         </div>
 
-                        <!-- Bottom Standard Nodes -->
                         <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node">OTHER DEPT. SERVICES</div></div>
                         <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node">LEARNING & KNOWLEDGE</div></div>
 
@@ -775,10 +766,8 @@ const projectData = {
                 Zooming into the administrative side, the Meeting Management architecture was rebuilt into a linear, sequential flow to eliminate data entry errors by Panchayat officials.
             </p>
 
-            <!-- 2. M.O.M. FLOW TREE (MICRO) -->
             <div style="display: flex; gap: 2rem; background: #050d1f; padding: 2.5rem; border: 2px solid #333; border-radius: 8px; margin-bottom: 3rem; overflow-x: auto; box-shadow: inset 0 0 20px rgba(0,0,0,0.5);">
                 
-                <!-- Root -->
                 <div style="flex-shrink: 0; display: flex; align-items: flex-start; padding-top: 10px;">
                     <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 12px 15px; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; text-align: center; box-shadow: 0 0 15px rgba(108,232,255,0.3); line-height: 1.6;">
                         MEETING<br>MODULE
@@ -786,10 +775,8 @@ const projectData = {
                     <div style="color: #6ce8ff; font-family: monospace; font-size: 20px; text-shadow: 0 0 10px #6ce8ff; margin-left: 10px; margin-top: 8px;">════►</div>
                 </div>
 
-                <!-- Tree -->
                 <div style="flex: 1; border-left: 2px solid rgba(108,232,255,0.3); padding-left: 15px; display: flex; flex-direction: column; gap: 12px; min-width: max-content;">
 
-                    <!-- Item 1: Create Meeting -->
                     <div style="display: flex; flex-direction: column; gap: 6px;">
                         <div style="display: flex; align-items: center;">
                             <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
@@ -799,7 +786,6 @@ const projectData = {
                             <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
                             <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">MEETING DETAILS</div>
                         </div>
-                        <!-- Sub: Add Participants -->
                         <div style="display: flex; flex-direction: column; gap: 6px; margin-left: 30px; border-left: 2px solid rgba(108,232,255,0.2); padding-left: 15px;">
                             <div style="display: flex; align-items: center;">
                                 <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">└►</span>
@@ -807,7 +793,6 @@ const projectData = {
                                 <span style="color: rgba(108,232,255,0.4); font-family: monospace; margin: 0 8px;">──►</span>
                                 <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">NEW PARTICIPANT DETAILS</div>
                             </div>
-                            <!-- Sub: List of Participants -->
                             <div style="display: flex; align-items: center; margin-left: 30px; border-left: 2px solid rgba(108,232,255,0.2); padding-left: 15px;">
                                 <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">└►</span>
                                 <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">LIST OF PARTICIPANTS</div>
@@ -815,7 +800,6 @@ const projectData = {
                         </div>
                     </div>
 
-                    <!-- Item 2: Start Meeting -->
                     <div style="display: flex; align-items: center;">
                         <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
                         <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">START MEETING</div>
@@ -827,7 +811,6 @@ const projectData = {
                         <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">FUTURE MEETINGS</div>
                     </div>
 
-                    <!-- Item 3: Meeting Proceeding -->
                     <div style="display: flex; flex-direction: column; gap: 6px;">
                         <div style="display: flex; align-items: center;">
                             <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
@@ -849,7 +832,6 @@ const projectData = {
                         </div>
                     </div>
 
-                    <!-- Item 4: Meeting List -->
                     <div style="display: flex; align-items: center;">
                         <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
                         <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">MEETING LIST</div>
@@ -863,13 +845,11 @@ const projectData = {
                         <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">ADJOURN MEETING</div>
                     </div>
 
-                    <!-- Item 5: Participant Details -->
                     <div style="display: flex; align-items: center;">
                         <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
                         <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">PARTICIPANT DETAILS</div>
                     </div>
 
-                    <!-- Item 6: Completed Remark -->
                     <div style="display: flex; align-items: center;">
                         <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
                         <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">COMPLETED REMARK</div>
@@ -883,19 +863,16 @@ const projectData = {
                         <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">PRINT PROCEEDINGS</div>
                     </div>
 
-                    <!-- Item 7: User Sub Committee -->
                     <div style="display: flex; align-items: center;">
                         <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
                         <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">SUB COMMITTEE MAP</div>
                     </div>
 
-                    <!-- Item 8: Add Sub Committee -->
                     <div style="display: flex; align-items: center;">
                         <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
                         <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">ADD MAPPING</div>
                     </div>
 
-                    <!-- Item 9: ATR Update -->
                     <div style="display: flex; align-items: center;">
                         <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">├►</span>
                         <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">ATR UPDATE</div>
@@ -905,7 +882,6 @@ const projectData = {
                         <div style="border: 1px solid rgba(108,232,255,0.3); background: #0a1535; color: #ccc; font-family: 'Space Mono', monospace; font-size: 0.7rem; padding: 4px 8px;">AGENDA DETAILS</div>
                     </div>
 
-                    <!-- Item 10: Upload Leave -->
                     <div style="display: flex; align-items: center;">
                         <span style="font-family: monospace; color: rgba(108,232,255,0.4); margin-right: 8px; font-size: 16px;">└►</span>
                         <div style="border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 0.5rem; width: 180px;">UPLOAD LEAVE DOC</div>
@@ -919,9 +895,8 @@ const projectData = {
             </div>
 
             <h3 class="section-heading">AUDIO-FIRST DATA VISUALIZATION</h3>
-            <div class="hero-image-placeholder" style="aspect-ratio: 21/9; margin-bottom: 2rem;">
-                <img src="assets/rdpr-audio-ui.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Mobile Panchamitra UI" onerror="this.style.display='none'">
-                <span style="position: absolute; pointer-events: none;">[IMAGE: High-contrast progress bars with spoken Kannada 'Audio' buttons]</span>
+            <div class="hero-image-placeholder" style="aspect-ratio: 21/9; margin-bottom: 2rem; background: #050d1f; border-radius: 8px; overflow: hidden;">
+                <img src="rdpr-ai.jpg" alt="Mobile Panchamitra UI" style="width: 100%; height: 100%; object-fit: contain; display: block;" onerror="this.style.display='none'">
             </div>
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
@@ -947,15 +922,21 @@ const projectData = {
             <h3 class="section-heading">USER FLOW & ARCHITECTURE BOOKLET</h3>
             <div class="booklet-carousel" style="margin-bottom: 2rem;">
                 <div class="booklet-page">
-                    <div class="hero-image-placeholder">[IMAGE: Participatory Open Card Sorting]</div>
+                    <div class="hero-image-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden;">
+                        <img src="salt-hero.jpg" alt="Participatory Open Card Sorting" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                    </div>
                     <p class="booklet-desc">Mathematical UX: Calculated priority scores to dictate the 4 hubs (Home, Travel, Explore, Learn). Safety features explicitly overrode convenience.</p>
                 </div>
                 <div class="booklet-page">
-                    <div class="wireframe-placeholder">[IMAGE: Aggregated Decision UI]</div>
+                    <div class="wireframe-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden;">
+                        <img src="salt-ui.jpg" alt="Aggregated Decision UI" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                    </div>
                     <p class="booklet-desc">Aggregated Decision Making: Comparing Uber/Ola/Rapido side-by-side to eliminate app-hopping decision fatigue.</p>
                 </div>
                 <div class="booklet-page">
-                    <div class="hero-image-placeholder">[IMAGE: Pakhi Gamification Zone]</div>
+                    <div class="hero-image-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden;">
+                        <img src="salt-pakhi.jpg" alt="Pakhi Gamification Zone" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                    </div>
                     <p class="booklet-desc">To make the directory app feel warm, I introduced "Pakhi" the elephant. Daily trivia transforms passive scrolling into joyful engagement.</p>
                 </div>
             </div>
@@ -983,15 +964,21 @@ const projectData = {
             <h3 class="section-heading">SPATIAL JOURNEY FLOW</h3>
             <div class="booklet-carousel" style="margin-bottom: 2rem;">
                 <div class="booklet-page">
-                    <div class="wireframe-placeholder">[IMAGE: Contextual Ethnography / Empathy Mapping]</div>
+                    <div class="wireframe-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden;">
+                        <img src="navya-journey.jpg" alt="Contextual Ethnography / Empathy Mapping" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                    </div>
                     <p class="booklet-desc">The "As-Is" chaotic journey: Bed -> Lift -> Carry -> Place in Tub -> Bathe -> Lift -> Carry -> Bed.</p>
                 </div>
                 <div class="booklet-page">
-                    <div class="hero-image-placeholder">[IMAGE: PVC & Foam Prototyping]</div>
-                    <p class="booklet-desc">Iterative scaled physical models testing spatial constraints to navigate narrow Indian doorways and bathrooms.</p>
+                    <div class="hero-image-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden;">
+                        <img src="navya-marrket.jpg" alt="Bathing Aid Market Study" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                    </div>
+                    <p class="booklet-desc">The existing products did not account for space constraints one face in Indian houses.</p>
                 </div>
                 <div class="booklet-page">
-                    <div class="hero-image-placeholder">[IMAGE: Foldable Side-Bracket System]</div>
+                    <div class="hero-image-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden;">
+                        <img src="navya.jpg" alt="Foldable Side-Bracket System" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                    </div>
                     <p class="booklet-desc">Eradicating the vertical lift. The side folds down to create a horizontal canvas bridge from bed to chair.</p>
                 </div>
             </div>
@@ -1020,16 +1007,22 @@ const projectData = {
             <div class="before-after-grid" style="margin-bottom: 2rem;">
                 <div class="ba-box">
                     <div class="ba-label label-before">THE FLAW: VISUAL WAYFINDING</div>
-                    <div class="wireframe-placeholder" style="aspect-ratio: 1;">[IMAGE: Traditional Games causing isolation]</div>
+                    <div class="wireframe-placeholder" style="aspect-ratio: 1; background: #050d1f; border-radius: 8px; overflow: hidden;">
+                        <img src="ezam-tr.jpg" alt="Traditional Games causing isolation" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                    </div>
                 </div>
                 <div class="ba-box">
                     <div class="ba-label label-after">THE FIX: DUAL-LAYER ARCHITECTURE</div>
-                    <div class="wireframe-placeholder" style="aspect-ratio: 1; border-color: #7cff9b; color:#7cff9b;">[IMAGE: EZAM Top Tactile Grid & Hidden Magnetic Maze]</div>
+                    <div class="wireframe-placeholder" style="aspect-ratio: 1; border-color: #7cff9b; color:#7cff9b; background: #050d1f; border-radius: 8px; overflow: hidden;">
+                        <img src="ezam-bg.jpg" alt="EZAM Top Tactile Grid & Hidden Magnetic Maze" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                    </div>
                 </div>
             </div>
             
             <h3 class="section-heading">PHYSICAL PRODUCT DETAILS</h3>
-            <div class="hero-image-placeholder" style="aspect-ratio: 21/9; margin-bottom: 2rem;">[IMAGE: Hexagonal tactile die and distinct magnetic pawns]</div>
+            <div class="hero-image-placeholder" style="aspect-ratio: 21/9; margin-bottom: 2rem; background: #050d1f; border-radius: 8px; overflow: hidden;">
+                <img src="ezam-play.jpg" alt="Hexagonal tactile die and distinct magnetic pawns" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+            </div>
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
                 <h3 class="section-heading">Reflections</h3>
@@ -1054,15 +1047,21 @@ const projectData = {
             <h3 class="section-heading">DESIGN EXECUTION & ITERATION</h3>
             <div class="booklet-carousel" style="margin-bottom: 2rem;">
                 <div class="booklet-page">
-                    <div class="wireframe-placeholder">[IMAGE: Low-Fi Physical Sticky-Note Maps]</div>
+                    <div class="wireframe-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden;">
+                        <img src="coolie-id.jpg" alt="Low-Fi Physical Sticky-Note Maps" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                    </div>
                     <p class="booklet-desc">Card Sorting exercises mapped the complex backend logistics into a seamless frontend experience matching the "Real World" hiring model.</p>
                 </div>
                 <div class="booklet-page">
-                    <div class="wireframe-placeholder">[IMAGE: Mid-Fi Booking Screens]</div>
+                    <div class="wireframe-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden;">
+                        <img src="coolie-low.jpg" alt="Mid-Fi Booking Screens" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                    </div>
                     <p class="booklet-desc">One Action Per Screen: Reduced cognitive load for chaotic railway environments (Train No. -> Luggage -> Pickup) with Dynamic Pricing.</p>
                 </div>
                 <div class="booklet-page">
-                    <div class="hero-image-placeholder">[IMAGE: High-Fi UI / OTP Handshake]</div>
+                    <div class="hero-image-placeholder" style="aspect-ratio: 16/9; background: #050d1f; border-radius: 8px; overflow: hidden;">
+                        <img src="coolie-hi.jpg" alt="High-Fi UI / OTP Handshake" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+                    </div>
                     <p class="booklet-desc">The OTP Handshake: The coolie only takes possession, and the timer begins, once the digital OTP is shared in person—establishing mutual trust.</p>
                 </div>
             </div>
