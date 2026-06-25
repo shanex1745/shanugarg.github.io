@@ -43,7 +43,7 @@ if (walletTrigger && walletStage) {
 const projectData = {
     proj1: { // NPS
         title: "NPS: Intent-First Design", 
-        heroImage: "nps-main-hero.png", 
+        heroImage: "nps-hero.png", 
         role: "UX DESIGNER & RESEARCHER", timeline: "Hackathon Sprint (2026)", themeIcons: ['🇮🇳', '💸', '📱', '🗣️'], behanceLink: "https://www.behance.net/shanux17",
         tldr: {
             problem: "The NPS app prioritized rigid government compliance over human understanding—forcing users through complex KYC and error-prone OTP verifications before letting them see the plans.",
@@ -208,7 +208,7 @@ const projectData = {
                 <div style="display: flex; flex-direction: column;">
                     <div class="retro-title" style="color: #7cff9b; border-color: #7cff9b; width: max-content;">► AFTER: INTENT-DRIVEN</div>
                     <div style="max-height: 500px; max-width: 100%; overflow: auto; background: #000; border-radius: 4px; border: 2px solid #7cff9b; box-shadow: 0 0 20px rgba(124,255,155,0.15);">
-                        <img src="nai-new.png" alt="New NAI Website" style="display: block; width: 100%; min-width: 600px; height: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <img src="nai-new.jpg" alt="New NAI Website" style="display: block; width: 100%; min-width: 600px; height: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <div style="display: none; padding: 40px 20px; text-align: center; color: #7cff9b; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
                     </div>
                 </div>
@@ -593,7 +593,7 @@ const projectData = {
 
     proj4: { // Panchamitra & Meeting Management
         title: "Mobile Panchamitra", 
-        heroImage: "rdpr-main-hero.png", 
+        heroImage: "rdpr-hero.png", 
         behanceLink: "https://www.youtube.com/watch?v=QuULupXWl8M",
         role: "LEAD UX RESEARCHER & UI/UX DESIGNER", 
         timeline: "FY 24-25 Focus", 
@@ -909,7 +909,7 @@ const projectData = {
 
     proj5: { // Salt
         title: "Salt: Urban Relocation Gap", 
-        heroImage: "salt-main-hero.png", 
+        heroImage: "salt-hero.png", 
         role: "UX RESEARCHER & UI/UX DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['🏙️', '📦', '🗺️', '🐘'], behanceLink: "https://www.behance.net/shanux17",
         tldr: {
             problem: "Residents relocating to new cities suffer from severe cognitive overload and isolation due to fragmented, unreliable access to daily essentials, transport, and culture.",
@@ -931,13 +931,13 @@ const projectData = {
                     <p class="booklet-desc">Mathematical UX: Calculated priority scores to dictate the 4 hubs (Home, Travel, Explore, Learn). Safety features explicitly overrode convenience.</p>
                 </div>
                 <div class="booklet-page">
-                    <div style="max-height: 450px; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
+                    <div style="max-height: 450px; overflow: auto; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
                         <img src="salt-market.png" alt="Aggregated Decision UI" style="display: block; width: 100%; min-width: 600px; height: auto;">
                     </div>
-                    <p class="booklet-desc">Aggregated Decision Making: Comparing Uber/Ola/Rapido side-by-side to eliminate app-hopping decision fatigue.</p>
+                    <p class="booklet-desc">Comparing all existing app solutions side-by-side.</p>
                 </div>
                 <div class="booklet-page">
-                    <div style="max-height: 450px; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
+                    <div style="max-height: 450px; overflow: auto; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
                         <img src="salt-pakhi.png" alt="Pakhi Gamification Zone" style="display: block; width: 100%; min-width: 600px; height: auto;">
                     </div>
                     <p class="booklet-desc">To make the directory app feel warm, I introduced "Pakhi" the elephant. Daily trivia transforms passive scrolling into joyful engagement.</p>
@@ -953,7 +953,7 @@ const projectData = {
 
     proj6: { // Navya
         title: "Navya: Dignified CP Care", 
-        heroImage: "navya-main-hero.png", 
+        heroImage: "navya-hero.png", 
         role: "UX RESEARCHER & PRODUCT DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['♿', '🚿', '🦽', '❤️'], behanceLink: "https://www.behance.net/gallery/229048977/Baithing-Aid-for-Cerebral-Palsy-Children",
         tldr: {
             problem: "Bathing a growing child with Cerebral Palsy in a compact Indian bathroom is a hazardous, physically draining task causing caregiver burnout and patient guilt.",
@@ -969,13 +969,13 @@ const projectData = {
             <h3 class="section-heading">SPATIAL JOURNEY FLOW</h3>
             <div class="booklet-carousel" style="margin-bottom: 2rem;">
                 <div class="booklet-page">
-                    <div style="max-height: 450px; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
+                    <div style="max-height: 450px; overflow: auto; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
                         <img src="navya-journey.png" alt="Contextual Ethnography / Empathy Mapping" style="display: block; width: 100%; min-width: 600px; height: auto;">
                     </div>
                     <p class="booklet-desc">The "As-Is" chaotic journey: Bed -> Lift -> Carry -> Place in Tub -> Bathe -> Lift -> Carry -> Bed.</p>
                 </div>
                 <div class="booklet-page">
-                    <div style="max-height: 450px; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
+                    <div style="max-height: 450px; overflow: auto; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
                         <img src="navya-market.png" alt="Bathing Aid Market Study" style="display: block; width: 100%; min-width: 600px; height: auto;">
                     </div>
                     <p class="booklet-desc">The existing products did not account for space constraints one face in Indian houses.</p>
@@ -1061,19 +1061,19 @@ const projectData = {
             <h3 class="section-heading">DESIGN EXECUTION & ITERATION</h3>
             <div class="booklet-carousel" style="margin-bottom: 2rem;">
                 <div class="booklet-page">
-                    <div style="max-height: 450px; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
+                    <div style="max-height: 450px; overflow: auto; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
                         <img src="coolie-id.png" alt="Low-Fi Physical Sticky-Note Maps" style="display: block; width: 100%; min-width: 600px; height: auto;">
                     </div>
                     <p class="booklet-desc">Card Sorting exercises mapped the complex backend logistics into a seamless frontend experience matching the "Real World" hiring model.</p>
                 </div>
                 <div class="booklet-page">
-                    <div style="max-height: 450px; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
+                    <div style="max-height: 450px; overflow: auto; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
                         <img src="coolie-low.png" alt="Mid-Fi Booking Screens" style="display: block; width: 100%; min-width: 600px; height: auto;">
                     </div>
                     <p class="booklet-desc">One Action Per Screen: Reduced cognitive load for chaotic railway environments (Train No. -> Luggage -> Pickup) with Dynamic Pricing.</p>
                 </div>
                 <div class="booklet-page">
-                    <div style="max-height: 450px; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
+                    <div style="max-height: 450px; overflow: auto; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
                         <img src="coolie-hi.png" alt="High-Fi UI / OTP Handshake" style="display: block; width: 100%; min-width: 600px; height: auto;">
                     </div>
                     <p class="booklet-desc">The OTP Handshake: The coolie only takes possession, and the timer begins, once the digital OTP is shared in person—establishing mutual trust.</p>
