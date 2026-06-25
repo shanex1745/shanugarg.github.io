@@ -44,7 +44,7 @@ const projectData = {
     proj1: { // NPS
         title: "NPS: Intent-First Design", 
         heroImage: "nps-hero.png", 
-        role: "UX DESIGNER & RESEARCHER", timeline: "Hackathon Sprint (2026)", themeIcons: ['🇮🇳', '💸', '📱', '🗣️'], behanceLink: "https://www.behance.net/shanux17",
+        role: "UX DESIGNER & RESEARCHER", timeline: "Hackathon Sprint (2026)", themeIcons: ['🇮🇳', '💸', '📱', '🗣️'], behanceLink: "https://www.figma.com/deck/UiI6WXsbMLdUhkVxOdIRDe/NPS-Stage-2--Copy-?node-id=0-1&t=bnogZwzgBczwizBO-1",
         tldr: {
             problem: "The NPS app prioritized rigid government compliance over human understanding—forcing users through complex KYC and error-prone OTP verifications before letting them see the plans.",
             solution: "An 'Intent-First' digital experience utilizing familiar e-commerce mental models and a Multilingual AI Voice Assistant.",
@@ -925,19 +925,19 @@ const projectData = {
             <h3 class="section-heading">USER FLOW & ARCHITECTURE BOOKLET</h3>
             <div class="booklet-carousel" style="margin-bottom: 2rem;">
                 <div class="booklet-page">
-                    <div style="max-height: 450px; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
+                    <div style="max-height: 100%; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
                         <img src="salt-card.png" alt="Participatory Open Card Sorting" style="display: block; width: 100%; min-width: 600px; height: auto;">
                     </div>
                     <p class="booklet-desc">Mathematical UX: Calculated priority scores to dictate the 4 hubs (Home, Travel, Explore, Learn). Safety features explicitly overrode convenience.</p>
                 </div>
                 <div class="booklet-page">
-                    <div style="max-height: 450px; overflow: auto; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
+                    <div style="max-height: 100%; overflow: auto; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
                         <img src="salt-market.png" alt="Aggregated Decision UI" style="display: block; width: 100%; min-width: 600px; height: auto;">
                     </div>
                     <p class="booklet-desc">Comparing all existing app solutions side-by-side.</p>
                 </div>
                 <div class="booklet-page">
-                    <div style="max-height: 450px; overflow: auto; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
+                    <div style="max-height: 100%; overflow: auto; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
                         <img src="salt-pakhi.png" alt="Pakhi Gamification Zone" style="display: block; width: 100%; min-width: 600px; height: auto;">
                     </div>
                     <p class="booklet-desc">To make the directory app feel warm, I introduced "Pakhi" the elephant. Daily trivia transforms passive scrolling into joyful engagement.</p>
@@ -969,19 +969,19 @@ const projectData = {
             <h3 class="section-heading">SPATIAL JOURNEY FLOW</h3>
             <div class="booklet-carousel" style="margin-bottom: 2rem;">
                 <div class="booklet-page">
-                    <div style="max-height: 450px; overflow: auto; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
+                    <div style="max-height: 100%; overflow: auto; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
                         <img src="navya-journey.png" alt="Contextual Ethnography / Empathy Mapping" style="display: block; width: 100%; min-width: 600px; height: auto;">
                     </div>
                     <p class="booklet-desc">The "As-Is" chaotic journey: Bed -> Lift -> Carry -> Place in Tub -> Bathe -> Lift -> Carry -> Bed.</p>
                 </div>
                 <div class="booklet-page">
-                    <div style="max-height: 450px; overflow: auto; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
+                    <div style="max-height: 100%; overflow: auto; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
                         <img src="navya-market.png" alt="Bathing Aid Market Study" style="display: block; width: 100%; min-width: 600px; height: auto;">
                     </div>
                     <p class="booklet-desc">The existing products did not account for space constraints one face in Indian houses.</p>
                 </div>
                 <div class="booklet-page">
-                    <div style="max-height: 450px; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
+                    <div style="max-height: 100%; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
                         <img src="navya.png" alt="Foldable Side-Bracket System" style="display: block; width: 100%; min-width: 600px; height: auto;">
                     </div>
                     <p class="booklet-desc">Eradicating the vertical lift. The side folds down to create a horizontal canvas bridge from bed to chair.</p>
