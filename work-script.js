@@ -43,7 +43,9 @@ if (walletTrigger && walletStage) {
 // --- DYNAMIC PROJECT DATA RENDERER (FULL PDF CONTENT) ---
 const projectData = {
     proj1: { // NPS
-        title: "NPS: Intent-First Design", role: "UX DESIGNER & RESEARCHER", timeline: "Hackathon Sprint (2026)", themeIcons: ['🇮🇳', '💸', '📱', '🗣️'], behanceLink: "https://www.behance.net/shanux17",
+        title: "NPS: Intent-First Design", 
+        heroImage: "nps-main-hero.jpg", // <--- ADDED HERO IMAGE
+        role: "UX DESIGNER & RESEARCHER", timeline: "Hackathon Sprint (2026)", themeIcons: ['🇮🇳', '💸', '📱', '🗣️'], behanceLink: "https://www.behance.net/shanux17",
         tldr: {
             problem: "The NPS app prioritized rigid government compliance over human understanding—forcing users through complex KYC and error-prone OTP verifications before letting them see the plans.",
             solution: "An 'Intent-First' digital experience utilizing familiar e-commerce mental models and a Multilingual AI Voice Assistant.",
@@ -94,7 +96,9 @@ const projectData = {
     },
 
     proj2: { // Corporate K-Oscars
-        title: "KDSI", role: "DIGITAL COMMUNICATION AI FELLOW", timeline: "Corporate Campaigns Sprint", themeIcons: ['🏢', '🎨', '🤖', '✨'], behanceLink: "https://www.behance.net/shanux17",
+        title: "KDSI", 
+        heroImage: "kdsi-main-hero.jpg", // <--- ADDED HERO IMAGE
+        role: "DIGITAL COMMUNICATION AI FELLOW", timeline: "Corporate Campaigns Sprint", themeIcons: ['🏢', '🎨', '🤖', '✨'], behanceLink: "https://www.behance.net/shanux17",
         tldr: {
             problem: "Internal comms suffered from generic templates lacking empathy, desktop-focused layouts, and AI-generated assets eroding trust through unchecked hallucinations.",
             solution: "A 4-phase human-centric design framework that established a unified visual identity from scratch and implemented strict human QA protocols.",
@@ -143,6 +147,7 @@ const projectData = {
 
     proj3: { // NAI
         title: "National Archives of India", 
+        heroImage: "nai-main-hero.jpg", // <--- ADDED HERO IMAGE
         behanceLink: "https://www.behance.net/shanux17",
         role: "UX RESEARCHER & UI DESIGNER", 
         timeline: "Redesign Sprint", 
@@ -594,6 +599,7 @@ const projectData = {
 
     proj4: { // Panchamitra & Meeting Management
         title: "Mobile Panchamitra", 
+        heroImage: "rdpr-main-hero.jpg", // <--- ADDED HERO IMAGE
         behanceLink: "https://www.youtube.com/watch?v=QuULupXWl8M",
         role: "LEAD UX RESEARCHER & UI/UX DESIGNER", 
         timeline: "FY 24-25 Focus", 
@@ -644,7 +650,7 @@ const projectData = {
                     </div>
 
                     <style>
-                        .ia-node { border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 10px 15px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.75rem; width: 220px; flex-shrink: 0; box-shadow: inset 0 0 8px rgba(108,232,255,0.1); display: flex; align-items: center; }
+                        .ia-node-p { border: 2px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 10px 15px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.75rem; width: 220px; flex-shrink: 0; box-shadow: inset 0 0 8px rgba(108,232,255,0.1); display: flex; align-items: center; }
                         .ia-node-expanded { box-shadow: 0 0 10px rgba(108,232,255,0.2), inset 0 0 10px rgba(108,232,255,0.2); }
                         .ia-sub-node { border: 1px solid #6ce8ff; background: #060d20; color: #6ce8ff; padding: 8px 12px; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.7rem; width: 200px; flex-shrink: 0; }
                         .ia-filter { border: 1px solid #3a4a7a; background: #080f28; color: #7a9acc; padding: 6px 12px; font-family: 'Space Mono', monospace; font-size: 0.65rem; white-space: nowrap; box-shadow: 0 0 4px rgba(58,74,122,0.3); flex-shrink: 0; }
@@ -655,15 +661,15 @@ const projectData = {
 
                     <div style="display: flex; flex-direction: column; border-left: 2px solid rgba(108,232,255,0.4); margin-left: 20px; padding: 5px 0; gap: 10px;">
                         
-                        <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node">FINANCE & ACCOUNTING</div></div>
-                        <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node">REVENUE COLLECTION</div></div>
-                        <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node">CITIZEN SERVICES</div></div>
-                        <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node">PLANNING</div></div>
+                        <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node-p">FINANCE & ACCOUNTING</div></div>
+                        <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node-p">REVENUE COLLECTION</div></div>
+                        <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node-p">CITIZEN SERVICES</div></div>
+                        <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node-p">PLANNING</div></div>
 
                         <div style="display: flex; flex-direction: column; gap: 6px;">
                             <div style="display: flex; align-items: center;">
                                 <div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div>
-                                <div class="ia-node ia-node-expanded">▼ HRMS MODULE</div>
+                                <div class="ia-node-p ia-node-expanded">▼ HRMS MODULE</div>
                             </div>
                             <div style="display: flex; flex-direction: column; border-left: 1px dashed rgba(108,232,255,0.4); margin-left: 40px; padding: 5px 0; gap: 8px;">
                                 <div style="display: flex; align-items: center;">
@@ -688,7 +694,7 @@ const projectData = {
 
                         <div style="display: flex; align-items: center;">
                             <div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div>
-                            <div class="ia-node">PUBLIC INFO PORTAL</div>
+                            <div class="ia-node-p">PUBLIC INFO PORTAL</div>
                             <span class="ia-arrow-flow" style="margin-left: 10px;">──►</span><div class="ia-filter">DISTRICT</div>
                             <span class="ia-arrow-flow">──►</span><div class="ia-filter">TALUK</div>
                             <span class="ia-arrow-flow">──►</span><div class="ia-filter">GRAM PANCHAYAT</div>
@@ -698,7 +704,7 @@ const projectData = {
                         <div style="display: flex; flex-direction: column; gap: 6px;">
                             <div style="display: flex; align-items: center;">
                                 <div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div>
-                                <div class="ia-node ia-node-expanded">▼ MEETING MANAGEMENT</div>
+                                <div class="ia-node-p ia-node-expanded">▼ MEETING MANAGEMENT</div>
                             </div>
                             <div style="display: flex; flex-direction: column; border-left: 1px dashed rgba(108,232,255,0.4); margin-left: 40px; padding: 5px 0; gap: 8px;">
                                 <div style="display: flex; align-items: center;">
@@ -754,8 +760,8 @@ const projectData = {
                             </div>
                         </div>
 
-                        <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node">OTHER DEPT. SERVICES</div></div>
-                        <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node">LEARNING & KNOWLEDGE</div></div>
+                        <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node-p">OTHER DEPT. SERVICES</div></div>
+                        <div style="display: flex; align-items: center;"><div style="width: 20px; height: 2px; background: rgba(108,232,255,0.4);"></div><div class="ia-node-p">LEARNING & KNOWLEDGE</div></div>
 
                     </div>
                 </div>
@@ -907,7 +913,9 @@ const projectData = {
     },
 
     proj5: { // Salt
-        title: "Salt: Urban Relocation Gap", role: "UX RESEARCHER & UI/UX DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['🏙️', '📦', '🗺️', '🐘'], behanceLink: "https://www.behance.net/shanux17",
+        title: "Salt: Urban Relocation Gap", 
+        heroImage: "salt-main-hero.jpg", // <--- ADDED HERO IMAGE
+        role: "UX RESEARCHER & UI/UX DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['🏙️', '📦', '🗺️', '🐘'], behanceLink: "https://www.behance.net/shanux17",
         tldr: {
             problem: "Residents relocating to new cities suffer from severe cognitive overload and isolation due to fragmented, unreliable access to daily essentials, transport, and culture.",
             solution: "Salt, a unified, community-driven 'super-app' that consolidates local commerce and transport comparison, while gamifying cultural integration.",
@@ -949,7 +957,9 @@ const projectData = {
     },
 
     proj6: { // Navya
-        title: "Navya: Dignified CP Care", role: "UX RESEARCHER & PRODUCT DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['♿', '🚿', '🦽', '❤️'], behanceLink: "https://www.behance.net/gallery/229048977/Baithing-Aid-for-Cerebral-Palsy-Children",
+        title: "Navya: Dignified CP Care", 
+        heroImage: "navya-main-hero.jpg", // <--- ADDED HERO IMAGE
+        role: "UX RESEARCHER & PRODUCT DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['♿', '🚿', '🦽', '❤️'], behanceLink: "https://www.behance.net/gallery/229048977/Baithing-Aid-for-Cerebral-Palsy-Children",
         tldr: {
             problem: "Bathing a growing child with Cerebral Palsy in a compact Indian bathroom is a hazardous, physically draining task causing caregiver burnout and patient guilt.",
             solution: "Navya, a compact, adaptable side-transfer bathing wheelchair specifically engineered for small spaces, eliminating the need to physically lift the child.",
@@ -991,7 +1001,9 @@ const projectData = {
     },
 
     proj7: { // EZAM
-        title: "EZAM: Tactile Game Design", role: "UX RESEARCHER & UI/UX DESIGNER", timeline: "Design Impact Movement", themeIcons: ['🎲', '🧲', '🤝', '🧩'], behanceLink: "https://www.behance.net/gallery/214356517/Portfolio",
+        title: "EZAM: Tactile Game Design", 
+        heroImage: "ezam-main-hero.jpg", // <--- ADDED HERO IMAGE
+        role: "UX RESEARCHER & UI/UX DESIGNER", timeline: "Design Impact Movement", themeIcons: ['🎲', '🧲', '🤝', '🧩'], behanceLink: "https://www.behance.net/gallery/214356517/Portfolio",
         tldr: {
             problem: "Visually impaired (VI) and visually abled (VA) children lacked an equitable way to play; existing games gave VA children an advantage, leading to dynamics of pity.",
             solution: "EZAM, a tactile board game featuring a hidden magnetic maze that completely neutralizes visual advantages, forcing all players to rely on spatial memory.",
@@ -1032,7 +1044,9 @@ const projectData = {
     },
 
     proj8: { // CoolieCo
-        title: "CoolieCo: Formalizing Labor", role: "UX RESEARCHER & UI DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['🚂', '🧳', '🎫', '🤝'], behanceLink: "https://www.behance.net/gallery/219800943/CoolieCo",
+        title: "CoolieCo: Formalizing Labor", 
+        heroImage: "coolieco-main-hero.jpg", // <--- ADDED HERO IMAGE
+        role: "UX RESEARCHER & UI DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['🚂', '🧳', '🎫', '🤝'], behanceLink: "https://www.behance.net/gallery/219800943/CoolieCo",
         tldr: {
             problem: "A severe breakdown of trust between Indian railway travelers and coolies (porters) led to mutual avoidance, passenger injuries, and financial instability for labor.",
             solution: "An intuitive digital platform that formalizes baggage handling through standardized pricing, live tracking, and secure OTP-handshakes.",
@@ -1089,7 +1103,19 @@ window.openModal = function(projectId) {
     document.getElementById('modalSolution').innerText = data.tldr.solution;
     document.getElementById('modalImpact').innerText = data.tldr.impact;
     
-    // Create the stylized SEE MORE button
+    // --- THIS IS THE NEW FIX FOR THE TOP HERO IMAGE PLACEHOLDER ---
+    const heroImgDiv = document.getElementById('modalHeroImg');
+    if (data.heroImage) {
+        heroImgDiv.innerHTML = `<img src="${data.heroImage}" alt="${data.title} Hero Image" style="width: 100%; height: 100%; object-fit: contain; display: block; border-radius: 4px;">`;
+        heroImgDiv.style.background = "#050d1f";
+        heroImgDiv.style.border = "2px solid #333";
+    } else {
+        heroImgDiv.innerHTML = `<span>[HERO IMAGE PLACEHOLDER: 16:9 Context Shot]</span>`;
+        heroImgDiv.style.background = "transparent";
+        heroImgDiv.style.border = "2px dashed #444";
+    }
+
+    // Create the stylized SEE MORE button linking to Behance/YouTube
     const linkUrl = data.behanceLink || "https://www.behance.net/shanux17";
     const buttonHTML = `
         <div style="text-align: center; margin-top: 4rem; padding-bottom: 2rem;">
