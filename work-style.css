@@ -230,8 +230,8 @@
 .ia-branch::before { content: ''; position: absolute; top: -20px; width: 2px; height: 20px; background: #6ce8ff; }
 
 /* 3. Salt Booklet / User Flow Carousel */
-.booklet-carousel { display: flex; overflow-x: auto; gap: 20px; padding-bottom: 20px; scroll-snap-type: x mandatory; }
-.booklet-page { min-width: 80%; scroll-snap-align: center; border: 4px solid #ffd84f; background: #1a1a1a; padding: 20px; }
+.booklet-carousel { display: flex; overflow: auto; gap: 20px; padding-bottom: 20px; scroll-snap-type: x mandatory; }
+.booklet-page { min-width: 90%; scroll-snap-align: center; border: 4px solid #ffd84f; background: #1a1a1a; padding: 20px; }
 .booklet-page img { width: 100%; aspect-ratio: 16/9; background: #000; object-fit: cover; border: 2px solid #444; margin-bottom: 15px; }
 .booklet-desc { font-family: 'Space Mono', monospace; color: #ccc; font-size: 0.9rem; }
 
