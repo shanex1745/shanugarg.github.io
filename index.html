@@ -93,6 +93,31 @@
             flex-direction: column;
             position: relative;
         }
+
+        /* 5. Rocket Launch Animation */
+        @keyframes rocketLaunch {
+            0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+            10% { transform: translate3d(-1px, -2px, 0) rotate(-0.5deg); }
+            20% { transform: translate3d(2px, 1px, 0) rotate(0.5deg); opacity: 0.9; }
+            30% { transform: translate3d(-2px, -3px, 0) rotate(-1deg); }
+            40% { transform: translate3d(3px, 1px, 0) rotate(1deg); }
+            50% { transform: translate3d(-1px, -4px, 0) rotate(-0.5deg); }
+            60% { transform: translate3d(4px, -2px, 0) rotate(1.5deg); }
+            70% { transform: translate3d(-3px, -5px, 0) rotate(-1deg); }
+            80% { transform: translate3d(3px, -7px, 0) rotate(2deg); scale: 1.02; }
+            90% { transform: translate3d(-2px, -10px, 0) rotate(-0.5deg); scale: 1.05; }
+            100% { transform: translate3d(0, -20px, 0) rotate(0deg); scale: 0.9; opacity: 0; }
+        }
+
+        .pixel-btn.rocket-shake {
+            animation: rocketLaunch 1.5s cubic-bezier(.36,.07,.19,.97) both;
+            backface-visibility: hidden;
+            perspective: 1000px;
+            pointer-events: none;
+            background-color: #ff4757;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
         
         /* Ensure card headings and icons don't break flex layout */
         .feature-icon { margin-bottom: 20px; }
@@ -175,7 +200,7 @@
                     Crafting meaningful solutions where empathy, strategy, and
                     curiosity unlock better experiences.
                 </p>
-                <button id="enter-world" class="pixel-btn" onclick="rewardPlayer(10); window.location.href='work.html';">
+                <button id="enter-world" class="pixel-btn" onclick="launchWorld()">
                     ENTER WORLD
                 </button>
             </div>
@@ -270,6 +295,25 @@
         let xpProgress = (currentCoins % 50) / 50 * 100;
         document.querySelector('.bar.xp span').style.width = xpProgress + '%';
     }
+
+    // 1.5 --- LAUNCH ANIMATION ENGINE ---
+    window.launchWorld = function() {
+        // Trigger the reward
+        if (typeof rewardPlayer === "function") {
+            rewardPlayer(10);
+        }
+        
+        const btn = document.getElementById('enter-world');
+        
+        // Change text and start animation
+        btn.innerHTML = "INITIALIZING...";
+        btn.classList.add('rocket-shake');
+        
+        // Wait 1.5s then redirect to work.html
+        setTimeout(() => {
+            window.location.href = 'work.html';
+        }, 1500);
+    };
 
     window.rewardPlayer = function(amount) {
         currentCoins += amount;
