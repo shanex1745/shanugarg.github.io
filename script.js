@@ -3,19 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Lucide icons
     lucide.createIcons();
 
-    // Hero button scroll
-    const enterBtn = document.getElementById('enter-world');
-
-    if (enterBtn) {
-        enterBtn.addEventListener('click', () => {
-            document
-                .getElementById('features')
-                .scrollIntoView({
-                    behavior: 'smooth'
-                });
-        });
-    }
-
     // Feature card interaction
     document.querySelectorAll('.feature-card').forEach(card => {
 
