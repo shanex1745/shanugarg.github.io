@@ -135,7 +135,7 @@ const projectData = {
 
             <h3 class="section-heading">The Idea</h3>
             <div style="height: 100%; width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none; margin-bottom: 2rem;">
-                <img src="cam-secure.png" alt="Dual-Layer Data Architecture Map" style="display: block; width: 100%; min-width: 600px; height: 100%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <img src="cam-idea.png" alt="Dual-Layer Data Architecture Map" style="display: block; width: 100%; min-width: 600px; height: 100%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div style="display: none; padding: 40px 20px; text-align: center; color: #ccc; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
             </div>
 
@@ -169,15 +169,14 @@ const projectData = {
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
                 <p><strong>The Deliverables:</strong> Cam Secure, a highly durable, retrofit security unit priced at just ₹1500. The final design houses a 45-degree camera, side pods for gas detection, a parallel ultrasonic sensor for blockage detection, and a loud Arduino-powered buzzer, all feeding into an AI model trained for fire, weapon, and behavioral anomaly detection.</p>
-                <br>
                 <p><strong>Ethical & Governance Considerations:</strong> This product acts directly as "moral infrastructure." High-end security shouldn't be a luxury reserved for premium bank branches. By designing a highly cost-effective (₹1500) retrofit solution, we made advanced AI and sensor-fusion accessible to grassroots, rural, and isolated off-site ATMs. Furthermore, processing sensor data locally rather than relying purely on continuous cloud surveillance ensures rapid response while keeping sensitive operational data secure.</p>
+                <br>
             </div>
 
             <h3 class="section-heading">Impact, Metrics & Reflections</h3>
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
                 <p><strong>Structural Mitigation (Quantitative):</strong> The dual hardware+AI architecture specifically neutralizes the two most frequent attack vectors—Gas Cutters (37.5%) and Camera Spraying (25%)—effectively covering 62.5% of all known ATM vulnerabilities.</p>
                 <p><strong>Qualitative Ecosystem Shift:</strong> Successfully reduced false alarms by shifting from "single-source alerts" (relying just on motion) to a "cross-verified by AI + Sensors" model, drastically improving trust for monitoring authorities.</p>
-                <br>
                 <p><strong>Core Learnings:</strong> True security requires sensory fusion. AI is powerful, but software cannot "feel" a spray paint can. Bridging the gap between physical hardware (ultrasonic) and digital intelligence (AI) is where real systemic improvement happens. Furthermore, designing a cheap, adaptable retrofit solution proved that empathetic, user-centric design must also account for economic viability and ease of installation.</p>
             </div>
         `
@@ -1004,23 +1003,25 @@ const projectData = {
 
             <h3 class="section-heading">SPATIAL JOURNEY FLOW</h3>
             <div class="booklet-carousel" style="margin-bottom: 2rem;">
-                <div class="booklet-page">
-                    <div style="max-height: 100%; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none;">
-                        <img src="navya-journey.png" alt="Contextual Ethnography / Empathy Mapping" style="display: block; width: 100%; min-width: 750px; height: 100%;">
+                <div class="booklet-page" style="margin-bottom: 2rem;">
+                    <div style="height: 450px; width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none;">
+                        <img src="navya-journey.jpng" alt="Contextual Ethnography / Empathy Mapping" style="display: block; width: 100%; min-width: 800px; height: auto;">
                     </div>
-                    <p class="booklet-desc">The "As-Is" chaotic journey: Bed -> Lift -> Carry -> Place in Tub -> Bathe -> Lift -> Carry -> Bed.</p>
+                    <p class="booklet-desc" style="margin-top: 12px; color: #aaa;">The "As-Is" chaotic journey: Bed -> Lift -> Carry -> Place in Tub -> Bathe -> Lift -> Carry -> Bed.</p>
                 </div>
-                <div class="booklet-page">
-                    <div style="max-height: 100%; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none;">
-                        <img src="navya-market.png" alt="Bathing Aid Market Study" style="display: block; width: 100%; min-width: 750px; height: 100%;">
+                
+                <div class="booklet-page" style="margin-bottom: 2rem;">
+                    <div style="height: 450px; width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none;">
+                        <img src="navya-market.png" alt="Bathing Aid Market Study" style="display: block; width: 100%; min-width: 800px; height: auto;">
                     </div>
-                    <p class="booklet-desc">The existing products did not account for space constraints one face in Indian houses.</p>
+                    <p class="booklet-desc" style="margin-top: 12px; color: #aaa;">The existing products did not account for space constraints one face in Indian houses.</p>
                 </div>
-                <div class="booklet-page">
-                    <div style="max-height: 800px; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none;">
-                        <img src="navya.png" alt="Foldable Side-Bracket System" style="display: block; width: 100%; min-width: 600px; height: 100%;">
+                
+                <div class="booklet-page" style="margin-bottom: 2rem;">
+                    <div style="height: 450px; width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none;">
+                        <img src="navya.jpng" alt="Foldable Side-Bracket System" style="display: block; width: 100%; min-width: 800px; height: auto;">
                     </div>
-                    <p class="booklet-desc">Eradicating the vertical lift. The side folds down to create a horizontal canvas bridge from bed to chair.</p>
+                    <p class="booklet-desc" style="margin-top: 12px; color: #aaa;">Eradicating the vertical lift. The side folds down to create a horizontal canvas bridge from bed to chair.</p>
                 </div>
             </div>
 
