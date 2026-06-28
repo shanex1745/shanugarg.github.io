@@ -97,52 +97,86 @@ const projectData = {
         `
     },
 
-    proj2: { // Corporate K-Oscars
-        title: "KDSI", 
-        heroImage: "kdsi-hero.png", 
-        role: "DIGITAL COMMUNICATION AI FELLOW", timeline: "Corporate Campaigns Sprint", themeIcons: ['🏢', '🎨', '🤖', '✨'], behanceLink: "https://www.behance.net/shanux17",
+    proj2: { // Cam Secure
+        title: "Cam Secure: Active ATM Defense", 
+        heroImage: "cam-hero.png", 
+        role: "UX/SYSTEM DESIGNER & RESEARCHER", 
+        timeline: "Research & Hardware Prototyping Sprint", 
+        themeIcons: ['🏧', '📷', '🚨', '🛡️'], 
+        behanceLink: "https://www.behance.net/gallery/232022145/Retrofit-Device-for-Enhancing-ATM-Camera-Surveillance",
         tldr: {
-            problem: "Internal comms suffered from generic templates lacking empathy, desktop-focused layouts, and AI-generated assets eroding trust through unchecked hallucinations.",
-            solution: "A human-centric design framework that established a unified visual identity from scratch and implemented strict human QA protocols.",
-            impact: "Successfully built the company's inaugural visual language from zero brand equity, democratized design templates, and eradicated tokenism."
+            problem: "Existing ATM security relies on passive recording, allowing robbers to easily bypass CCTVs using gas cutters or spray paint, leaving off-site ATMs highly vulnerable and users feeling unsafe.",
+            solution: "Cam Secure, a ₹1500 retrofit hybrid detection device combining hardware (ultrasonic/smoke sensors) and AI (weapon/behavior detection) to proactively prevent tampering and trigger instant local alarms.",
+            impact: "Transformed the security paradigm from passive recording to active 'tamper response,' engineering a sensor-fusion ecosystem capable of instantly neutralizing the two most common ATM attack methods (62% of breaches)."
         },
         dynamicHTML: `
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
-                <h3 class="section-heading">The Context & Generated Solutions</h3>
-                <p>The organization's internal ecosystem was fragmented by "Breaking Down the Gaps": The Empathy Gap (generic templates), The Identity Gap (no baseline visual language), The Format Gap (desktop layouts vs mobile habits), and The Trust Gap (AI hallucinatory errors requiring heavy manual correction).</p>
+                <h3 class="section-heading">The Context & Problem Space</h3>
+                <p><strong>The Systemic Flaw:</strong> ATMs placed in high-traffic, off-site areas (like railway stations and isolated markets) suffer from a severe security deficit due to the high cost of posting human guards. The existing digital infrastructure is fundamentally flawed: cameras simply record crimes as they happen. We set out to solve a massive systemic gap where high-end AI software exists, but hardware remains completely defenseless against simple physical attacks like covering the lens or using gas cutters.</p>
+                <br>
+                <p><strong>Primary Stakeholders:</strong><br>
+                • <strong>Everyday Citizens:</strong> Grassroots users who reported feeling actively unsafe and threatened while using isolated ATMs.<br>
+                • <strong>Bank Management & ATM Owners:</strong> Facing severe financial losses (crores of rupees annually) due to successful heists.<br>
+                • <strong>Security Personnel:</strong> Unorganized laborers often placed in high-risk, potentially lethal environments without adequate technological backup.</p>
             </div>
 
-            <h3 class="section-heading">DELIVERED SOLUTIONS</h3>
-            <div class="booklet-carousel" style="margin-bottom: 2rem;">
-                <div class="booklet-page">
-                    <div style="max-height: 450px; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
-                        <img src="kdsi-dei.png" alt="Contextual Discovery" style="display: block; width: 100%; min-width: 600px; height: auto;">
-                    </div>
-                    <p class="booklet-desc">DEI Campaign.</p>
-                </div>
-                <div class="booklet-page">
-                    <div style="max-height: 450px; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
-                        <img src="kdsi-gptw.png" alt="GPTW Survey Campaign" style="display: block; width: 100%; min-width: 600px; height: auto;">
-                    </div>
-                    <p class="booklet-desc">GPTW SURVEY CAMPAIGN.</p>
-                </div>
-                <div class="booklet-page">
-                    <div style="max-height: 450px; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
-                        <img src="kdsi-ai.png" alt="AI ENABLERS" style="display: block; width: 100%; min-width: 600px; height: auto;">
-                    </div>
-                    <p class="booklet-desc">Phase 3: Democratizing Architecture via reusable Figma templates for non-designers to edit safely.</p>
-                </div>
-                <div class="booklet-page">
-                    <div style="max-height: 450px; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444;">
-                        <img src="kdsi-ag.png" alt="Co-pilot Agents" style="display: block; width: 100%; min-width: 600px; height: auto;">
-                    </div>
-                    <p class="booklet-desc">Developed 6 Co-pilot Agents.</p>
-                </div>
+            <h3 class="section-heading">Research & Discovery</h3>
+            <div style="height: 500px; width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none; margin-bottom: 2rem;">
+                <img src="cam-research.png" alt="Statistical Threat Analysis & Market Gaps" style="display: block; width: 100%; min-width: 600px; height: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div style="display: none; padding: 40px 20px; text-align: center; color: #ccc; font-family: 'Space Mono', monospace; font-size: 12px;">[MISSING: cam-secure-research.png]</div>
+            </div>
+            
+            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
+                <p><strong>Critical Insights Uncovered:</strong><br>
+                • <strong>The "Blindspot" Vulnerability:</strong> 25% of all ATM robberies succeed simply by spraying the CCTV camera. Premium market cameras offer absolutely no physical resistance or immediate alerts when their field of view is blocked.<br>
+                • <strong>Gas Cutters are the Primary Threat:</strong> 37.5% of attacks utilize gas cutters, yet traditional cameras lack localized smoke or heat detection to preemptively flag an intrusion.<br>
+                • <strong>The Hardware-Software Disconnect:</strong> Deep research revealed that while advanced AI for gun detection exists, it is strictly software-based; there were zero cameras currently in the market featuring integrated hardware-level gun detection.</p>
             </div>
 
+            <h3 class="section-heading">Strategy</h3>
+            <div style="height: 500px; width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none; margin-bottom: 2rem;">
+                <img src="cam-secure.png" alt="Dual-Layer Data Architecture Map" style="display: block; width: 100%; min-width: 600px; height: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div style="display: none; padding: 40px 20px; text-align: center; color: #ccc; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
+            </div>
+
+            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
+                <p><strong>Structuring Complex System Data:</strong> To solve the disconnect between physical tampering and digital response, We mapped a complex dual-layer data architecture. The flow was split into a Local Server (handling rapid analog inputs from Obstruction and Smoke sensors) and a Central Server (handling heavy video data streams for AI Analysis).</p>
+                <br>
+                <p><strong>Rationale Behind the Restructured User Flow:</strong><br>
+                • <strong>Front-Loading the Friction (Proactive vs. Passive):</strong> I redesigned the security journey to trigger before a crime occurs. The flow is now proactive: [Thief sprays camera -> Ultrasonic sensor detects proximity -> Local server triggers 120dB alarm instantly -> AI validates weapon/fire -> Authorities alerted].<br>
+                • <strong>Eliminating Cloud Latency for Physical Threats:</strong> By routing basic obstruction and smoke data directly through a local Arduino Uno rather than sending it to the cloud, we eliminated processing latency. The system responds instantly to immediate physical threats, ensuring rapid deterrence.</p>
+            </div>
+
+            <h3 class="section-heading">Design Execution & Iteration</h3>
+            <div style="height: 500px; width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none; margin-bottom: 2rem;">
+                <img src="cam-prototype.png" alt="CAD Modeling and Hardware Breadboarding" style="display: block; width: 100%; min-width: 600px; height: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div style="display: none; padding: 40px 20px; text-align: center; color: #ccc; font-family: 'Space Mono', monospace; font-size: 12px;">[MISSING: cam-secure-prototype.png]</div>
+            </div>
+
+            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
+                <p><strong>Rapid Prototyping & Testing:</strong> Transitioned from behavioral storyboarding to 3D CAD modeling, meticulously iterating on the physical constraints of an ATM enclosure. We built functional breadboard circuits using Arduino, HC-SR04 (Ultrasonic), and MQ (Smoke) sensors.</p>
+                <br>
+                <p><strong>The Overcome:</strong> I engineered a Retrofit Corner-Mount Architecture. Rather than a full system replacement, the casing was designed to be manufactured easily from Aluminum alloy (6061/6063) and mounts seamlessly into the corner of any existing enclosure. I positioned the camera specifically at a 45-degree angle for maximum visibility, and aligned the ultrasonic sensor perfectly parallel to the lens, ensuring any hand or spray can entering the camera's blind spot is instantly detected.</p>
+            </div>
+
+            <h3 class="section-heading">The Final Solution</h3>
+            <div style="height: 500px; width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #7cff9b; box-shadow: 0 0 15px rgba(124,255,155,0.15); cursor: grab; flex: none; margin-bottom: 2rem;">
+                <img src="cam-final.png" alt="Cam Secure Final Retrofit Hardware" style="display: block; width: 100%; min-width: 600px; height: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div style="display: none; padding: 40px 20px; text-align: center; color: #7cff9b; font-family: 'Space Mono', monospace; font-size: 12px;">[MISSING: cam-secure-final.png]</div>
+            </div>
+
+            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
+                <p><strong>The Deliverables:</strong> Cam Secure, a highly durable, retrofit security unit priced at just ₹1500. The final design houses a 45-degree camera, side pods for gas detection, a parallel ultrasonic sensor for blockage detection, and a loud Arduino-powered buzzer, all feeding into an AI model trained for fire, weapon, and behavioral anomaly detection.</p>
+                <br>
+                <p><strong>Ethical & Governance Considerations:</strong> This product acts directly as "moral infrastructure." High-end security shouldn't be a luxury reserved for premium bank branches. By designing a highly cost-effective (₹1500) retrofit solution, we made advanced AI and sensor-fusion accessible to grassroots, rural, and isolated off-site ATMs. Furthermore, processing sensor data locally rather than relying purely on continuous cloud surveillance ensures rapid response while keeping sensitive operational data secure.</p>
+            </div>
+
+            <h3 class="section-heading">Impact, Metrics & Reflections</h3>
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
-                <h3 class="section-heading">Ethical & Governance Alignment</h3>
-                <p>This framework acts as "moral infrastructure." By conducting deep empathy research, we eliminated tokenism. Furthermore, by enforcing rigorous human oversight models on AI, we protected the organization's integrity, ensuring efficiency never superseded truth and accuracy.</p>
+                <p><strong>Structural Mitigation (Quantitative):</strong> The dual hardware+AI architecture specifically neutralizes the two most frequent attack vectors—Gas Cutters (37.5%) and Camera Spraying (25%)—effectively covering 62.5% of all known ATM vulnerabilities.</p>
+                <p><strong>Qualitative Ecosystem Shift:</strong> Successfully reduced false alarms by shifting from "single-source alerts" (relying just on motion) to a "cross-verified by AI + Sensors" model, drastically improving trust for monitoring authorities.</p>
+                <br>
+                <p><strong>Core Learnings:</strong> True security requires sensory fusion. AI is powerful, but software cannot "feel" a spray paint can. Bridging the gap between physical hardware (ultrasonic) and digital intelligence (AI) is where real systemic improvement happens. Furthermore, designing a cheap, adaptable retrofit solution proved that empathetic, user-centric design must also account for economic viability and ease of installation.</p>
             </div>
         `
     },
