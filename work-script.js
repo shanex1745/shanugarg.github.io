@@ -99,7 +99,7 @@ const projectData = {
 
     proj2: { // Cam Secure
         title: "Cam Secure: Active ATM Defense", 
-        heroImage: "cam-hero.png", 
+        heroImage: "cam-render.png", 
         role: "UX/SYSTEM DESIGNER & RESEARCHER", 
         timeline: "Research & Hardware Prototyping Sprint", 
         themeIcons: ['🏧', '📷', '🚨', '🛡️'], 
@@ -121,9 +121,9 @@ const projectData = {
             </div>
 
             <h3 class="section-heading">Research & Discovery</h3>
-            <div style="height: 500px; width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none; margin-bottom: 2rem;">
-                <img src="cam-research.png" alt="Statistical Threat Analysis & Market Gaps" style="display: block; width: 100%; min-width: 600px; height: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div style="display: none; padding: 40px 20px; text-align: center; color: #ccc; font-family: 'Space Mono', monospace; font-size: 12px;">[MISSING: cam-secure-research.png]</div>
+            <div style="height: 100%; width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none; margin-bottom: 2rem;">
+                <img src="cam-secure.png" alt="Statistical Threat Analysis & Market Gaps" style="display: block; width: 100%; min-width: 600px; height: 100%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div style="display: none; padding: 40px 20px; text-align: center; color: #ccc; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
             </div>
             
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
@@ -133,9 +133,9 @@ const projectData = {
                 • <strong>The Hardware-Software Disconnect:</strong> Deep research revealed that while advanced AI for gun detection exists, it is strictly software-based; there were zero cameras currently in the market featuring integrated hardware-level gun detection.</p>
             </div>
 
-            <h3 class="section-heading">Strategy</h3>
-            <div style="height: 500px; width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none; margin-bottom: 2rem;">
-                <img src="cam-secure.png" alt="Dual-Layer Data Architecture Map" style="display: block; width: 100%; min-width: 600px; height: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <h3 class="section-heading">The Idea</h3>
+            <div style="height: 100%; width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none; margin-bottom: 2rem;">
+                <img src="cam-secure.png" alt="Dual-Layer Data Architecture Map" style="display: block; width: 100%; min-width: 600px; height: 100%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div style="display: none; padding: 40px 20px; text-align: center; color: #ccc; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
             </div>
 
@@ -148,20 +148,22 @@ const projectData = {
             </div>
 
             <h3 class="section-heading">Design Execution & Iteration</h3>
-            <div style="height: 500px; width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none; margin-bottom: 2rem;">
-                <img src="cam-prototype.png" alt="CAD Modeling and Hardware Breadboarding" style="display: block; width: 100%; min-width: 600px; height: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div style="display: none; padding: 40px 20px; text-align: center; color: #ccc; font-family: 'Space Mono', monospace; font-size: 12px;">[MISSING: cam-secure-prototype.png]</div>
+            <div style="height: 100%; width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none; margin-bottom: 2rem;">
+                <img src="cam-ideation.png" alt="CAD Modeling and Hardware Breadboarding" style="display: block; width: 100%; min-width: 600px; height: 100%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div style="display: none; padding: 40px 20px; text-align: center; color: #ccc; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
             </div>
 
             <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
                 <p><strong>Rapid Prototyping & Testing:</strong> Transitioned from behavioral storyboarding to 3D CAD modeling, meticulously iterating on the physical constraints of an ATM enclosure. We built functional breadboard circuits using Arduino, HC-SR04 (Ultrasonic), and MQ (Smoke) sensors.</p>
                 <br>
-                <p><strong>The Overcome:</strong> I engineered a Retrofit Corner-Mount Architecture. Rather than a full system replacement, the casing was designed to be manufactured easily from Aluminum alloy (6061/6063) and mounts seamlessly into the corner of any existing enclosure. I positioned the camera specifically at a 45-degree angle for maximum visibility, and aligned the ultrasonic sensor perfectly parallel to the lens, ensuring any hand or spray can entering the camera's blind spot is instantly detected.</p>
+                <p><strong>The Overcome:</strong> We engineered a Retrofit Corner-Mount Architecture. Rather than a full system replacement, the casing was designed to be manufactured easily from Aluminum alloy (6061/6063) and mounts seamlessly into the corner of any existing enclosure. I positioned the camera specifically at a 45-degree angle for maximum visibility, and aligned the ultrasonic sensor perfectly parallel to the lens, ensuring any hand or spray can entering the camera's blind spot is instantly detected.</p>
             </div>
 
             <h3 class="section-heading">The Final Solution</h3>
-            <div style="height: 500px; width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #7cff9b; box-shadow: 0 0 15px rgba(124,255,155,0.15); cursor: grab; flex: none; margin-bottom: 2rem;">
-                <img src="cam-final.png" alt="Cam Secure Final Retrofit Hardware" style="display: block; width: 100%; min-width: 600px; height: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div style="height: 100%; width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #7cff9b; box-shadow: 0 0 15px rgba(124,255,155,0.15); cursor: grab; flex: none; margin-bottom: 2rem;">
+                <video width="100%" controls>
+                  <source src="Detection.mp4" type="video/mp4">
+                </video>
                 <div style="display: none; padding: 40px 20px; text-align: center; color: #7cff9b; font-family: 'Space Mono', monospace; font-size: 12px;">[MISSING: cam-secure-final.png]</div>
             </div>
 
