@@ -1005,7 +1005,7 @@ const projectData = {
             <div class="booklet-carousel" style="margin-bottom: 2rem;">
                 <div class="booklet-page" style="margin-bottom: 2rem;">
                     <div style="height: 450px; width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none;">
-                        <img src="navya-journey.jpng" alt="Contextual Ethnography / Empathy Mapping" style="display: block; width: 100%; min-width: 800px; height: auto;">
+                        <img src="navya-journey.png" alt="Contextual Ethnography / Empathy Mapping" style="display: block; width: 100%; min-width: 800px; height: auto;">
                     </div>
                     <p class="booklet-desc" style="margin-top: 12px; color: #aaa;">The "As-Is" chaotic journey: Bed -> Lift -> Carry -> Place in Tub -> Bathe -> Lift -> Carry -> Bed.</p>
                 </div>
@@ -1019,7 +1019,7 @@ const projectData = {
                 
                 <div class="booklet-page" style="margin-bottom: 2rem;">
                     <div style="height: 450px; width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none;">
-                        <img src="navya.jpng" alt="Foldable Side-Bracket System" style="display: block; width: 100%; min-width: 800px; height: auto;">
+                        <img src="navya.png" alt="Foldable Side-Bracket System" style="display: block; width: 100%; min-width: 800px; height: auto;">
                     </div>
                     <p class="booklet-desc" style="margin-top: 12px; color: #aaa;">Eradicating the vertical lift. The side folds down to create a horizontal canvas bridge from bed to chair.</p>
                 </div>
