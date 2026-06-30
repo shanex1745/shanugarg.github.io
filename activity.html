@@ -113,6 +113,20 @@
             .hobbies-grid { grid-template-columns: repeat(2, 1fr); }
             .nav { flex-direction: column; gap: 15px; }
         }
+
+        /* --- COIN POPUP ANIMATION --- */
+        .coin-popup {
+            position: fixed; top: 70px; right: 5vw;
+            color: #ffd84f; font-family: 'Press Start 2P', cursive, monospace;
+            font-size: 14px; z-index: 9999; pointer-events: none;
+            text-shadow: 2px 2px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000, 1px 1px 0px #000;
+            animation: coinFloat 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+        @keyframes coinFloat {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-40px) scale(1.4); opacity: 0; }
+        }
+        
     </style>
 </head>
 <body>
@@ -273,11 +287,23 @@
         document.getElementById('player-coins').innerText = currentCoins;
         document.getElementById('player-level').innerText = 'LVL ' + currentLevel;
     }
+    
     window.rewardPlayer = function(amount) {
         currentCoins += amount;
         localStorage.setItem('shanu_coins', currentCoins);
         updateHUD();
+
+        // --- NEW: Spawn floating arcade text ---
+        const popup = document.createElement('div');
+        popup.classList.add('coin-popup');
+        popup.innerText = `+${amount} COINS!`;
+        
+        document.body.appendChild(popup);
+
+        // Remove element after animation ends
+        setTimeout(() => { popup.remove(); }, 1000); 
     };
+    
     updateHUD();
 
     if (!sessionStorage.getItem('visited_activity')) {
