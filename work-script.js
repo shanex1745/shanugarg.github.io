@@ -13,6 +13,17 @@ window.rewardPlayer = function(amount) {
     currentCoins += amount;
     localStorage.setItem('shanu_coins', currentCoins);
     updateHUD();
+
+    // --- NEW: Spawn floating arcade text ---
+    const popup = document.createElement('div');
+    popup.classList.add('coin-popup');
+    popup.innerText = `+${amount} COINS!`;
+    
+    // Append to body so it overlays everything
+    document.body.appendChild(popup);
+
+    // Remove element after animation ends to keep DOM clean
+    setTimeout(() => { popup.remove(); }, 1000); 
 };
 
 updateHUD();
