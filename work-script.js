@@ -1078,7 +1078,7 @@ const projectData = {
             
             <h3 class="section-heading">PHYSICAL PRODUCT DETAILS</h3>
             <div style="max-height: 500px; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #333; margin-bottom: 2rem;">
-                <iframe width="100%" height="315" src="https://youtu.be/4cMisV6p1UM" frameborder="0" allowfullscreen style="border: 2px solid #4fb1ff; border-radius: 8px;"></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/4cMisV6p1UM?si=jRrSY5Aj139ja4Kn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <div style="display: none; padding: 40px 20px; text-align: center; color: #ccc; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
             </div>
 
