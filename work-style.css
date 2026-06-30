@@ -19,14 +19,53 @@
     z-index: 0; pointer-events: none; opacity: 0.4;
 }
 
-/* HIRE ME BUTTON */
+/* HIRE ME BUTTON (Moved to Top) */
 .hire-me-btn {
-    position: absolute; bottom: -20px; right: 40px; background: #6ce8ff; color: #092138;
+    position: absolute; top: -25px; right: 40px; background: #6ce8ff; color: #092138;
     border: 4px solid #fff; box-shadow: 6px 6px 0 #244d66; font-family: 'Press Start 2P', cursive;
     font-size: 0.9rem; padding: 1rem 1.5rem; text-decoration: none; display: flex; align-items: center; gap: 10px; transition: transform 0.1s, box-shadow 0.1s; z-index: 20;
 }
 .hire-me-btn:hover { transform: translate(-4px, -4px); box-shadow: 10px 10px 0 #244d66; background: #fff; }
 .hire-me-btn:active { transform: translate(2px, 2px); box-shadow: 4px 4px 0 #244d66; }
+
+/* THE LOOT (Z-Index increased to 30 to sit ABOVE cards) */
+.loot-container { position: absolute; left: 50%; bottom: 160px; width: 0; height: 0; z-index: 30; pointer-events: none; }
+
+/* ========================================= */
+/* MOBILE VIEW (Restored Exploding Grid)     */
+/* ========================================= */
+@media (max-width: 768px) {
+    .menu-box { padding-top: 4rem; } /* Gives room for the top button */
+    .hire-me-btn { right: 50%; transform: translateX(50%); width: max-content; }
+    .hire-me-btn:hover { transform: translateX(50%) translate(-2px, -2px); }
+
+    .wallet-stage { min-height: 500px; }
+    .wallet-container { bottom: 20px; transform: translateX(-50%) scale(0.85); }
+    .wallet-container.is-open { transform: translateX(-50%) scale(0.85) translateY(10px); }
+
+    /* Shrink project cards for mobile screen */
+    .project-card { width: 130px; margin-left: -65px; bottom: 130px; }
+    
+    /* 2-Column tightly packed explosion grid for mobile */
+    .wallet-stage.is-open .card-0 { transform: translate(-75px, -340px); } 
+    .wallet-stage.is-open .card-1 { transform: translate(75px, -340px); } 
+    .wallet-stage.is-open .card-2 { transform: translate(-75px, -240px); } 
+    .wallet-stage.is-open .card-3 { transform: translate(75px, -240px); } 
+    .wallet-stage.is-open .card-4 { transform: translate(-75px, -140px); } 
+    .wallet-stage.is-open .card-5 { transform: translate(75px, -140px); } 
+    .wallet-stage.is-open .card-6 { transform: translate(-75px, -40px); } 
+    .wallet-stage.is-open .card-7 { transform: translate(75px, -40px); }
+
+    /* Tighten up the personality slips & coins so they don't break the screen width */
+    .wallet-stage.is-open .coin-1 { transform: translate(-100px, -360px); }
+    .wallet-stage.is-open .coin-2 { transform: translate(100px, -200px); }
+    .wallet-stage.is-open .slip-1 { transform: translate(-30px, -380px) rotate(-10deg) scale(0.7); }
+    .wallet-stage.is-open .slip-2 { transform: translate(30px, -390px) rotate(12deg) scale(0.7); }
+    .wallet-stage.is-open .slip-3 { transform: translate(-130px, -100px) rotate(-85deg) scale(0.7); }
+    .wallet-stage.is-open .slip-4 { transform: translate(130px, -180px) rotate(85deg) scale(0.7); }
+    .wallet-stage.is-open .slip-5 { transform: translate(-100px, -20px) rotate(-15deg) scale(0.7); }
+    .wallet-stage.is-open .slip-6 { transform: translate(100px, -40px) rotate(22deg) scale(0.7); }
+}
 
 /* WALLET STAGE */
 .wallet-stage { position: relative; min-height: 550px; width: 100%; }
@@ -155,15 +194,6 @@
     .wallet-stage.is-open .slip-2 { transform: translate(100px, -420px) rotate(12deg); }
     .wallet-stage.is-open .slip-3 { transform: translate(-480px, -180px) rotate(-5deg); }
     .wallet-stage.is-open .slip-4 { transform: translate(480px, -150px) rotate(15deg); }
-}
-
-/* MOBILE VIEW (Vertical Stack) */
-@media (max-width: 768px) {
-    .loot-container { display: none; } /* Hide loot on mobile to keep layout clean */
-    .wallet-stage.is-open { display: flex; flex-direction: column; align-items: center; gap: 2rem; padding-top: 2rem; padding-bottom: 250px; min-height: auto; }
-    .wallet-stage.is-open .project-card { position: relative; left: auto; margin-left: 0; bottom: auto; transform: none !important; width: 240px; opacity: 1; }
-    .wallet-container { position: fixed; bottom: 20px; z-index: 100; transform: translateX(-50%) scale(0.8); }
-    .wallet-container.is-open { transform: translateX(-50%) scale(0.8) translateY(10px); }
 }
 
 /* GIANT MODAL POP-UP (Unchanged) */
