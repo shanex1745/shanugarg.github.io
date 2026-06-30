@@ -1045,7 +1045,7 @@ const projectData = {
 
     proj7: { // EZAM
         title: "EZAM: Tactile Game Design", 
-        heroImage: "ezam-play.png", 
+        heroImage: "ezam-bg.png", 
         role: "UX RESEARCHER & UI/UX DESIGNER", timeline: "Design Impact Movement", themeIcons: ['🎲', '🧲', '🤝', '🧩'], behanceLink: "https://www.behance.net/gallery/214356517/Portfolio",
         tldr: {
             problem: "Visually impaired (VI) and visually abled (VA) children lacked an equitable way to play; existing games gave VA children an advantage, leading to dynamics of pity.",
@@ -1078,9 +1078,7 @@ const projectData = {
             
             <h3 class="section-heading">PHYSICAL PRODUCT DETAILS</h3>
             <div style="max-height: 500px; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #333; margin-bottom: 2rem;">
-                <video width="100%" controls>
-                  <source src="ezam.mp4" type="video/mp4">
-                </video>
+                <iframe width="100%" height="315" src="https://youtu.be/4cMisV6p1UM" frameborder="0" allowfullscreen style="border: 2px solid #4fb1ff; border-radius: 8px;"></iframe>
                 <div style="display: none; padding: 40px 20px; text-align: center; color: #ccc; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
             </div>
 
