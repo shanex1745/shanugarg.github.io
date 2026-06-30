@@ -76,6 +76,24 @@
 .wallet-stage.is-open .slip-5 { transform: translate(-350px, 30px) rotate(-18deg); transition-delay: 0.4s; } /* Bottom Left */
 .wallet-stage.is-open .slip-6 { transform: translate(350px, 40px) rotate(22deg); transition-delay: 0.15s; } /* Bottom Right */
 
+/* Reusable Global Retro Score Popup */
+.coin-popup {
+    position: fixed;
+    top: 70px;
+    right: 5vw;
+    color: #ffd84f;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 14px;
+    text-shadow: 2px 2px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000, 1px 1px 0px #000;
+    z-index: 1000;
+    pointer-events: none;
+    animation: coinFloat 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes coinFloat {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-40px) scale(1.4); opacity: 0; }
+}
 
 /* ========================================= */
 /* PROJECT CARDS (CREDIT CARD STYLE)         */
