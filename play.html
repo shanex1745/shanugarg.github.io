@@ -62,6 +62,19 @@
         .slider-tile.empty { border: 2px dashed rgba(255, 255, 255, 0.2); background: transparent; cursor: default; }
 
         @media (max-width: 900px) { .arcade-grid, .economy-strip { grid-template-columns: 1fr; } }
+
+        /* --- COIN POPUP ANIMATION --- */
+        .coin-popup {
+            position: fixed; top: 70px; right: 5vw;
+            color: #ffd84f; font-family: 'Press Start 2P', cursive, monospace;
+            font-size: 14px; z-index: 9999; pointer-events: none;
+            text-shadow: 2px 2px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000, 1px 1px 0px #000;
+            animation: coinFloat 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+        @keyframes coinFloat {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-40px) scale(1.4); opacity: 0; }
+        }
     </style>
 </head>
 
