@@ -1193,23 +1193,3 @@ window.closeModal = function(e) {
     if (modal) modal.classList.remove('active');
     document.body.style.overflow = 'auto'; 
 };
-
-// Central tracking engine for secondary portfolio pages
-let currentCoins = parseInt(localStorage.getItem('shanu_coins')) || 0;
-
-window.rewardPlayer = function(amount) {
-    currentCoins += amount;
-    localStorage.setItem('shanu_coins', currentCoins);
-    
-    // Updates HUD metrics on the child pages dynamically if present
-    const coinEl = document.getElementById('player-coins');
-    if(coinEl) { coinEl.innerText = currentCoins; }
-    
-    // Spawn floating arcade text
-    const popup = document.createElement('div');
-    popup.classList.add('coin-popup');
-    popup.innerText = `+${amount} COINS!`;
-    document.body.appendChild(popup);
-
-    setTimeout(() => { popup.remove(); }, 1000);
-};
