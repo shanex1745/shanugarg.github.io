@@ -11,10 +11,11 @@
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
 
     <style>
+        /* [EXISTING CSS KEPT INTACT] */
+        .app-shell { overflow-x: hidden; } /* Prevents horizontal scroll from entities */
+
         /* 1. Moving Clouds */
-        .cloud {
-            animation: floatClouds 40s linear infinite;
-        }
+        .cloud { animation: floatClouds 40s linear infinite; }
         @keyframes floatClouds {
             0% { transform: translateX(-15vw) scale(0.85); }
             100% { transform: translateX(115vw) scale(0.85); }
@@ -40,22 +41,14 @@
             96%, 99% { filter: brightness(2.5); } 
         }
 
-        /* 3. Random Entities (Emoji Edition for instant testing) */
+        /* 3. Random Entities */
         .random-entity {
-            position: absolute; 
-            pointer-events: none; 
-            z-index: 5; 
-            display: none; /* Hidden by default */
-            font-size: 80px; /* Massive emojis */
-            line-height: 1;
+            position: absolute; pointer-events: none; z-index: 5; display: none; font-size: 80px; line-height: 1;
         }
-        
         .dino-entity::after { content: '🦖'; }
         .dino-entity { bottom: 10%; animation: runAcross 15s linear infinite; }
-
         .robot-entity::after { content: '🤖'; }
         .robot-entity { bottom: 10%; animation: walkAcross 25s linear infinite reverse; }
-
         .bird-entity::after { content: '🦅'; font-size: 40px; }
         .bird-entity { top: 15%; animation: runAcross 20s linear infinite; }
 
@@ -71,28 +64,21 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
-            align-items: stretch; /* Forces equal height columns */
+            align-items: stretch;
             max-width: 1200px;
+            margin: 0 auto;
         }
 
         .card-link { 
-            text-decoration: none; 
-            color: inherit; 
-            display: flex; /* Makes the link a flex container */
-            height: 100%; /* Fills the grid cell entirely */
-            transition: transform 0.2s ease; 
+            text-decoration: none; color: inherit; display: flex; height: 100%; transition: transform 0.2s ease; 
         }
         .card-link:hover { transform: translateY(-5px); }
 
         .feature-card {
-            flex: 1; /* Tells the card to expand to fill the link container */
-            background: rgba(13, 17, 23, 0.8);
-            border: 2px solid;
-            padding: 25px 20px;
-            display: flex;
-            flex-direction: column;
-            position: relative;
+            flex: 1; background: rgba(13, 17, 23, 0.8); border: 2px solid; padding: 25px 20px; display: flex; flex-direction: column; position: relative;
         }
+        .feature-icon { margin-bottom: 20px; }
+        .feature-card p { margin-top: auto; }
 
         /* 5. Rocket Launch Animation */
         @keyframes rocketLaunch {
@@ -110,18 +96,162 @@
         }
 
         .pixel-btn.rocket-shake {
-            animation: rocketLaunch 1.5s cubic-bezier(.36,.07,.19,.97) both;
-            backface-visibility: hidden;
-            perspective: 1000px;
-            pointer-events: none;
-            background-color: #ff4757;
-            color: #fff;
-            transition: background-color 0.3s ease;
+            animation: rocketLaunch 1.5s cubic-bezier(.36,.07,.19,.97) both; backface-visibility: hidden; perspective: 1000px; pointer-events: none; background-color: #ff4757; color: #fff; transition: background-color 0.3s ease;
         }
         
-        /* Ensure card headings and icons don't break flex layout */
-        .feature-icon { margin-bottom: 20px; }
-        .feature-card p { margin-top: auto; /* Pushes text to align naturally */ }
+        /* ---------------------------------------------------
+           NEW: COIN POPUP ANIMATION
+           --------------------------------------------------- */
+        .coin-popup {
+            position: fixed;
+            top: 70px; /* Starts just below the HUD */
+            right: 5vw;
+            color: #ffd84f;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 14px;
+            text-shadow: 2px 2px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000, 1px 1px 0px #000;
+            z-index: 1000;
+            pointer-events: none;
+            animation: coinFloat 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        @keyframes coinFloat {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-40px) scale(1.5); opacity: 0; }
+        }
+
+        /* ---------------------------------------------------
+           NEW: ARCADE MACHINE SECTION
+           --------------------------------------------------- */
+        .arcade-section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .arcade-container {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .arcade-machine {
+            background: #1a1e24;
+            border: 4px solid #2d3748;
+            border-radius: 10px 10px 0 0;
+            width: 100%;
+            max-width: 320px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.2s ease;
+        }
+
+        .arcade-machine:hover {
+            transform: translateY(-5px);
+            border-color: #4fb1ff;
+        }
+
+        .arcade-marquee {
+            background: #ff4757;
+            color: white;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            border: 2px solid #c0392b;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 10px rgba(255, 71, 87, 0.5);
+        }
+
+        .arcade-screen {
+            background: #0d1117;
+            border: 8px solid #4a5568;
+            border-radius: 10px 10px 30px 30px;
+            width: 100%;
+            height: 220px;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #7cff9b;
+            text-decoration: none;
+            flex-direction: column;
+            text-align: center;
+            padding: 15px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        .arcade-screen:hover { border-color: #ffd84f; }
+        
+        /* CRT Scanline Effect */
+        .arcade-screen::after { 
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 4px, 6px 100%; pointer-events: none;
+        }
+
+        .arcade-controls {
+            margin-top: 20px; width: 100%; height: 45px; background: #2d3748;
+            transform: perspective(200px) rotateX(30deg);
+            display: flex; justify-content: space-around; align-items: center;
+            border: 2px solid #1a1e24; box-shadow: 0 5px 0 #0f1319;
+        }
+
+        .joystick { width: 18px; height: 18px; background: #ff4757; border-radius: 50%; box-shadow: -2px -2px 0 rgba(0,0,0,0.5) inset; }
+        .buttons { display: flex; gap: 8px; }
+        .btn-arcade { width: 12px; height: 12px; border-radius: 50%; box-shadow: -1px -1px 0 rgba(0,0,0,0.5) inset; }
+        .btn-a { background: #4fb1ff; }
+        .btn-b { background: #ffd84f; }
+
+        /* ---------------------------------------------------
+           MOBILE OPTIMIZATION (MEDIA QUERIES)
+           --------------------------------------------------- */
+        @media (max-width: 992px) {
+            .feature-grid { grid-template-columns: repeat(2, 1fr); } /* 2x2 grid on tablets */
+            .hero { flex-direction: column; text-align: center; gap: 40px; }
+            .hero-side { display: flex; justify-content: center; }
+        }
+
+        @media (max-width: 768px) {
+            /* Fix HUD for mobile */
+            .hud-inner { flex-direction: column; gap: 15px; }
+            .nav { flex-wrap: wrap; justify-content: center; gap: 10px; font-size: 12px; }
+            
+            /* Horizontal Scroll for Arcade Machines */
+            .arcade-container {
+                justify-content: flex-start;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                padding-bottom: 20px; /* Space for scrollbar */
+                -webkit-overflow-scrolling: touch; /* Smooth iOS scroll */
+            }
+            
+            .arcade-machine {
+                min-width: 280px; /* Prevents squishing */
+                scroll-snap-align: center; /* Snaps beautifully into place */
+                flex-shrink: 0;
+            }
+
+            /* Optional: Hide scrollbar for cleaner look, functionality remains */
+            .arcade-container::-webkit-scrollbar { display: none; }
+            .arcade-container { -ms-overflow-style: none; scrollbar-width: none; }
+        }
+
+        @media (max-width: 480px) {
+            .feature-grid { grid-template-columns: 1fr; } /* Stack vertically on phones */
+            .arcade-machine { min-width: 85vw; } /* Scales to screen width */
+            .hero-name { font-size: 24px; }
+        }
     </style>
 </head>
 
@@ -140,31 +270,21 @@
     <div class="cloud" style="left:50%;top:130px;transform:scale(.85);animation-delay: -15s;"></div>
 
     <div class="mountains"></div>
-
     <div class="random-entity dino-entity"></div>
     <div class="random-entity robot-entity"></div>
     <div class="random-entity bird-entity"></div>
-
     <div class="platform" style="left:7%;bottom:320px"></div>
     <div class="platform" style="right:13%;bottom:285px;width:120px"></div>
-
     <div class="pipe" style="left:6%"></div>
     <div class="pipe" style="right:8%;height:140px"></div>
-
     <div class="tree" style="left:20%"></div>
     <div class="tree" style="right:22%"></div>
-
     <div class="cat" style="left:42%"></div>
-
     <div class="ground"></div>
 
     <header class="hud">
         <div class="hud-inner">
-
-            <div class="brand">
-                SHANU.EXE
-            </div>
-
+            <div class="brand">SHANU.EXE</div>
             <nav class="nav">
                 <a href="index.html" style="color: #ff77da; text-shadow: 0 0 5px #ff77da;">HOME</a>
                 <a href="work.html" onclick="rewardPlayer(2)">WORK</a>
@@ -172,31 +292,23 @@
                 <a href="play.html" onclick="rewardPlayer(2)">PLAY</a>
                 <a href="resume.html" onclick="rewardPlayer(5)">RESUME</a>
             </nav>
-            </nav>
-
             <div class="hud-stats">
-                <div class="stat-box" id="player-level">
-                    LVL 1
-                </div>
-
-                <div class="stat-box coin-box">
+                <div class="stat-box" id="player-level">LVL 1</div>
+                <div class="stat-box coin-box" style="position: relative;">
                     <span class="coin"></span>
                     <span id="player-coins">0</span>
                 </div>
             </div>
-
         </div>
     </header>
 
     <main id="top">
 
         <section class="hero">
-
             <div class="hero-panel">
                 <div class="kicker">PLAYER ONE</div>
                 <h1 class="hero-name">SHANU PRIYA GARG</h1>
-                <p class="hero-role">UX Designer · UX Strategist
-                                     Digital Communication AI Fellow @KDSI</p>
+                <p class="hero-role">UX Designer · UX Strategist<br>Digital Communication AI Fellow @KDSI</p>
                 <p class="hero-copy">
                     Crafting meaningful solutions where empathy, strategy, and
                     curiosity unlock better experiences.
@@ -205,33 +317,79 @@
                     ENTER WORLD
                 </button>
             </div>
-
             <div class="hero-side">
                 <div class="game-window">
                     <div class="window-top">
                         <span>PLAYER: SPG</span>
                         <span>WORLD 01</span>
                     </div>
-
-                    <div class="mini-scene" style="background-image: url('Shanu_Photo.jpg'); background-size: cover; background-position: center;">
-                        </div>
-
+                    <div class="mini-scene" style="background-image: url('Shanu_Photo.jpg'); background-size: cover; background-position: center;"></div>
                     <div class="bar-label">HEALTH</div>
                     <div class="bar"><span></span></div>
-
                     <div class="bar-label">XP</div>
                     <div class="bar xp" id="xp-bar"><span></span></div>
                 </div>
             </div>
+        </section>
 
+        <section id="work-arcade" class="arcade-section">
+            <h2 class="section-title">PROJECT ARCADE</h2>
+            <div class="arcade-container">
+                
+                <div class="arcade-machine">
+                    <div class="arcade-marquee">PROJ 01</div>
+                    <a href="work.html#project1" class="arcade-screen" onclick="rewardPlayer(5)">
+                        <i data-lucide="image" style="margin-bottom: 10px;"></i>
+                        <span style="font-size: 12px; font-family: 'Space Mono', monospace;">[INSERT IMAGE]</span>
+                        <p style="margin-top: 10px; font-size: 10px;">UX Case Study 1</p>
+                    </a>
+                    <div class="arcade-controls">
+                        <div class="joystick"></div>
+                        <div class="buttons">
+                            <div class="btn-arcade btn-a"></div>
+                            <div class="btn-arcade btn-b"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arcade-machine">
+                    <div class="arcade-marquee" style="background: #4fb1ff; box-shadow: 0 0 10px rgba(79, 177, 255, 0.5);">PROJ 02</div>
+                    <a href="work.html#project2" class="arcade-screen" onclick="rewardPlayer(5)">
+                        <i data-lucide="image" style="margin-bottom: 10px;"></i>
+                        <span style="font-size: 12px; font-family: 'Space Mono', monospace;">[INSERT IMAGE]</span>
+                        <p style="margin-top: 10px; font-size: 10px;">Mobile App Design</p>
+                    </a>
+                    <div class="arcade-controls">
+                        <div class="joystick"></div>
+                        <div class="buttons">
+                            <div class="btn-arcade btn-a"></div>
+                            <div class="btn-arcade btn-b"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arcade-machine">
+                    <div class="arcade-marquee" style="background: #ffd84f; color:#000; box-shadow: 0 0 10px rgba(255, 216, 79, 0.5);">PROJ 03</div>
+                    <a href="work.html#project3" class="arcade-screen" onclick="rewardPlayer(5)">
+                        <i data-lucide="image" style="margin-bottom: 10px;"></i>
+                        <span style="font-size: 12px; font-family: 'Space Mono', monospace;">[INSERT IMAGE]</span>
+                        <p style="margin-top: 10px; font-size: 10px;">AI Fellowship Work</p>
+                    </a>
+                    <div class="arcade-controls">
+                        <div class="joystick"></div>
+                        <div class="buttons">
+                            <div class="btn-arcade btn-a"></div>
+                            <div class="btn-arcade btn-b"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </section>
 
         <section id="features" class="section">
-
             <h2 class="section-title">MY ADVENTURES</h2>
-
             <div class="feature-grid">
-
                 <a href="work.html" class="card-link" onclick="rewardPlayer(3)">
                     <article class="feature-card" style="border-color:#4fb1ff;">
                         <div class="feature-icon" style="border-color:#4fb1ff; color:#4fb1ff;"><i data-lucide="briefcase"></i></div>
@@ -239,23 +397,20 @@
                         <p>Professional experience, internships, software projects and achievements.</p>
                     </article>
                 </a>
-
                 <a href="activity.html" class="card-link" onclick="rewardPlayer(3)">
                     <article class="feature-card" style="border-color:#7cff9b;">
                         <div class="feature-icon" style="border-color:#7cff9b; color:#7cff9b;"><i data-lucide="heart-handshake"></i></div>
                         <h3 style="color:#7cff9b;">QUESTS</h3>
-                        <p>Community engagement, leadership and social impact initiatives.</p>
+                        <p>A glimpse of my quests beyond work..</p>
                     </article>
                 </a>
-
                 <a href="play.html" class="card-link" onclick="rewardPlayer(3)">
                     <article class="feature-card" style="border-color:#ffd84f;">
                         <div class="feature-icon" style="border-color:#ffd84f; color:#ffd84f;"><i data-lucide="gamepad-2"></i></div>
                         <h3 style="color:#ffd84f;">PLAY</h3>
-                        <p>Theatre, creativity, hobbies, competitions and exploration.</p>
+                        <p>Fun old-school games to play.</p>
                     </article>
                 </a>
-
                 <a href="resume.html" class="card-link" onclick="rewardPlayer(5)">
                     <article class="feature-card" style="border-color:#ff77da;">
                         <div class="feature-icon" style="border-color:#ff77da; color:#ff77da;"><i data-lucide="scroll-text"></i></div>
@@ -263,9 +418,7 @@
                         <p>Education, technical skills, certifications and milestones.</p>
                     </article>
                 </a>
-
             </div>
-
         </section>
 
     </main>
@@ -284,7 +437,10 @@
 <script src="script.js"></script>
 
 <script>
-    // 1. --- GAMIFICATION ENGINE ---
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // 1. --- GAMIFICATION & POP-UP ENGINE ---
     let currentCoins = parseInt(localStorage.getItem('shanu_coins')) || 0;
 
     function updateHUD() {
@@ -297,29 +453,39 @@
         document.querySelector('.bar.xp span').style.width = xpProgress + '%';
     }
 
+    window.rewardPlayer = function(amount) {
+        // Add coins and update UI
+        currentCoins += amount;
+        localStorage.setItem('shanu_coins', currentCoins);
+        updateHUD();
+
+        // Trigger floating coin animation
+        const popup = document.createElement('div');
+        popup.classList.add('coin-popup');
+        popup.innerText = `+${amount} COINS!`;
+        
+        // Append to body so it overlays everything
+        document.body.appendChild(popup);
+
+        // Remove element after animation ends to keep DOM clean
+        setTimeout(() => {
+            popup.remove();
+        }, 1000); // matches the 1s CSS animation duration
+    };
+
     // 1.5 --- LAUNCH ANIMATION ENGINE ---
     window.launchWorld = function() {
-        // Trigger the reward
         if (typeof rewardPlayer === "function") {
             rewardPlayer(10);
         }
         
         const btn = document.getElementById('enter-world');
-        
-        // Change text and start animation
         btn.innerHTML = "INITIALIZING...";
         btn.classList.add('rocket-shake');
         
-        // Wait 1.5s then redirect to work.html
         setTimeout(() => {
             window.location.href = 'work.html';
         }, 1500);
-    };
-
-    window.rewardPlayer = function(amount) {
-        currentCoins += amount;
-        localStorage.setItem('shanu_coins', currentCoins);
-        updateHUD();
     };
 
     updateHUD();
