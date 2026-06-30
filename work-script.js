@@ -1204,3 +1204,29 @@ window.closeModal = function(e) {
     if (modal) modal.classList.remove('active');
     document.body.style.overflow = 'auto'; 
 };
+
+// --- 3. URL HASH ROUTING (ARCADE MACHINE LINKING) ---
+document.addEventListener("DOMContentLoaded", () => {
+    // Check if there's a hash in the URL (e.g., '#proj1') when the page loads
+    if (window.location.hash) {
+        // Remove the '#' to get just the ID ('proj1')
+        const targetId = window.location.hash.substring(1);
+
+        // Check if this ID exists in your projectData dictionary
+        if (projectData[targetId]) {
+            
+            // 1. Visually pop open the wallet stage so it looks intentional
+            const walletStage = document.getElementById('walletStage');
+            const walletLabel = document.querySelector('.wallet-label');
+            if (walletStage) {
+                walletStage.classList.add('is-open');
+                if (walletLabel) walletLabel.innerText = "▲ CLOSE WALLET";
+            }
+
+            // 2. Add a tiny delay so the wallet animation plays before the modal takes over the screen
+            setTimeout(() => {
+                openModal(targetId);
+            }, 600);
+        }
+    }
+});
