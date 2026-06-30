@@ -185,10 +185,21 @@
         document.getElementById('player-coins').innerText = currentCoins;
         document.getElementById('player-level').innerText = 'LVL ' + currentLevel;
     }
+    
     window.rewardPlayer = function(amount) {
         currentCoins += amount;
         localStorage.setItem('shanu_coins', currentCoins);
         updateHUD();
+
+        // --- NEW: Spawn floating arcade text ---
+        const popup = document.createElement('div');
+        popup.classList.add('coin-popup');
+        popup.innerText = `+${amount} COINS!`;
+        
+        document.body.appendChild(popup);
+
+        // Remove element after animation ends
+        setTimeout(() => { popup.remove(); }, 1000); 
     };
     updateHUD();
 
