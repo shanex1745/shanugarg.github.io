@@ -88,15 +88,20 @@
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
         @keyframes glitch { 0% { transform: translate(2px, 2px); } 25% { transform: translate(-2px, -2px); } 50% { transform: translate(2px, -2px); } 75% { transform: translate(-2px, 2px); } 100% { transform: translate(2px, 2px); } }
 
-        @media (max-width: 768px) {
+       @media (max-width: 768px) {
             .btn-group { flex-direction: column; align-items: stretch; gap: 10px; }
-            .btn { text-align: center; }
+            .btn { text-align: center; } /* Keeps the button text centered for easy tapping */
             .bento-grid { grid-template-columns: 1fr; }
             .panel { padding: 20px; }
-            h1 { font-size: 1.5rem; text-align: center; }
-            .subtitle { text-align: center; }
-            .intro-text { text-align: center; }
-            .tag-container { justify-content: center; }
+            
+            /* Keeps headers, intro text, and skills tags cleanly left-aligned */
+            h1 { font-size: 1.5rem; text-align: left; }
+            .subtitle { text-align: left; }
+            .intro-text { text-align: left; }
+            .tag-container { justify-content: flex-start; }
+            
+            /* Ensures the skills hacking overlay text stays centered in its box */
+            .skills-overlay p { text-align: center; } 
         }
     </style>
 </head>
