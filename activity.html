@@ -18,10 +18,6 @@
         }
 
         /* --- 2. NAVIGATION & CLICK FIX --- */
-        .hud { position: relative; z-index: 1000 !important; }
-        .nav { display: flex; gap: 25px; }
-        .nav a { color: #c9d1d9; text-decoration: none; transition: 0.3s; text-transform: uppercase; }
-        .nav a:hover { color: #7cff9b; }
         .nav a.active { color: #7cff9b !important; border-bottom: 2px solid #7cff9b; padding-bottom: 4px; text-shadow: 0 0 10px rgba(124,255,155,0.4); }
 
         /* --- DYNAMIC ENVIRONMENT --- */
@@ -109,9 +105,15 @@
         .h-anime { border-color: #7cff9b; }     .h-writing { border-color: #4fb1ff; }
         .h-acting { border-color: #ff3366; }    .h-singing { border-color: #b366ff; }
 
-        @media (max-width: 900px) {
+        @media (max-width: 768px) {
+            .tv-container { border-width: 5px; padding: 15px; border-radius: 12px; }
+            .tv-controls { flex-direction: column; gap: 15px; text-align: center; padding: 0; }
+            .tv-caption { font-size: 0.9rem; order: -1; margin-top: 0; margin-bottom: 10px; }
+            .tv-btn { width: 100%; padding: 15px; }
+            .photo-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .polaroid { padding: 10px 10px 30px 10px; }
+            .terminal-box { padding: 15px; }
             .hobbies-grid { grid-template-columns: repeat(2, 1fr); }
-            .nav { flex-direction: column; gap: 15px; }
         }
 
         /* --- COIN POPUP ANIMATION --- */
