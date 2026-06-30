@@ -11,8 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
 
     <style>
-        /* [EXISTING CSS KEPT INTACT] */
-        .app-shell { overflow-x: hidden; } /* Prevents horizontal scroll from entities */
+        .app-shell { overflow-x: hidden; }
 
         /* 1. Moving Clouds */
         .cloud { animation: floatClouds 40s linear infinite; }
@@ -98,13 +97,25 @@
         .pixel-btn.rocket-shake {
             animation: rocketLaunch 1.5s cubic-bezier(.36,.07,.19,.97) both; backface-visibility: hidden; perspective: 1000px; pointer-events: none; background-color: #ff4757; color: #fff; transition: background-color 0.3s ease;
         }
+
+        /* Hero Job Highlight Adjustment */
+        .hero-role { line-height: 1.6; }
+        .role-highlight {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 2px 6px;
+            background: rgba(255, 119, 218, 0.15);
+            border: 1px dashed #ff77da;
+            color: #ff77da;
+            font-weight: bold;
+        }
         
         /* ---------------------------------------------------
-           NEW: COIN POPUP ANIMATION
+           GLOBAL REUSABLE COIN POPUP SYSTEM
            --------------------------------------------------- */
         .coin-popup {
             position: fixed;
-            top: 70px; /* Starts just below the HUD */
+            top: 70px;
             right: 5vw;
             color: #ffd84f;
             font-family: 'Press Start 2P', monospace;
@@ -117,17 +128,20 @@
 
         @keyframes coinFloat {
             0% { transform: translateY(0) scale(1); opacity: 1; }
-            100% { transform: translateY(-40px) scale(1.5); opacity: 0; }
+            100% { transform: translateY(-40px) scale(1.4); opacity: 0; }
         }
 
         /* ---------------------------------------------------
-           NEW: ARCADE MACHINE SECTION
+           ARCADE MACHINE SECTION (RESTYLED COLORS)
            --------------------------------------------------- */
         .arcade-section {
             padding: 60px 20px;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
         }
+
+        .arcade-wrapper { position: relative; width: 100%; }
 
         .arcade-container {
             display: flex;
@@ -138,42 +152,35 @@
         }
 
         .arcade-machine {
-            background: #1a1e24;
-            border: 4px solid #2d3748;
-            border-radius: 10px 10px 0 0;
+            background: #0d1117;
+            border: 3px solid #2d3748;
+            border-radius: 8px 8px 0 0;
             width: 100%;
             max-width: 320px;
             padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 10px 30px rgba(0,0,0,0.5);
-            transition: transform 0.2s ease;
-        }
-
-        .arcade-machine:hover {
-            transform: translateY(-5px);
-            border-color: #4fb1ff;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.9), 0 10px 25px rgba(0,0,0,0.4);
+            transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
         .arcade-marquee {
-            background: #ff4757;
-            color: white;
+            background: transparent;
             width: 100%;
-            padding: 10px;
+            padding: 8px;
             text-align: center;
-            font-size: 14px;
-            border: 2px solid #c0392b;
+            font-size: 12px;
+            border: 2px solid;
             margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            box-shadow: 0 0 10px rgba(255, 71, 87, 0.5);
+            font-family: 'Press Start 2P', monospace;
         }
 
         .arcade-screen {
-            background: #0d1117;
-            border: 8px solid #4a5568;
-            border-radius: 10px 10px 30px 30px;
+            background: rgba(13, 17, 23, 0.6);
+            border: 4px solid #2d3748;
+            border-radius: 10px; /* 10px on all corners */
             width: 100%;
             height: 220px;
             position: relative;
@@ -182,74 +189,120 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #7cff9b;
             text-decoration: none;
             flex-direction: column;
             text-align: center;
             padding: 15px;
             box-sizing: border-box;
             transition: border-color 0.3s;
+            z-index: 1; /* Establishes a stacking context for its children */
         }
-
-        .arcade-screen:hover { border-color: #ffd84f; }
         
-        /* CRT Scanline Effect */
+        /* 1. Add this new selector to control the image aspect ratio and placement */
+        .arcade-screen img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Crops nicely without stretching */
+            object-position: center;
+            z-index: 1; /* Pushes the image behind text and scanlines */
+        }
+        
+        /* 2. Update your text layer style slightly so it reads clearly over images */
+        .arcade-screen p {
+            position: relative;
+            z-index: 3; /* Places text on the absolute top layer */
+            margin-top: auto; /* Keeps the title pushed to the bottom */
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9); /* Makes white text pop over any image background */
+        }
+        
         .arcade-screen::after { 
-            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            background-size: 100% 4px, 6px 100%; pointer-events: none;
+            content: ''; 
+            position: absolute; 
+            top: 0; left: 0; right: 0; bottom: 0;
+            /* Added a subtle dark vignette bottom gradient to ensure text readability */
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+                        linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.7) 100%);
+            background-size: 100% 4px, 100% 100%; 
+            pointer-events: none;
+            z-index: 2; /* Sits perfectly between the image (z-index 1) and text (z-index 3) */
         }
 
         .arcade-controls {
-            margin-top: 20px; width: 100%; height: 45px; background: #2d3748;
-            transform: perspective(200px) rotateX(30deg);
+            margin-top: 20px; width: 100%; height: 40px; background: #1a1e24;
+            transform: perspective(200px) rotateX(20deg);
             display: flex; justify-content: space-around; align-items: center;
-            border: 2px solid #1a1e24; box-shadow: 0 5px 0 #0f1319;
+            border: 2px solid #2d3748;
         }
 
-        .joystick { width: 18px; height: 18px; background: #ff4757; border-radius: 50%; box-shadow: -2px -2px 0 rgba(0,0,0,0.5) inset; }
-        .buttons { display: flex; gap: 8px; }
-        .btn-arcade { width: 12px; height: 12px; border-radius: 50%; box-shadow: -1px -1px 0 rgba(0,0,0,0.5) inset; }
-        .btn-a { background: #4fb1ff; }
-        .btn-b { background: #ffd84f; }
+        .joystick { width: 14px; height: 14px; border-radius: 50%; box-shadow: -2px -2px 0 rgba(0,0,0,0.5) inset; }
+        .buttons { display: flex; gap: 6px; }
+        .btn-arcade { width: 10px; height: 10px; border-radius: 50%; }
+
+        /* Integrated Scroll Indicator Arrow Styles */
+        .scroll-hint {
+            display: none;
+            text-align: center;
+            font-family: 'Press Start 2P', monospace;
+            font-size: 10px;
+            color: #ff77da;
+            margin-top: 15px;
+            letter-spacing: 2px;
+            animation: hintBlink 1.5s infinite;
+        }
+
+        @keyframes hintBlink {
+            0%, 100% { opacity: 0.3; transform: translateX(-3px); }
+            50% { opacity: 1; transform: translateX(3px); }
+        }
 
         /* ---------------------------------------------------
-           MOBILE OPTIMIZATION (MEDIA QUERIES)
+           RESPONSIVE VIEW OPTIMIZATIONS
            --------------------------------------------------- */
         @media (max-width: 992px) {
-            .feature-grid { grid-template-columns: repeat(2, 1fr); } /* 2x2 grid on tablets */
+            .feature-grid { grid-template-columns: repeat(2, 1fr); }
             .hero { flex-direction: column; text-align: center; gap: 40px; }
             .hero-side { display: flex; justify-content: center; }
         }
 
         @media (max-width: 768px) {
-            /* Fix HUD for mobile */
             .hud-inner { flex-direction: column; gap: 15px; }
             .nav { flex-wrap: wrap; justify-content: center; gap: 10px; font-size: 12px; }
             
-            /* Horizontal Scroll for Arcade Machines */
+            /* Edge fade visual queue to signal hidden content */
+            .arcade-wrapper::after {
+                content: '';
+                position: absolute; top: 0; right: 0; bottom: 0; width: 40px;
+                background: linear-gradient(to left, rgba(13,17,23,0.9), transparent);
+                pointer-events: none; z-index: 10;
+            }
+
             .arcade-container {
                 justify-content: flex-start;
                 overflow-x: auto;
                 scroll-snap-type: x mandatory;
-                padding-bottom: 20px; /* Space for scrollbar */
-                -webkit-overflow-scrolling: touch; /* Smooth iOS scroll */
+                padding: 10px 20px 25px 0px;
+                -webkit-overflow-scrolling: touch;
             }
             
             .arcade-machine {
-                min-width: 280px; /* Prevents squishing */
-                scroll-snap-align: center; /* Snaps beautifully into place */
+                min-width: 270px;
+                scroll-snap-align: center;
                 flex-shrink: 0;
             }
 
-            /* Optional: Hide scrollbar for cleaner look, functionality remains */
             .arcade-container::-webkit-scrollbar { display: none; }
             .arcade-container { -ms-overflow-style: none; scrollbar-width: none; }
+            
+            .scroll-hint { display: block; } /* Visible only on mobile views */
         }
 
         @media (max-width: 480px) {
-            .feature-grid { grid-template-columns: 1fr; } /* Stack vertically on phones */
-            .arcade-machine { min-width: 85vw; } /* Scales to screen width */
+            .feature-grid { grid-template-columns: 1fr; }
+            .arcade-machine { min-width: 80vw; }
             .hero-name { font-size: 24px; }
         }
     </style>
@@ -265,10 +318,8 @@
     <div class="star" style="left:74%;top:13%;animation-delay:.4s"></div>
     <div class="star" style="left:91%;top:23%;animation-delay:1.5s"></div>
     <div class="star" style="left:57%;top:29%;animation-delay:2s"></div>
-
     <div class="cloud" style="left:6%;top:170px"></div>
     <div class="cloud" style="left:50%;top:130px;transform:scale(.85);animation-delay: -15s;"></div>
-
     <div class="mountains"></div>
     <div class="random-entity dino-entity"></div>
     <div class="random-entity robot-entity"></div>
@@ -294,7 +345,7 @@
             </nav>
             <div class="hud-stats">
                 <div class="stat-box" id="player-level">LVL 1</div>
-                <div class="stat-box coin-box" style="position: relative;">
+                <div class="stat-box coin-box">
                     <span class="coin"></span>
                     <span id="player-coins">0</span>
                 </div>
@@ -308,7 +359,10 @@
             <div class="hero-panel">
                 <div class="kicker">PLAYER ONE</div>
                 <h1 class="hero-name">SHANU PRIYA GARG</h1>
-                <p class="hero-role">UX Designer · UX Strategist<br>Digital Communication AI Fellow @KDSI</p>
+                <p class="hero-role">
+                    UX Designer · UX Strategist<br>
+                    <span class="role-highlight">Digital Communications AI Intern</span>
+                </p>
                 <p class="hero-copy">
                     Crafting meaningful solutions where empathy, strategy, and
                     curiosity unlock better experiences.
@@ -334,57 +388,59 @@
 
         <section id="work-arcade" class="arcade-section">
             <h2 class="section-title">PROJECT ARCADE</h2>
-            <div class="arcade-container">
-                
-                <div class="arcade-machine">
-                    <div class="arcade-marquee">PROJ 01</div>
-                    <a href="work.html#project1" class="arcade-screen" onclick="rewardPlayer(5)">
-                        <i data-lucide="image" style="margin-bottom: 10px;"></i>
-                        <span style="font-size: 12px; font-family: 'Space Mono', monospace;">[INSERT IMAGE]</span>
-                        <p style="margin-top: 10px; font-size: 10px;">UX Case Study 1</p>
-                    </a>
-                    <div class="arcade-controls">
-                        <div class="joystick"></div>
-                        <div class="buttons">
-                            <div class="btn-arcade btn-a"></div>
-                            <div class="btn-arcade btn-b"></div>
+            
+            <div class="arcade-wrapper">
+                <div class="arcade-container">
+                    
+                    <div class="arcade-machine" style="border-color: #4fb1ff;">
+                        <div class="arcade-marquee" style="border-color: #4fb1ff; color: #4fb1ff;">QUEST 01</div>
+                        <a href="work.html#project1" class="arcade-screen" onclick="rewardPlayer(5)">
+                            <img src="nps-hero.png" alt="NPS Onboarding Redesign">
+                            <p style="margin-top: 12px; font-size: 10px; color: #fff;">UX Case Study 1</p>
+                        </a>
+                        <div class="arcade-controls" style="border-color: #4fb1ff;">
+                            <div class="joystick" style="background: #4fb1ff;"></div>
+                            <div class="buttons">
+                                <div class="btn-arcade" style="background: #ff77da;"></div>
+                                <div class="btn-arcade" style="background: #7cff9b;"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="arcade-machine">
-                    <div class="arcade-marquee" style="background: #4fb1ff; box-shadow: 0 0 10px rgba(79, 177, 255, 0.5);">PROJ 02</div>
-                    <a href="work.html#project2" class="arcade-screen" onclick="rewardPlayer(5)">
-                        <i data-lucide="image" style="margin-bottom: 10px;"></i>
-                        <span style="font-size: 12px; font-family: 'Space Mono', monospace;">[INSERT IMAGE]</span>
-                        <p style="margin-top: 10px; font-size: 10px;">Mobile App Design</p>
-                    </a>
-                    <div class="arcade-controls">
-                        <div class="joystick"></div>
-                        <div class="buttons">
-                            <div class="btn-arcade btn-a"></div>
-                            <div class="btn-arcade btn-b"></div>
+                    <div class="arcade-machine" style="border-color: #7cff9b;">
+                        <div class="arcade-marquee" style="border-color: #7cff9b; color: #7cff9b;">QUEST 02</div>
+                        <a href="work.html#project2" class="arcade-screen" onclick="rewardPlayer(5)">
+                            <img src="rdpr-hero.png" alt="Mobile Panchamitra">
+                            <p style="margin-top: 12px; font-size: 10px; color: #fff;">UX Case Study 1</p>
+                        </a>
+                        <div class="arcade-controls" style="border-color: #7cff9b;">
+                            <div class="joystick" style="background: #7cff9b;"></div>
+                            <div class="buttons">
+                                <div class="btn-arcade" style="background: #4fb1ff;"></div>
+                                <div class="btn-arcade" style="background: #ff77da;"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="arcade-machine">
-                    <div class="arcade-marquee" style="background: #ffd84f; color:#000; box-shadow: 0 0 10px rgba(255, 216, 79, 0.5);">PROJ 03</div>
-                    <a href="work.html#project3" class="arcade-screen" onclick="rewardPlayer(5)">
-                        <i data-lucide="image" style="margin-bottom: 10px;"></i>
-                        <span style="font-size: 12px; font-family: 'Space Mono', monospace;">[INSERT IMAGE]</span>
-                        <p style="margin-top: 10px; font-size: 10px;">AI Fellowship Work</p>
-                    </a>
-                    <div class="arcade-controls">
-                        <div class="joystick"></div>
-                        <div class="buttons">
-                            <div class="btn-arcade btn-a"></div>
-                            <div class="btn-arcade btn-b"></div>
+                    <div class="arcade-machine" style="border-color: #ff77da;">
+                        <div class="arcade-marquee" style="border-color: #ff77da; color: #ff77da;">QUEST 03</div>
+                        <a href="work.html#project3" class="arcade-screen" onclick="rewardPlayer(5)">
+                            <img src="ezam-g.png" alt="EZAM Board Game">
+                            <p style="margin-top: 12px; font-size: 10px; color: #fff;">UX Case Study 1</p>
+                        </a>
+                        <div class="arcade-controls" style="border-color: #ff77da;">
+                            <div class="joystick" style="background: #ff77da;"></div>
+                            <div class="buttons">
+                                <div class="btn-arcade" style="background: #7cff9b;"></div>
+                                <div class="btn-arcade" style="background: #4fb1ff;"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
+            
+            <div class="scroll-hint">SWIPE TO VIEW MACHINES >>></div>
         </section>
 
         <section id="features" class="section">
@@ -394,14 +450,14 @@
                     <article class="feature-card" style="border-color:#4fb1ff;">
                         <div class="feature-icon" style="border-color:#4fb1ff; color:#4fb1ff;"><i data-lucide="briefcase"></i></div>
                         <h3 style="color:#4fb1ff;">WORK</h3>
-                        <p>Professional experience, internships, software projects and achievements.</p>
+                        <p>Professional experience and academic projects.</p>
                     </article>
                 </a>
                 <a href="activity.html" class="card-link" onclick="rewardPlayer(3)">
                     <article class="feature-card" style="border-color:#7cff9b;">
                         <div class="feature-icon" style="border-color:#7cff9b; color:#7cff9b;"><i data-lucide="heart-handshake"></i></div>
                         <h3 style="color:#7cff9b;">QUESTS</h3>
-                        <p>A glimpse of my quests beyond work..</p>
+                        <p>A glimpse of my quests beyond work.</p>
                     </article>
                 </a>
                 <a href="play.html" class="card-link" onclick="rewardPlayer(3)">
@@ -437,15 +493,12 @@
 <script src="script.js"></script>
 
 <script>
-    // Initialize Lucide Icons
     lucide.createIcons();
 
-    // 1. --- GAMIFICATION & POP-UP ENGINE ---
     let currentCoins = parseInt(localStorage.getItem('shanu_coins')) || 0;
 
     function updateHUD() {
         let currentLevel = Math.floor(currentCoins / 50) + 1;
-        
         document.getElementById('player-coins').innerText = currentCoins;
         document.getElementById('player-level').innerText = 'LVL ' + currentLevel;
         
@@ -453,39 +506,26 @@
         document.querySelector('.bar.xp span').style.width = xpProgress + '%';
     }
 
+    /* Globalized Retro Floating Score Function */
     window.rewardPlayer = function(amount) {
-        // Add coins and update UI
         currentCoins += amount;
         localStorage.setItem('shanu_coins', currentCoins);
         updateHUD();
 
-        // Trigger floating coin animation
         const popup = document.createElement('div');
         popup.classList.add('coin-popup');
         popup.innerText = `+${amount} COINS!`;
-        
-        // Append to body so it overlays everything
         document.body.appendChild(popup);
 
-        // Remove element after animation ends to keep DOM clean
-        setTimeout(() => {
-            popup.remove();
-        }, 1000); // matches the 1s CSS animation duration
+        setTimeout(() => { popup.remove(); }, 1000);
     };
 
-    // 1.5 --- LAUNCH ANIMATION ENGINE ---
     window.launchWorld = function() {
-        if (typeof rewardPlayer === "function") {
-            rewardPlayer(10);
-        }
-        
+        if (typeof rewardPlayer === "function") { rewardPlayer(10); }
         const btn = document.getElementById('enter-world');
         btn.innerHTML = "INITIALIZING...";
         btn.classList.add('rocket-shake');
-        
-        setTimeout(() => {
-            window.location.href = 'work.html';
-        }, 1500);
+        setTimeout(() => { window.location.href = 'work.html'; }, 1500);
     };
 
     updateHUD();
@@ -495,27 +535,15 @@
         sessionStorage.setItem('visited_home', 'true');
     }
 
-    // 2. --- RANDOM ENVIRONMENT ENGINE ---
     document.addEventListener('DOMContentLoaded', () => {
         const world = document.getElementById('main-world');
         const events = ['normal', 'rain', 'sunny', 'dino', 'robots'];
         const activeEvent = events[Math.floor(Math.random() * events.length)];
 
-        if (activeEvent === 'rain') {
-            world.classList.add('weather-rain');
-            console.log("Weather: Thunderstorm generated.");
-        } else if (activeEvent === 'sunny') {
-            world.classList.add('weather-sunny');
-            console.log("Weather: Sunny, birds incoming.");
-        } else if (activeEvent === 'dino') {
-            world.classList.add('event-dino');
-            console.log("Event: Dinosaur spotted.");
-        } else if (activeEvent === 'robots') {
-            world.classList.add('event-robots');
-            console.log("Event: Giant robots traversing.");
-        } else {
-            console.log("Weather: Normal skies.");
-        }
+        if (activeEvent === 'rain') { world.classList.add('weather-rain'); } 
+        else if (activeEvent === 'sunny') { world.classList.add('weather-sunny'); } 
+        else if (activeEvent === 'dino') { world.classList.add('event-dino'); } 
+        else if (activeEvent === 'robots') { world.classList.add('event-robots'); }
     });
 </script>
 
