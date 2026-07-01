@@ -31,49 +31,76 @@
 /* THE LOOT (Z-Index increased to 30 to sit ABOVE cards) */
 .loot-container { position: absolute; left: 50%; bottom: 160px; width: 0; height: 0; z-index: 30; pointer-events: none; }
 
+/* --- LAYER FIX: Wallet Always on Top --- */
+.wallet-container {
+    position: absolute; left: 50%; bottom: 80px; transform: translateX(-50%);
+    z-index: 150 !important; /* Forces the wallet above everything else (cards and loot) */
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); text-align: center;
+}
+
+/* Adjust slip hover so it pops out, but stays strictly behind the wallet */
+.item-slip:hover {
+    z-index: 140 !important; 
+    box-shadow: 8px 8px 0 #f864c4;
+}
+
 /* ========================================= */
-/* MOBILE VIEW (Restored Exploding Grid)     */
+/* MOBILE VIEW FIXES                         */
 /* ========================================= */
 @media (max-width: 768px) {
-    .menu-box { padding-top: 4rem; } /* Gives room for the top button */
-    .hire-me-btn { right: 50%; transform: translateX(50%); width: max-content; }
-    .hire-me-btn:hover { transform: translateX(50%) translate(-2px, -2px); }
-
-    .wallet-stage { min-height: 500px; }
-    .wallet-container { bottom: 20px; transform: translateX(-50%) scale(0.85); }
-    .wallet-container.is-open { transform: translateX(-50%) scale(0.85) translateY(10px); }
-
-    /* Shrink project cards for mobile screen */
-    .project-card { width: 130px; margin-left: -65px; bottom: 130px; }
+    .menu-box { padding-top: 4rem; } 
     
-    /* 2-Column tightly packed explosion grid for mobile */
-    .wallet-stage.is-open .card-0 { transform: translate(-75px, -340px); } 
-    .wallet-stage.is-open .card-1 { transform: translate(75px, -340px); } 
-    .wallet-stage.is-open .card-2 { transform: translate(-75px, -240px); } 
-    .wallet-stage.is-open .card-3 { transform: translate(75px, -240px); } 
-    .wallet-stage.is-open .card-4 { transform: translate(-75px, -140px); } 
-    .wallet-stage.is-open .card-5 { transform: translate(75px, -140px); } 
-    .wallet-stage.is-open .card-6 { transform: translate(-75px, -40px); } 
-    .wallet-stage.is-open .card-7 { transform: translate(75px, -40px); }
+    /* HIRE ME BUTTON - Moved Top Right */
+    .hire-me-btn { 
+        right: 15px; /* Anchors it to the right */
+        top: -20px;  /* Sits right on the top edge */
+        transform: none; /* Removes the centering transform */
+        width: max-content; 
+    }
+    .hire-me-btn:hover { 
+        transform: translate(-4px, -4px); /* Clean hover effect without jumping to center */
+    }
 
-    /* Tighten up the personality slips & coins so they don't break the screen width */
-    .wallet-stage.is-open .coin-1 { transform: translate(-100px, -360px); }
-    .wallet-stage.is-open .coin-2 { transform: translate(100px, -200px); }
-    .wallet-stage.is-open .slip-1 { transform: translate(-30px, -380px) rotate(-10deg) scale(0.7); }
-    .wallet-stage.is-open .slip-2 { transform: translate(30px, -390px) rotate(12deg) scale(0.7); }
-    .wallet-stage.is-open .slip-3 { transform: translate(-130px, -100px) rotate(-85deg) scale(0.7); }
-    .wallet-stage.is-open .slip-4 { transform: translate(130px, -180px) rotate(85deg) scale(0.7); }
-    .wallet-stage.is-open .slip-5 { transform: translate(-100px, -20px) rotate(-15deg) scale(0.7); }
-    .wallet-stage.is-open .slip-6 { transform: translate(100px, -40px) rotate(22deg) scale(0.7); }
+    /* Cards stack vertically */
+    .wallet-stage.is-open { 
+        display: flex; flex-direction: column; align-items: center; 
+        gap: 2rem; padding-top: 2rem; padding-bottom: 250px; min-height: auto; 
+    }
+    
+    .wallet-stage.is-open .project-card { 
+        position: relative; left: auto; margin-left: 0; bottom: auto; 
+        transform: none !important; width: 240px; opacity: 1; 
+    }
+
+    /* Keep wallet and loot containers fixed for the explosion */
+    .wallet-container { position: fixed; bottom: 20px; transform: translateX(-50%) scale(0.85); }
+    .wallet-container.is-open { transform: translateX(-50%) scale(0.85) translateY(10px); }
+    .loot-container { position: fixed; bottom: 120px; left: 50%; z-index: 90; display: block; }
+    
+    /* --- BALANCED LOOT EXPLOSION --- */
+    /* Re-mapped ALL coins and cash to ensure symmetrical distribution */
+    .wallet-stage.is-open .coin-1 { transform: translate(-80px, -180px) rotate(-15deg); }
+    .wallet-stage.is-open .coin-2 { transform: translate(80px, -160px) rotate(20deg); }
+    .wallet-stage.is-open .coin-3 { transform: translate(0px, -200px) rotate(45deg); }
+    .wallet-stage.is-open .coin-4 { transform: translate(-120px, -120px) rotate(-30deg); }
+    .wallet-stage.is-open .coin-5 { transform: translate(120px, -130px) rotate(15deg); }
+    .wallet-stage.is-open .coin-6 { transform: translate(30px, -140px) rotate(-10deg); }
+    .wallet-stage.is-open .cash-1 { transform: translate(50px, -230px) rotate(-5deg); }
+    .wallet-stage.is-open .cash-2 { transform: translate(-60px, -210px) rotate(15deg); }
+
+    /* Balanced Slip Scatter */
+    .wallet-stage.is-open .slip-1 { transform: translate(-110px, -90px) rotate(-10deg) scale(0.75); }
+    .wallet-stage.is-open .slip-2 { transform: translate(110px, -100px) rotate(12deg) scale(0.75); }
+    .wallet-stage.is-open .slip-3 { transform: translate(-130px, -20px) rotate(-25deg) scale(0.75); }
+    .wallet-stage.is-open .slip-4 { transform: translate(130px, -30px) rotate(25deg) scale(0.75); }
+    .wallet-stage.is-open .slip-5 { transform: translate(-70px, 40px) rotate(-15deg) scale(0.75); }
+    .wallet-stage.is-open .slip-6 { transform: translate(70px, 50px) rotate(22deg) scale(0.75); }
 }
 
 /* WALLET STAGE */
 .wallet-stage { position: relative; min-height: 550px; width: 100%; }
 
-.wallet-container {
-    position: absolute; left: 50%; bottom: 80px; transform: translateX(-50%);
-    z-index: 15; transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); text-align: center;
-}
+
 .wallet-container.is-open { transform: translateX(-50%) translateY(40px); } 
 
 .wallet-btn { width: 280px; height: 180px; background: #f864c4; border: 4px solid #ffffff; box-shadow: 10px 10px 0 #5a2146; position: relative; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; transition: transform 0.1s ease, box-shadow 0.1s ease; }
