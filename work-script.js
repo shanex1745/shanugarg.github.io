@@ -93,7 +93,7 @@ const projectData = {
             <div class="before-after-grid" style="margin-bottom: 2rem;">
                 <div class="ba-box">
                     <div class="ba-label label-before">BEFORE: THE COMPLIANCE WALL</div>
-                    <div style="max-height: 60vh; overflow-y: auto; background: #050d1f; border-radius: 8px; border: 2px solid #ff5555;">
+                    <div style="max-height: 100%; overflow-y: auto; background: #050d1f; border-radius: 8px; border: 2px solid #ff5555;">
                         <img src="nps-old.png" alt="Old OTP/KYC Screens" style="display: block; width: 100%; height: 100%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <div style="display: none; padding: 40px 20px; text-align: center; color: #ff5555; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
                     </div>
@@ -101,7 +101,7 @@ const projectData = {
                 </div>
                 <div class="ba-box">
                     <div class="ba-label label-after">AFTER: INTENT-FIRST EXPLORATION</div>
-                    <div style="max-height: 60vh; overflow-y: auto; background: #050d1f; border-radius: 8px; border: 2px solid #7cff9b; box-shadow: 0 0 15px rgba(124,255,155,0.15);">
+                    <div style="max-height: 100%; overflow-y: auto; background: #050d1f; border-radius: 8px; border: 2px solid #7cff9b; box-shadow: 0 0 15px rgba(124,255,155,0.15);">
                         <img src="nps-new.png" alt="New Amazon-style Plan Selection" style="display: block; width: 100%; height: 100%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <div style="display: none; padding: 40px 20px; text-align: center; color: #7cff9b; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
                     </div>
@@ -114,7 +114,7 @@ const projectData = {
                 <p><strong>Major Design Challenge:</strong> How do you make highly complex financial forecasts accessible to low-literacy or first-time investors from the informal sector? Simplified text wasn't enough; we integrated a Multilingual AI Voice Assistant. If users were confused by a chart, they could ask the AI to clarify in their regional language.</p>
             </div>
             
-            <div style="max-height: 60vh; overflow-y: auto; background: #050d1f; border-radius: 8px; border: 2px solid #333; margin-top: 1rem; margin-bottom: 2rem;">
+            <div style="max-height: 100%; overflow-y: auto; background: #050d1f; border-radius: 8px; border: 2px solid #333; margin-top: 1rem; margin-bottom: 2rem;">
                 <img src="nps-ai.png" alt="AI Voice Assistant Interface" style="display: block; width: 100%; height: 100%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div style="display: none; padding: 40px 20px; text-align: center; color: #ccc; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
             </div>
@@ -150,7 +150,7 @@ const projectData = {
             </div>
 
             <h3 class="section-heading">Research & Discovery</h3>
-            <div style="max-height: 60vh; overflow-y: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none; margin-bottom: 2rem;">
+            <div style="max-height: 100%; overflow-y: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none; margin-bottom: 2rem;">
                 <img src="cam-secure.png" alt="Statistical Threat Analysis & Market Gaps" style="display: block; width: 100%; height: 100%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div style="display: none; padding: 40px 20px; text-align: center; color: #ccc; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
             </div>
@@ -163,7 +163,7 @@ const projectData = {
             </div>
 
             <h3 class="section-heading">The Idea</h3>
-            <div style="max-height: 60vh; overflow-y: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none; margin-bottom: 2rem;">
+            <div style="max-height: 100%; overflow-y: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none; margin-bottom: 2rem;">
                 <img src="cam-idea.png" alt="Dual-Layer Data Architecture Map" style="display: block; width: 100%; height: 100%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div style="display: none; padding: 40px 20px; text-align: center; color: #ccc; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
             </div>
@@ -177,7 +177,7 @@ const projectData = {
             </div>
 
             <h3 class="section-heading">Design Execution & Iteration</h3>
-            <div style="max-height: 60vh; overflow-y: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none; margin-bottom: 2rem;">
+            <div style="max-height: 100%; overflow-y: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none; margin-bottom: 2rem;">
                 <img src="cam-ideation.png" alt="CAD Modeling and Hardware Breadboarding" style="display: block; width: 100%; height: 100%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div style="display: none; padding: 40px 20px; text-align: center; color: #ccc; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
             </div>
@@ -189,7 +189,7 @@ const projectData = {
             </div>
 
             <h3 class="section-heading">The Final Solution</h3>
-            <div style="max-height: 60vh; overflow-y: auto; background: #050d1f; border-radius: 8px; border: 2px solid #7cff9b; box-shadow: 0 0 15px rgba(124,255,155,0.15); cursor: grab; flex: none; margin-bottom: 2rem;">
+            <div style="max-height: 100%; overflow-y: auto; background: #050d1f; border-radius: 8px; border: 2px solid #7cff9b; box-shadow: 0 0 15px rgba(124,255,155,0.15); cursor: grab; flex: none; margin-bottom: 2rem;">
                 <video width="100%" controls>
                   <source src="Detection.mp4" type="video/mp4">
                 </video>
@@ -258,7 +258,7 @@ const projectData = {
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 5rem;">
                 <div style="display: flex; flex-direction: column;">
                     <div class="retro-title" style="color: #ff5555; border-color: #ff5555; width: max-content;">► BEFORE: THE MAZE</div>
-                    <div style="max-height: 500px; max-width: 100%; overflow: auto; background: #000; border-radius: 4px; border: 2px solid #ff5555;">
+                    <div style="max-height: 500px; max-width: 500px; overflow: auto; background: #000; border-radius: 4px; border: 2px solid #ff5555;">
                         <img src="nai-old.png" alt="Old NAI Website" style="display: block; width: 100%; min-width: 600px; height: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <div style="display: none; padding: 40px 20px; text-align: center; color: #ff5555; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
                     </div>
@@ -266,7 +266,7 @@ const projectData = {
 
                 <div style="display: flex; flex-direction: column;">
                     <div class="retro-title" style="color: #7cff9b; border-color: #7cff9b; width: max-content;">► AFTER: INTENT-DRIVEN</div>
-                    <div style="max-height: 500px; max-width: 100%; overflow: auto; background: #000; border-radius: 4px; border: 2px solid #7cff9b; box-shadow: 0 0 20px rgba(124,255,155,0.15);">
+                    <div style="max-height: 500px; max-width: 500px; overflow: auto; background: #000; border-radius: 4px; border: 2px solid #7cff9b; box-shadow: 0 0 20px rgba(124,255,155,0.15);">
                         <img src="nai-new.jpg" alt="New NAI Website" style="display: block; width: 100%; min-width: 600px; height: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <div style="display: none; padding: 40px 20px; text-align: center; color: #7cff9b; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
                     </div>
@@ -1090,8 +1090,8 @@ const projectData = {
             </div>
 
             <h3 class="section-heading">PHYSICAL PRODUCT DETAILS</h3>
-            <div style="max-height: 500px; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #333; margin-bottom: 2rem;">
-                <iframe width="100%" height="315" src="https://youtu.be/4cMisV6p1UM" frameborder="0" allowfullscreen style="border: 2px solid #4fb1ff; border-radius: 8px;"></iframe>
+            <div style="max-height: 100%; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #333; margin-bottom: 2rem;">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/4cMisV6p1UM?si=ZdK-Fy0uWpFibekp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <div style="display: none; padding: 40px 20px; text-align: center; color: #ccc; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
             </div>
 
