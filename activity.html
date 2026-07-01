@@ -128,6 +128,41 @@
             0% { transform: translateY(0) scale(1); opacity: 1; }
             100% { transform: translateY(-40px) scale(1.4); opacity: 0; }
         }
+
+        /* --- HORIZONTAL PHOTO CAROUSEL --- */
+        .photo-carousel { 
+            display: flex; gap: 30px; overflow-x: auto; padding: 20px 10px 40px 10px; 
+            scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: #7cff9b #111; margin-bottom: 60px;
+        }
+        .photo-carousel::-webkit-scrollbar { height: 10px; }
+        .photo-carousel::-webkit-scrollbar-track { background: #111; }
+        .photo-carousel::-webkit-scrollbar-thumb { background: #7cff9b; border-radius: 5px; }
+        
+        .photo-carousel .polaroid { 
+            flex: 0 0 calc(25% - 22.5px); /* Forces exactly 4 items per view */
+            scroll-snap-align: start; 
+        }
+
+        /* --- LIGHTBOX POP-UP --- */
+        .photo-modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(0,0,0,0.95); z-index: 99999;
+            display: none; justify-content: center; align-items: center;
+        }
+        .photo-modal-overlay.active { display: flex; }
+        .photo-modal-overlay img { max-width: 90vw; max-height: 90vh; border: 4px solid #fff; box-shadow: 0 0 30px #7cff9b; object-fit: contain; }
+        .photo-close-btn {
+            position: absolute; top: 30px; right: 40px; background: transparent; border: 2px solid #fff; padding: 10px;
+            color: #fff; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; cursor: pointer; transition: 0.2s;
+        }
+        .photo-close-btn:hover { background: #ff5555; border-color: #ff5555; }
+
+        @media (max-width: 900px) {
+            .photo-carousel .polaroid { flex: 0 0 calc(50% - 15px); } /* 2 per view on tablet */
+        }
+        @media (max-width: 600px) {
+            .photo-carousel .polaroid { flex: 0 0 85%; } /* 1 per view on mobile */
+        }
         
     </style>
 </head>
@@ -181,23 +216,45 @@
         <div class="section-kicker">MODULE 01</div>
         <h1 class="section-title">PHOTO JOURNAL</h1>
         
-        <div class="photo-grid">
-            <div class="polaroid" style="transform: rotate(-3deg);" onclick="rewardPlayer(2)">
+        <div class="photo-carousel">
+            <div class="polaroid" style="transform: rotate(-3deg);" onclick="rewardPlayer(2); openPhotoModal('view.png')">
                 <div class="polaroid-img" style="background: url('view.png') center/cover;"></div>
                 <div class="polaroid-caption">AMER_FORT.JPG</div>
             </div>
-            <div class="polaroid" style="transform: rotate(4deg);" onclick="rewardPlayer(2)">
+            <div class="polaroid" style="transform: rotate(4deg);" onclick="rewardPlayer(2); openPhotoModal('samsung.JPG')">
                 <div class="polaroid-img" style="background: url('samsung.JPG') center/cover;"></div>
                 <div class="polaroid-caption">SAMSUNG_SHOOT.JPG</div>
             </div>
-            <div class="polaroid" style="transform: rotate(-2deg);" onclick="rewardPlayer(2)">
+            <div class="polaroid" style="transform: rotate(-2deg);" onclick="rewardPlayer(2); openPhotoModal('clouds.jpg')">
                 <div class="polaroid-img" style="background: url('clouds.jpg') center/cover;"></div>
                 <div class="polaroid-caption">CLOUDS.JPG</div>
             </div>
-            <div class="polaroid" style="transform: rotate(5deg);" onclick="rewardPlayer(2)">
+            <div class="polaroid" style="transform: rotate(5deg);" onclick="rewardPlayer(2); openPhotoModal('aesthetics.jpg')">
                 <div class="polaroid-img" style="background: url('aesthetics.jpg') center/cover;"></div>
                 <div class="polaroid-caption">AESTHETICS.JPG</div>
             </div>
+            
+            <div class="polaroid" style="transform: rotate(-4deg);" onclick="rewardPlayer(2); openPhotoModal('buds.jpg')">
+                <div class="polaroid-img" style="background: #333 center/cover;"></div>
+                <div class="polaroid-caption">LISTEN.JPG</div>
+            </div>
+            <div class="polaroid" style="transform: rotate(2deg);" onclick="rewardPlayer(2); openPhotoModal('phool.jpg')">
+                <div class="polaroid-img" style="background: #444 center/cover;"></div>
+                <div class="polaroid-caption">THE PHOOL.JPG</div>
+            </div>
+            <div class="polaroid" style="transform: rotate(-5deg);" onclick="rewardPlayer(2); openPhotoModal('ambi.jpg')">
+                <div class="polaroid-img" style="background: #555 center/cover;"></div>
+                <div class="polaroid-caption">AMBIENCE>JPG</div>
+            </div>
+            <div class="polaroid" style="transform: rotate(3deg);" onclick="rewardPlayer(2); openPhotoModal('night.png')">
+                <div class="polaroid-img" style="background: #666 center/cover;"></div>
+                <div class="polaroid-caption">NIGHT LIGHTS.JPG</div>
+            </div>
+        </div>
+
+        <div class="photo-modal-overlay" id="photoModal" onclick="closePhotoModal()">
+            <button class="photo-close-btn" onclick="closePhotoModal()">X CLOSE</button>
+            <img id="photoModalImg" src="" alt="Expanded View" onclick="event.stopPropagation()">
         </div>
 
         <div class="section-kicker">MODULE 02</div>
@@ -221,7 +278,7 @@
         <div class="terminal-box">
             <div class="terminal-header">
                 <span class="terminal-title">C:\USERS\SHANU\WRITINGS\</span>
-                <span class="terminal-title" id="file-name">POEM_01.TXT</span>
+                <span class="terminal-title" id="file-name">LOST.TXT</span>
             </div>
             <div class="typewriter-text">
                 <span id="typewriter-output"></span><span class="blinking-cursor"></span>
@@ -322,6 +379,18 @@
         else if (activeEvent === 'dino') { world.classList.add('event-dino'); } 
         else if (activeEvent === 'robots') { world.classList.add('event-robots'); }
     });
+
+    // --- 3. PHOTO LIGHTBOX LOGIC ---
+    function openPhotoModal(imgSrc) {
+        document.getElementById('photoModalImg').src = imgSrc;
+        document.getElementById('photoModal').classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevents background scrolling
+    }
+    
+    function closePhotoModal() {
+        document.getElementById('photoModal').classList.remove('active');
+        document.body.style.overflow = 'auto'; // Restores background scrolling
+    }
 
     // --- 1. TV CAROUSEL LOGIC ---
     const tvChannels = [
