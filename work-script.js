@@ -1223,14 +1223,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.location.hash) {
         const targetId = window.location.hash.substring(1);
         if (projectData[targetId]) {
-            const walletStage = document.getElementById('walletStage');
-            const walletLabel = document.querySelector('.wallet-label');
-            if (walletStage) {
-                walletStage.classList.add('is-open');
-                if (walletLabel) walletLabel.innerText = "▲ CLOSE WALLET";
-            }
-            setTimeout(() => {
-                openModal(targetId);
-            }, 600);
+            if (walletStage) walletStage.classList.add('is-open');
+            setTimeout(() => { openModal(targetId); }, 600);
+        }
     }
 });
