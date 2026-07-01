@@ -52,14 +52,12 @@
     
     /* HIRE ME BUTTON - Moved Top Right */
     .hire-me-btn { 
-        right: 15px; /* Anchors it to the right */
-        top: -20px;  /* Sits right on the top edge */
-        transform: none; /* Removes the centering transform */
+        right: 15px; 
+        top: -20px;  
+        transform: none; 
         width: max-content; 
     }
-    .hire-me-btn:hover { 
-        transform: translate(-4px, -4px); /* Clean hover effect without jumping to center */
-    }
+    .hire-me-btn:hover { transform: translate(-4px, -4px); }
 
     /* Cards stack vertically */
     .wallet-stage.is-open { 
@@ -73,28 +71,27 @@
     }
 
     /* Keep wallet and loot containers fixed for the explosion */
-    .wallet-container { position: fixed; bottom: 20px; transform: translateX(-50%) scale(0.85); }
+    .wallet-container { position: fixed; bottom: 20px; transform: translateX(-50%) scale(0.85); z-index: 150 !important; }
     .wallet-container.is-open { transform: translateX(-50%) scale(0.85) translateY(10px); }
     .loot-container { position: fixed; bottom: 120px; left: 50%; z-index: 90; display: block; }
     
-    /* --- BALANCED LOOT EXPLOSION --- */
-    /* Re-mapped ALL coins and cash to ensure symmetrical distribution */
-    .wallet-stage.is-open .coin-1 { transform: translate(-80px, -180px) rotate(-15deg); }
-    .wallet-stage.is-open .coin-2 { transform: translate(80px, -160px) rotate(20deg); }
-    .wallet-stage.is-open .coin-3 { transform: translate(0px, -200px) rotate(45deg); }
-    .wallet-stage.is-open .coin-4 { transform: translate(-120px, -120px) rotate(-30deg); }
-    .wallet-stage.is-open .coin-5 { transform: translate(120px, -130px) rotate(15deg); }
-    .wallet-stage.is-open .coin-6 { transform: translate(30px, -140px) rotate(-10deg); }
-    .wallet-stage.is-open .cash-1 { transform: translate(50px, -230px) rotate(-5deg); }
-    .wallet-stage.is-open .cash-2 { transform: translate(-60px, -210px) rotate(15deg); }
+    /* --- BALANCED LOOT EXPLOSION (STRICTLY UPWARDS) --- */
+    .wallet-stage.is-open .coin-1 { transform: translate(-80px, -220px) rotate(-15deg); }
+    .wallet-stage.is-open .coin-2 { transform: translate(80px, -240px) rotate(20deg); }
+    .wallet-stage.is-open .coin-3 { transform: translate(0px, -280px) rotate(45deg); }
+    .wallet-stage.is-open .coin-4 { transform: translate(-120px, -160px) rotate(-30deg); }
+    .wallet-stage.is-open .coin-5 { transform: translate(120px, -170px) rotate(15deg); }
+    .wallet-stage.is-open .coin-6 { transform: translate(30px, -200px) rotate(-10deg); }
+    .wallet-stage.is-open .cash-1 { transform: translate(50px, -260px) rotate(-5deg); }
+    .wallet-stage.is-open .cash-2 { transform: translate(-60px, -240px) rotate(15deg); }
 
-    /* Balanced Slip Scatter */
-    .wallet-stage.is-open .slip-1 { transform: translate(-110px, -90px) rotate(-10deg) scale(0.75); }
-    .wallet-stage.is-open .slip-2 { transform: translate(110px, -100px) rotate(12deg) scale(0.75); }
-    .wallet-stage.is-open .slip-3 { transform: translate(-130px, -20px) rotate(-25deg) scale(0.75); }
-    .wallet-stage.is-open .slip-4 { transform: translate(130px, -30px) rotate(25deg) scale(0.75); }
-    .wallet-stage.is-open .slip-5 { transform: translate(-70px, 40px) rotate(-15deg) scale(0.75); }
-    .wallet-stage.is-open .slip-6 { transform: translate(70px, 50px) rotate(22deg) scale(0.75); }
+    /* Slips pushed UP (-Y values) to clear the label text */
+    .wallet-stage.is-open .slip-1 { transform: translate(-110px, -140px) rotate(-10deg) scale(0.75); }
+    .wallet-stage.is-open .slip-2 { transform: translate(110px, -150px) rotate(12deg) scale(0.75); }
+    .wallet-stage.is-open .slip-3 { transform: translate(-130px, -70px) rotate(-25deg) scale(0.75); }
+    .wallet-stage.is-open .slip-4 { transform: translate(130px, -80px) rotate(25deg) scale(0.75); }
+    .wallet-stage.is-open .slip-5 { transform: translate(-90px, -20px) rotate(-40deg) scale(0.75); }
+    .wallet-stage.is-open .slip-6 { transform: translate(90px, -30px) rotate(40deg) scale(0.75); }
 }
 
 /* WALLET STAGE */
