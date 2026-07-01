@@ -103,17 +103,23 @@
         .role-highlight {
             display: inline-block;
             margin-top: 12px;
-            padding: 6px 12px;
-            background: #ff77da;
-            color: #0d1117; 
-            font-family: 'Press Start 2P', cursive; /* Using the pixel font specifically for this badge */
-            font-size: 0.55rem; /* Smaller size for better readability */
+            padding: 8px 16px;
+            background: #ff77da;       /* Solid neon pink background */
+            color: #0d1117;            /* Very dark text for maximum contrast */
+            border: 2px solid #fff;    /* Crisp white border */
+            box-shadow: 6px 6px 0 #000; /* Hard brutalist drop-shadow */
+            font-family: 'Space Mono', monospace;
+            font-weight: bold;
+            font-size: 0.9rem;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            border: 2px solid #000; /* Simple clean border instead of shadow */
-            line-height: 1.2;
         }
 
+        /* Optional: Adds a slight tactile press effect if they hover over it */
+        .role-highlight:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 4px 4px 0 #000;
+        }
         /* Optional: Adds a slight tactile press effect if they hover over it */
         .role-highlight:hover {
             transform: translate(2px, 2px);
