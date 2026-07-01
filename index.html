@@ -107,12 +107,18 @@
             background: #ff77da;       /* Solid neon pink background */
             color: #0d1117;            /* Very dark text for maximum contrast */
             border: 2px solid #fff;    /* Crisp white border */
-            box-shadow: 6px 6px 0 #000; /* Hard brutalist drop-shadow */
             font-family: 'Space Mono', monospace;
             font-weight: bold;
             font-size: 0.9rem;
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        /* Optional: Adds a slight tactile press effect if they hover over it */
+        .role-highlight:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 4px 4px 0 #000;
         }
 
         /* Optional: Adds a slight tactile press effect if they hover over it */
