@@ -32,39 +32,67 @@ window.addEventListener('storage', (e) => {
 });
 
 
-// --- 2. WALLET & ALERT LOGIC ---
-const walletTrigger = document.getElementById('walletTrigger');
+/// --- 2. CHEST & LOOT LOGIC ---
+const chestTrigger = document.getElementById('chestTrigger');
 const walletStage = document.getElementById('walletStage');
-let warningAccepted = false;
+const chestLabel = document.getElementById('chestLabel');
+const chestLoot = document.getElementById('chestLoot');
+const thiefDialogue = document.getElementById('thiefDialogue');
+const thiefText = document.getElementById('thiefText');
 
-if (walletTrigger && walletStage) {
-    walletTrigger.addEventListener('click', () => {
-        if (!warningAccepted && !walletStage.classList.contains('is-open')) {
-            // First time opening: Show the retro alert instead
-            document.getElementById('systemWarningModal').classList.add('active');
-        } else {
-            // If already accepted, just toggle normally
-            toggleWallet();
+const thiefMessages = [
+    "Don't touch my stuff!",
+    "Captain, there's a thief!",
+    "Don't you dare!",
+    "I'm a poor thief...",
+    "Hey! Get your own coins!",
+    "Security! We have a breach!"
+];
+
+if (chestTrigger && walletStage) {
+    // 1. Toggle Chest & Cards
+    chestTrigger.addEventListener('click', (e) => {
+        // Prevent toggle if clicking on the loot itself
+        if(e.target.classList.contains('loot-item')) return;
+        
+        walletStage.classList.toggle('is-open');
+        chestTrigger.classList.toggle('chest-open');
+        
+        if (chestLabel) {
+            chestLabel.innerText = chestTrigger.classList.contains('chest-open') ? "▲ CLOSE CHEST" : "▼ OPEN CHEST";
         }
     });
 }
 
-window.closeWarning = function() {
-    document.getElementById('systemWarningModal').classList.remove('active');
-};
+if (chestLoot) {
+    // 2. The "Thief" Interaction
+    chestLoot.addEventListener('click', (e) => {
+        e.stopPropagation(); // Stop the click from closing the whole stage
+        
+        if (e.target.classList.contains('loot-item')) {
+            // Instantly snap the chest shut
+            chestTrigger.classList.remove('chest-open');
+            if(chestLabel) chestLabel.innerText = "▼ OPEN CHEST";
+            
+            // NOTE: We do NOT remove 'is-open' from walletStage here, 
+            // so the project cards remain cleanly on the screen!
 
-window.proceedToWallet = function() {
-    document.getElementById('systemWarningModal').classList.remove('active');
-    warningAccepted = true; // Never show again during this session
-    toggleWallet();
-};
-
-function toggleWallet() {
-    walletStage.classList.toggle('is-open');
-    const label = document.querySelector('.wallet-label');
-    if (label) {
-        label.innerText = walletStage.classList.contains('is-open') ? "▲ CLOSE WALLET" : "▼ OPEN WALLET";
-    }
+            // Show retro thief dialogue
+            const randomMsg = thiefMessages[Math.floor(Math.random() * thiefMessages.length)];
+            thiefText.innerText = randomMsg;
+            thiefDialogue.classList.add('show-dialogue');
+            
+            // Reward player for finding the interaction!
+            if (window.rewardPlayer) {
+                window.rewardPlayer(1);
+            }
+            
+            // Hide dialogue after a few seconds
+            setTimeout(() => {
+                thiefDialogue.classList.remove('show-dialogue');
+            }, 2500);
+        }
+    });
 }
 
 
