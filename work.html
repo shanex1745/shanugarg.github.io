@@ -53,46 +53,76 @@
             </div>
 
             <div class="wallet-stage" id="walletStage">
-                
-                <article class="project-card card-0" onclick="openModal('proj1')">
-                    <div class="card-img-container"><img src="nps-hero.png" alt="NPS"></div>
-                    <div class="card-content"><div class="card-role">LEAD UX</div><h3 class="card-title">National Pension System</h3></div>
-                </article>
-
-                <article class="project-card card-1" onclick="openModal('proj2')">
-                    <div class="card-img-container"><img src="cam-render.png" alt="CAM SECURE"></div>
-                    <div class="card-content"><div class="card-role">Product Designer</div><h3 class="card-title">CAM SECURE</h3></div>
-                </article>
-
-                <article class="project-card card-2" onclick="openModal('proj3')">
-                    <div class="card-img-container"><img src="nai-hero.png" alt="NAI"></div>
-                    <div class="card-content"><div class="card-role">UX RESEARCH</div><h3 class="card-title">National Archives of India</h3></div>
-                </article>
-
-                <article class="project-card card-3" onclick="openModal('proj4')">
-                    <div class="card-img-container"><img src="rdpr-hero.png" alt="Panchamitra"></div>
-                    <div class="card-content"><div class="card-role">LEAD UX</div><h3 class="card-title">Mobile Panchamitra</h3></div>
-                </article>
-
-                <article class="project-card card-4" onclick="openModal('proj5')">
-                    <div class="card-img-container"><img src="salt-hero.png" alt="Salt"></div>
-                    <div class="card-content"><div class="card-role">UX/UI DESIGN</div><h3 class="card-title">Salt App</h3></div>
-                </article>
-
-                <article class="project-card card-5" onclick="openModal('proj6')">
-                    <div class="card-img-container"><img src="navya-hero.png" alt="Navya"></div>
-                    <div class="card-content"><div class="card-role">PRODUCT DESIGN</div><h3 class="card-title">Navya CP Chair</h3></div>
-                </article>
-
-                <article class="project-card card-6" onclick="openModal('proj7')">
-                    <div class="card-img-container"><img src="ezam-bg.png" alt="EZAM"></div>
-                    <div class="card-content"><div class="card-role">UX/UI DESIGN</div><h3 class="card-title">EZAM Tactile Game</h3></div>
-                </article>
-
-                <article class="project-card card-7" onclick="openModal('proj8')">
-                    <div class="card-img-container"><img src="coolie-hero.png" alt="CoolieCo"></div>
-                    <div class="card-content"><div class="card-role">UX RESEARCH</div><h3 class="card-title">CoolieCo App</h3></div>
-                </article>
+    
+                <div class="chest-area">
+                    <div class="treasure-chest" id="chestTrigger">
+                        <div class="chest-lid">
+                            <div class="lid-rim"></div>
+                            <div class="lock-top"></div>
+                        </div>
+                        <div class="chest-loot" id="chestLoot">
+                            <span class="loot-item gem">💎</span>
+                            <span class="loot-item cash">💵</span>
+                            <span class="loot-item coin">🪙</span>
+                            <span class="loot-item crown">👑</span>
+                            <span class="loot-item ring">💍</span>
+                            <span class="loot-item coin2">🪙</span>
+                        </div>
+                        <div class="chest-base">
+                            <div class="base-rim"></div>
+                            <div class="lock-bottom"></div>
+                        </div>
+                    </div>
+                    <div class="wallet-label" id="chestLabel">▼ OPEN CHEST</div>
+            
+                    <div class="thief-dialogue" id="thiefDialogue">
+                        <p id="thiefText"></p>
+                        <div class="dialogue-arrow">▼</div>
+                    </div>
+                </div>
+            
+                <div class="projects-grid">
+                    <article class="project-card card-0" onclick="openModal('proj1')">
+                        <div class="card-img-container"><img src="nps-hero.png" alt="NPS"></div>
+                        <div class="card-content"><div class="card-role">LEAD UX</div><h3 class="card-title">National Pension System</h3></div>
+                    </article>
+            
+                    <article class="project-card card-1" onclick="openModal('proj2')">
+                        <div class="card-img-container"><img src="cam-render.png" alt="CAM SECURE"></div>
+                        <div class="card-content"><div class="card-role">Product Designer</div><h3 class="card-title">CAM SECURE</h3></div>
+                    </article>
+            
+                    <article class="project-card card-2" onclick="openModal('proj3')">
+                        <div class="card-img-container"><img src="nai-hero.png" alt="NAI"></div>
+                        <div class="card-content"><div class="card-role">UX RESEARCH</div><h3 class="card-title">National Archives</h3></div>
+                    </article>
+            
+                    <article class="project-card card-3" onclick="openModal('proj4')">
+                        <div class="card-img-container"><img src="rdpr-hero.png" alt="Panchamitra"></div>
+                        <div class="card-content"><div class="card-role">LEAD UX</div><h3 class="card-title">Mobile Panchamitra</h3></div>
+                    </article>
+            
+                    <article class="project-card card-4" onclick="openModal('proj5')">
+                        <div class="card-img-container"><img src="salt-hero.png" alt="Salt"></div>
+                        <div class="card-content"><div class="card-role">UX/UI DESIGN</div><h3 class="card-title">Salt App</h3></div>
+                    </article>
+            
+                    <article class="project-card card-5" onclick="openModal('proj6')">
+                        <div class="card-img-container"><img src="navya-hero.png" alt="Navya"></div>
+                        <div class="card-content"><div class="card-role">PRODUCT DESIGN</div><h3 class="card-title">Navya CP Chair</h3></div>
+                    </article>
+            
+                    <article class="project-card card-6" onclick="openModal('proj7')">
+                        <div class="card-img-container"><img src="ezam-bg.png" alt="EZAM"></div>
+                        <div class="card-content"><div class="card-role">UX/UI DESIGN</div><h3 class="card-title">EZAM Tactile Game</h3></div>
+                    </article>
+            
+                    <article class="project-card card-7" onclick="openModal('proj8')">
+                        <div class="card-img-container"><img src="coolie-hero.png" alt="CoolieCo"></div>
+                        <div class="card-content"><div class="card-role">UX RESEARCH</div><h3 class="card-title">CoolieCo App</h3></div>
+                    </article>
+                </div>
+            </div>
 
                 <div class="loot-container">
                     <div class="loot item-coin coin-1"></div>
