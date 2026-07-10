@@ -32,11 +32,8 @@ window.addEventListener('storage', (e) => {
 });
 
 
-/// --- 2. CHEST & LOOT LOGIC ---
-const chestTrigger = document.getElementById('chestTrigger');
-const walletStage = document.getElementById('walletStage');
-const chestLabel = document.getElementById('chestLabel');
-const chestLoot = document.getElementById('chestLoot');
+// --- 2. CHEST LOOT INTERACTION ---
+const chestLootZone = document.getElementById('chestLootZone');
 const thiefDialogue = document.getElementById('thiefDialogue');
 const thiefText = document.getElementById('thiefText');
 
@@ -49,51 +46,39 @@ const thiefMessages = [
     "Security! We have a breach!"
 ];
 
-if (chestTrigger && walletStage) {
-    // 1. Toggle Chest & Cards
-    chestTrigger.addEventListener('click', (e) => {
-        // Prevent toggle if clicking on the loot itself
-        if(e.target.classList.contains('loot-item')) return;
+if (chestLootZone) {
+    chestLootZone.addEventListener('click', (e) => {
+        e.stopPropagation(); 
         
-        walletStage.classList.toggle('is-open');
-        chestTrigger.classList.toggle('chest-open');
+        // Pick random funny message
+        const randomMsg = thiefMessages[Math.floor(Math.random() * thiefMessages.length)];
+        thiefText.innerText = randomMsg;
         
-        if (chestLabel) {
-            chestLabel.innerText = chestTrigger.classList.contains('chest-open') ? "▲ CLOSE CHEST" : "▼ OPEN CHEST";
+        // Show dialogue box
+        thiefDialogue.classList.add('show-dialogue');
+        
+        // Reward player
+        if (window.rewardPlayer) {
+            window.rewardPlayer(1);
         }
+        
+        // Hide after 2.5 seconds
+        setTimeout(() => {
+            thiefDialogue.classList.remove('show-dialogue');
+        }, 2500);
     });
 }
 
-if (chestLoot) {
-    // 2. The "Thief" Interaction
-    chestLoot.addEventListener('click', (e) => {
-        e.stopPropagation(); // Stop the click from closing the whole stage
-        
-        if (e.target.classList.contains('loot-item')) {
-            // Instantly snap the chest shut
-            chestTrigger.classList.remove('chest-open');
-            if(chestLabel) chestLabel.innerText = "▼ OPEN CHEST";
-            
-            // NOTE: We do NOT remove 'is-open' from walletStage here, 
-            // so the project cards remain cleanly on the screen!
-
-            // Show retro thief dialogue
-            const randomMsg = thiefMessages[Math.floor(Math.random() * thiefMessages.length)];
-            thiefText.innerText = randomMsg;
-            thiefDialogue.classList.add('show-dialogue');
-            
-            // Reward player for finding the interaction!
-            if (window.rewardPlayer) {
-                window.rewardPlayer(1);
-            }
-            
-            // Hide dialogue after a few seconds
-            setTimeout(() => {
-                thiefDialogue.classList.remove('show-dialogue');
-            }, 2500);
+// --- RESTORE SYSTEM ALERT ON LOAD ---
+document.addEventListener("DOMContentLoaded", () => {
+    // Only show if they don't have a direct hash link overriding it
+    if (!window.location.hash) {
+        const systemAlert = document.getElementById('systemAlert');
+        if(systemAlert) {
+            systemAlert.style.display = 'flex';
         }
-    });
-}
+    }
+});
 
 
 // --- 3. THE 8 PROJECTS DATA ---
