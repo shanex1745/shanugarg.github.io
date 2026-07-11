@@ -1328,15 +1328,20 @@ function renderShopCards() {
             </div>
         `;
         
-        // Render Artifact Cards
+       // Render Artifact Cards
         Object.keys(museumData).forEach(key => {
             const data = museumData[key];
             archiveHTML += `
                 <article class="artifact-card" onclick="handleCardClick('${key}')">
-                    <div class="artifact-icons">${data.themeIcons.join(' ')}</div>
-                    <div class="artifact-role">${data.role}</div>
-                    <h3 class="artifact-title">${data.title}</h3>
-                    <div class="artifact-btn">OPEN FILE ↗</div>
+                    <div class="artifact-img">
+                        <img src="${data.heroImage}" alt="${data.title}" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100\\' height=\\'100\\'><rect width=\\'100\\' height=\\'100\\' fill=\\'%23111\\'/><text x=\\'50\\' y=\\'50\\' font-family=\\'monospace\\' font-size=\\'12\\' fill=\\'%23555\\' text-anchor=\\'middle\\' alignment-baseline=\\'middle\\'>IMG FAIL</text></svg>'">
+                    </div>
+                    <div class="artifact-content">
+                        <div class="artifact-icons">${data.themeIcons.join(' ')}</div>
+                        <div class="artifact-role">${data.role}</div>
+                        <h3 class="artifact-title">${data.title}</h3>
+                        <div class="artifact-btn">OPEN FILE ↗</div>
+                    </div>
                 </article>
             `;
         });
