@@ -1,9 +1,11 @@
 // --- 1. GLOBAL GAMIFICATION & COIN SYNC ---
-let currentCoins = parseInt(localStorage.getItem('shanu_coins')) || 0;
 
 function updateHUD() {
+    // ALWAYS fetch fresh from localStorage directly
+    let currentCoins = parseInt(localStorage.getItem('shanu_coins')) || 0;
     let currentLevel = Math.floor(currentCoins / 50) + 1;
-    const coinEl = document.getElementById('player-coins');
+    
+    const coinEl = document.getElementById('player-coins') || document.getElementById('coinCounter');
     const lvlEl = document.getElementById('player-level');
     
     if(coinEl) coinEl.innerText = currentCoins;
@@ -11,10 +13,13 @@ function updateHUD() {
 }
 
 window.rewardPlayer = function(amount) {
+    let currentCoins = parseInt(localStorage.getItem('shanu_coins')) || 0;
     currentCoins += amount;
     localStorage.setItem('shanu_coins', currentCoins);
+    
     updateHUD();
 
+    // Spawn floating arcade text
     const popup = document.createElement('div');
     popup.classList.add('coin-popup');
     popup.innerText = `+${amount} COINS!`;
@@ -22,14 +27,15 @@ window.rewardPlayer = function(amount) {
     setTimeout(() => { popup.remove(); }, 1000); 
 };
 
-// Sync coins across all tabs instantly
+// Sync instantly if coins change in another tab
 window.addEventListener('storage', (e) => {
     if (e.key === 'shanu_coins') {
-        currentCoins = parseInt(localStorage.getItem('shanu_coins')) || 0;
         updateHUD();
     }
 });
 
+// Sync on page load
+document.addEventListener('DOMContentLoaded', updateHUD);
 
 // --- 2. THE 8 PROJECTS DATA (100% PRESERVED, UN-TRUNCATED & RETRO THEMED) ---
 const projectData = {
@@ -1011,7 +1017,7 @@ const projectData = {
     proj7: { // EZAM
         title: "EZAM: Tactile Game Design", 
         heroImage: "ezam-play.png", 
-        role: "UI DESIGNER", timeline: "Design Impact Movement", themeIcons: ['🎲', '🧠', '🤝', '🧩'], behanceLink: "https://www.behance.net/gallery/214356517/Portfolio",
+        role: "PRODUCT DESIGNER", timeline: "Design Impact Movement", themeIcons: ['🎲', '🧠', '🤝', '🧩'], behanceLink: "https://www.behance.net/gallery/214356517/Portfolio",
         tldr: {
             problem: "Visually impaired (VI) and visually abled (VA) children lacked an equitable way to play; existing games gave VA children an advantage, leading to dynamics of pity.",
             solution: "EZAM, a tactile board game featuring a hidden magnetic maze that completely neutralizes visual advantages, forcing all players to rely on spatial memory.",
