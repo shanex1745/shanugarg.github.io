@@ -32,53 +32,40 @@ window.addEventListener('storage', (e) => {
 });
 
 
-// --- 2. CHEST LOOT INTERACTION ---
-const chestLootZone = document.getElementById('chestLootZone');
-const thiefDialogue = document.getElementById('thiefDialogue');
-const thiefText = document.getElementById('thiefText');
+// --- 2. WALLET & ALERT LOGIC ---
+const walletTrigger = document.getElementById('walletTrigger');
+const walletStage = document.getElementById('walletStage');
+let warningAccepted = false;
 
-const thiefMessages = [
-    "Don't touch my stuff!",
-    "Captain, there's a thief!",
-    "Don't you dare!",
-    "I'm a poor thief...",
-    "Hey! Get your own coins!",
-    "Security! We have a breach!"
-];
-
-if (chestLootZone) {
-    chestLootZone.addEventListener('click', (e) => {
-        e.stopPropagation(); 
-        
-        // Pick random funny message
-        const randomMsg = thiefMessages[Math.floor(Math.random() * thiefMessages.length)];
-        thiefText.innerText = randomMsg;
-        
-        // Show dialogue box
-        thiefDialogue.classList.add('show-dialogue');
-        
-        // Reward player
-        if (window.rewardPlayer) {
-            window.rewardPlayer(1);
+if (walletTrigger && walletStage) {
+    walletTrigger.addEventListener('click', () => {
+        if (!warningAccepted && !walletStage.classList.contains('is-open')) {
+            // First time opening: Show the retro alert instead
+            document.getElementById('systemWarningModal').classList.add('active');
+        } else {
+            // If already accepted, just toggle normally
+            toggleWallet();
         }
-        
-        // Hide after 2.5 seconds
-        setTimeout(() => {
-            thiefDialogue.classList.remove('show-dialogue');
-        }, 2500);
     });
 }
 
-// --- RESTORE SYSTEM ALERT ON LOAD ---
-document.addEventListener("DOMContentLoaded", () => {
-    // Only show if they don't have a direct hash link overriding it
-    if (!window.location.hash) {
-        const systemAlert = document.getElementById('systemAlert');
-        if(systemAlert) {
-            systemAlert.style.display = 'flex';
-        }
+window.closeWarning = function() {
+    document.getElementById('systemWarningModal').classList.remove('active');
+};
+
+window.proceedToWallet = function() {
+    document.getElementById('systemWarningModal').classList.remove('active');
+    warningAccepted = true; // Never show again during this session
+    toggleWallet();
+};
+
+function toggleWallet() {
+    walletStage.classList.toggle('is-open');
+    const label = document.querySelector('.wallet-label');
+    if (label) {
+        label.innerText = walletStage.classList.contains('is-open') ? "▲ CLOSE WALLET" : "▼ OPEN WALLET";
     }
-});
+}
 
 
 // --- 3. THE 8 PROJECTS DATA ---
@@ -1241,59 +1228,3 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
-
-// --- VENDOR CATALOG FILTERING & TABS ---
-let currentTab = 'snapshots';
-let currentRole = 'all';
-
-window.switchTab = function(tabName) {
-    currentTab = tabName;
-    
-    // Update active tab button visual state
-    const tabs = document.querySelectorAll('.vendor-tab');
-    tabs.forEach(tab => {
-        if (tab.innerText.toLowerCase().includes(tabName.replace('-', ' '))) {
-            tab.classList.add('active');
-        } else {
-            tab.classList.remove('active');
-        }
-    });
-
-    // Re-filter inventory grid to reflect tab switch
-    applyCatalogFilters();
-    if(window.rewardPlayer) window.rewardPlayer(1);
-};
-
-window.filterProjects = function(roleName, element) {
-    currentRole = roleName;
-    
-    // Update active sidebar item visual state
-    const roleItems = document.querySelectorAll('.role-item');
-    roleItems.forEach(item => item.classList.remove('active'));
-    if (element) element.classList.add('active');
-
-    // Re-filter inventory grid
-    applyCatalogFilters();
-    if(window.rewardPlayer) window.rewardPlayer(1);
-};
-
-function applyCatalogFilters() {
-    const cards = document.querySelectorAll('.merchant-card');
-    
-    cards.forEach(card => {
-        const cardRole = card.getAttribute('data-role');
-        const cardTab = card.getAttribute('data-tab');
-        
-        const matchesTab = (cardTab === currentTab);
-        const matchesRole = (currentRole === 'all' || cardRole === currentRole);
-        
-        if (matchesTab && matchesRole) {
-            card.style.display = 'flex';
-            // Subtle fade-in animation for appearing cards
-            card.style.opacity = '0';
-            setTimeout(() => { card.style.opacity = '1'; }, 50);
-        } else {
-            card.style.display = 'none';
-        }
-    });
-}
