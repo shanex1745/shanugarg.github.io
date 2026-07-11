@@ -22,7 +22,7 @@ window.rewardPlayer = function(amount) {
     setTimeout(() => { popup.remove(); }, 1000); 
 };
 
-// Listen for coin updates triggered from other open tabs/windows
+// Sync coins across all tabs instantly
 window.addEventListener('storage', (e) => {
     if (e.key === 'shanu_coins') {
         currentCoins = parseInt(localStorage.getItem('shanu_coins')) || 0;
@@ -1107,35 +1107,103 @@ const projectData = {
     }
 };
 
+// --- NEW DATA: MUSEUM ARTIFACTS ---
+const museumData = {
+    art1: {
+        title: "Moral Infrastructure",
+        role: "DESIGN PHILOSOPHY",
+        heroImage: "philosophy.png",
+        themeIcons: ['⚖️', '🧠', '🏗️'],
+        content: `
+            <h3 style="color: #ff77da; font-family: 'Press Start 2P', cursive; font-size: 1rem; margin-bottom: 1.5rem;">[ DECODING THE PHILOSOPHY ]</h3>
+            <p>I believe that design is not just a tool for functional efficiency; it is the blueprint for <strong>moral infrastructure</strong>. Whether it is redesigning the National Archives to dismantle digital gatekeeping or engineering a ₹1500 retrofit sensor for ATMs so that high-end security isn't just a luxury for the rich—design determines who is included and who is left behind.</p>
+            <br>
+            <p>Through my work on platforms like Panchamitra (Government of Karnataka) and CoolieCo, I realized that true UX acts as a social mediator. It transforms exploitative, trustless environments into transparent utilities, giving marginalized laborers predictable dignity without forcing them to beg or haggle.</p>
+        `
+    },
+    art2: {
+        title: "ServDes 2025 Paper",
+        role: "RESEARCH PUBLICATION",
+        heroImage: "servdes.png",
+        themeIcons: ['📜', '🔬', '🎓'],
+        content: `
+            <h3 style="color: #7cff9b; font-family: 'Press Start 2P', cursive; font-size: 1rem; margin-bottom: 1.5rem;">[ PUBLISHED ABSTRACT ]</h3>
+            <p><strong>Title:</strong> Lessons Learned in Inclusive Game Design: Bridging the Gaps for Visually Diverse Players.</p>
+            <br>
+            <p>During the development of EZAM (the tactile board game), I uncovered a critical insight: when visually impaired (VI) and visually abled (VA) children play mainstream games together, the VA children inevitably play with sympathy. This dynamic of pity actively isolates VI children, making them feel like a liability.</p>
+            <br>
+            <p>This paper explores the paradigm shift from "accommodative design" to "advantage neutralization"—proving that sometimes, true accessibility means strategically stripping away the advantages of the privileged user to create a genuinely level playing field.</p>
+        `
+    },
+    art3: {
+        title: "Endorsements & LORs",
+        role: "PROFESSIONAL VOUCH",
+        heroImage: "lor-cover.png",
+        themeIcons: ['🤝', '⭐', '🖋️'],
+        content: `
+            <h3 style="color: #ffd84f; font-family: 'Press Start 2P', cursive; font-size: 1rem; margin-bottom: 1.5rem;">[ LETTERS OF RECOMMENDATION ]</h3>
+            <p><em>"Shanu possesses a rare combination of deeply empathetic grassroots research skills and high-level strategic systems thinking. Her ability to synthesize complex bureaucratic data into audio-first mobile interfaces during her time with the Government of Karnataka was exceptional."</em></p>
+            <br>
+            <div style="padding: 15px; border-left: 4px solid #ffd84f; background: rgba(255, 216, 79, 0.1);">
+                <a href="#" style="color: #ffd84f; text-decoration: none; font-weight: bold;">[ VIEW FULL LOR PDF ] ↗</a>
+            </div>
+        `
+    },
+    art4: {
+        title: "Field Notes & Failures",
+        role: "LEARNINGS",
+        heroImage: "fieldnotes.png",
+        themeIcons: ['📝', '💡', '🌱'],
+        content: `
+            <h3 style="color: #6ce8ff; font-family: 'Press Start 2P', cursive; font-size: 1rem; margin-bottom: 1.5rem;">[ GRASSROOTS REVELATIONS ]</h3>
+            <ul style="list-style-type: none; padding-left: 0;">
+                <li style="margin-bottom: 1rem;"><strong>> The "Number Barrier" (Panchamitra):</strong> I thought beautiful data visualization was the answer. I was wrong. 1-on-1 testing revealed rural users completely failed to comprehend percentages. We had to pivot entirely to Kannada audio narrations. <em>Lesson: Empathy requires realism, not just aesthetics.</em></li>
+                <li style="margin-bottom: 1rem;"><strong>> The Transfer Bottleneck (Navya):</strong> I realized that protecting the vulnerable patient (Cerebral Palsy) meant I first had to protect the caregiver from physical burnout. <em>Lesson: The user journey includes the invisible support system.</em></li>
+                <li><strong>> Physical Context is King (Cam Secure):</strong> A $30,000 automated system is a failed design if it doesn't fit the user's physical environment. <em>Lesson: Do not demand the user adapt to the design.</em></li>
+            </ul>
+        `
+    }
+};
+
 // --- 3. SHOP UI LOGIC ---
 
-let currentTab = 'snapshots'; // 'snapshots' or 'full'
+let currentTab = 'snapshots'; 
 let currentRole = 'ALL';
 
 function initShop() {
     renderShopCards();
 }
 
+// Tab Switching
 window.switchTab = function(tab) {
     currentTab = tab;
     
     document.getElementById('tab-snapshots').classList.remove('active');
-    document.getElementById('tab-full').classList.remove('active');
+    document.getElementById('tab-archives').classList.remove('active');
     document.getElementById(`tab-${tab}`).classList.add('active');
     
     const grid = document.getElementById('shopGrid');
+    const sidebar = document.getElementById('shopSidebar');
+
     if (tab === 'snapshots') {
-        grid.classList.remove('grid-full');
+        grid.classList.remove('grid-archives');
         grid.classList.add('grid-snapshots');
+        sidebar.style.opacity = '1';
+        sidebar.style.pointerEvents = 'auto';
     } else {
         grid.classList.remove('grid-snapshots');
-        grid.classList.add('grid-full');
+        grid.classList.add('grid-archives');
+        // Hide sidebar filters when in the archives
+        sidebar.style.opacity = '0.3';
+        sidebar.style.pointerEvents = 'none';
     }
     
     renderShopCards();
 };
 
+// Filtering
 window.filterRole = function(role, element) {
+    if(currentTab !== 'snapshots') return; // Disable filtering in Archives
     currentRole = role;
     
     const listItems = document.querySelectorAll('#roleFilterList li');
@@ -1145,25 +1213,29 @@ window.filterRole = function(role, element) {
     renderShopCards();
 };
 
+// Render Cards
 function renderShopCards() {
     const grid = document.getElementById('shopGrid');
     if (!grid) return;
     grid.innerHTML = '';
     
-    Object.keys(projectData).forEach(key => {
-        const data = projectData[key];
+    const dataSource = currentTab === 'snapshots' ? projectData : museumData;
+    
+    Object.keys(dataSource).forEach(key => {
+        const data = dataSource[key];
         
-        if (currentRole !== 'ALL' && !data.role.includes(currentRole)) {
+        if (currentTab === 'snapshots' && currentRole !== 'ALL' && !data.role.includes(currentRole)) {
             return; 
         }
         
-        const bottomText = currentTab === 'snapshots' ? 'VIEW SNAPSHOT' : 'OPEN FULL PROJECT';
-        const bottomPrice = currentTab === 'snapshots' ? '🪙 FREE' : '🪙 +1 REWARD';
+        const bottomText = currentTab === 'snapshots' ? 'VIEW SNAPSHOT' : 'OPEN ARTIFACT';
+        const bottomPrice = currentTab === 'snapshots' ? '🪙 FREE' : '🪙 +5 REWARD';
+        const cardClass = currentTab === 'snapshots' ? 'shop-card' : 'shop-card artifact-card';
         
         const cardHTML = `
-            <article class="shop-card" onclick="handleCardClick('${key}')">
+            <article class="${cardClass}" onclick="handleCardClick('${key}')">
                 <div class="shop-card-img">
-                    <img src="${data.heroImage}" alt="${data.title}">
+                    <img src="${data.heroImage}" alt="${data.title}" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100\\' height=\\'100\\'><rect width=\\'100\\' height=\\'100\\' fill=\\'%23111\\'/><text x=\\'50\\' y=\\'50\\' font-family=\\'monospace\\' font-size=\\'12\\' fill=\\'%23555\\' text-anchor=\\'middle\\' alignment-baseline=\\'middle\\'>NO IMAGE</text></svg>'">
                 </div>
                 <div class="shop-card-body">
                     <div class="shop-card-top">
@@ -1187,14 +1259,16 @@ function renderShopCards() {
     });
 }
 
-window.handleCardClick = function(projectId) {
+// Click Routing
+window.handleCardClick = function(id) {
     if (currentTab === 'snapshots') {
-        openModal(projectId); 
+        openModal(id); 
     } else {
-        openFullProjectModal(projectId); 
+        openArtifactModal(id); 
     }
 };
 
+// Snapshot Modal Logic
 window.openModal = function(projectId) {
     const data = projectData[projectId];
     if(!data) return;
@@ -1204,7 +1278,7 @@ window.openModal = function(projectId) {
     
     document.getElementById('modalTitle').innerText = data.title;
     document.getElementById('modalRole').innerText = data.role;
-    document.getElementById('modalTimeline').innerText = data.timeline;
+    document.getElementById('modalTimeline').innerText = data.timeline || "Completed";
     document.getElementById('modalProblem').innerText = data.tldr.problem;
     document.getElementById('modalSolution').innerText = data.tldr.solution;
     document.getElementById('modalImpact').innerText = data.tldr.impact;
@@ -1224,7 +1298,7 @@ window.openModal = function(projectId) {
 
     const buttonHTML = `
         <div style="text-align: center; margin-top: 4rem; padding-bottom: 2rem;">
-            <a href="${linkUrl}" target="_blank" class="hire-me-btn" style="position:relative; right:0; display:inline-flex;">SEE MORE ↗</a>
+            <a href="${linkUrl}" target="_blank" class="hire-me-btn" style="position:relative; margin:0 auto; width:max-content; justify-content:center;">VIEW FULL BEHANCE ↗</a>
         </div>
     `;
 
@@ -1245,34 +1319,23 @@ window.openModal = function(projectId) {
     document.body.style.overflow = 'hidden'; 
 };
 
-window.openFullProjectModal = function(projectId) {
-    const data = projectData[projectId];
+// Museum Artifact Modal Logic
+window.openArtifactModal = function(id) {
+    const data = museumData[id];
     if(!data) return;
     
-    window.rewardPlayer(2); 
-    const modal = document.getElementById('fullProjectModal');
+    window.rewardPlayer(5); // Lore rewards more!
+    const modal = document.getElementById('artifactModal');
     
-    document.getElementById('fullModalTitle').innerText = data.title;
-    document.getElementById('fullModalExternalLink').href = data.behanceLink || "https://www.behance.net/shanux17";
-    
-    const container = document.getElementById('fullProjectContent');
-    container.innerHTML = `
-        <img src="${data.heroImage}" alt="${data.title}" style="border-radius: 8px 8px 0 0; border: 4px solid #333;">
-        <div style="padding: 40px; background: #0d1117; border: 4px solid #333; border-top: none; font-family: 'Space Mono', monospace; color: #fff;">
-            <h3 style="color: #ff77da; font-family: 'Press Start 2P', cursive;">FULL BEHANCE EXPORT VIEW</h3>
-            <p style="margin-top: 20px;">Extended high-resolution design artifacts and case study spreads for <strong>${data.title}</strong>.</p>
-            <p style="color: #7cff9b;">Scroll down to view detailed methodology ⬇</p>
-            <div style="margin-top: 30px;">
-                ${data.dynamicHTML}
-            </div>
-            <p style="color: #ffd84f; text-align: center; margin-top: 50px;">[ END OF PROJECT ARCHIVE ]</p>
-        </div>
-    `;
+    document.getElementById('artifactTitle').innerText = data.title;
+    document.getElementById('artifactType').innerText = data.role;
+    document.getElementById('artifactContentArea').innerHTML = data.content;
     
     modal.classList.add('active');
     document.body.style.overflow = 'hidden'; 
 };
 
+// Global Close
 window.closeModal = function(modalId, e) {
     if (e) e.preventDefault();
     const modal = document.getElementById(modalId);
@@ -1282,11 +1345,4 @@ window.closeModal = function(modalId, e) {
 
 document.addEventListener("DOMContentLoaded", () => {
     initShop();
-    
-    if (window.location.hash) {
-        const targetId = window.location.hash.substring(1);
-        if (projectData[targetId]) {
-            setTimeout(() => { openModal(targetId); }, 600);
-        }
-    }
 });
