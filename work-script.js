@@ -1,14 +1,12 @@
-/ --- 1. GLOBAL GAMIFICATION & COIN SYNC ---
+// --- 1. GLOBAL GAMIFICATION & COIN SYNC ---
 let currentCoins = parseInt(localStorage.getItem('shanu_coins')) || 0;
 
 function updateHUD() {
     let currentLevel = Math.floor(currentCoins / 50) + 1;
     const coinEl = document.getElementById('player-coins');
-    const shopCoinEl = document.getElementById('shop-coin-display');
     const lvlEl = document.getElementById('player-level');
     
     if(coinEl) coinEl.innerText = currentCoins;
-    if(shopCoinEl) shopCoinEl.innerText = currentCoins;
     if(lvlEl) lvlEl.innerText = 'LVL ' + currentLevel;
 }
 
@@ -24,8 +22,7 @@ window.rewardPlayer = function(amount) {
     setTimeout(() => { popup.remove(); }, 1000); 
 };
 
-updateHUD();
-
+// Listen for coin updates triggered from other open tabs/windows
 window.addEventListener('storage', (e) => {
     if (e.key === 'shanu_coins') {
         currentCoins = parseInt(localStorage.getItem('shanu_coins')) || 0;
@@ -33,7 +30,8 @@ window.addEventListener('storage', (e) => {
     }
 });
 
-// --- 3. THE 8 PROJECTS DATA ---
+
+// --- 2. THE 8 PROJECTS DATA (100% PRESERVED & UN-TRUNCATED) ---
 const projectData = {
     proj1: { // NPS
         title: "NPS: Intent-First Design", 
@@ -94,7 +92,7 @@ const projectData = {
     proj2: { // Cam Secure
         title: "Cam Secure: Active ATM Defense", 
         heroImage: "cam-render.png", 
-        role: "UX/SYSTEM DESIGNER & RESEARCHER", 
+        role: "PRODUCT DESIGNER", 
         timeline: "Research & Hardware Prototyping Sprint", 
         themeIcons: ['🏧', '📷', '🚨', '🛡️'], 
         behanceLink: "https://www.behance.net/gallery/232022145/Retrofit-Device-for-Enhancing-ATM-Camera-Surveillance",
@@ -189,7 +187,6 @@ const projectData = {
         },
         dynamicHTML: `
             <style>
-                /* Cyberpunk/Retro Clean IA Styles */
                 .retro-title { font-family: 'Press Start 2P', cursive; font-size: 7px; padding: 8px 14px; letter-spacing: 1px; border: 1px solid; background: #060d20; display: inline-block; margin-bottom: -1px; position: relative; z-index: 2; white-space: nowrap; }
                 .retro-content { border: 1px solid; background: #050d1f; padding: 20px 16px; overflow: hidden; margin-bottom: 25px; }
                 .ia-parent { border: 1px solid; padding: 6px 10px; font-family: 'Space Mono', monospace; font-size: 9px; white-space: nowrap; flex-shrink: 0; background: rgba(0,0,0,0.3); }
@@ -200,8 +197,6 @@ const projectData = {
                 .v-row { display: flex; align-items: flex-start; margin-bottom: 6px; }
                 .v-children { border-left: 1px dashed; margin-left: 12px; padding-left: 16px; margin-bottom: 10px; padding-top: 4px; display: flex; flex-direction: column; }
                 .v-tree-icon { font-family: monospace; font-size: 12px; margin-right: 8px; flex-shrink: 0; line-height: 20px; opacity: 0.6; }
-                
-                /* New IA Horizontal Expanding Tree */
                 .h-root { border: 1px solid; padding: 8px 12px; font-family: 'Press Start 2P', cursive; font-size: 8px; letter-spacing: 1px; background: rgba(0,0,0,0.4); display: inline-block; margin-top: 4px;}
                 .h-node { border: 1px solid; padding: 5px 10px; font-family: 'Space Mono', monospace; font-size: 9px; background: rgba(0,0,0,0.3); white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
                 .h-leaf { border: 1px solid; padding: 4px 8px; font-family: 'Space Mono', monospace; font-size: 8px; background: rgba(0,0,0,0.2); white-space: nowrap; flex-shrink: 0; margin-top: 1px;}
@@ -619,7 +614,7 @@ const projectData = {
         title: "Mobile Panchamitra", 
         heroImage: "rdpr-hero.png", 
         behanceLink: "https://www.youtube.com/watch?v=QuULupXWl8M",
-        role: "LEAD UX RESEARCHER & UI/UX DESIGNER", 
+        role: "LEAD UX DESIGNER", 
         timeline: "FY 24-25 Focus", 
         themeIcons: ['🌾', '📱', '🔊', '📊'],
         tldr: {
@@ -934,7 +929,7 @@ const projectData = {
     proj5: { // Salt
         title: "Salt: Urban Relocation Gap", 
         heroImage: "salt-hero.png", 
-        role: "UX RESEARCHER & UI/UX DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['🏙️', '📦', '🗺️', '🐘'], behanceLink: "https://www.behance.net/shanux17",
+        role: "UI DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['🏙️', '📦', '🗺️', '🐘'], behanceLink: "https://www.behance.net/shanux17",
         tldr: {
             problem: "Residents relocating to new cities suffer from severe cognitive overload and isolation due to fragmented, unreliable access to daily essentials, transport, and culture.",
             solution: "Salt, a unified, community-driven 'super-app' that consolidates local commerce and transport comparison, while gamifying cultural integration.",
@@ -978,7 +973,7 @@ const projectData = {
     proj6: { // Navya
         title: "Navya: Dignified CP Care", 
         heroImage: "navya-hero.png", 
-        role: "UX RESEARCHER & PRODUCT DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['♿', '🚿', '🦽', '❤️'], behanceLink: "https://www.behance.net/gallery/229048977/Baithing-Aid-for-Cerebral-Palsy-Children",
+        role: "PRODUCT DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['♿', '🚿', '🦽', '❤️'], behanceLink: "https://www.behance.net/gallery/229048977/Baithing-Aid-for-Cerebral-Palsy-Children",
         tldr: {
             problem: "Bathing a growing child with Cerebral Palsy in a compact Indian bathroom is a hazardous, physically draining task causing caregiver burnout and patient guilt.",
             solution: "Navya, a compact, adaptable side-transfer bathing wheelchair specifically engineered for small spaces, eliminating the need to physically lift the child.",
@@ -1024,7 +1019,7 @@ const projectData = {
     proj7: { // EZAM
         title: "EZAM: Tactile Game Design", 
         heroImage: "ezam-play.png", 
-        role: "UX RESEARCHER & UI/UX DESIGNER", timeline: "Design Impact Movement", themeIcons: ['🎲', '🧲', '🤝', '🧩'], behanceLink: "https://www.behance.net/gallery/214356517/Portfolio",
+        role: "UI DESIGNER", timeline: "Design Impact Movement", themeIcons: ['🎲', '🧲', '🤝', '🧩'], behanceLink: "https://www.behance.net/gallery/214356517/Portfolio",
         tldr: {
             problem: "Visually impaired (VI) and visually abled (VA) children lacked an equitable way to play; existing games gave VA children an advantage, leading to dynamics of pity.",
             solution: "EZAM, a tactile board game featuring a hidden magnetic maze that completely neutralizes visual advantages, forcing all players to rely on spatial memory.",
@@ -1070,7 +1065,7 @@ const projectData = {
     proj8: { // CoolieCo
         title: "CoolieCo: Formalizing Labor", 
         heroImage: "coolie-hero.png", 
-        role: "UX RESEARCHER & UI DESIGNER", timeline: "Research & Design Sprint", themeIcons: ['🚂', '🧳', '🎫', '🤝'], behanceLink: "https://www.behance.net/gallery/219800943/CoolieCo",
+        role: "UX RESEARCHER", timeline: "Research & Design Sprint", themeIcons: ['🚂', '🧳', '🎫', '🤝'], behanceLink: "https://www.behance.net/gallery/219800943/CoolieCo",
         tldr: {
             problem: "A severe breakdown of trust between Indian railway travelers and coolies (porters) led to mutual avoidance, passenger injuries, and financial instability for labor.",
             solution: "An intuitive digital platform that formalizes baggage handling through standardized pricing, live tracking, and secure OTP-handshakes.",
@@ -1117,21 +1112,17 @@ const projectData = {
 let currentTab = 'snapshots'; // 'snapshots' or 'full'
 let currentRole = 'ALL';
 
-// Initialize the Shop
 function initShop() {
     renderShopCards();
 }
 
-// Switch Tabs Logic
 window.switchTab = function(tab) {
     currentTab = tab;
     
-    // Update Button CSS
     document.getElementById('tab-snapshots').classList.remove('active');
     document.getElementById('tab-full').classList.remove('active');
     document.getElementById(`tab-${tab}`).classList.add('active');
     
-    // Change Grid Layout
     const grid = document.getElementById('shopGrid');
     if (tab === 'snapshots') {
         grid.classList.remove('grid-full');
@@ -1144,11 +1135,9 @@ window.switchTab = function(tab) {
     renderShopCards();
 };
 
-// Filter by Role Logic
 window.filterRole = function(role, element) {
     currentRole = role;
     
-    // Update active list styling
     const listItems = document.querySelectorAll('#roleFilterList li');
     listItems.forEach(li => li.classList.remove('active'));
     element.classList.add('active');
@@ -1156,20 +1145,18 @@ window.filterRole = function(role, element) {
     renderShopCards();
 };
 
-// Render Cards Dynamically
 function renderShopCards() {
     const grid = document.getElementById('shopGrid');
+    if (!grid) return;
     grid.innerHTML = '';
     
     Object.keys(projectData).forEach(key => {
         const data = projectData[key];
         
-        // Check filter
         if (currentRole !== 'ALL' && !data.role.includes(currentRole)) {
-            return; // Skip this card
+            return; 
         }
         
-        // Define Bottom Bar text based on Tab
         const bottomText = currentTab === 'snapshots' ? 'VIEW SNAPSHOT' : 'OPEN FULL PROJECT';
         const bottomPrice = currentTab === 'snapshots' ? '🪙 FREE' : '🪙 +1 REWARD';
         
@@ -1200,16 +1187,14 @@ function renderShopCards() {
     });
 }
 
-// Handle Click based on Active Tab
 window.handleCardClick = function(projectId) {
     if (currentTab === 'snapshots') {
-        openModal(projectId); // Existing Snapshot Modal
+        openModal(projectId); 
     } else {
-        openFullProjectModal(projectId); // New Full Project Modal
+        openFullProjectModal(projectId); 
     }
 };
 
-// Open Snapshot Modal (Existing Logic)
 window.openModal = function(projectId) {
     const data = projectData[projectId];
     if(!data) return;
@@ -1227,7 +1212,11 @@ window.openModal = function(projectId) {
     const heroImgDiv = document.getElementById('modalHeroImg');
     if (data.heroImage) {
         heroImgDiv.innerHTML = `<img src="${data.heroImage}" alt="${data.title} Hero Image" style="display: block; width: 100%; height: auto;">`;
-        heroImgDiv.style.background = "#050d1f"; heroImgDiv.style.border = "2px solid #333"; heroImgDiv.style.borderRadius = "8px"; heroImgDiv.style.maxHeight = "500px"; heroImgDiv.style.overflowY = "auto";
+        heroImgDiv.style.background = "#050d1f"; 
+        heroImgDiv.style.border = "2px solid #333"; 
+        heroImgDiv.style.borderRadius = "8px"; 
+        heroImgDiv.style.maxHeight = "500px"; 
+        heroImgDiv.style.overflowY = "auto";
     }
     
     const linkUrl = data.behanceLink || "https://www.behance.net/shanux17";
@@ -1256,29 +1245,27 @@ window.openModal = function(projectId) {
     document.body.style.overflow = 'hidden'; 
 };
 
-// NEW: Open Full Project Modal
 window.openFullProjectModal = function(projectId) {
     const data = projectData[projectId];
     if(!data) return;
     
-    window.rewardPlayer(2); // Slightly higher reward for full projects
+    window.rewardPlayer(2); 
     const modal = document.getElementById('fullProjectModal');
     
     document.getElementById('fullModalTitle').innerText = data.title;
     document.getElementById('fullModalExternalLink').href = data.behanceLink || "https://www.behance.net/shanux17";
     
-    // Inject Placeholder Images for scrolling (In production, replace with actual exported images or iframe)
     const container = document.getElementById('fullProjectContent');
     container.innerHTML = `
         <img src="${data.heroImage}" alt="${data.title}" style="border-radius: 8px 8px 0 0; border: 4px solid #333;">
         <div style="padding: 40px; background: #0d1117; border: 4px solid #333; border-top: none; font-family: 'Space Mono', monospace; color: #fff;">
-            <h3 style="color: #ff77da; font-family: 'Press Start 2P', cursive;">FULL BEHANCE EXPORT</h3>
-            <p style="margin-top: 20px;">Imagine long scrollable Behance images loaded here...</p>
-            <p style="color: #7cff9b;">Scroll further ⬇</p>
-            <div style="height: 800px; border-left: 2px dashed #444; margin-left: 20px; margin-top: 20px; padding-left: 20px;">
-                (Simulated content length for scrolling experience)
+            <h3 style="color: #ff77da; font-family: 'Press Start 2P', cursive;">FULL BEHANCE EXPORT VIEW</h3>
+            <p style="margin-top: 20px;">Extended high-resolution design artifacts and case study spreads for <strong>${data.title}</strong>.</p>
+            <p style="color: #7cff9b;">Scroll down to view detailed methodology ⬇</p>
+            <div style="margin-top: 30px;">
+                ${data.dynamicHTML}
             </div>
-            <p style="color: #ffd84f;">End of Project.</p>
+            <p style="color: #ffd84f; text-align: center; margin-top: 50px;">[ END OF PROJECT ARCHIVE ]</p>
         </div>
     `;
     
@@ -1286,7 +1273,6 @@ window.openFullProjectModal = function(projectId) {
     document.body.style.overflow = 'hidden'; 
 };
 
-// Global Close Modal
 window.closeModal = function(modalId, e) {
     if (e) e.preventDefault();
     const modal = document.getElementById(modalId);
@@ -1294,7 +1280,6 @@ window.closeModal = function(modalId, e) {
     document.body.style.overflow = 'auto'; 
 };
 
-// Initial Render
 document.addEventListener("DOMContentLoaded", () => {
     initShop();
     
