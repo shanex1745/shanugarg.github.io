@@ -1,11 +1,14 @@
-// --- 1. GLOBAL GAMIFICATION & COIN SYNC ---
+/ --- 1. GLOBAL GAMIFICATION & COIN SYNC ---
 let currentCoins = parseInt(localStorage.getItem('shanu_coins')) || 0;
 
 function updateHUD() {
     let currentLevel = Math.floor(currentCoins / 50) + 1;
-    const coinEl = document.getElementById('player-coins') || document.getElementById('coinCounter');
+    const coinEl = document.getElementById('player-coins');
+    const shopCoinEl = document.getElementById('shop-coin-display');
     const lvlEl = document.getElementById('player-level');
+    
     if(coinEl) coinEl.innerText = currentCoins;
+    if(shopCoinEl) shopCoinEl.innerText = currentCoins;
     if(lvlEl) lvlEl.innerText = 'LVL ' + currentLevel;
 }
 
@@ -14,7 +17,6 @@ window.rewardPlayer = function(amount) {
     localStorage.setItem('shanu_coins', currentCoins);
     updateHUD();
 
-    // Spawn floating arcade text
     const popup = document.createElement('div');
     popup.classList.add('coin-popup');
     popup.innerText = `+${amount} COINS!`;
@@ -30,43 +32,6 @@ window.addEventListener('storage', (e) => {
         updateHUD();
     }
 });
-
-
-// --- 2. WALLET & ALERT LOGIC ---
-const walletTrigger = document.getElementById('walletTrigger');
-const walletStage = document.getElementById('walletStage');
-let warningAccepted = false;
-
-if (walletTrigger && walletStage) {
-    walletTrigger.addEventListener('click', () => {
-        if (!warningAccepted && !walletStage.classList.contains('is-open')) {
-            // First time opening: Show the retro alert instead
-            document.getElementById('systemWarningModal').classList.add('active');
-        } else {
-            // If already accepted, just toggle normally
-            toggleWallet();
-        }
-    });
-}
-
-window.closeWarning = function() {
-    document.getElementById('systemWarningModal').classList.remove('active');
-};
-
-window.proceedToWallet = function() {
-    document.getElementById('systemWarningModal').classList.remove('active');
-    warningAccepted = true; // Never show again during this session
-    toggleWallet();
-};
-
-function toggleWallet() {
-    walletStage.classList.toggle('is-open');
-    const label = document.querySelector('.wallet-label');
-    if (label) {
-        label.innerText = walletStage.classList.contains('is-open') ? "▲ CLOSE WALLET" : "▼ OPEN WALLET";
-    }
-}
-
 
 // --- 3. THE 8 PROJECTS DATA ---
 const projectData = {
@@ -1147,12 +1112,109 @@ const projectData = {
     }
 };
 
+// --- 3. SHOP UI LOGIC ---
+
+let currentTab = 'snapshots'; // 'snapshots' or 'full'
+let currentRole = 'ALL';
+
+// Initialize the Shop
+function initShop() {
+    renderShopCards();
+}
+
+// Switch Tabs Logic
+window.switchTab = function(tab) {
+    currentTab = tab;
+    
+    // Update Button CSS
+    document.getElementById('tab-snapshots').classList.remove('active');
+    document.getElementById('tab-full').classList.remove('active');
+    document.getElementById(`tab-${tab}`).classList.add('active');
+    
+    // Change Grid Layout
+    const grid = document.getElementById('shopGrid');
+    if (tab === 'snapshots') {
+        grid.classList.remove('grid-full');
+        grid.classList.add('grid-snapshots');
+    } else {
+        grid.classList.remove('grid-snapshots');
+        grid.classList.add('grid-full');
+    }
+    
+    renderShopCards();
+};
+
+// Filter by Role Logic
+window.filterRole = function(role, element) {
+    currentRole = role;
+    
+    // Update active list styling
+    const listItems = document.querySelectorAll('#roleFilterList li');
+    listItems.forEach(li => li.classList.remove('active'));
+    element.classList.add('active');
+    
+    renderShopCards();
+};
+
+// Render Cards Dynamically
+function renderShopCards() {
+    const grid = document.getElementById('shopGrid');
+    grid.innerHTML = '';
+    
+    Object.keys(projectData).forEach(key => {
+        const data = projectData[key];
+        
+        // Check filter
+        if (currentRole !== 'ALL' && !data.role.includes(currentRole)) {
+            return; // Skip this card
+        }
+        
+        // Define Bottom Bar text based on Tab
+        const bottomText = currentTab === 'snapshots' ? 'VIEW SNAPSHOT' : 'OPEN FULL PROJECT';
+        const bottomPrice = currentTab === 'snapshots' ? '🪙 FREE' : '🪙 +1 REWARD';
+        
+        const cardHTML = `
+            <article class="shop-card" onclick="handleCardClick('${key}')">
+                <div class="shop-card-img">
+                    <img src="${data.heroImage}" alt="${data.title}">
+                </div>
+                <div class="shop-card-body">
+                    <div class="shop-card-top">
+                        Lv.${Math.floor(Math.random()*10)+1} - ${data.role}
+                    </div>
+                    <div class="shop-card-content">
+                        <h3 class="shop-card-title">${data.title}</h3>
+                        <div class="shop-card-icons">
+                            ${data.themeIcons.join(' ')}
+                        </div>
+                    </div>
+                    <div class="shop-card-bottom">
+                        <span>${bottomText}</span>
+                        <span style="color: #4a4a8c; background: #fff; padding: 2px 6px; border-radius: 4px;">${bottomPrice}</span>
+                    </div>
+                </div>
+            </article>
+        `;
+        
+        grid.innerHTML += cardHTML;
+    });
+}
+
+// Handle Click based on Active Tab
+window.handleCardClick = function(projectId) {
+    if (currentTab === 'snapshots') {
+        openModal(projectId); // Existing Snapshot Modal
+    } else {
+        openFullProjectModal(projectId); // New Full Project Modal
+    }
+};
+
+// Open Snapshot Modal (Existing Logic)
 window.openModal = function(projectId) {
     const data = projectData[projectId];
     if(!data) return;
     
     window.rewardPlayer(1);
-
     const modal = document.getElementById('projectModal');
     
     document.getElementById('modalTitle').innerText = data.title;
@@ -1162,32 +1224,18 @@ window.openModal = function(projectId) {
     document.getElementById('modalSolution').innerText = data.tldr.solution;
     document.getElementById('modalImpact').innerText = data.tldr.impact;
     
-    // Auto-Scaling Hero Image
     const heroImgDiv = document.getElementById('modalHeroImg');
     if (data.heroImage) {
         heroImgDiv.innerHTML = `<img src="${data.heroImage}" alt="${data.title} Hero Image" style="display: block; width: 100%; height: auto;">`;
-        heroImgDiv.style.background = "#050d1f";
-        heroImgDiv.style.border = "2px solid #333";
-        heroImgDiv.style.borderRadius = "8px";
-        heroImgDiv.style.maxHeight = "500px";
-        heroImgDiv.style.overflowY = "auto";
-        heroImgDiv.style.overflowX = "hidden";
-    } else {
-        heroImgDiv.innerHTML = `<span>[HERO IMAGE PLACEHOLDER: 16:9 Context Shot]</span>`;
-        heroImgDiv.style.background = "transparent";
-        heroImgDiv.style.border = "2px dashed #444";
-        heroImgDiv.style.overflow = "hidden";
+        heroImgDiv.style.background = "#050d1f"; heroImgDiv.style.border = "2px solid #333"; heroImgDiv.style.borderRadius = "8px"; heroImgDiv.style.maxHeight = "500px"; heroImgDiv.style.overflowY = "auto";
     }
-
-    // Call to Action Buttons
+    
     const linkUrl = data.behanceLink || "https://www.behance.net/shanux17";
     document.getElementById('modalTopLink').href = linkUrl;
 
     const buttonHTML = `
         <div style="text-align: center; margin-top: 4rem; padding-bottom: 2rem;">
-            <a href="${linkUrl}" target="_blank" onmouseover="this.style.transform='translate(-4px, -4px)'; this.style.boxShadow='10px 10px 0 #244d66';" onmouseout="this.style.transform='none'; this.style.boxShadow='6px 6px 0 #244d66';" style="background: #6ce8ff; color: #092138; border: 4px solid #fff; box-shadow: 6px 6px 0 #244d66; font-family: 'Press Start 2P', cursive; font-size: 0.9rem; padding: 1rem 1.5rem; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: transform 0.1s, box-shadow 0.1s; cursor: pointer;">
-                SEE MORE <span style="font-family: sans-serif; font-size: 1.2rem; font-weight: bold;">↗</span>
-            </a>
+            <a href="${linkUrl}" target="_blank" class="hire-me-btn" style="position:relative; right:0; display:inline-flex;">SEE MORE ↗</a>
         </div>
     `;
 
@@ -1198,11 +1246,8 @@ window.openModal = function(projectId) {
     if(data.themeIcons) {
         data.themeIcons.forEach((icon, i) => {
             const span = document.createElement('span');
-            span.className = 'theme-icon';
-            span.innerText = icon;
-            span.style.top = `${Math.random() * 70 + 10}%`;
-            span.style.left = `${(i * 20) + 10}%`;
-            span.style.transform = `rotate(${Math.random() * 60 - 30}deg)`;
+            span.className = 'theme-icon'; span.innerText = icon;
+            span.style.top = `${Math.random() * 70 + 10}%`; span.style.left = `${(i * 20) + 10}%`; span.style.transform = `rotate(${Math.random() * 60 - 30}deg)`;
             themeBox.appendChild(span);
         });
     }
@@ -1211,19 +1256,51 @@ window.openModal = function(projectId) {
     document.body.style.overflow = 'hidden'; 
 };
 
-window.closeModal = function(e) {
+// NEW: Open Full Project Modal
+window.openFullProjectModal = function(projectId) {
+    const data = projectData[projectId];
+    if(!data) return;
+    
+    window.rewardPlayer(2); // Slightly higher reward for full projects
+    const modal = document.getElementById('fullProjectModal');
+    
+    document.getElementById('fullModalTitle').innerText = data.title;
+    document.getElementById('fullModalExternalLink').href = data.behanceLink || "https://www.behance.net/shanux17";
+    
+    // Inject Placeholder Images for scrolling (In production, replace with actual exported images or iframe)
+    const container = document.getElementById('fullProjectContent');
+    container.innerHTML = `
+        <img src="${data.heroImage}" alt="${data.title}" style="border-radius: 8px 8px 0 0; border: 4px solid #333;">
+        <div style="padding: 40px; background: #0d1117; border: 4px solid #333; border-top: none; font-family: 'Space Mono', monospace; color: #fff;">
+            <h3 style="color: #ff77da; font-family: 'Press Start 2P', cursive;">FULL BEHANCE EXPORT</h3>
+            <p style="margin-top: 20px;">Imagine long scrollable Behance images loaded here...</p>
+            <p style="color: #7cff9b;">Scroll further ⬇</p>
+            <div style="height: 800px; border-left: 2px dashed #444; margin-left: 20px; margin-top: 20px; padding-left: 20px;">
+                (Simulated content length for scrolling experience)
+            </div>
+            <p style="color: #ffd84f;">End of Project.</p>
+        </div>
+    `;
+    
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden'; 
+};
+
+// Global Close Modal
+window.closeModal = function(modalId, e) {
     if (e) e.preventDefault();
-    const modal = document.getElementById('projectModal');
+    const modal = document.getElementById(modalId);
     if (modal) modal.classList.remove('active');
     document.body.style.overflow = 'auto'; 
 };
 
-// URL Hash Routing
+// Initial Render
 document.addEventListener("DOMContentLoaded", () => {
+    initShop();
+    
     if (window.location.hash) {
         const targetId = window.location.hash.substring(1);
         if (projectData[targetId]) {
-            if (walletStage) walletStage.classList.add('is-open');
             setTimeout(() => { openModal(targetId); }, 600);
         }
     }
