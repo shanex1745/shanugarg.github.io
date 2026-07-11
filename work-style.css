@@ -19,241 +19,76 @@
     z-index: 0; pointer-events: none; opacity: 0.4;
 }
 
-/* --- HIRE ME BUTTON FIX --- */
-.menu-box { margin-top: 40px; } /* Gives room for the absolute button */
+/* HIRE ME BUTTON */
 .hire-me-btn {
-    position: absolute; 
-    top: -20px; 
-    right: 20px; 
-    background: #6ce8ff; color: #092138;
-    border: 4px solid #fff; box-shadow: 6px 6px 0 #244d66; 
-    font-family: 'Press Start 2P', cursive;
-    font-size: 0.9rem; padding: 1rem 1.5rem; text-decoration: none; 
-    display: flex; align-items: center; gap: 10px; 
-    transition: transform 0.1s, box-shadow 0.1s; 
-    z-index: 20;
+    position: absolute; top: -25px; right: 40px; background: #6ce8ff; color: #092138;
+    border: 4px solid #fff; box-shadow: 6px 6px 0 #244d66; font-family: 'Press Start 2P', cursive;
+    font-size: 0.9rem; padding: 1rem 1.5rem; text-decoration: none; display: flex; align-items: center; gap: 10px; transition: transform 0.1s, box-shadow 0.1s; z-index: 20;
 }
-@media (max-width: 768px) {
-    .hire-me-btn { right: 50%; transform: translateX(50%); top: -25px; }
-    .hire-me-btn:hover { transform: translateX(50%) translate(-2px, -2px); }
-}
+.hire-me-btn:hover { transform: translate(-4px, -4px); box-shadow: 10px 10px 0 #244d66; background: #fff; }
 
-/* --- WALLET STAGE / STATIC LAYOUT --- */
-.wallet-stage { 
-    display: flex; 
-    align-items: flex-start; 
-    gap: 40px; 
-    position: relative; 
-    width: 100%; 
-    padding: 20px 0;
+/* WALLET STAGE & CONTAINERS */
+.wallet-stage { position: relative; min-height: 550px; width: 100%; }
+.wallet-container {
+    position: absolute; left: 50%; bottom: 80px; transform: translateX(-50%);
+    z-index: 150 !important; transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); text-align: center;
 }
+.wallet-container.is-open { transform: translateX(-50%) translateY(40px); } 
 
-@media (max-width: 1024px) {
-    .wallet-stage { flex-direction: column; align-items: center; gap: 60px; }
-}
+.wallet-btn { width: 280px; height: 180px; background: #f864c4; border: 4px solid #ffffff; box-shadow: 10px 10px 0 #5a2146; position: relative; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; transition: transform 0.1s ease, box-shadow 0.1s ease; }
+.wallet-btn:hover { transform: translate(-4px, -4px); box-shadow: 14px 14px 0 #5a2146; }
+.wallet-btn:active { transform: translate(4px, 4px); box-shadow: 6px 6px 0 #5a2146; }
+.wallet-inner-top { width: 85%; height: 50px; background: #ffa8e8; border: 4px solid #5a2146; }
+.wallet-inner-bottom { width: 85%; height: 40px; background: #d941a9; border: 4px solid #5a2146; }
+.wallet-text { font-family: 'Press Start 2P', cursive; color: #ffffff; font-size: 1.5rem; text-shadow: 3px 3px 0 #5a2146; letter-spacing: 2px; }
 
-/* --- THE TREASURE CHEST --- */
-.chest-area {
-    position: sticky;
-    top: 100px; /* Stays in view while scrolling cards */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 50;
-    flex-shrink: 0;
-    width: 250px;
-}
+.tag-left { position: absolute; left: -24px; top: 40px; background: #f8f66a; border: 3px solid #ffffff; color: #000; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; padding: 8px 6px; box-shadow: 4px 4px 0 #5a2146; }
+.tag-right { position: absolute; right: -24px; bottom: 20px; background: #6ce8ff; border: 3px solid #ffffff; color: #000; font-family: 'Press Start 2P', cursive; font-size: 0.6rem; padding: 6px 4px; box-shadow: 4px 4px 0 #5a2146; }
+.wallet-label { margin-top: 30px; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; color: #ffd84f; animation: blink 1.5s steps(2) infinite; }
 
-.chest-wrapper {
-    position: relative;
-    width: 100%;
-    margin-bottom: 20px;
-}
+/* THE LOOT LAYER (Always visible over resting cards, but below hovered cards) */
+.loot-container { position: absolute; left: 50%; bottom: 160px; width: 0; height: 0; z-index: 30; pointer-events: none; }
+.loot { position: absolute; opacity: 0; transform: translate(-50%, 50px) scale(0.5); transition: opacity 0.4s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); z-index: 30; pointer-events: auto; }
+.item-slip:hover { z-index: 110 !important; box-shadow: 8px 8px 0 #f864c4; }
 
-.chest-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    filter: drop-shadow(8px 8px 0 rgba(0,0,0,0.5));
-}
+.item-coin { width: 24px; height: 24px; background: #ffd84f; border: 3px solid #fff; border-radius: 50%; box-shadow: 2px 2px 0 #c29d00; }
+.item-cash { background: #7cff9b; border: 3px solid #fff; color: #000; font-family: 'Press Start 2P', cursive; font-size: 0.8rem; padding: 6px 12px; box-shadow: 3px 3px 0 #2a7241; }
+.item-slip { background: #fff; border: 2px dashed #000; color: #000; font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.7rem; padding: 8px 12px; box-shadow: 4px 4px 0 #f864c4; white-space: nowrap; cursor: pointer; }
 
-/* The invisible box over the gold/jewels for interaction */
-.loot-click-zone {
-    position: absolute;
-    top: 30%;    /* Adjust these percentages based on your specific image */
-    left: 15%;
-    width: 70%;
-    height: 40%;
-    cursor: pointer;
-    z-index: 10;
-}
+.wallet-stage.is-open .loot { opacity: 1; }
 
-/* --- RETRO DIALOGUE BOX --- */
-.thief-dialogue {
-    position: absolute;
-    top: -80px;
-    left: 50%;
-    transform: translateX(-50%) translateY(20px);
-    background: #000;
-    border: 4px solid #fff;
-    padding: 15px;
-    width: 220px;
-    color: #fff;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 0.7rem;
-    line-height: 1.5;
-    text-align: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.2s ease;
-    z-index: 100;
-    box-shadow: 6px 6px 0 rgba(0,0,0,0.5);
-}
-.thief-dialogue.show-dialogue {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-}
-.dialogue-arrow {
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #fff;
-    font-size: 1.2rem;
-    animation: blink 1s infinite;
-}
+/* Desktop Loot Spread */
+.wallet-stage.is-open .coin-1 { transform: translate(-80px, -230px) rotate(-15deg); }
+.wallet-stage.is-open .coin-2 { transform: translate(90px, -190px) rotate(20deg); }
+.wallet-stage.is-open .coin-3 { transform: translate(0px, -300px) rotate(45deg); }
+.wallet-stage.is-open .coin-4 { transform: translate(-220px, -100px) rotate(-30deg); }
+.wallet-stage.is-open .coin-5 { transform: translate(220px, -120px) rotate(15deg); }
+.wallet-stage.is-open .coin-6 { transform: translate(20px, -140px) rotate(-10deg); }
+.wallet-stage.is-open .cash-1 { transform: translate(40px, -260px) rotate(-5deg); }
+.wallet-stage.is-open .cash-2 { transform: translate(-100px, -150px) rotate(15deg); }
+.wallet-stage.is-open .slip-1 { transform: translate(-140px, -360px) rotate(-10deg); }
+.wallet-stage.is-open .slip-2 { transform: translate(140px, -330px) rotate(12deg); }
+.wallet-stage.is-open .slip-3 { transform: translate(-650px, -180px) rotate(-5deg); }
+.wallet-stage.is-open .slip-4 { transform: translate(650px, -150px) rotate(15deg); }
+.wallet-stage.is-open .slip-5 { transform: translate(-350px, 30px) rotate(-18deg); }
+.wallet-stage.is-open .slip-6 { transform: translate(350px, 40px) rotate(22deg); }
 
-/* --- TRADING CARDS GRID --- */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    flex: 1;
-    width: 100%;
+/* PROJECT CARDS LAYER (Rest below slips, jump above on hover) */
+.project-card {
+    position: absolute; left: 50%; margin-left: -90px; bottom: 80px; 
+    width: 180px; background: #111; border: 4px solid #fff; box-shadow: 6px 6px 0 #000; 
+    z-index: 20; opacity: 0; transform: translateY(0) scale(0.5); 
+    transition: opacity 0.3s ease, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), margin-top 0.2s ease; cursor: pointer;
 }
+.wallet-stage.is-open .project-card { opacity: 1; } 
+.project-card:hover { border-color: #ff77da; z-index: 100 !important; margin-top: -10px; box-shadow: 8px 8px 0 #ff77da; }
 
-@media (max-width: 1200px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .projects-grid { grid-template-columns: 1fr; } }
-
-/* Trading Card Styling */
-.tc-card {
-    background: #3b3845; /* Dark grayish-purple base */
-    border: 4px solid #d4d0d8; /* Outer border */
-    border-radius: 12px;
-    padding: 8px;
-    aspect-ratio: 9 / 16;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 6px 6px 0 rgba(0,0,0,0.6);
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    position: relative;
-}
-.tc-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 10px 14px 0 #ff77da;
-    border-color: #ff77da;
-}
-
-/* Inner border layer */
-.tc-card::before {
-    content: '';
-    position: absolute;
-    top: 4px; left: 4px; right: 4px; bottom: 4px;
-    border: 2px solid #222;
-    border-radius: 6px;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.tc-header {
-    display: flex;
-    align-items: center;
-    background: #222;
-    border: 2px solid #111;
-    padding: 6px;
-    margin-bottom: 8px;
-    z-index: 2;
-}
-.tc-lvl {
-    background: #f8f66a;
-    color: #000;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 0.6rem;
-    padding: 4px;
-    margin-right: 8px;
-    border: 2px solid #000;
-}
-.tc-title {
-    color: #fff;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 0.55rem;
-    letter-spacing: 1px;
-}
-
-.tc-img-container {
-    flex: 1;
-    background: #000;
-    border: 2px solid #111;
-    margin-bottom: 8px;
-    overflow: hidden;
-    z-index: 2;
-}
-.tc-img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.85;
-    transition: opacity 0.2s;
-}
-.tc-card:hover .tc-img-container img { opacity: 1; }
-
-.tc-stats {
-    background: #222;
-    border: 2px solid #111;
-    padding: 8px;
-    z-index: 2;
-}
-.tc-role {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.65rem;
-    color: #6ce8ff;
-    font-weight: bold;
-    margin-bottom: 8px;
-    text-align: center;
-}
-.tc-bar {
-    width: 100%;
-    height: 6px;
-    background: #111;
-    border: 1px solid #444;
-    margin-bottom: 6px;
-    border-radius: 2px;
-}
-.tc-bar.hp .fill { background: #ff5555; height: 100%; }
-.tc-bar.mp .fill { background: #55aaff; height: 100%; }
-
-/* --- SYSTEM ALERT MODAL --- */
-.system-alert-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.85); z-index: 9999;
-    display: flex; justify-content: center; align-items: center;
-}
-.system-alert-box {
-    background: #000; border: 4px solid #ff5555; box-shadow: 10px 10px 0 #4a0000;
-    padding: 2rem; max-width: 500px; text-align: center;
-}
-.system-alert-box h3 {
-    color: #ff5555; font-family: 'Press Start 2P', cursive; font-size: 1.2rem; margin-bottom: 1.5rem; animation: blink 1s infinite;
-}
-.system-alert-box p {
-    color: #fff; font-family: 'Space Mono', monospace; font-size: 0.9rem; margin-bottom: 1rem; line-height: 1.5;
-}
-.system-alert-box button {
-    margin-top: 1.5rem; background: transparent; border: 2px solid #ff5555; color: #ff5555;
-    font-family: 'Press Start 2P', cursive; font-size: 0.8rem; padding: 10px 20px; cursor: pointer; transition: 0.2s;
-}
-.system-alert-box button:hover { background: #ff5555; color: #000; }
+.card-img-container { width: 100%; aspect-ratio: 16 / 9; border-bottom: 4px solid #fff; background: #000; overflow: hidden; }
+.card-img-container img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; transition: opacity 0.3s; }
+.project-card:hover .card-img-container img { opacity: 1; }
+.card-content { padding: 10px; }
+.card-role { font-family: 'Space Mono', monospace; font-size: 0.5rem; color: #ff77da; margin-bottom: 6px; font-weight: bold; text-transform: uppercase;}
+.card-title { font-family: 'Press Start 2P', cursive; font-size: 0.5rem; color: #fff; line-height: 1.4; }
 
 /* DESK GRID (Desktop) */
 .wallet-stage.is-open .card-0 { transform: translate(-480px, -360px); } 
