@@ -13,6 +13,7 @@
 
 <div class="app-shell scanlines pixel-grid">
 
+    <!-- Global Background Elements -->
     <div class="star blink" style="left:5%;top:10%"></div>
     <div class="star" style="left:18%;top:25%;animation-delay:.7s"></div>
     <div class="star blink" style="left:37%;top:15%;animation-delay:1.2s"></div>
@@ -27,6 +28,7 @@
 
     <div class="ground"></div>
 
+    <!-- HUD Nav Bar -->
     <header class="hud">
         <div class="hud-inner">
             <div class="brand">SHANU.EXE</div>
@@ -38,7 +40,7 @@
                 <a href="resume.html" onclick="rewardPlayer(5)">RESUME</a>
             </nav>
             <div class="hud-stats">
-                <div class="stat-box" id="player-level">LVL 1</div>
+                <div class="stat-box" id="player-level">LVL 1 </div>
                 <div class="stat-box coin-box"><span class="coin"></span> <span id="player-coins">0</span></div>
             </div>
         </div>
@@ -46,8 +48,10 @@
 
     <main id="top" class="work-main">
         
+        <!-- SHOP UI CONTAINER -->
         <div class="shop-ui">
             
+            <!-- Store Graphic -->
             <div class="shop-graphic">
                 <img src="store-graphic.png" alt="Store Graphic Placeholder" id="storeGraphicImg" onerror="this.style.display='none'; document.getElementById('storeFallback').style.display='flex';">
                 <div id="storeFallback" class="store-fallback">
@@ -55,13 +59,18 @@
                 </div>
             </div>
 
+            <!-- Shop Tabs + Hire Me Button -->
             <div class="shop-tabs">
-                <button class="shop-tab-btn active" id="tab-snapshots" onclick="switchTab('snapshots')">SNAPSHOTS</button>
-                <button class="shop-tab-btn" id="tab-full" onclick="switchTab('full')">FULL PROJECTS</button>
+                <div class="tabs-group">
+                    <button class="shop-tab-btn active" id="tab-snapshots" onclick="switchTab('snapshots')">SNAPSHOTS</button>
+                    <button class="shop-tab-btn" id="tab-archives" onclick="switchTab('archives')">THE ARCHIVES</button>
+                </div>
+                <a href="mailto:gargshanupriya@gmail.com" target="_blank" class="hire-me-btn">HIRE ME <i data-lucide="arrow-right"></i></a>
             </div>
 
+            <!-- Shop Layout (Sidebar + Grid) -->
             <div class="shop-layout">
-                <aside class="shop-sidebar">
+                <aside class="shop-sidebar" id="shopSidebar">
                     <ul class="role-list" id="roleFilterList">
                         <li class="active" onclick="filterRole('ALL', this)"><i data-lucide="layers"></i> ALL ROLES</li>
                         <li onclick="filterRole('UX RESEARCH', this)"><i data-lucide="search"></i> UX RESEARCH</li>
@@ -71,15 +80,15 @@
                     </ul>
                 </aside>
 
-                <main class="shop-inventory" id="shopGrid">
-                    </main>
+                <main class="shop-inventory grid-snapshots" id="shopGrid">
+                    <!-- Cards injected dynamically via JavaScript -->
+                </main>
             </div>
-            
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gargshanupriya@gmail.com" target="_blank" class="hire-me-btn">HIRE ME <i data-lucide="arrow-right"></i></a>
             
         </div>
     </main>
        
+    <!-- SNAPSHOT MODAL -->
     <div class="modal-overlay" id="projectModal" onclick="closeModal('projectModal', event)">
         <div class="modal-content advanced-modal" onclick="event.stopPropagation()">
             <button class="close-btn" onclick="closeModal('projectModal', event)"><i data-lucide="x"></i> ESCAPE</button>
@@ -94,11 +103,11 @@
                 
                 <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
                     <h2 id="modalTitle" class="glitch-title" style="margin-bottom: 0;">[PROJECT TITLE]</h2>
-                    <a href="#" id="modalTopLink" target="_blank" class="hero-see-more-btn">SEE MORE ↗</a>
+                    <a href="#" id="modalTopLink" target="_blank" class="hero-see-more-btn">SEE FULL BEHANCE ↗</a>
                 </div>
                 
                 <div class="hero-image-placeholder" id="modalHeroImg">
-                    <span>[HERO IMAGE PLACEHOLDER: 16:9 Context Shot]</span>
+                    <span>[HERO IMAGE PLACEHOLDER]</span>
                 </div>
             </div>
 
@@ -124,23 +133,20 @@
         </div>
     </div>
     
-    <div class="modal-overlay" id="fullProjectModal" onclick="closeModal('fullProjectModal', event)">
-        <div class="modal-content advanced-modal full-view-modal" onclick="event.stopPropagation()">
-            <div class="full-modal-header">
-                <h2 id="fullModalTitle" class="glitch-title" style="margin: 0; font-size: 1.2rem;">[TITLE]</h2>
-                <button class="close-btn static-close" onclick="closeModal('fullProjectModal', event)"><i data-lucide="x"></i> ESCAPE</button>
-            </div>
+    <!-- ARTIFACT MODAL (For LORs, Papers, Philosophy) -->
+    <div class="modal-overlay" id="artifactModal" onclick="closeModal('artifactModal', event)">
+        <div class="modal-content advanced-modal" style="max-width: 800px;" onclick="event.stopPropagation()">
+            <button class="close-btn static-close" onclick="closeModal('artifactModal', event)" style="position: absolute; top: 1.5rem; right: 1.5rem;"><i data-lucide="x"></i> CLOSE</button>
             
-            <div class="full-modal-body">
-                <div class="scrollable-project-container" id="fullProjectContent">
-                    <p style="text-align:center; margin-top: 50px; font-family: 'Space Mono', monospace; color: #ff77da;">
-                        Loading project assets...
-                    </p>
+            <div class="modal-hero" style="border-bottom: 4px solid #ffd84f; padding-bottom: 2rem;">
+                <div class="modal-tags">
+                    <span class="role-tag" id="artifactType" style="background: #ffd84f; border-color: #fff; color: #000;">[TYPE]</span>
                 </div>
+                <h2 id="artifactTitle" class="glitch-title" style="color: #ffd84f; font-size: 1.5rem; margin-top: 1rem;">[ARTIFACT TITLE]</h2>
             </div>
             
-            <div class="full-modal-footer">
-                <a href="#" id="fullModalExternalLink" target="_blank" class="hire-me-btn" style="position:relative; top:0; right:0;">VIEW ORIGINAL ON BEHANCE ↗</a>
+            <div class="dynamic-content-area" id="artifactContentArea" style="background: #111; color: #ccc; font-family: 'Space Mono', monospace; line-height: 1.8;">
+                <!-- Artifact content injected here -->
             </div>
         </div>
     </div>
