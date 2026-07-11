@@ -13,7 +13,6 @@
 
 <div class="app-shell scanlines pixel-grid">
 
-    <!-- Global Background Elements -->
     <div class="star blink" style="left:5%;top:10%"></div>
     <div class="star" style="left:18%;top:25%;animation-delay:.7s"></div>
     <div class="star blink" style="left:37%;top:15%;animation-delay:1.2s"></div>
@@ -28,7 +27,6 @@
 
     <div class="ground"></div>
 
-    <!-- HUD Nav Bar -->
     <header class="hud">
         <div class="hud-inner">
             <div class="brand">SHANU.EXE</div>
@@ -40,7 +38,7 @@
                 <a href="resume.html" onclick="rewardPlayer(5)">RESUME</a>
             </nav>
             <div class="hud-stats">
-                <div class="stat-box" id="player-level">LVL 1 </div>
+                <div class="stat-box" id="player-level">LVL 1</div>
                 <div class="stat-box coin-box"><span class="coin"></span> <span id="player-coins">0</span></div>
             </div>
         </div>
@@ -48,10 +46,8 @@
 
     <main id="top" class="work-main">
         
-        <!-- NEW SHOP UI CONTAINER -->
         <div class="shop-ui">
             
-            <!-- Store Graphic -->
             <div class="shop-graphic">
                 <img src="store-graphic.png" alt="Store Graphic Placeholder" id="storeGraphicImg" onerror="this.style.display='none'; document.getElementById('storeFallback').style.display='flex';">
                 <div id="storeFallback" class="store-fallback">
@@ -59,19 +55,13 @@
                 </div>
             </div>
 
-            <!-- Shop Tabs -->
             <div class="shop-tabs">
                 <button class="shop-tab-btn active" id="tab-snapshots" onclick="switchTab('snapshots')">SNAPSHOTS</button>
                 <button class="shop-tab-btn" id="tab-full" onclick="switchTab('full')">FULL PROJECTS</button>
             </div>
 
-            <!-- Shop Layout (Sidebar + Grid) -->
             <div class="shop-layout">
                 <aside class="shop-sidebar">
-                    <div class="sidebar-wallet">
-                        <span>CASH</span>
-                        <div class="sidebar-coins"><span class="coin mini"></span> <span id="shop-coin-display">0</span></div>
-                    </div>
                     <ul class="role-list" id="roleFilterList">
                         <li class="active" onclick="filterRole('ALL', this)"><i data-lucide="layers"></i> ALL ROLES</li>
                         <li onclick="filterRole('UX RESEARCH', this)"><i data-lucide="search"></i> UX RESEARCH</li>
@@ -82,8 +72,7 @@
                 </aside>
 
                 <main class="shop-inventory" id="shopGrid">
-                    <!-- Cards will be injected here via JavaScript -->
-                </main>
+                    </main>
             </div>
             
             <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gargshanupriya@gmail.com" target="_blank" class="hire-me-btn">HIRE ME <i data-lucide="arrow-right"></i></a>
@@ -91,7 +80,6 @@
         </div>
     </main>
        
-    <!-- SNAPSHOT MODAL (Retained & Untouched) -->
     <div class="modal-overlay" id="projectModal" onclick="closeModal('projectModal', event)">
         <div class="modal-content advanced-modal" onclick="event.stopPropagation()">
             <button class="close-btn" onclick="closeModal('projectModal', event)"><i data-lucide="x"></i> ESCAPE</button>
@@ -136,7 +124,6 @@
         </div>
     </div>
     
-    <!-- NEW: FULL PROJECT MODAL -->
     <div class="modal-overlay" id="fullProjectModal" onclick="closeModal('fullProjectModal', event)">
         <div class="modal-content advanced-modal full-view-modal" onclick="event.stopPropagation()">
             <div class="full-modal-header">
@@ -145,11 +132,9 @@
             </div>
             
             <div class="full-modal-body">
-                <!-- Fallback scrollable graphic area or iframe -->
                 <div class="scrollable-project-container" id="fullProjectContent">
                     <p style="text-align:center; margin-top: 50px; font-family: 'Space Mono', monospace; color: #ff77da;">
-                        Loading project assets...<br><br>
-                        (Insert your Behance export images or iframe inside this container in the JS)
+                        Loading project assets...
                     </p>
                 </div>
             </div>
