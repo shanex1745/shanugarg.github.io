@@ -444,3 +444,43 @@
           0% { transform: translateY(0) scale(1); opacity: 1; }
           100% { transform: translateY(-40px) scale(1.4); opacity: 0; }
       }
+      /* ========================================= */
+      /* GLOBAL MOBILE NAV BAR OPTIMIZATION        */
+      /* ========================================= */
+      @media (max-width: 768px) {
+          .hud { padding: 12px 15px; }
+          .hud-inner { 
+              display: flex; 
+              flex-wrap: wrap; 
+              justify-content: space-between; 
+              align-items: center; 
+              gap: 10px; 
+          }
+          /* Forces Brand and Stats to the top row */
+          .brand { order: 1; font-size: 1.1rem; margin: 0; }
+          .hud-stats { order: 2; margin: 0; gap: 8px; }
+          .stat-box { padding: 8px 10px; font-size: 0.7rem; }
+          
+          /* Forces Nav to the bottom row, making it scrollable with large tap targets */
+          .nav { 
+              order: 3; 
+              width: 100%; 
+              display: flex; 
+              overflow-x: auto; 
+              justify-content: flex-start; 
+              gap: 12px; 
+              padding: 15px 0 5px 0; 
+              border-top: 2px dashed #1b5e78; 
+              margin-top: 5px;
+              -webkit-overflow-scrolling: touch;
+          }
+          .nav::-webkit-scrollbar { display: none; }
+          .nav a { 
+              font-size: 0.75rem !important; 
+              padding: 10px 15px !important; 
+              white-space: nowrap; 
+              background: rgba(255,255,255,0.05); 
+              border: 1px solid #1b5e78; 
+              border-radius: 4px;
+          }
+      }
