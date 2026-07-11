@@ -254,41 +254,32 @@
         .buttons { display: flex; gap: 6px; }
         .btn-arcade { width: 10px; height: 10px; border-radius: 50%; }
 
-        /* Integrated Swipe Indicator Overlay */
-        .scroll-hint {
-            display: none;
-        }
+        /* Integrated Scroll Indicator Overlay */
+        .scroll-hint { display: none; }
         
         @media (max-width: 768px) {
+            .arcade-wrapper { position: relative; }
+            
             .scroll-hint {
-                display: block;
-                position: absolute;
-                top: 45%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background: rgba(13, 17, 23, 0.95);
-                border: 2px solid #ff77da;
-                padding: 15px 25px;
-                font-family: 'Press Start 2P', monospace;
-                font-size: 10px;
-                color: #ff77da;
-                letter-spacing: 1px;
-                z-index: 50;
-                pointer-events: none;
-                border-radius: 8px;
-                animation: hintPulse 2s infinite, fadeOutHint 10s forwards 1s;
+                display: flex; justify-content: center; align-items: center; gap: 10px;
+                position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);
+                background: rgba(13, 17, 23, 0.95); border: 2px solid #ff77da;
+                padding: 15px 25px; font-family: 'Press Start 2P', monospace; font-size: 12px;
+                color: #ff77da; z-index: 50; pointer-events: none; border-radius: 8px;
+                box-shadow: 0 0 20px rgba(255, 119, 218, 0.4);
+                /* Fades out after 3.5 seconds so it doesn't block the UI permanently */
+                animation: fadeOutHint 3.5s forwards 1s; 
             }
-        }
-        
-        @keyframes hintPulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.05); box-shadow: 0 0 20px rgba(255, 119, 218, 0.5); }
+            .scroll-hint::before { content: '◄'; animation: bounceLeft 1s infinite alternate; }
+            .scroll-hint::after { content: '►'; animation: bounceRight 1s infinite alternate; }
         }
         
         @keyframes fadeOutHint {
             80% { opacity: 1; visibility: visible; }
             100% { opacity: 0; visibility: hidden; }
         }
+        @keyframes bounceLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-5px); } }
+        @keyframes bounceRight { 0% { transform: translateX(0); } 100% { transform: translateX(5px); } }
 
         /* ---------------------------------------------------
            RESPONSIVE VIEW OPTIMIZATIONS
