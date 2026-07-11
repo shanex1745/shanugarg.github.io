@@ -1292,18 +1292,40 @@ function renderShopCards() {
             grid.innerHTML += cardHTML;
         });
     } else {
-        // Render ARCHIVES with Mario-Style Scenery
+        // Render ARCHIVES with Detailed 8-Bit Mario Scenery
         let archiveHTML = `
             <div class="archive-scene-layer">
+                <!-- Background Hills -->
+                <div class="archive-hill" style="left: 5%; width: 180px; height: 100px;"></div>
+                <div class="archive-hill" style="right: 8%; width: 280px; height: 140px;"></div>
+                <div class="archive-hill" style="left: 45%; width: 120px; height: 60px;"></div>
+                
+                <!-- Clouds -->
                 <div class="archive-cloud" style="top: 15%; left: 10%;"></div>
-                <div class="archive-cloud" style="top: 35%; right: 15%; transform: scale(0.7);"></div>
-                <div class="archive-pipe" style="left: 10%; bottom: 40px;"></div>
-                <div class="archive-plant" style="left: 12%; bottom: 120px;">🍄</div>
-                <div class="archive-pipe" style="right: 15%; bottom: 40px; height: 110px;"></div>
+                <div class="archive-cloud" style="top: 25%; right: 15%; transform: scale(1.5);"></div>
+                <div class="archive-cloud" style="top: 10%; left: 50%; transform: scale(0.8);"></div>
+
+                <!-- Floating Bricks & Coins -->
+                <div class="archive-brick" style="top: 180px; left: 15%;"></div>
+                <div class="archive-q-block" style="top: 180px; left: calc(15% + 32px);">?</div>
+                <div class="archive-brick" style="top: 180px; left: calc(15% + 64px);"></div>
+                <div class="archive-scene-coin" style="top: 140px; left: calc(15% + 40px);"></div>
+                
+                <div class="archive-brick" style="top: 250px; right: 20%;"></div>
+                <div class="archive-brick" style="top: 250px; right: calc(20% - 32px);"></div>
+                <div class="archive-scene-coin" style="top: 210px; right: 20%;"></div>
+
+                <!-- Pipes -->
+                <div class="archive-pipe" style="left: 12%; bottom: 50px;"></div>
+                <div class="archive-plant" style="left: calc(12% + 8px); bottom: 130px;">🍄</div>
+                <div class="archive-pipe" style="right: 25%; bottom: 50px; height: 120px;"></div>
+                
+                <!-- Ground -->
                 <div class="archive-ground"></div>
             </div>
         `;
         
+        // Render Artifact Cards
         Object.keys(museumData).forEach(key => {
             const data = museumData[key];
             archiveHTML += `
@@ -1319,7 +1341,6 @@ function renderShopCards() {
         grid.innerHTML = archiveHTML;
     }
 }
-
 // Click Routing
 window.handleCardClick = function(id) {
     if (currentTab === 'snapshots') {
