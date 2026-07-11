@@ -312,50 +312,50 @@
 }
 
 /* ========================================= */
-/* THE ARCHIVES (REFERENCE IMAGE THEME)      */
+/* THE ARCHIVES (GLOBAL THEME + MARIO SCENE) */
 /* ========================================= */
 
-/* Changes the layout from a rigid grid to a centered, immersive flex scene */
 .shop-inventory.grid-archives {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 30px;
-    background-color: #213261; /* Deep retro blue */
-    background-image: radial-gradient(circle, rgba(255,255,255,0.15) 2.5px, transparent 2.5px);
-    background-size: 15px 15px;
-    padding: 60px 20px 120px 20px; /* Extra padding at bottom for the ground */
-    border: 4px solid #111;
+    gap: 35px;
+    background-color: #0b1831; /* Global Theme dark blue background */
+    background-image: radial-gradient(circle, rgba(88,216,255,0.15) 2.5px, transparent 2.5px);
+    background-size: 16px 16px;
+    padding: 60px 20px 140px 20px; /* Extra padding at bottom for the ground */
+    border: 4px solid #4a4a8c;
     border-radius: 8px;
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.8);
     position: relative;
     overflow: hidden;
-    min-height: 500px;
+    min-height: 600px;
 }
 
-/* The compact Mario-style brown sign/dialogue box */
+/* Artifact Cards - Now matches your Global Theme */
 .artifact-card {
-    background-color: #b07064; 
-    border: 6px solid #23191f; 
-    box-shadow: inset 0 0 0 4px #d49586, 8px 8px 0 rgba(0,0,0,0.4);
+    background-color: #10213f; 
+    border: 4px solid #58d8ff; 
+    box-shadow: inset 0 0 0 4px rgba(88,216,255,0.1), 8px 8px 0 #06101d;
     padding: 25px 20px;
     color: #fff;
     width: 100%;
-    max-width: 320px; /* Fixes the "Too Big" issue */
+    max-width: 320px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    transition: transform 0.2s ease, filter 0.2s ease;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     cursor: pointer;
     z-index: 10;
-    pointer-events: auto;
+    position: relative;
 }
 
 .artifact-card:hover {
     transform: translate(-4px, -4px);
-    filter: brightness(1.15);
+    border-color: #ff77da;
+    box-shadow: inset 0 0 0 4px rgba(255,119,218,0.1), 12px 12px 0 #06101d;
 }
 
 .artifact-icons {
@@ -365,12 +365,14 @@
 }
 
 .artifact-role {
-    background: rgba(0,0,0,0.3);
+    background: #ff77da;
+    color: #0d1117;
     padding: 6px 12px;
     font-family: 'Space Mono', monospace;
     font-size: 0.65rem;
+    font-weight: bold;
     margin-bottom: 15px;
-    border: 2px solid #23191f;
+    border: 2px solid #fff;
 }
 
 .artifact-title {
@@ -384,44 +386,89 @@
 
 .artifact-btn {
     margin-top: auto;
-    background: #23191f;
-    color: #fff;
-    border: 2px solid #fff;
+    background: #0d1117;
+    color: #7cff9b;
+    border: 2px solid #7cff9b;
     padding: 8px 15px;
     font-family: 'Space Mono', monospace;
     font-size: 0.7rem;
     font-weight: bold;
+    transition: 0.2s;
+}
+.artifact-card:hover .artifact-btn {
+    background: #7cff9b;
+    color: #0d1117;
 }
 
-/* --- IMMERSIVE SCENERY ELEMENTS --- */
+/* --- DETAILED 8-BIT SCENERY ELEMENTS --- */
 .archive-scene-layer {
     position: absolute; top: 0; left: 0; right: 0; bottom: 0;
     pointer-events: none; z-index: 1;
 }
+
+/* Ground */
 .archive-ground {
-    position: absolute; left: 0; right: 0; bottom: 0; height: 40px;
+    position: absolute; left: 0; right: 0; bottom: 0; height: 50px;
     background: #8b4513; border-top: 8px solid #2e8b57;
-    background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.1) 0 4px, transparent 4px 8px);
+    background-image: 
+        linear-gradient(rgba(0,0,0,0.3) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(0,0,0,0.3) 2px, transparent 2px);
+    background-size: 32px 16px;
 }
+
+/* Hills */
+.archive-hill {
+    position: absolute; bottom: 50px; 
+    background: #113826; border: 4px solid #0a2417;
+    border-radius: 50% 50% 0 0;
+}
+
+/* Pipes */
 .archive-pipe {
-    position: absolute; bottom: 40px; width: 60px; height: 80px; background: #29b84f;
+    position: absolute; bottom: 50px; width: 60px; height: 80px; background: #29b84f;
     border-left: 6px solid #62ef72; border-right: 6px solid #14712e; border-top: 10px solid #14712e;
 }
 .archive-pipe::after {
     content: ''; position: absolute; top: -14px; left: -10px; right: -10px; height: 20px;
     background: #33d85d; border-bottom: 4px solid #148739;
 }
+
+/* Floating Blocks */
+.archive-brick {
+    position: absolute; width: 32px; height: 32px;
+    background: #b05c3c; border: 2px solid #5c2710;
+    box-shadow: inset -2px -2px 0 #7a361a, inset 2px 2px 0 #d97d55;
+}
+.archive-q-block {
+    position: absolute; width: 32px; height: 32px;
+    background: #ffd84f; border: 2px solid #b38b14;
+    box-shadow: inset -2px -2px 0 #d9a012, inset 2px 2px 0 #ffe98a;
+    display: flex; justify-content: center; align-items: center;
+    font-family: 'Press Start 2P', cursive; font-size: 16px; color: #b38b14;
+    animation: blockBop 2s infinite ease-in-out;
+}
+
+/* Coins & Clouds */
+.archive-scene-coin {
+    position: absolute; width: 16px; height: 24px;
+    background: #ffd84f; border: 2px solid #b38b14; border-radius: 50%;
+    animation: coinSpin 1s infinite linear;
+}
 .archive-cloud {
-    position: absolute; width: 80px; height: 24px; background: rgba(255,255,255,0.8);
-    border-radius: 20px; box-shadow: 20px -10px 0 rgba(255,255,255,0.8), 40px 0 0 rgba(255,255,255,0.8);
+    position: absolute; width: 80px; height: 24px; background: rgba(255,255,255,0.4);
+    border-radius: 20px; box-shadow: 20px -10px 0 rgba(255,255,255,0.4), 40px 0 0 rgba(255,255,255,0.4);
 }
 .archive-plant {
     position: absolute; font-size: 2.5rem; filter: drop-shadow(2px 2px 0 #000);
-    animation: bite 1.5s infinite alternate;
+    animation: plantBite 1.5s infinite alternate;
 }
-@keyframes bite { 0% { transform: translateY(0); } 100% { transform: translateY(12px); } }
 
-/* Modals */
+/* Animations */
+@keyframes plantBite { 0% { transform: translateY(0); } 100% { transform: translateY(12px); } }
+@keyframes blockBop { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes coinSpin { 0% { transform: scaleX(1); } 50% { transform: scaleX(0.1); } 100% { transform: scaleX(1); } }
+
+/* --- INTERNAL MODAL STYLING (Kept Intact for Popups) --- */
 .retro-dialogue-box {
     background-color: #b07064; border: 6px solid #23191f; 
     box-shadow: inset 0 0 0 4px #d49586, 8px 8px 0 rgba(0,0,0,0.4);
@@ -432,12 +479,13 @@
     text-shadow: 3px 3px 0 #000; line-height: 1.6; margin-bottom: 15px; text-transform: uppercase; display: inline-block;
 }
 .retro-sprite { font-size: 2rem; vertical-align: middle; margin-right: 10px; filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.5)); }
-.pdf-container { width: 100%; height: 60vh; min-height: 400px; border: 4px solid #23191f; background: #000; margin-top: 15px; }
+.pdf-container { width: 100%; height: 65vh; min-height: 400px; border: 4px solid #23191f; background: #000; margin-top: 15px; }
 
-/* Mobile Adjustments for Archives */
+/* Mobile Optimizations */
 @media (max-width: 768px) {
-    .shop-inventory.grid-archives { padding: 40px 15px 100px 15px; }
+    .shop-inventory.grid-archives { padding: 30px 15px 100px 15px; }
     .artifact-card { max-width: 100%; width: 100%; }
-    .archive-pipe { display: none; } /* Hide pipes on very small screens to avoid overlap */
+    .archive-hill, .archive-cloud { opacity: 0.3; } /* Dim background elements so text stands out */
+    .archive-pipe { display: none; } /* Hide pipes on mobile to prevent overlap */
     .archive-plant { display: none; }
 }
