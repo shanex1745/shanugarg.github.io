@@ -1255,50 +1255,69 @@ window.filterRole = function(role, element) {
     renderShopCards();
 };
 
-// Render Cards
+// Render Cards (Splits logic between Snapshots and Archives)
 function renderShopCards() {
     const grid = document.getElementById('shopGrid');
     if (!grid) return;
     grid.innerHTML = '';
     
-    const dataSource = currentTab === 'snapshots' ? projectData : museumData;
-    
-    Object.keys(dataSource).forEach(key => {
-        const data = dataSource[key];
-        
-        if (currentTab === 'snapshots' && currentRole !== 'ALL' && !data.role.includes(currentRole)) {
-            return; 
-        }
-        
-        const bottomText = currentTab === 'snapshots' ? 'VIEW SNAPSHOT' : 'OPEN ARTIFACT';
-        const bottomPrice = currentTab === 'snapshots' ? '🪙 FREE' : '🪙 +5 REWARD';
-        const cardClass = currentTab === 'snapshots' ? 'shop-card' : 'shop-card artifact-card';
-        
-        const cardHTML = `
-            <article class="${cardClass}" onclick="handleCardClick('${key}')">
-                <div class="shop-card-img">
-                    <img src="${data.heroImage}" alt="${data.title}" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'100\\' height=\\'100\\'><rect width=\\'100\\' height=\\'100\\' fill=\\'%23111\\'/><text x=\\'50\\' y=\\'50\\' font-family=\\'monospace\\' font-size=\\'12\\' fill=\\'%23555\\' text-anchor=\\'middle\\' alignment-baseline=\\'middle\\'>NO IMAGE</text></svg>'">
-                </div>
-                <div class="shop-card-body">
-                    <div class="shop-card-top">
-                        Lv.${Math.floor(Math.random()*10)+1} - ${data.role}
+    if (currentTab === 'snapshots') {
+        Object.keys(projectData).forEach(key => {
+            const data = projectData[key];
+            
+            if (currentRole !== 'ALL' && !data.role.includes(currentRole)) return; 
+            
+            const cardHTML = `
+                <article class="shop-card" onclick="handleCardClick('${key}')">
+                    <div class="shop-card-img">
+                        <img src="${data.heroImage}" alt="${data.title}" onerror="this.style.display='none'">
                     </div>
-                    <div class="shop-card-content">
-                        <h3 class="shop-card-title">${data.title}</h3>
-                        <div class="shop-card-icons">
-                            ${data.themeIcons.join(' ')}
+                    <div class="shop-card-body">
+                        <div class="shop-card-top">
+                            Lv.${Math.floor(Math.random()*10)+1} - ${data.role}
+                        </div>
+                        <div class="shop-card-content">
+                            <h3 class="shop-card-title">${data.title}</h3>
+                            <div class="shop-card-icons">
+                                ${data.themeIcons.join(' ')}
+                            </div>
+                        </div>
+                        <div class="shop-card-bottom">
+                            <span>VIEW SNAPSHOT</span>
+                            <span style="color: #4a4a8c; background: #fff; padding: 2px 6px; border-radius: 4px;">🪙 FREE</span>
                         </div>
                     </div>
-                    <div class="shop-card-bottom">
-                        <span>${bottomText}</span>
-                        <span style="color: #4a4a8c; background: #fff; padding: 2px 6px; border-radius: 4px;">${bottomPrice}</span>
-                    </div>
-                </div>
-            </article>
+                </article>
+            `;
+            grid.innerHTML += cardHTML;
+        });
+    } else {
+        // Render ARCHIVES with Mario-Style Scenery
+        let archiveHTML = `
+            <div class="archive-scene-layer">
+                <div class="archive-cloud" style="top: 15%; left: 10%;"></div>
+                <div class="archive-cloud" style="top: 35%; right: 15%; transform: scale(0.7);"></div>
+                <div class="archive-pipe" style="left: 10%; bottom: 40px;"></div>
+                <div class="archive-plant" style="left: 12%; bottom: 120px;">🍄</div>
+                <div class="archive-pipe" style="right: 15%; bottom: 40px; height: 110px;"></div>
+                <div class="archive-ground"></div>
+            </div>
         `;
         
-        grid.innerHTML += cardHTML;
-    });
+        Object.keys(museumData).forEach(key => {
+            const data = museumData[key];
+            archiveHTML += `
+                <article class="artifact-card" onclick="handleCardClick('${key}')">
+                    <div class="artifact-icons">${data.themeIcons.join(' ')}</div>
+                    <div class="artifact-role">${data.role}</div>
+                    <h3 class="artifact-title">${data.title}</h3>
+                    <div class="artifact-btn">OPEN FILE ↗</div>
+                </article>
+            `;
+        });
+        
+        grid.innerHTML = archiveHTML;
+    }
 }
 
 // Click Routing
