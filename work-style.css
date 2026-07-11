@@ -10,14 +10,6 @@
     z-index: 0; pointer-events: none; opacity: 0.4;
 }
 
-/* HIRE ME BUTTON */
-.hire-me-btn {
-    position: absolute; top: -25px; right: 40px; background: #6ce8ff; color: #092138;
-    border: 4px solid #fff; box-shadow: 6px 6px 0 #244d66; font-family: 'Press Start 2P', cursive;
-    font-size: 0.9rem; padding: 1rem 1.5rem; text-decoration: none; display: flex; align-items: center; gap: 10px; transition: transform 0.1s, box-shadow 0.1s; z-index: 20;
-}
-.hire-me-btn:hover { transform: translate(-4px, -4px); box-shadow: 10px 10px 0 #244d66; background: #fff; }
-
 /* ========================================= */
 /* SHOP UI REDESIGN (DARK RETRO THEME)       */
 /* ========================================= */
@@ -54,12 +46,18 @@
     background: repeating-linear-gradient(45deg, #050d1f, #050d1f 10px, #0a1530 10px, #0a1530 20px);
 }
 
-/* 2. Tabs Section */
+/* 2. Tabs Section & Hire Me Button */
 .shop-tabs {
     display: flex;
+    justify-content: space-between; /* Pushes tabs left, button right */
+    align-items: flex-end; /* Aligns them to the bottom line */
     background: #07152c;
     border-bottom: 4px solid #4a4a8c;
     padding: 15px 20px 0;
+    gap: 10px;
+}
+.tabs-group {
+    display: flex;
     gap: 10px;
 }
 .shop-tab-btn {
@@ -89,6 +87,30 @@
     z-index: 2;
 }
 
+/* New Green Hire Me Button */
+.hire-me-btn {
+    background: #0d1117;
+    color: #7cff9b;
+    border: 3px solid #7cff9b;
+    box-shadow: 4px 4px 0 rgba(124, 255, 155, 0.2);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.75rem;
+    padding: 12px 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
+    margin-bottom: 10px; /* Space off the border */
+    border-radius: 4px;
+}
+.hire-me-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 rgba(124, 255, 155, 0.4);
+    background: rgba(124, 255, 155, 0.1);
+    color: #fff;
+}
+
 /* 3. Shop Body Layout */
 .shop-layout {
     display: flex;
@@ -97,12 +119,14 @@
     gap: 25px;
     background: #0a1833;
     box-shadow: inset 0 0 25px rgba(0,0,0,0.4);
+    min-height: 500px;
 }
 
 /* 4. Sidebar */
 .shop-sidebar {
     width: 250px;
     flex-shrink: 0;
+    transition: opacity 0.3s;
 }
 
 .role-list {
@@ -142,19 +166,12 @@
     flex-grow: 1;
     display: grid;
     gap: 20px;
+    align-content: start;
 }
+.shop-inventory.grid-snapshots { grid-template-columns: repeat(2, 1fr); }
+.shop-inventory.grid-archives { grid-template-columns: repeat(2, 1fr); }
 
-/* Snapshots Grid (2 Columns) */
-.shop-inventory.grid-snapshots {
-    grid-template-columns: repeat(2, 1fr);
-}
-
-/* Full Projects Grid (1 Column, larger) */
-.shop-inventory.grid-full {
-    grid-template-columns: 1fr;
-}
-
-/* 6. Horizontal Card Design */
+/* 6. Horizontal Card Design (Snapshots) */
 .shop-card {
     display: flex;
     flex-direction: row;
@@ -186,64 +203,34 @@
 }
 .shop-card:hover .shop-card-img img { opacity: 1; }
 
-.shop-card-body {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-}
+.shop-card-body { width: 60%; display: flex; flex-direction: column; }
 
 .shop-card-top {
-    background: #1b3d6e;
-    color: #ffd84f;
-    padding: 8px 10px;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.65rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-bottom: 2px solid #315d82;
-    letter-spacing: 0.5px;
+    background: #1b3d6e; color: #ffd84f; padding: 8px 10px; font-family: 'Space Mono', monospace; font-size: 0.65rem; font-weight: bold; text-transform: uppercase; border-bottom: 2px solid #315d82; letter-spacing: 0.5px;
 }
 .shop-card:hover .shop-card-top { background: #ff77da; color: #0d1117; }
 
-.shop-card-content {
-    padding: 14px 12px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.shop-card-title {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 0.65rem;
-    color: #fff;
-    line-height: 1.5;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 0 #09213a;
-}
-.shop-card-icons {
-    display: flex; gap: 8px;
-    font-size: 1.1rem;
-}
+.shop-card-content { padding: 14px 12px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+.shop-card-title { font-family: 'Press Start 2P', cursive; font-size: 0.65rem; color: #fff; line-height: 1.5; margin-bottom: 10px; text-shadow: 2px 2px 0 #09213a; }
+.shop-card-icons { display: flex; gap: 8px; font-size: 1.1rem; }
 
 .shop-card-bottom {
-    background: #081325;
-    color: #7cff9b;
-    padding: 8px 10px;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 0.55rem;
-    border-top: 2px solid #2f80a7;
-    display: flex; align-items: center; justify-content: space-between;
+    background: #081325; color: #7cff9b; padding: 8px 10px; font-family: 'Press Start 2P', cursive; font-size: 0.55rem; border-top: 2px solid #2f80a7; display: flex; align-items: center; justify-content: space-between;
 }
 
-/* Adjustments for FULL view cards */
-.shop-inventory.grid-full .shop-card { min-height: 220px; }
-.shop-inventory.grid-full .shop-card-img { width: 45%; min-width: 240px; }
-.shop-inventory.grid-full .shop-card-title { font-size: 0.85rem; margin-bottom: 14px; }
-.shop-inventory.grid-full .shop-card-top { font-size: 0.75rem; padding: 10px 14px; }
-.shop-inventory.grid-full .shop-card-bottom { font-size: 0.65rem; padding: 10px 14px; }
+/* Artifact Card Styling (Archive Tab) */
+.artifact-card {
+    border-color: #ffd84f;
+    box-shadow: 6px 6px 0 #06101d, inset 0 0 0 2px rgba(255,216,79,0.1);
+}
+.artifact-card:hover { border-color: #fff; }
+.artifact-card .shop-card-top { background: #5e452b; border-bottom-color: #ffd84f; color: #ffd84f;}
+.artifact-card:hover .shop-card-top { background: #ffd84f; color: #000; }
+.artifact-card .shop-card-img { border-right-color: #ffd84f; }
+.artifact-card:hover .shop-card-img { border-right-color: #fff; }
 
 /* ========================================= */
-/* MODALS (Snapshot & Full Project)          */
+/* MODALS                                    */
 /* ========================================= */
 .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 999; display: none; justify-content: center; align-items: center; padding: 2rem; }
 .modal-overlay.active { display: flex; }
@@ -253,7 +240,6 @@
     font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.9rem; 
     padding: 0.5rem 1rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: 0.2s; 
 }
-.close-btn.static-close { position: relative; top: auto; right: auto; }
 .close-btn:hover { background: #f864c4; color: #fff; }
 
 .advanced-modal {
@@ -303,13 +289,6 @@
 .theme-graphics { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; z-index: 1; opacity: 0.1; }
 .theme-icon { position: absolute; font-size: 4rem; filter: grayscale(100%); }
 
-/* FULL PROJECT MODAL SPECIFICS */
-.full-view-modal { display: flex; flex-direction: column; overflow: hidden; }
-.full-modal-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 30px; background: #050d1f; border-bottom: 4px solid #fff; }
-.full-modal-body { flex-grow: 1; overflow-y: auto; background: #111; padding: 20px; }
-.full-modal-footer { padding: 20px; background: #050d1f; border-top: 4px solid #fff; text-align: center; }
-.scrollable-project-container img { width: 100%; height: auto; display: block; margin-bottom: 10px; }
-
 /* RETRO COIN POPUP */
 .coin-popup {
     position: fixed; top: 70px; right: 5vw; color: #ffd84f; font-family: 'Press Start 2P', cursive, monospace;
@@ -324,8 +303,10 @@
     .shop-sidebar { width: 100%; }
     .role-list { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 10px; }
     .role-list li { margin-bottom: 0; white-space: nowrap; flex-shrink: 0; }
-    .shop-inventory.grid-snapshots { grid-template-columns: 1fr; }
-    .shop-tabs { flex-direction: column; padding: 10px; }
-    .shop-tab-btn { transform: none; border-radius: 4px; border-bottom: 4px solid #4a4a8c; }
+    .shop-inventory.grid-snapshots, .shop-inventory.grid-archives { grid-template-columns: 1fr; }
+    .shop-tabs { flex-wrap: wrap; padding: 10px; align-items: center; }
+    .tabs-group { width: 100%; justify-content: flex-start; margin-bottom: 10px;}
+    .shop-tab-btn { transform: none; border-radius: 4px; border-bottom: 4px solid #4a4a8c; flex: 1;}
     .shop-tab-btn.active { transform: none; padding-bottom: 15px; }
+    .hire-me-btn { width: 100%; justify-content: center; margin-bottom: 0;}
 }
