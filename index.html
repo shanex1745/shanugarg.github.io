@@ -254,21 +254,40 @@
         .buttons { display: flex; gap: 6px; }
         .btn-arcade { width: 10px; height: 10px; border-radius: 50%; }
 
-        /* Integrated Scroll Indicator Arrow Styles */
+        /* Integrated Swipe Indicator Overlay */
         .scroll-hint {
             display: none;
-            text-align: center;
-            font-family: 'Press Start 2P', monospace;
-            font-size: 10px;
-            color: #ff77da;
-            margin-top: 15px;
-            letter-spacing: 2px;
-            animation: hintBlink 1.5s infinite;
         }
-
-        @keyframes hintBlink {
-            0%, 100% { opacity: 0.3; transform: translateX(-3px); }
-            50% { opacity: 1; transform: translateX(3px); }
+        
+        @media (max-width: 768px) {
+            .scroll-hint {
+                display: block;
+                position: absolute;
+                top: 45%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(13, 17, 23, 0.95);
+                border: 2px solid #ff77da;
+                padding: 15px 25px;
+                font-family: 'Press Start 2P', monospace;
+                font-size: 10px;
+                color: #ff77da;
+                letter-spacing: 1px;
+                z-index: 50;
+                pointer-events: none;
+                border-radius: 8px;
+                animation: hintPulse 2s infinite, fadeOutHint 6s forwards 1s;
+            }
+        }
+        
+        @keyframes hintPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.05); box-shadow: 0 0 20px rgba(255, 119, 218, 0.5); }
+        }
+        
+        @keyframes fadeOutHint {
+            80% { opacity: 1; visibility: visible; }
+            100% { opacity: 0; visibility: hidden; }
         }
 
         /* ---------------------------------------------------
