@@ -1016,7 +1016,7 @@ const projectData = {
 
     proj7: { // EZAM
         title: "EZAM: Tactile Game Design", 
-        heroImage: "ezam-play.png", 
+        heroImage: "ezam-bg.png", 
         role: "PRODUCT DESIGNER", timeline: "Design Impact Movement", themeIcons: ['🎲', '🧠', '🤝', '🧩'], behanceLink: "https://www.behance.net/gallery/214356517/Portfolio",
         tldr: {
             problem: "Visually impaired (VI) and visually abled (VA) children lacked an equitable way to play; existing games gave VA children an advantage, leading to dynamics of pity.",
