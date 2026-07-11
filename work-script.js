@@ -1140,7 +1140,7 @@ const museumData = {
     art2: {
         title: "ServDes 2025 Paper",
         role: "RESEARCH PUBLICATION",
-        heroImage: "servdes.png",
+        heroImage: "serv.png",
         themeIcons: ['📜', '🔬', '🎓'],
         content: `
             <div class="retro-dialogue-box">
