@@ -1019,7 +1019,7 @@ const projectData = {
     proj7: { // EZAM
         title: "EZAM: Tactile Game Design", 
         heroImage: "ezam-play.png", 
-        role: "UI DESIGNER", timeline: "Design Impact Movement", themeIcons: ['🎲', '🧲', '🤝', '🧩'], behanceLink: "https://www.behance.net/gallery/214356517/Portfolio",
+        role: "UI DESIGNER", timeline: "Design Impact Movement", themeIcons: ['🎲', '🧠', '🤝', '🧩'], behanceLink: "https://www.behance.net/gallery/214356517/Portfolio",
         tldr: {
             problem: "Visually impaired (VI) and visually abled (VA) children lacked an equitable way to play; existing games gave VA children an advantage, leading to dynamics of pity.",
             solution: "EZAM, a tactile board game featuring a hidden magnetic maze that completely neutralizes visual advantages, forcing all players to rely on spatial memory.",
@@ -1107,7 +1107,7 @@ const projectData = {
     }
 };
 
-// --- NEW DATA: MUSEUM ARTIFACTS ---
+// --- NEW DATA: MUSEUM ARTIFACTS (REFERENCE IMAGE THEME) ---
 const museumData = {
     art1: {
         title: "Moral Infrastructure",
@@ -1115,10 +1115,21 @@ const museumData = {
         heroImage: "philosophy.png",
         themeIcons: ['⚖️', '🧠', '🏗️'],
         content: `
-            <h3 style="color: #ff77da; font-family: 'Press Start 2P', cursive; font-size: 1rem; margin-bottom: 1.5rem;">[ DECODING THE PHILOSOPHY ]</h3>
-            <p>I believe that design is not just a tool for functional efficiency; it is the blueprint for <strong>moral infrastructure</strong>. Whether it is redesigning the National Archives to dismantle digital gatekeeping or engineering a ₹1500 retrofit sensor for ATMs so that high-end security isn't just a luxury for the rich—design determines who is included and who is left behind.</p>
-            <br>
-            <p>Through my work on platforms like Panchamitra (Government of Karnataka) and CoolieCo, I realized that true UX acts as a social mediator. It transforms exploitative, trustless environments into transparent utilities, giving marginalized laborers predictable dignity without forcing them to beg or haggle.</p>
+            <div class="retro-dialogue-box">
+                <span class="retro-sprite">🍄</span>
+                <span class="punchy-phrase">NOT JUST EFFICIENCY.<br>MORAL INFRASTRUCTURE.</span>
+                <p style="margin-top: 15px; font-size: 1.05rem;">
+                    Whether it's redesigning the National Archives to dismantle digital gatekeeping or engineering a ₹1500 retrofit sensor for ATMs—<strong>design determines who is included and who is left behind.</strong>
+                </p>
+            </div>
+            
+            <div class="retro-dialogue-box" style="background-color: #4b692f; box-shadow: inset 0 0 0 4px #658c42, 8px 8px 0 rgba(0,0,0,0.4);">
+                <span class="retro-sprite">🛡️</span>
+                <span class="punchy-phrase">UX AS SOCIAL MEDIATION.</span>
+                <p style="margin-top: 15px;">
+                    In projects like Panchamitra and CoolieCo, I realized UX transforms exploitative, trustless environments into transparent utilities, giving marginalized laborers predictable dignity without forcing them to beg or haggle.
+                </p>
+            </div>
         `
     },
     art2: {
@@ -1127,12 +1138,24 @@ const museumData = {
         heroImage: "servdes.png",
         themeIcons: ['📜', '🔬', '🎓'],
         content: `
-            <h3 style="color: #7cff9b; font-family: 'Press Start 2P', cursive; font-size: 1rem; margin-bottom: 1.5rem;">[ PUBLISHED ABSTRACT ]</h3>
-            <p><strong>Title:</strong> Lessons Learned in Inclusive Game Design: Bridging the Gaps for Visually Diverse Players.</p>
-            <br>
-            <p>During the development of EZAM (the tactile board game), I uncovered a critical insight: when visually impaired (VI) and visually abled (VA) children play mainstream games together, the VA children inevitably play with sympathy. This dynamic of pity actively isolates VI children, making them feel like a liability.</p>
-            <br>
-            <p>This paper explores the paradigm shift from "accommodative design" to "advantage neutralization"—proving that sometimes, true accessibility means strategically stripping away the advantages of the privileged user to create a genuinely level playing field.</p>
+            <div class="retro-dialogue-box">
+                <span class="punchy-phrase" style="color: #7cff9b;">> PUBLISHED ABSTRACT</span>
+                <p style="margin-top: 10px;"><strong>Title:</strong> Lessons Learned in Inclusive Game Design: Bridging the Gaps for Visually Diverse Players.</p>
+            </div>
+
+            <div class="retro-dialogue-box">
+                <span class="retro-sprite">⚔️</span>
+                <span class="punchy-phrase">ADVANTAGE NEUTRALIZATION</span>
+                <p style="margin-top: 15px;">
+                    When visually impaired and visually abled children play together, <em>accommodative design</em> often creates a dynamic of pity. 
+                    <br><br>
+                    This paper explores a paradigm shift: proving that true accessibility sometimes means <strong>strategically stripping away the advantages of the privileged user</strong> to create a genuinely level playing field.
+                </p>
+               
+                <p style="margin-top: 25px; color: #ffd84f; font-family: 'Press Start 2P', cursive; font-size: 0.7rem;">[ SCROLL TO READ ORIGINAL DOC ]</p>
+                <iframe src="your_actual_lor_file.pdf" class="pdf-container" title="Letter of Recommendation PDF"></iframe>
+             
+            </div>
         `
     },
     art3: {
@@ -1141,11 +1164,17 @@ const museumData = {
         heroImage: "lor-cover.png",
         themeIcons: ['🤝', '⭐', '🖋️'],
         content: `
-            <h3 style="color: #ffd84f; font-family: 'Press Start 2P', cursive; font-size: 1rem; margin-bottom: 1.5rem;">[ LETTERS OF RECOMMENDATION ]</h3>
-            <p><em>"Shanu possesses a rare combination of deeply empathetic grassroots research skills and high-level strategic systems thinking. Her ability to synthesize complex bureaucratic data into audio-first mobile interfaces during her time with the Government of Karnataka was exceptional."</em></p>
-            <br>
-            <div style="padding: 15px; border-left: 4px solid #ffd84f; background: rgba(255, 216, 79, 0.1);">
-                <a href="#" style="color: #ffd84f; text-decoration: none; font-weight: bold;">[ VIEW FULL LOR PDF ] ↗</a>
+            <div class="retro-dialogue-box">
+                <span class="retro-sprite">⭐</span>
+                <span class="punchy-phrase">LEVEL UP ACQUIRED!</span>
+                <p style="margin-top: 15px; font-style: italic;">
+                    "Shanu possesses a rare combination of deeply empathetic grassroots research skills and high-level strategic systems thinking. Her ability to synthesize complex bureaucratic data into audio-first mobile interfaces was exceptional."
+                </p>
+                
+                <p style="margin-top: 25px; color: #ffd84f; font-family: 'Press Start 2P', cursive; font-size: 0.7rem;">[ SCROLL TO READ ORIGINAL DOC ]</p>
+                <iframe src="your_actual_lor_file.pdf" class="pdf-container" title="Letter of Recommendation PDF"></iframe>
+
+
             </div>
         `
     },
@@ -1155,12 +1184,25 @@ const museumData = {
         heroImage: "fieldnotes.png",
         themeIcons: ['📝', '💡', '🌱'],
         content: `
-            <h3 style="color: #6ce8ff; font-family: 'Press Start 2P', cursive; font-size: 1rem; margin-bottom: 1.5rem;">[ GRASSROOTS REVELATIONS ]</h3>
-            <ul style="list-style-type: none; padding-left: 0;">
-                <li style="margin-bottom: 1rem;"><strong>> The "Number Barrier" (Panchamitra):</strong> I thought beautiful data visualization was the answer. I was wrong. 1-on-1 testing revealed rural users completely failed to comprehend percentages. We had to pivot entirely to Kannada audio narrations. <em>Lesson: Empathy requires realism, not just aesthetics.</em></li>
-                <li style="margin-bottom: 1rem;"><strong>> The Transfer Bottleneck (Navya):</strong> I realized that protecting the vulnerable patient (Cerebral Palsy) meant I first had to protect the caregiver from physical burnout. <em>Lesson: The user journey includes the invisible support system.</em></li>
-                <li><strong>> Physical Context is King (Cam Secure):</strong> A $30,000 automated system is a failed design if it doesn't fit the user's physical environment. <em>Lesson: Do not demand the user adapt to the design.</em></li>
-            </ul>
+            <div class="retro-dialogue-box" style="background-color: #1a4d66; box-shadow: inset 0 0 0 4px #2c7399, 8px 8px 0 rgba(0,0,0,0.4);">
+                <span class="retro-sprite">💡</span>
+                <span class="punchy-phrase" style="color: #6ce8ff;">GRASSROOTS REVELATIONS</span>
+                
+                <ul style="list-style-type: none; padding-left: 0; margin-top: 20px;">
+                    <li style="margin-bottom: 25px;">
+                        <span style="color: #ff77da; font-weight: bold; font-size: 1.1rem;">[ 01 ] THE NUMBER BARRIER</span><br>
+                        Beautiful data visualization fails if the user can't read decimals. We pivoted to Kannada audio narrations. <br><strong style="color: #ffd84f;">Lesson: Empathy requires realism, not just aesthetics.</strong>
+                    </li>
+                    <li style="margin-bottom: 25px;">
+                        <span style="color: #ff77da; font-weight: bold; font-size: 1.1rem;">[ 02 ] THE TRANSFER BOTTLENECK</span><br>
+                        Protecting a vulnerable patient means first protecting the caregiver from burnout. <br><strong style="color: #ffd84f;">Lesson: The user journey includes the invisible support system.</strong>
+                    </li>
+                    <li>
+                        <span style="color: #ff77da; font-weight: bold; font-size: 1.1rem;">[ 03 ] PHYSICAL CONTEXT IS KING</span><br>
+                        An automated system is a failed design if it doesn't fit the user's home. <br><strong style="color: #ffd84f;">Lesson: Do not demand the user adapt to the design.</strong>
+                    </li>
+                </ul>
+            </div>
         `
     }
 };
@@ -1188,19 +1230,19 @@ window.switchTab = function(tab) {
     if (tab === 'snapshots') {
         grid.classList.remove('grid-archives');
         grid.classList.add('grid-snapshots');
-        sidebar.style.opacity = '1';
-        sidebar.style.pointerEvents = 'auto';
+        
+        // Show the left section again
+        sidebar.style.display = 'block';
     } else {
         grid.classList.remove('grid-snapshots');
         grid.classList.add('grid-archives');
-        // Hide sidebar filters when in the archives
-        sidebar.style.opacity = '0.3';
-        sidebar.style.pointerEvents = 'none';
+        
+        // Completely remove the left section to allow full-width graphics
+        sidebar.style.display = 'none';
     }
     
     renderShopCards();
 };
-
 // Filtering
 window.filterRole = function(role, element) {
     if(currentTab !== 'snapshots') return; // Disable filtering in Archives
