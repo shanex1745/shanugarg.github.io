@@ -45,121 +45,89 @@
     </header>
 
     <main id="top" class="work-main">
-        <div class="menu-box">
+        <div class="menu-box vendor-box">
             
-            <!-- Fixed Hire Me Button -->
             <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gargshanupriya@gmail.com" target="_blank" class="hire-me-btn">HIRE ME <i data-lucide="arrow-right"></i></a>
             
-            <div class="menu-header">
-                <h2 class="section-title">WORK + PROJECTS</h2>
-                <p class="work-subtitle">Selected UX, product, and civic design missions.</p>
+            <div class="shop-counter-banner">
+                <img src="store-banner.png" alt="Shopkeeper Counter" class="vendor-illustration" onerror="this.src='https://via.placeholder.com/1200x300/060d20/6ce8ff?text=+[+SHOPKEEPER+ILLUSTRATION+PLACEHOLDER+]+'">
             </div>
     
-            <div class="wallet-stage" id="walletStage">
+            <nav class="vendor-tab-ribbon">
+                <button class="vendor-tab active" onclick="switchTab('snapshots')">SNAPSHOTS</button>
+                <button class="vendor-tab" onclick="switchTab('full-projects')">FULL PROJECTS</button>
+            </nav>
+    
+            <div class="merchant-catalog">
                 
-                <!-- Chest Area (Fixed Left) -->
-                <div class="chest-area">
-                    <div class="chest-wrapper">
-                        <!-- Replace src with your exact image file name -->
-                        <img src="chest-pixel.png" alt="Treasure Chest" class="chest-image">
-                        
-                        <!-- Invisible clickable area mapped exactly over the gold/loot -->
-                        <div class="loot-click-zone" id="chestLootZone" title="Click the loot!"></div>
-                    </div>
+                <aside class="role-filter-sidebar">
+                    <div class="filter-header"><span class="coin-icon">🪙</span> ROLES</div>
+                    <ul class="role-list">
+                        <li class="role-item active" onclick="filterProjects('all', this)">► ALL MISSIONS</li>
+                        <li class="role-item" onclick="filterProjects('lead-ux', this)">► LEAD UX</li>
+                        <li class="role-item" onclick="filterProjects('ux-research', this)">► UX RESEARCH</li>
+                        <li class="role-item" onclick="filterProjects('product-design', this)">► PRODUCT DESIGN</li>
+                        <li class="role-item" onclick="filterProjects('ui-design', this)">► UX/UI DESIGN</li>
+                    </ul>
+                </aside>
+    
+                <section class="inventory-grid" id="inventoryGrid">
                     
-                    <div class="wallet-label">▼ THE VAULT</div>
-    
-                    <!-- Mario Style Dialogue Box -->
-                    <div class="thief-dialogue" id="thiefDialogue">
-                        <p id="thiefText"></p>
-                        <div class="dialogue-arrow">▼</div>
-                    </div>
-                </div>
-    
-                <!-- Static Projects Grid (Right Side) - Trading Card Style -->
-                <div class="projects-grid">
-                    
-                    <article class="tc-card" onclick="openModal('proj1')">
-                        <div class="tc-header"><span class="tc-lvl">3</span><span class="tc-title">NPS SYSTEM</span></div>
-                        <div class="tc-img-container"><img src="nps-hero.png" alt="NPS"></div>
-                        <div class="tc-stats">
-                            <div class="tc-role">LEAD UX</div>
-                            <div class="tc-bar hp"><div class="fill" style="width: 85%"></div></div>
-                            <div class="tc-bar mp"><div class="fill" style="width: 60%"></div></div>
-                        </div>
+                    <article class="merchant-card" data-role="lead-ux" data-tab="snapshots" onclick="openModal('proj1')">
+                        <div class="m-card-top"><span class="m-role">LEAD UX</span><span class="m-status">LVL.09</span></div>
+                        <div class="m-card-img"><img src="nps-hero.png" alt="NPS"></div>
+                        <div class="m-card-bottom"><span class="m-title">National Pension System</span><span class="m-action">VIEW ↗</span></div>
                     </article>
     
-                    <article class="tc-card" onclick="openModal('proj2')">
-                        <div class="tc-header"><span class="tc-lvl">4</span><span class="tc-title">CAM SECURE</span></div>
-                        <div class="tc-img-container"><img src="cam-render.png" alt="CAM"></div>
-                        <div class="tc-stats">
-                            <div class="tc-role">PROD DESIGN</div>
-                            <div class="tc-bar hp"><div class="fill" style="width: 90%"></div></div>
-                            <div class="tc-bar mp"><div class="fill" style="width: 75%"></div></div>
-                        </div>
+                    <article class="merchant-card" data-role="product-design" data-tab="snapshots" onclick="openModal('proj2')">
+                        <div class="m-card-top"><span class="m-role">PRODUCT DESIGN</span><span class="m-status">LVL.08</span></div>
+                        <div class="m-card-img"><img src="cam-render.png" alt="CAM Secure"></div>
+                        <div class="m-card-bottom"><span class="m-title">CAM SECURE Defense</span><span class="m-action">VIEW ↗</span></div>
                     </article>
     
-                    <article class="tc-card" onclick="openModal('proj3')">
-                        <div class="tc-header"><span class="tc-lvl">5</span><span class="tc-title">NAT. ARCHIVES</span></div>
-                        <div class="tc-img-container"><img src="nai-hero.png" alt="NAI"></div>
-                        <div class="tc-stats">
-                            <div class="tc-role">UX RESEARCH</div>
-                            <div class="tc-bar hp"><div class="fill" style="width: 70%"></div></div>
-                            <div class="tc-bar mp"><div class="fill" style="width: 95%"></div></div>
-                        </div>
+                    <article class="merchant-card" data-role="ux-research" data-tab="snapshots" onclick="openModal('proj3')">
+                        <div class="m-card-top"><span class="m-role">UX RESEARCH</span><span class="m-status">LVL.10</span></div>
+                        <div class="m-card-img"><img src="nai-hero.png" alt="NAI"></div>
+                        <div class="m-card-bottom"><span class="m-title">National Archives India</span><span class="m-action">VIEW ↗</span></div>
                     </article>
     
-                    <article class="tc-card" onclick="openModal('proj4')">
-                        <div class="tc-header"><span class="tc-lvl">7</span><span class="tc-title">PANCHAMITRA</span></div>
-                        <div class="tc-img-container"><img src="rdpr-hero.png" alt="RDPR"></div>
-                        <div class="tc-stats">
-                            <div class="tc-role">LEAD UX</div>
-                            <div class="tc-bar hp"><div class="fill" style="width: 100%"></div></div>
-                            <div class="tc-bar mp"><div class="fill" style="width: 80%"></div></div>
-                        </div>
+                    <article class="merchant-card" data-role="lead-ux" data-tab="snapshots" onclick="openModal('proj4')">
+                        <div class="m-card-top"><span class="m-role">LEAD UX</span><span class="m-status">LVL.11</span></div>
+                        <div class="m-card-img"><img src="rdpr-hero.png" alt="Panchamitra"></div>
+                        <div class="m-card-bottom"><span class="m-title">Mobile Panchamitra</span><span class="m-action">VIEW ↗</span></div>
                     </article>
     
-                    <article class="tc-card" onclick="openModal('proj5')">
-                        <div class="tc-header"><span class="tc-lvl">2</span><span class="tc-title">SALT APP</span></div>
-                        <div class="tc-img-container"><img src="salt-hero.png" alt="Salt"></div>
-                        <div class="tc-stats">
-                            <div class="tc-role">UX/UI DESIGN</div>
-                            <div class="tc-bar hp"><div class="fill" style="width: 60%"></div></div>
-                            <div class="tc-bar mp"><div class="fill" style="width: 50%"></div></div>
-                        </div>
+                    <article class="merchant-card" data-role="ui-design" data-tab="snapshots" onclick="openModal('proj5')">
+                        <div class="m-card-top"><span class="m-role">UX/UI DESIGN</span><span class="m-status">LVL.06</span></div>
+                        <div class="m-card-img"><img src="salt-hero.png" alt="Salt App"></div>
+                        <div class="m-card-bottom"><span class="m-title">Salt Relocation App</span><span class="m-action">VIEW ↗</span></div>
                     </article>
     
-                    <article class="tc-card" onclick="openModal('proj6')">
-                        <div class="tc-header"><span class="tc-lvl">6</span><span class="tc-title">NAVYA CHAIR</span></div>
-                        <div class="tc-img-container"><img src="navya-hero.png" alt="Navya"></div>
-                        <div class="tc-stats">
-                            <div class="tc-role">PROD DESIGN</div>
-                            <div class="tc-bar hp"><div class="fill" style="width: 85%"></div></div>
-                            <div class="tc-bar mp"><div class="fill" style="width: 70%"></div></div>
-                        </div>
+                    <article class="merchant-card" data-role="product-design" data-tab="snapshots" onclick="openModal('proj6')">
+                        <div class="m-card-top"><span class="m-role">PRODUCT DESIGN</span><span class="m-status">LVL.07</span></div>
+                        <div class="m-card-img"><img src="navya-hero.png" alt="Navya"></div>
+                        <div class="m-card-bottom"><span class="m-title">Navya CP Chair</span><span class="m-action">VIEW ↗</span></div>
                     </article>
     
-                    <article class="tc-card" onclick="openModal('proj7')">
-                        <div class="tc-header"><span class="tc-lvl">3</span><span class="tc-title">EZAM GAME</span></div>
-                        <div class="tc-img-container"><img src="ezam-bg.png" alt="EZAM"></div>
-                        <div class="tc-stats">
-                            <div class="tc-role">UX/UI DESIGN</div>
-                            <div class="tc-bar hp"><div class="fill" style="width: 75%"></div></div>
-                            <div class="tc-bar mp"><div class="fill" style="width: 85%"></div></div>
-                        </div>
+                    <article class="merchant-card" data-role="ui-design" data-tab="snapshots" onclick="openModal('proj7')">
+                        <div class="m-card-top"><span class="m-role">UX/UI DESIGN</span><span class="m-status">LVL.05</span></div>
+                        <div class="m-card-img"><img src="ezam-bg.png" alt="EZAM Game"></div>
+                        <div class="m-card-bottom"><span class="m-title">EZAM Tactile Game</span><span class="m-action">VIEW ↗</span></div>
                     </article>
     
-                    <article class="tc-card" onclick="openModal('proj8')">
-                        <div class="tc-header"><span class="tc-lvl">4</span><span class="tc-title">COOLIE CO</span></div>
-                        <div class="tc-img-container"><img src="coolie-hero.png" alt="CoolieCo"></div>
-                        <div class="tc-stats">
-                            <div class="tc-role">UX RESEARCH</div>
-                            <div class="tc-bar hp"><div class="fill" style="width: 80%"></div></div>
-                            <div class="tc-bar mp"><div class="fill" style="width: 65%"></div></div>
-                        </div>
+                    <article class="merchant-card" data-role="ux-research" data-tab="snapshots" onclick="openModal('proj8')">
+                        <div class="m-card-top"><span class="m-role">UX RESEARCH</span><span class="m-status">LVL.08</span></div>
+                        <div class="m-card-img"><img src="coolie-hero.png" alt="CoolieCo"></div>
+                        <div class="m-card-bottom"><span class="m-title">CoolieCo Labor App</span><span class="m-action">VIEW ↗</span></div>
                     </article>
     
-                </div>
+                    <article class="merchant-card" data-role="lead-ux" data-tab="full-projects" style="display: none;" onclick="window.open('https://www.behance.net/shanux17', '_blank')">
+                        <div class="m-card-top"><span class="m-role">FULL CASE STUDY</span><span class="m-status">BEHANCE</span></div>
+                        <div class="m-card-img"><img src="nps-hero.png" alt="NPS Full Case"></div>
+                        <div class="m-card-bottom"><span class="m-title">NPS Complete Archive</span><span class="m-action">OPEN ↗</span></div>
+                    </article>
+    
+                </section>
             </div>
         </div>
     </main>
