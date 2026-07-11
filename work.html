@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work | Pixel Portfolio Quest</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- IMPORTANT: Make sure style.css is in your folder! -->
+    <link rel="stylesheet" href="style.css"> 
     <link rel="stylesheet" href="work-style.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
@@ -13,6 +14,7 @@
 
 <div class="app-shell scanlines pixel-grid">
 
+    <!-- GLOBAL BACKGROUND ANIMATIONS -->
     <div class="star blink" style="left:5%;top:10%"></div>
     <div class="star" style="left:18%;top:25%;animation-delay:.7s"></div>
     <div class="star blink" style="left:37%;top:15%;animation-delay:1.2s"></div>
@@ -27,6 +29,7 @@
 
     <div class="ground"></div>
 
+    <!-- GLOBAL HUD NAVIGATION -->
     <header class="hud">
         <div class="hud-inner">
             <div class="brand">SHANU.EXE</div>
@@ -49,8 +52,9 @@
             
             <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gargshanupriya@gmail.com" target="_blank" class="hire-me-btn">HIRE ME <i data-lucide="arrow-right"></i></a>
             
+            <!-- SHOPKEEPER BANNER -->
             <div class="shop-counter-banner">
-                <img src="store-banner.png" alt="Shopkeeper Counter" class="vendor-illustration" onerror="this.src='https://via.placeholder.com/1200x300/060d20/6ce8ff?text=+[+SHOPKEEPER+ILLUSTRATION+PLACEHOLDER+]+'">
+                <img src="store-banner.png" alt="Shopkeeper Counter" class="vendor-illustration" onerror="this.src='https://via.placeholder.com/1400x300/060d20/6ce8ff?text=+[+SAVE+YOUR+STORE+IMAGE+AS+store-banner.png+]+'">
             </div>
     
             <nav class="vendor-tab-ribbon">
@@ -60,6 +64,7 @@
     
             <div class="merchant-catalog">
                 
+                <!-- SIDEBAR FILTERS -->
                 <aside class="role-filter-sidebar">
                     <div class="filter-header"><span class="coin-icon">🪙</span> ROLES</div>
                     <ul class="role-list">
@@ -71,139 +76,168 @@
                     </ul>
                 </aside>
     
+                <!-- CARD INVENTORY GRID -->
                 <section class="inventory-grid" id="inventoryGrid">
                     
-                    <article class="merchant-card" data-role="lead-ux" data-tab="snapshots" onclick="openModal('proj1')">
-                        <div class="m-card-top"><span class="m-role">LEAD UX</span><span class="m-status">LVL.09</span></div>
+                    <!-- ============================================== -->
+                    <!-- TAB 1: SNAPSHOT CARDS (Opens Text Layout)      -->
+                    <!-- ============================================== -->
+                    <article class="merchant-card" data-role="lead-ux" data-tab="snapshots" onclick="openModal('proj1', 'snapshot')">
+                        <div class="m-card-top"><span class="m-role">LEAD UX</span><span class="m-status">2026</span></div>
                         <div class="m-card-img"><img src="nps-hero.png" alt="NPS"></div>
                         <div class="m-card-bottom"><span class="m-title">National Pension System</span><span class="m-action">VIEW ↗</span></div>
                     </article>
     
-                    <article class="merchant-card" data-role="product-design" data-tab="snapshots" onclick="openModal('proj2')">
-                        <div class="m-card-top"><span class="m-role">PRODUCT DESIGN</span><span class="m-status">LVL.08</span></div>
+                    <article class="merchant-card" data-role="product-design" data-tab="snapshots" onclick="openModal('proj2', 'snapshot')">
+                        <div class="m-card-top"><span class="m-role">PRODUCT DESIGN</span><span class="m-status">SPRINT</span></div>
                         <div class="m-card-img"><img src="cam-render.png" alt="CAM Secure"></div>
                         <div class="m-card-bottom"><span class="m-title">CAM SECURE Defense</span><span class="m-action">VIEW ↗</span></div>
                     </article>
     
-                    <article class="merchant-card" data-role="ux-research" data-tab="snapshots" onclick="openModal('proj3')">
-                        <div class="m-card-top"><span class="m-role">UX RESEARCH</span><span class="m-status">LVL.10</span></div>
+                    <article class="merchant-card" data-role="ux-research" data-tab="snapshots" onclick="openModal('proj3', 'snapshot')">
+                        <div class="m-card-top"><span class="m-role">UX RESEARCH</span><span class="m-status">SPRINT</span></div>
                         <div class="m-card-img"><img src="nai-hero.png" alt="NAI"></div>
                         <div class="m-card-bottom"><span class="m-title">National Archives India</span><span class="m-action">VIEW ↗</span></div>
                     </article>
     
-                    <article class="merchant-card" data-role="lead-ux" data-tab="snapshots" onclick="openModal('proj4')">
-                        <div class="m-card-top"><span class="m-role">LEAD UX</span><span class="m-status">LVL.11</span></div>
+                    <article class="merchant-card" data-role="lead-ux" data-tab="snapshots" onclick="openModal('proj4', 'snapshot')">
+                        <div class="m-card-top"><span class="m-role">LEAD UX</span><span class="m-status">2025</span></div>
                         <div class="m-card-img"><img src="rdpr-hero.png" alt="Panchamitra"></div>
                         <div class="m-card-bottom"><span class="m-title">Mobile Panchamitra</span><span class="m-action">VIEW ↗</span></div>
                     </article>
     
-                    <article class="merchant-card" data-role="ui-design" data-tab="snapshots" onclick="openModal('proj5')">
-                        <div class="m-card-top"><span class="m-role">UX/UI DESIGN</span><span class="m-status">LVL.06</span></div>
+                    <article class="merchant-card" data-role="ui-design" data-tab="snapshots" onclick="openModal('proj5', 'snapshot')">
+                        <div class="m-card-top"><span class="m-role">UX/UI DESIGN</span><span class="m-status">SPRINT</span></div>
                         <div class="m-card-img"><img src="salt-hero.png" alt="Salt App"></div>
                         <div class="m-card-bottom"><span class="m-title">Salt Relocation App</span><span class="m-action">VIEW ↗</span></div>
                     </article>
     
-                    <article class="merchant-card" data-role="product-design" data-tab="snapshots" onclick="openModal('proj6')">
-                        <div class="m-card-top"><span class="m-role">PRODUCT DESIGN</span><span class="m-status">LVL.07</span></div>
+                    <article class="merchant-card" data-role="product-design" data-tab="snapshots" onclick="openModal('proj6', 'snapshot')">
+                        <div class="m-card-top"><span class="m-role">PRODUCT DESIGN</span><span class="m-status">SPRINT</span></div>
                         <div class="m-card-img"><img src="navya-hero.png" alt="Navya"></div>
                         <div class="m-card-bottom"><span class="m-title">Navya CP Chair</span><span class="m-action">VIEW ↗</span></div>
                     </article>
     
-                    <article class="merchant-card" data-role="ui-design" data-tab="snapshots" onclick="openModal('proj7')">
-                        <div class="m-card-top"><span class="m-role">UX/UI DESIGN</span><span class="m-status">LVL.05</span></div>
+                    <article class="merchant-card" data-role="ui-design" data-tab="snapshots" onclick="openModal('proj7', 'snapshot')">
+                        <div class="m-card-top"><span class="m-role">UX/UI DESIGN</span><span class="m-status">2024</span></div>
                         <div class="m-card-img"><img src="ezam-bg.png" alt="EZAM Game"></div>
                         <div class="m-card-bottom"><span class="m-title">EZAM Tactile Game</span><span class="m-action">VIEW ↗</span></div>
                     </article>
     
-                    <article class="merchant-card" data-role="ux-research" data-tab="snapshots" onclick="openModal('proj8')">
-                        <div class="m-card-top"><span class="m-role">UX RESEARCH</span><span class="m-status">LVL.08</span></div>
+                    <article class="merchant-card" data-role="ux-research" data-tab="snapshots" onclick="openModal('proj8', 'snapshot')">
+                        <div class="m-card-top"><span class="m-role">UX RESEARCH</span><span class="m-status">SPRINT</span></div>
                         <div class="m-card-img"><img src="coolie-hero.png" alt="CoolieCo"></div>
                         <div class="m-card-bottom"><span class="m-title">CoolieCo Labor App</span><span class="m-action">VIEW ↗</span></div>
                     </article>
+
+                    <!-- ============================================== -->
+                    <!-- TAB 2: FULL PROJECTS (Opens Image Gallery)     -->
+                    <!-- ============================================== -->
+                    <article class="merchant-card" data-role="lead-ux" data-tab="full-projects" style="display: none;" onclick="openModal('proj1', 'full')">
+                        <div class="m-card-top"><span class="m-role">LEAD UX</span><span class="m-status">2026</span></div>
+                        <div class="m-card-img"><img src="nps-hero.png" alt="NPS"></div>
+                        <div class="m-card-bottom"><span class="m-title">National Pension System</span><span class="m-action">IMAGES ↗</span></div>
+                    </article>
     
-                    <article class="merchant-card" data-role="lead-ux" data-tab="full-projects" style="display: none;" onclick="window.open('https://www.behance.net/shanux17', '_blank')">
-                        <div class="m-card-top"><span class="m-role">FULL CASE STUDY</span><span class="m-status">BEHANCE</span></div>
-                        <div class="m-card-img"><img src="nps-hero.png" alt="NPS Full Case"></div>
-                        <div class="m-card-bottom"><span class="m-title">NPS Complete Archive</span><span class="m-action">OPEN ↗</span></div>
+                    <article class="merchant-card" data-role="product-design" data-tab="full-projects" style="display: none;" onclick="openModal('proj2', 'full')">
+                        <div class="m-card-top"><span class="m-role">PRODUCT DESIGN</span><span class="m-status">SPRINT</span></div>
+                        <div class="m-card-img"><img src="cam-render.png" alt="CAM Secure"></div>
+                        <div class="m-card-bottom"><span class="m-title">CAM SECURE Defense</span><span class="m-action">IMAGES ↗</span></div>
+                    </article>
+    
+                    <article class="merchant-card" data-role="ux-research" data-tab="full-projects" style="display: none;" onclick="openModal('proj3', 'full')">
+                        <div class="m-card-top"><span class="m-role">UX RESEARCH</span><span class="m-status">SPRINT</span></div>
+                        <div class="m-card-img"><img src="nai-hero.png" alt="NAI"></div>
+                        <div class="m-card-bottom"><span class="m-title">National Archives India</span><span class="m-action">IMAGES ↗</span></div>
+                    </article>
+    
+                    <article class="merchant-card" data-role="lead-ux" data-tab="full-projects" style="display: none;" onclick="openModal('proj4', 'full')">
+                        <div class="m-card-top"><span class="m-role">LEAD UX</span><span class="m-status">2025</span></div>
+                        <div class="m-card-img"><img src="rdpr-hero.png" alt="Panchamitra"></div>
+                        <div class="m-card-bottom"><span class="m-title">Mobile Panchamitra</span><span class="m-action">IMAGES ↗</span></div>
+                    </article>
+    
+                    <article class="merchant-card" data-role="ui-design" data-tab="full-projects" style="display: none;" onclick="openModal('proj5', 'full')">
+                        <div class="m-card-top"><span class="m-role">UX/UI DESIGN</span><span class="m-status">SPRINT</span></div>
+                        <div class="m-card-img"><img src="salt-hero.png" alt="Salt App"></div>
+                        <div class="m-card-bottom"><span class="m-title">Salt Relocation App</span><span class="m-action">IMAGES ↗</span></div>
+                    </article>
+    
+                    <article class="merchant-card" data-role="product-design" data-tab="full-projects" style="display: none;" onclick="openModal('proj6', 'full')">
+                        <div class="m-card-top"><span class="m-role">PRODUCT DESIGN</span><span class="m-status">SPRINT</span></div>
+                        <div class="m-card-img"><img src="navya-hero.png" alt="Navya"></div>
+                        <div class="m-card-bottom"><span class="m-title">Navya CP Chair</span><span class="m-action">IMAGES ↗</span></div>
+                    </article>
+    
+                    <article class="merchant-card" data-role="ui-design" data-tab="full-projects" style="display: none;" onclick="openModal('proj7', 'full')">
+                        <div class="m-card-top"><span class="m-role">UX/UI DESIGN</span><span class="m-status">2024</span></div>
+                        <div class="m-card-img"><img src="ezam-bg.png" alt="EZAM Game"></div>
+                        <div class="m-card-bottom"><span class="m-title">EZAM Tactile Game</span><span class="m-action">IMAGES ↗</span></div>
+                    </article>
+    
+                    <article class="merchant-card" data-role="ux-research" data-tab="full-projects" style="display: none;" onclick="openModal('proj8', 'full')">
+                        <div class="m-card-top"><span class="m-role">UX RESEARCH</span><span class="m-status">SPRINT</span></div>
+                        <div class="m-card-img"><img src="coolie-hero.png" alt="CoolieCo"></div>
+                        <div class="m-card-bottom"><span class="m-title">CoolieCo Labor App</span><span class="m-action">IMAGES ↗</span></div>
                     </article>
     
                 </section>
             </div>
         </div>
     </main>
-    
-    <!-- Restore System Alert Overlay -->
-    <div class="system-alert-overlay" id="systemAlert">
-        <div class="system-alert-box">
-            <h3>SYSTEM WARNING</h3>
-            <p>UNAUTHORIZED ACCESS DETECTED IN WORK DIRECTORY.</p>
-            <p>PROCEED WITH CAUTION.</p>
-            <button onclick="document.getElementById('systemAlert').style.display='none'">[ ACKNOWLEDGE ]</button>
+       
+    <!-- MODAL POPUP -->
+    <div class="modal-overlay" id="projectModal" onclick="closeModal(event)">
+        <div class="modal-content advanced-modal" onclick="event.stopPropagation()">
+            <button class="close-btn" onclick="closeModal(event)"><i data-lucide="x"></i> ESCAPE</button>
+            
+            <div id="modalThemeGraphics" class="theme-graphics"></div>
+
+            <div class="modal-hero">
+                <div class="modal-tags" id="modalTags">
+                    <span class="role-tag" id="modalRole">[ROLE]</span>
+                    <span class="time-tag" id="modalTimeline">[TIMELINE]</span>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
+                    <h2 id="modalTitle" class="glitch-title" style="margin-bottom: 0;">[PROJECT TITLE]</h2>
+                    <a href="#" id="modalTopLink" target="_blank" class="hero-see-more-btn">SEE ON BEHANCE ↗</a>
+                </div>
+                
+                <div class="hero-image-placeholder" id="modalHeroImg">
+                    <span>[HERO IMAGE PLACEHOLDER: 16:9 Context Shot]</span>
+                </div>
+            </div>
+
+            <!-- SNAPSHOT TEXT CONTENT -->
+            <div class="tldr-section" id="tldrSection">
+                <h3>> SYSTEM SNAPSHOT</h3>
+                <div class="tldr-grid">
+                    <div class="tldr-box problem-box">
+                        <h4>THE FLAW</h4>
+                        <p id="modalProblem"></p>
+                    </div>
+                    <div class="tldr-box solution-box">
+                        <h4>THE FIX</h4>
+                        <p id="modalSolution"></p>
+                    </div>
+                    <div class="tldr-box impact-box">
+                        <h4>THE IMPACT</h4>
+                        <p id="modalImpact"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="dynamicContentArea" class="dynamic-content-area"></div>
+
+            <!-- FULL PROJECT IMAGE GALLERY -->
+            <div id="fullImagesArea" style="display: none; padding: 3rem;"></div>
+
         </div>
     </div>
-       
-       <div class="modal-overlay" id="systemWarningModal" style="z-index: 2000;">
-            <div class="advanced-modal" style="max-width: 600px; height: auto; background: #0a0000; border: 4px solid #ff5555; padding: 2.5rem; text-align: center; box-shadow: 0 0 30px rgba(255,85,85,0.4); overflow: visible;">
-                <h2 style="font-family: 'Press Start 2P', cursive; color: #ff5555; font-size: 1.5rem; margin-bottom: 1rem; animation: blink 1s infinite;">⚠ SYSTEM ALERT ⚠</h2>
-                <h3 style="font-family: 'Space Mono', monospace; font-weight: bold; color: #ffd84f; font-size: 1.1rem; margin-bottom: 1.5rem;">SNAPSHOT MODE ENABLED</h3>
-                <p style="font-family: 'Space Mono', monospace; color: #e6edf3; font-size: 0.95rem; line-height: 1.6; text-align: left; margin-bottom: 2rem;">
-                    The archives within this wallet are optimized for speed—presenting high-level snapshots so you can grasp the core problem, solution, and impact anywhere, anytime.<br><br>
-                    To unlock full developer lore, deep-dive methodologies, and high-res artifacts, simply hit the <span style="color: #6ce8ff; font-weight: bold;">[SEE MORE ↗]</span> button located at the top or bottom of any project file.
-                </p>
-                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-                    <button onclick="closeWarning()" style="background: transparent; font-family: 'Press Start 2P', cursive; font-size: 0.7rem; padding: 15px 25px; border: 2px solid #666; color: #aaa; cursor: pointer;">CANCEL</button>
-                    <button onclick="proceedToWallet()" style="background: rgba(124,255,155,0.1); font-family: 'Press Start 2P', cursive; font-size: 0.7rem; padding: 15px 25px; border: 2px solid #7cff9b; color: #7cff9b; cursor: pointer; box-shadow: 0 0 10px rgba(124,255,155,0.2);">PROCEED ►</button>
-                </div>
-            </div>
-        </div>
     
-        <div class="modal-overlay" id="projectModal" onclick="closeModal(event)">
-            <div class="modal-content advanced-modal" onclick="event.stopPropagation()">
-                <button class="close-btn" onclick="closeModal(event)"><i data-lucide="x"></i> ESCAPE</button>
-                
-                <div id="modalThemeGraphics" class="theme-graphics"></div>
-    
-                <div class="modal-hero">
-                    <div class="modal-tags">
-                        <span class="role-tag" id="modalRole">[ROLE]</span>
-                        <span class="time-tag" id="modalTimeline">[TIMELINE]</span>
-                    </div>
-                    
-                    <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem;">
-                        <h2 id="modalTitle" class="glitch-title" style="margin-bottom: 0;">[PROJECT TITLE]</h2>
-                        <a href="#" id="modalTopLink" target="_blank" class="hero-see-more-btn">SEE MORE ↗</a>
-                    </div>
-                    
-                    <div class="hero-image-placeholder" id="modalHeroImg">
-                        <span>[HERO IMAGE PLACEHOLDER: 16:9 Context Shot]</span>
-                    </div>
-                </div>
-    
-                <div class="tldr-section">
-                    <h3>> SYSTEM SNAPSHOT</h3>
-                    <div class="tldr-grid">
-                        <div class="tldr-box problem-box">
-                            <h4>THE FLAW</h4>
-                            <p id="modalProblem"></p>
-                        </div>
-                        <div class="tldr-box solution-box">
-                            <h4>THE FIX</h4>
-                            <p id="modalSolution"></p>
-                        </div>
-                        <div class="tldr-box impact-box">
-                            <h4>THE IMPACT</h4>
-                            <p id="modalImpact"></p>
-                        </div>
-                    </div>
-                </div>
-    
-                <div id="dynamicContentArea" class="dynamic-content-area">
-                    </div>
-    
-            </div>
-        </div>
-    
-</div> <script>lucide.createIcons();</script>
+</div> 
+<script>lucide.createIcons();</script>
 <script src="work-script.js"></script>
 
 </body>
