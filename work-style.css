@@ -556,3 +556,98 @@ iframe { max-width: 100%; }
     /* Scale down giant titles */
     .glitch-title { font-size: 1.3rem; }
 }
+
+/* ========================================= */
+/* GLOBAL MOBILE NAV BAR OPTIMIZATION        */
+/* ========================================= */
+@media (max-width: 768px) {
+    .hud { padding: 12px 15px; }
+    .hud-inner { 
+        display: flex; 
+        flex-wrap: wrap; 
+        justify-content: space-between; 
+        align-items: center; 
+        gap: 10px; 
+    }
+    /* Forces Brand and Stats to the top row */
+    .brand { order: 1; font-size: 1.1rem; margin: 0; }
+    .hud-stats { order: 2; margin: 0; gap: 8px; }
+    .stat-box { padding: 8px 10px; font-size: 0.7rem; }
+    
+    /* Forces Nav to the bottom row, making it scrollable with large tap targets */
+    .nav { 
+        order: 3; 
+        width: 100%; 
+        display: flex; 
+        overflow-x: auto; 
+        justify-content: flex-start; 
+        gap: 12px; 
+        padding: 15px 0 5px 0; 
+        border-top: 2px dashed #1b5e78; 
+        margin-top: 5px;
+        -webkit-overflow-scrolling: touch;
+    }
+    .nav::-webkit-scrollbar { display: none; }
+    .nav a { 
+        font-size: 0.75rem !important; 
+        padding: 10px 15px !important; 
+        white-space: nowrap; 
+        background: rgba(255,255,255,0.05); 
+        border: 1px solid #1b5e78; 
+        border-radius: 4px;
+    }
+}
+
+/* ========================================= */
+/* MOBILE I.A. DIAGRAM & MODAL OPTIMIZATION  */
+/* ========================================= */
+@media (max-width: 768px) {
+    /* 1. Force all horizontal flex containers to stack vertically */
+    div[style*="display: flex"][style*="min-width: max-content"],
+    .h-branch, .v-row, .before-after-grid > div {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        min-width: 100% !important;
+        width: 100% !important;
+        white-space: normal !important;
+        flex-wrap: wrap !important;
+    }
+    
+    /* 2. Allow IA nodes to wrap text and take full width */
+    .ia-parent, .ia-tag, .v-node, .h-node, .h-leaf, .ia-node-p, .ia-sub-node, .ia-filter, .ia-search {
+        width: 100% !important;
+        max-width: 100% !important;
+        white-space: normal !important;
+        height: auto !important;
+        padding: 12px !important; /* Larger touch targets & readability */
+        margin-top: 5px !important;
+    }
+
+    /* 3. Rotate the horizontal arrows 90 degrees to point DOWNward */
+    .flow-icon, .h-icon, .ia-arrow-flow, .branch-icon, .v-tree-icon {
+        display: block !important;
+        transform: rotate(90deg) !important;
+        margin: 10px 0 10px 20px !important;
+        opacity: 0.8 !important;
+    }
+
+    /* 4. Fix nested padding so it doesn't squish off-screen */
+    .h-children, .v-children {
+        padding-left: 10px !important;
+        margin-left: 5px !important;
+        border-left: 2px dashed rgba(108,232,255,0.3) !important;
+    }
+
+    /* 5. Ensure image wrappers don't break viewport width */
+    .dynamic-content-area div[style*="overflow: auto"] {
+        max-width: 100% !important;
+        padding: 10px !important;
+    }
+    
+    /* 6. Release the 600px min-width restriction on images */
+    .dynamic-content-area img {
+        min-width: 100% !important; 
+        width: 100% !important;
+        height: auto !important;
+    }
+}
