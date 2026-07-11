@@ -489,3 +489,70 @@
     .archive-pipe { display: none; } /* Hide pipes on mobile to prevent overlap */
     .archive-plant { display: none; }
 }
+
+/* ========================================= */
+/* MODAL MOBILE OPTIMIZATION & VISUAL DEPTH  */
+/* ========================================= */
+
+/* Enhancing the TLDR section to look like retro item stats */
+.tldr-box {
+    background: #10213f; 
+    border: 4px solid #4a4a8c;
+    box-shadow: inset 0 0 0 2px rgba(255,255,255,0.05), 6px 6px 0 #06101d;
+    transition: transform 0.2s;
+}
+.tldr-box:hover { transform: translateY(-4px); }
+.problem-box { border-color: #ff5555; }
+.solution-box { border-color: #7cff9b; }
+.impact-box { border-color: #ffd84f; }
+
+/* Pixel divider for breaking up long modal content cleanly */
+.pixel-divider {
+    height: 4px; 
+    background: repeating-linear-gradient(90deg, #4a4a8c, #4a4a8c 12px, transparent 12px, transparent 24px);
+    margin: 2.5rem 0;
+    opacity: 0.5;
+}
+
+/* Ensure Videos and IFrames are responsive */
+iframe { max-width: 100%; }
+
+/* --- MOBILE SPECIFIC RULES FOR MODALS --- */
+@media (max-width: 768px) {
+    /* Make modal take over the screen on phones for maximum space */
+    .advanced-modal {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100vh !important;
+        border-radius: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    
+    /* Close button padding fix for full screen */
+    .close-btn { top: 10px; right: 10px; font-size: 0.7rem; padding: 0.4rem 0.6rem; }
+    
+    /* Adjust padding to maximize reading area on small screens */
+    .modal-hero { padding: 4rem 1rem 1rem !important; }
+    .tldr-section { padding: 1.5rem 1rem !important; }
+    .dynamic-content-area { padding: 1.5rem 1rem !important; }
+    
+    /* Stack grids vertically */
+    .tldr-grid { grid-template-columns: 1fr !important; gap: 15px; }
+    .before-after-grid { grid-template-columns: 1fr !important; gap: 20px; }
+    
+    /* Booklet tweaks for phone */
+    .booklet-page { min-width: 100% !important; }
+    
+    /* Archive Modal Mobile Fixes */
+    #artifactModal .modal-hero { padding: 3.5rem 1rem 1rem !important; }
+    #artifactContentArea { padding: 1.5rem 1rem !important; }
+    .pdf-container { height: 60vh !important; border-width: 2px; }
+    
+    /* Dialogue boxes shouldn't have massive padding on phones */
+    .retro-dialogue-box { padding: 15px; border-width: 4px; }
+    .punchy-phrase { font-size: 0.85rem; }
+    
+    /* Scale down giant titles */
+    .glitch-title { font-size: 1.3rem; }
+}
