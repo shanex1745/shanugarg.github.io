@@ -1241,3 +1241,59 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
+
+// --- VENDOR CATALOG FILTERING & TABS ---
+let currentTab = 'snapshots';
+let currentRole = 'all';
+
+window.switchTab = function(tabName) {
+    currentTab = tabName;
+    
+    // Update active tab button visual state
+    const tabs = document.querySelectorAll('.vendor-tab');
+    tabs.forEach(tab => {
+        if (tab.innerText.toLowerCase().includes(tabName.replace('-', ' '))) {
+            tab.classList.add('active');
+        } else {
+            tab.classList.remove('active');
+        }
+    });
+
+    // Re-filter inventory grid to reflect tab switch
+    applyCatalogFilters();
+    if(window.rewardPlayer) window.rewardPlayer(1);
+};
+
+window.filterProjects = function(roleName, element) {
+    currentRole = roleName;
+    
+    // Update active sidebar item visual state
+    const roleItems = document.querySelectorAll('.role-item');
+    roleItems.forEach(item => item.classList.remove('active'));
+    if (element) element.classList.add('active');
+
+    // Re-filter inventory grid
+    applyCatalogFilters();
+    if(window.rewardPlayer) window.rewardPlayer(1);
+};
+
+function applyCatalogFilters() {
+    const cards = document.querySelectorAll('.merchant-card');
+    
+    cards.forEach(card => {
+        const cardRole = card.getAttribute('data-role');
+        const cardTab = card.getAttribute('data-tab');
+        
+        const matchesTab = (cardTab === currentTab);
+        const matchesRole = (currentRole === 'all' || cardRole === currentRole);
+        
+        if (matchesTab && matchesRole) {
+            card.style.display = 'flex';
+            // Subtle fade-in animation for appearing cards
+            card.style.opacity = '0';
+            setTimeout(() => { card.style.opacity = '1'; }, 50);
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
