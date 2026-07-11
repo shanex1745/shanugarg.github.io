@@ -1278,9 +1278,7 @@ function renderShopCards() {
                         <img src="${data.heroImage}" alt="${data.title}" onerror="this.style.display='none'">
                     </div>
                     <div class="shop-card-body">
-                        <div class="shop-card-top">
-                            Lv.${Math.floor(Math.random()*10)+1} - ${data.role}
-                        </div>
+                        
                         <div class="shop-card-content">
                             <h3 class="shop-card-title">${data.title}</h3>
                             <div class="shop-card-icons">
@@ -1289,7 +1287,7 @@ function renderShopCards() {
                         </div>
                         <div class="shop-card-bottom">
                             <span>VIEW SNAPSHOT</span>
-                            <span style="color: #4a4a8c; background: #fff; padding: 2px 6px; border-radius: 4px;">🪙 FREE</span>
+                            <span style="color: #4a4a8c; background: #fff; padding: 2px 6px; border-radius: 4px;">🪙 +1 </span>
                         </div>
                     </div>
                 </article>
