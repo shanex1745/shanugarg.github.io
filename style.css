@@ -1,416 +1,169 @@
 /* ==========================================================================
-   1. CORE WORK PAGE & BACKGROUND ANIMATIONS (PRESERVED)
+   GLOBAL THEME, BACKGROUND & SCANLINES (style.css)
    ========================================================================== */
-.work-main { 
-    padding-top: 60px; 
-    min-height: 100vh; 
-    display: flex; 
-    justify-content: center; 
-    padding-bottom: 50px; 
-}
-
-@keyframes twinkle { 
-    0%, 100% { opacity: 1; transform: scale(1); } 
-    50% { opacity: 0.2; transform: scale(0.8); } 
-}
-.star.blink { animation: twinkle 2s infinite ease-in-out; }
-
-@keyframes drift { 
-    from { transform: translateX(-200px); } 
-    to { transform: translateX(110vw); } 
-}
-.moving-cloud-1, .moving-cloud-2 { 
-    position: absolute; 
-    animation: drift 65s linear infinite; 
-    z-index: 0; 
-    pointer-events: none; 
-    opacity: 0.4;
-}
-
-/* ==========================================================================
-   2. HIRE ME BUTTON (PRESERVED)
-   ========================================================================== */
-.hire-me-btn {
-    position: absolute; 
-    top: -20px; 
-    right: 20px; 
-    background: #6ce8ff; 
-    color: #092138;
-    border: 4px solid #fff; 
-    box-shadow: 6px 6px 0 #244d66; 
-    font-family: 'Press Start 2P', cursive;
-    font-size: 0.9rem; 
-    padding: 1rem 1.5rem; 
-    text-decoration: none; 
-    display: flex; 
-    align-items: center; 
-    gap: 10px; 
-    transition: transform 0.1s, box-shadow 0.1s; 
-    z-index: 20;
-}
-@media (max-width: 768px) {
-    .hire-me-btn { right: 15px; top: -20px; transform: none; width: max-content; }
-    .hire-me-btn:hover { transform: translate(-4px, -4px); }
-}
-
-/* ==========================================================================
-   3. RPG VENDOR BOX, RIBBON, SIDEBAR & MERCHANT CARDS (NEW)
-   ========================================================================== */
-/* Vendor Box Container */
-.vendor-box {
-    background: rgba(6, 13, 32, 0.95);
-    border: 6px solid #4a4a8c;
-    box-shadow: 15px 15px 0 rgba(0, 0, 0, 0.7);
-    width: 95%;
-    max-width: 1400px;
-    padding: 0; /* Flush edges for banner */
-    position: relative;
-    border-radius: 4px;
-    margin-top: 40px;
-    overflow: hidden;
-    z-index: 10;
-    backdrop-filter: blur(4px);
-}
-
-/* Zone 1: Shopkeeper Banner */
-.shop-counter-banner {
-    width: 100%;
-    background: #000;
-    border-bottom: 6px solid #4a4a8c;
-    overflow: hidden;
-    max-height: 280px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.vendor-illustration {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    image-rendering: pixelated;
-}
-
-/* Zone 2: Tab Ribbon */
-.vendor-tab-ribbon {
-    display: flex;
-    background: #111a3a;
-    border-bottom: 6px solid #4a4a8c;
-    padding: 10px 20px;
-    gap: 15px;
-    justify-content: center;
-}
-.vendor-tab {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 0.8rem;
-    padding: 12px 30px;
-    background: #1a2652;
-    color: #8899cc;
-    border: 4px solid #334477;
-    cursor: pointer;
-    transition: all 0.15s ease;
-    box-shadow: 4px 4px 0 rgba(0,0,0,0.5);
-}
-.vendor-tab:hover {
-    background: #24346e;
-    color: #fff;
-    border-color: #6ce8ff;
-}
-.vendor-tab.active {
-    background: #ff77da;
-    color: #000;
-    border-color: #fff;
-    box-shadow: inset 0 0 10px rgba(255,255,255,0.5), 4px 4px 0 #000;
-    font-weight: bold;
-}
-
-/* Zone 3: Merchant Catalog (Grid Layout) */
-.merchant-catalog {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 30px;
-    padding: 30px;
-    background: #0a1329;
-    min-height: 600px;
-}
-
-/* Left Sidebar: Role Filters */
-.role-filter-sidebar {
-    background: #050a17;
-    border: 4px solid #334477;
-    padding: 20px;
-    height: max-content;
-    box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
-}
-.filter-header {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 0.8rem;
-    color: #ffd84f;
-    border-bottom: 4px dashed #334477;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.role-list {
-    list-style: none;
-    padding: 0;
+* {
+    box-sizing: border-box;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    padding: 0;
 }
-.role-item {
+
+body, html {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #050d1f; /* Deep Retro Space Blue */
+    color: #ffffff;
     font-family: 'Space Mono', monospace;
-    font-weight: bold;
-    font-size: 0.8rem;
-    color: #8899cc;
-    padding: 12px 10px;
-    border: 2px solid transparent;
-    cursor: pointer;
-    transition: all 0.15s ease;
-    user-select: none;
-}
-.role-item:hover {
-    color: #fff;
-    background: rgba(108, 232, 255, 0.1);
-    border-color: #6ce8ff;
-    padding-left: 15px;
-}
-.role-item.active {
-    background: #ff77da;
-    color: #000;
-    border: 2px solid #fff;
-    box-shadow: 4px 4px 0 rgba(0,0,0,0.5);
-    font-weight: 900;
+    overflow-x: hidden;
 }
 
-/* Right Grid: Inventory Cards */
-.inventory-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
-    align-content: flex-start;
-}
-
-/* Horizontal Merchant Cards */
-.merchant-card {
-    background: #111a3a;
-    border: 4px solid #fff;
-    border-radius: 6px;
-    box-shadow: 6px 6px 0 rgba(0,0,0,0.6);
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+/* App Shell & Retro Grid Overlay */
+.app-shell {
     position: relative;
-}
-.merchant-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 10px 10px 0 #6ce8ff;
-    border-color: #6ce8ff;
+    min-height: 100vh;
+    width: 100%;
+    background: #050d1f;
+    overflow-x: hidden;
 }
 
-/* Top Role Strip */
-.m-card-top {
-    background: #ff77da;
-    color: #000;
+.pixel-grid {
+    background-image: 
+        linear-gradient(rgba(108, 232, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(108, 232, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+/* CRT Scanline Effect */
+.scanlines::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 1000;
+    background-size: 100% 4px, 6px 100%;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   GLOBAL NAVIGATION HUD & STATS
+   ========================================================================== */
+.hud {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(6, 13, 32, 0.9);
+    border-bottom: 4px solid #4a4a8c;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+    z-index: 500;
+    backdrop-filter: blur(5px);
+}
+
+.hud-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.brand {
     font-family: 'Press Start 2P', cursive;
-    font-size: 0.55rem;
-    padding: 8px 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 4px solid #000;
-    font-weight: bold;
-}
-.m-status {
-    background: #000;
-    color: #ffd84f;
-    padding: 3px 6px;
-    border-radius: 2px;
+    font-size: 1rem;
+    color: #6ce8ff;
+    text-shadow: 2px 2px 0 #000, 0 0 10px rgba(108, 232, 255, 0.5);
+    letter-spacing: 1px;
 }
 
-/* Landscape Thumbnail Area (16:9 Aspect Ratio) */
-.m-card-img {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: #000;
-    overflow: hidden;
-    position: relative;
-}
-.m-card-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.85;
-    transition: opacity 0.2s ease, transform 0.3s ease;
-}
-.merchant-card:hover .m-card-img img {
-    opacity: 1;
-    transform: scale(1.05);
+/* Navigation Links */
+.nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-/* Bottom Title & Price Strip */
-.m-card-bottom {
-    background: #050a17;
-    border-top: 4px solid #000;
-    padding: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
+.nav a {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 6px 10px;
+    transition: color 0.15s, text-shadow 0.15s;
 }
-.m-title {
+
+.nav a:hover {
+    color: #6ce8ff;
+    text-shadow: 0 0 8px #6ce8ff;
+}
+
+/* HUD Stats (Level & Coins) */
+.hud-stats {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.stat-box {
     font-family: 'Press Start 2P', cursive;
     font-size: 0.65rem;
+    background: #0f172a;
+    border: 2px solid #334477;
+    padding: 8px 12px;
     color: #fff;
-    line-height: 1.4;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.m-action {
-    font-family: 'Space Mono', monospace;
-    font-weight: bold;
-    font-size: 0.75rem;
-    background: #ffd84f;
-    color: #000;
-    padding: 4px 8px;
-    border: 2px solid #fff;
     box-shadow: 2px 2px 0 #000;
-    flex-shrink: 0;
-}
-.merchant-card:hover .m-action {
-    background: #6ce8ff;
 }
 
-/* Responsive Vendor Layout */
-@media (max-width: 1024px) {
-    .merchant-catalog { grid-template-columns: 1fr; }
-    .role-list { flex-direction: row; flex-wrap: wrap; }
-    .role-item { flex: 1 1 150px; text-align: center; }
+.coin-box {
+    border-color: #ffd84f;
+    color: #ffd84f;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
-@media (max-width: 600px) {
-    .inventory-grid { grid-template-columns: 1fr; }
-    .vendor-tab-ribbon { flex-direction: column; }
-    .vendor-box { margin-top: 50px; }
+
+.coin-box .coin::before {
+    content: "🪙";
 }
 
 /* ==========================================================================
-   4. RETRO COIN POPUP & SYSTEM ALERT (PRESERVED)
+   GLOBAL STARS & CLOUDS
    ========================================================================== */
-.coin-popup {
-    position: fixed; top: 70px; right: 5vw; color: #ffd84f; font-family: 'Press Start 2P', cursive, monospace;
-    font-size: 14px; text-shadow: 2px 2px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000, 1px 1px 0px #000;
-    z-index: 9999; pointer-events: none; animation: coinFloat 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+.star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #ffffff;
+    box-shadow: 0 0 6px #ffffff;
+    z-index: 1;
+    pointer-events: none;
 }
-@keyframes coinFloat { 
-    0% { transform: translateY(0) scale(1); opacity: 1; } 
-    100% { transform: translateY(-40px) scale(1.4); opacity: 0; } 
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+    z-index: 1;
+    pointer-events: none;
 }
 
-.system-alert-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.85); z-index: 9999;
-    display: flex; justify-content: center; align-items: center;
-}
-.system-alert-box {
-    background: #000; border: 4px solid #ff5555; box-shadow: 10px 10px 0 #4a0000;
-    padding: 2rem; max-width: 500px; text-align: center;
-}
-.system-alert-box h3 {
-    color: #ff5555; font-family: 'Press Start 2P', cursive; font-size: 1.2rem; margin-bottom: 1.5rem; animation: blink 1s infinite;
-}
-.system-alert-box p {
-    color: #fff; font-family: 'Space Mono', monospace; font-size: 0.9rem; margin-bottom: 1rem; line-height: 1.5;
-}
-.system-alert-box button {
-    margin-top: 1.5rem; background: transparent; border: 2px solid #ff5555; color: #ff5555;
-    font-family: 'Press Start 2P', cursive; font-size: 0.8rem; padding: 10px 20px; cursor: pointer; transition: 0.2s;
-}
-.system-alert-box button:hover { background: #ff5555; color: #000; }
-
-/* ==========================================================================
-   5. GIANT MODAL POP-UP & CASE STUDY STYLES (PRESERVED)
-   ========================================================================== */
-.modal-overlay { 
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-    background: rgba(0,0,0,0.9); z-index: 999; display: none; 
-    justify-content: center; align-items: center; padding: 2rem; 
-}
-.modal-overlay.active { display: flex; }
-
-.close-btn { 
-    position: absolute; top: 1.5rem; right: 1.5rem; z-index: 100;
-    background: #fff; border: 4px solid #000; color: #000; 
-    font-family: 'Space Mono', monospace; font-weight: bold; font-size: 0.9rem; 
-    padding: 0.5rem 1rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: 0.2s; 
-}
-.close-btn:hover { background: #f864c4; color: #fff; }
-
-.advanced-modal {
-    background: #0d1117; border: 4px solid #fff; box-shadow: 15px 15px 0 #5a2146;
-    width: 95%; max-width: 1200px; height: 90vh; overflow-y: auto; overflow-x: hidden; padding: 0; position: relative; border-radius: 8px;
-}
-.advanced-modal::-webkit-scrollbar { width: 10px; }
-.advanced-modal::-webkit-scrollbar-thumb { background: #ff77da; }
-
-.modal-hero { padding: 4rem 3rem 2rem; border-bottom: 4px dashed #333; position: relative; z-index: 2; }
-.modal-tags { display: flex; gap: 15px; margin-bottom: 1rem; }
-.role-tag, .time-tag { font-family: 'Space Mono', monospace; font-size: 0.8rem; font-weight: bold; padding: 5px 10px; border: 2px solid; }
-.role-tag { color: #000; background: #f8f66a; border-color: #fff; }
-.time-tag { color: #6ce8ff; border-color: #6ce8ff; }
-.glitch-title { font-family: 'Press Start 2P', cursive; font-size: 1.8rem; color: #fff; line-height: 1.4; text-transform: uppercase; }
-
-/* New Top Hero "See More" Button */
-.hero-see-more-btn {
-    background: rgba(108, 232, 255, 0.1); border: 2px solid #6ce8ff; color: #6ce8ff;
-    font-family: 'Press Start 2P', cursive; font-size: 0.6rem; padding: 10px 15px;
-    text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s;
-}
-.hero-see-more-btn:hover { background: #6ce8ff; color: #000; box-shadow: 0 0 10px #6ce8ff; }
-
-.tldr-section { padding: 3rem; background: #151b23; }
-.tldr-section h3 { font-family: 'Press Start 2P', cursive; font-size: 1rem; color: #fff; margin-bottom: 2rem; }
-.tldr-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.tldr-box { padding: 20px; border: 3px solid #333; font-family: 'Space Mono', monospace; font-size: 0.9rem; line-height: 1.6; color: #ccc; }
-.tldr-box h4 { font-family: 'Press Start 2P', cursive; font-size: 0.7rem; margin-bottom: 15px; }
-.problem-box h4 { color: #ff5555; }
-.solution-box h4 { color: #7cff9b; }
-.impact-box h4 { color: #ffd84f; }
-
-.dynamic-content-area { padding: 3rem; overflow-x: hidden; }
-.section-heading { font-family: 'Press Start 2P', cursive; font-size: 1.2rem; color: #ff77da; margin-bottom: 2rem; text-transform: uppercase; }
-
-.before-after-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; position: relative; }
-.ba-box { border: 4px solid #444; padding: 15px; background: #000; }
-.ba-label { font-family: 'Press Start 2P', cursive; font-size: 0.8rem; text-align: center; margin-bottom: 15px; }
-.label-before { color: #ff5555; }
-.label-after { color: #7cff9b; }
-
-/* Booklet Images Un-Cropping Fix */
-.booklet-carousel { display: flex; overflow-x: auto; overflow-y: hidden; gap: 20px; padding-bottom: 20px; scroll-snap-type: x mandatory; }
-.booklet-page { min-width: 90%; scroll-snap-align: center; border: 4px solid #ffd84f; background: #1a1a1a; padding: 20px; box-sizing: border-box; }
-.booklet-page img { width: 100%; height: auto; display: block; background: #000; border: 2px solid #444; margin-bottom: 15px; border-radius: 4px; }
-.booklet-desc { font-family: 'Space Mono', monospace; color: #ccc; font-size: 0.9rem; }
-
-.theme-graphics { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; z-index: 1; opacity: 0.1; }
-.theme-icon { position: absolute; font-size: 4rem; filter: grayscale(100%); }
-
-/* ==========================================================================
-   6. EXTREME MOBILE VIEW OPTIMIZATION (MODALS & RESPONSIVENESS)
-   ========================================================================== */
+/* Responsive Navigation for Mobile */
 @media (max-width: 768px) {
-    .advanced-modal { width: 100%; height: 95vh; border-radius: 0; border: none; border-top: 4px solid #ff77da; }
-    .modal-hero { padding: 3rem 1.5rem 1.5rem; }
-    .tldr-section { padding: 1.5rem; }
-    .dynamic-content-area { padding: 1.5rem; }
-    .tldr-grid { grid-template-columns: 1fr; }
-    .before-after-grid { grid-template-columns: 1fr; }
-    .glitch-title { font-size: 1.2rem; }
-    .close-btn { top: 0.8rem; right: 0.8rem; font-size: 0.7rem; padding: 0.4rem 0.8rem; }
-    .tldr-box { padding: 15px; font-size: 0.85rem; }
-    p { font-size: 0.95rem; }
+    .hud-inner {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+    .nav {
+        gap: 10px;
+        justify-content: center;
+    }
+    .nav a {
+        font-size: 0.6rem;
+        padding: 4px 6px;
+    }
 }
