@@ -1158,7 +1158,7 @@ const museumData = {
                 </p>
                
                 <p style="margin-top: 25px; color: #ffd84f; font-family: 'Press Start 2P', cursive; font-size: 0.7rem;">[ SCROLL TO READ ORIGINAL DOC ]</p>
-                <iframe src="your_actual_lor_file.pdf" class="pdf-container" title="Letter of Recommendation PDF"></iframe>
+                <iframe src="serv.pdf" class="pdf-container" title="ServDes Research Paper PDF"></iframe>
              
             </div>
         `
@@ -1177,7 +1177,7 @@ const museumData = {
                 </p>
                 
                 <p style="margin-top: 25px; color: #ffd84f; font-family: 'Press Start 2P', cursive; font-size: 0.7rem;">[ SCROLL TO READ ORIGINAL DOC ]</p>
-                <iframe src="your_actual_lor_file.pdf" class="pdf-container" title="Letter of Recommendation PDF"></iframe>
+                <iframe src="lor.pdf" class="pdf-container" title="Letter of Recommendation PDF"></iframe>
 
 
             </div>
