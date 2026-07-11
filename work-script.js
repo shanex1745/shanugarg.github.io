@@ -31,7 +31,7 @@ window.addEventListener('storage', (e) => {
 });
 
 
-// --- 2. THE 8 PROJECTS DATA (100% PRESERVED & UN-TRUNCATED) ---
+// --- 2. THE 8 PROJECTS DATA (100% PRESERVED, UN-TRUNCATED & RETRO THEMED) ---
 const projectData = {
     proj1: { // NPS
         title: "NPS: Intent-First Design", 
@@ -43,16 +43,16 @@ const projectData = {
             impact: "Successfully transformed a cognitively taxing bureaucratic hurdle into an engaging, inclusive flow, increasing comprehension for informal sector workers."
         },
         dynamicHTML: `
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
-                <h3 class="section-heading">The Context & Problem Space</h3>
-                <p><strong>The Systemic Flaw:</strong> Nearly 80% of working Indians are financially unprepared for retirement. The government's tool meant to solve this (NPS) was failing at the grassroots level. The onboarding demanded upfront identity verification, causing massive technical friction and drop-offs due to OTP errors, all while confusing users with dense financial jargon.</p>
-                <p><strong>Primary Stakeholders:</strong> Working Citizens (especially youth/informal sector) needing retirement planning, Corporate HR forced to manually collect paper forms due to app complexity, and the PFRDA (Government).</p>
-                
-                <h3 class="section-heading">Research & Discovery</h3>
-                <p>We conducted Primary Heuristic Research, mapped the "As-Is" friction points, and performed Large-Scale Sentiment Analysis of over 100 recent app store reviews. We discovered that the "Compliance Wall" caused 60-70% of drop-offs due to OTP errors early in the process. Furthermore, asking for sensitive personal details (Biodata) before users understood the value proposition destroyed trust.</p>
+            <div class="retro-dialogue-box" style="background-color: #0b1831; border-color: #4a4a8c; box-shadow: inset 0 0 0 4px rgba(74,74,140,0.3), 8px 8px 0 #06101d;">
+                <span class="retro-sprite">🔎</span>
+                <span class="punchy-phrase" style="color: #6ce8ff;">CONTEXT & DISCOVERY</span>
+                <p style="margin-top: 15px;"><strong>The Systemic Flaw:</strong> Nearly 80% of working Indians are financially unprepared for retirement. The government's tool meant to solve this (NPS) was failing at the grassroots level. The onboarding demanded upfront identity verification, causing massive technical friction and drop-offs due to OTP errors, all while confusing users with dense financial jargon.</p>
+                <p style="margin-top: 10px;">We discovered that the <strong>"Compliance Wall" caused 60-70% of drop-offs</strong> early in the process. Furthermore, asking for sensitive personal details (Biodata) before users understood the value proposition destroyed trust.</p>
             </div>
 
-            <h3 class="section-heading">APP REDESIGN: COMPLIANCE VS INTENT</h3>
+            <div class="pixel-divider" style="height: 4px; background: repeating-linear-gradient(90deg, #4a4a8c, #4a4a8c 12px, transparent 12px, transparent 24px); margin: 2.5rem 0; opacity: 0.5;"></div>
+
+            <span class="punchy-phrase" style="color: #ff77da; display: block; margin-bottom: 1rem;">► APP REDESIGN: COMPLIANCE VS INTENT</span>
             <div class="before-after-grid" style="margin-bottom: 2rem;">
                 <div class="ba-box">
                     <div class="ba-label label-before">BEFORE: THE COMPLIANCE WALL</div>
@@ -72,19 +72,21 @@ const projectData = {
                 </div>
             </div>
 
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
-                <h3 class="section-heading">Design Execution & AI Integration</h3>
-                <p><strong>Major Design Challenge:</strong> How do you make highly complex financial forecasts accessible to low-literacy or first-time investors from the informal sector? Simplified text wasn't enough; we integrated a Multilingual AI Voice Assistant. If users were confused by a chart, they could ask the AI to clarify in their regional language.</p>
+            <div class="retro-dialogue-box" style="background-color: #0d2115; border-color: #2e8b57; box-shadow: inset 0 0 0 4px rgba(46,139,87,0.3), 8px 8px 0 #06101d; margin-top: 2rem;">
+                <span class="retro-sprite">🤖</span>
+                <span class="punchy-phrase" style="color: #7cff9b;">AI INTEGRATION</span>
+                <p style="margin-top: 15px;"><strong>Major Design Challenge:</strong> How do you make highly complex financial forecasts accessible to low-literacy or first-time investors from the informal sector? Simplified text wasn't enough; we integrated a Multilingual AI Voice Assistant. If users were confused by a chart, they could ask the AI to clarify in their regional language.</p>
             </div>
             
-            <div style="max-height: 100%; overflow-y: auto; background: #050d1f; border-radius: 8px; border: 2px solid #333; margin-top: 1rem; margin-bottom: 2rem;">
+            <div style="max-height: 100%; overflow-y: auto; background: #050d1f; border-radius: 8px; border: 2px solid #333; margin-bottom: 2rem;">
                 <img src="nps-ai.png" alt="AI Voice Assistant Interface" style="display: block; width: 100%; height: 100%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div style="display: none; padding: 40px 20px; text-align: center; color: #ccc; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
             </div>
 
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
-                <h3 class="section-heading">Impact & Core Learnings</h3>
-                <p>During testing, informal sector users naturally explored plans before committing, vastly improving their clarity. The AI voice support fascinated users, transitioning from a fallback to a primary engagement tool. We proved that public utilities can serve the marginalized without compromising on technical security or compliance.</p>
+            <div class="retro-dialogue-box" style="background-color: #2b1f10; border-color: #b38b14; box-shadow: inset 0 0 0 4px rgba(179,139,20,0.3), 8px 8px 0 #06101d;">
+                <span class="retro-sprite">✨</span>
+                <span class="punchy-phrase" style="color: #ffd84f;">IMPACT & LEARNINGS</span>
+                <p style="margin-top: 15px;">During testing, informal sector users naturally explored plans before committing, vastly improving their clarity. The AI voice support fascinated users, transitioning from a fallback to a primary engagement tool. We proved that public utilities can serve the marginalized without compromising on technical security or compliance.</p>
             </div>
         `
     },
@@ -102,73 +104,50 @@ const projectData = {
             impact: "Transformed the security paradigm from passive recording to active 'tamper response,' engineering a sensor-fusion ecosystem capable of instantly neutralizing the two most common ATM attack methods (62% of breaches)."
         },
         dynamicHTML: `
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
-                <h3 class="section-heading">The Context & Problem Space</h3>
-                <p><strong>The Systemic Flaw:</strong> ATMs placed in high-traffic, off-site areas (like railway stations and isolated markets) suffer from a severe security deficit due to the high cost of posting human guards. The existing digital infrastructure is fundamentally flawed: cameras simply record crimes as they happen. We set out to solve a massive systemic gap where high-end AI software exists, but hardware remains completely defenseless against simple physical attacks like covering the lens or using gas cutters.</p>
-                <br>
-                <p><strong>Primary Stakeholders:</strong><br>
-                • <strong>Everyday Citizens:</strong> Grassroots users who reported feeling actively unsafe and threatened while using isolated ATMs.<br>
-                • <strong>Bank Management & ATM Owners:</strong> Facing severe financial losses (crores of rupees annually) due to successful heists.<br>
-                • <strong>Security Personnel:</strong> Unorganized laborers often placed in high-risk, potentially lethal environments without adequate technological backup.</p>
+            <div class="retro-dialogue-box" style="background-color: #240a0a; border-color: #8b2222; box-shadow: inset 0 0 0 4px rgba(139,34,34,0.3), 8px 8px 0 #06101d;">
+                <span class="retro-sprite">🚨</span>
+                <span class="punchy-phrase" style="color: #ff5555;">THE SYSTEMIC FLAW</span>
+                <p style="margin-top: 15px;">ATMs placed in high-traffic, off-site areas suffer from a severe security deficit due to the high cost of posting human guards. The existing digital infrastructure is fundamentally flawed: <strong>cameras simply record crimes as they happen.</strong></p>
+                <p style="margin-top: 10px;">Primary Stakeholders included grassroots citizens feeling actively unsafe, and unorganized security personnel placed in lethal environments without technological backup.</p>
             </div>
 
-            <h3 class="section-heading">Research & Discovery</h3>
+            <div class="pixel-divider" style="height: 4px; background: repeating-linear-gradient(90deg, #4a4a8c, #4a4a8c 12px, transparent 12px, transparent 24px); margin: 2.5rem 0; opacity: 0.5;"></div>
+
+            <span class="punchy-phrase" style="color: #6ce8ff; display: block; margin-bottom: 1rem;">► RESEARCH & DISCOVERY</span>
             <div style="max-height: 100%; overflow-y: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none; margin-bottom: 2rem;">
                 <img src="cam-secure.png" alt="Statistical Threat Analysis & Market Gaps" style="display: block; width: 100%; height: 100%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div style="display: none; padding: 40px 20px; text-align: center; color: #ccc; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
             </div>
             
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
-                <p><strong>Critical Insights Uncovered:</strong><br>
-                • <strong>The "Blindspot" Vulnerability:</strong> 25% of all ATM robberies succeed simply by spraying the CCTV camera. Premium market cameras offer absolutely no physical resistance or immediate alerts when their field of view is blocked.<br>
-                • <strong>Gas Cutters are the Primary Threat:</strong> 37.5% of attacks utilize gas cutters, yet traditional cameras lack localized smoke or heat detection to preemptively flag an intrusion.<br>
-                • <strong>The Hardware-Software Disconnect:</strong> Deep research revealed that while advanced AI for gun detection exists, it is strictly software-based; there were zero cameras currently in the market featuring integrated hardware-level gun detection.</p>
+            <div class="retro-dialogue-box" style="background-color: #0b1831; border-color: #4a4a8c; box-shadow: inset 0 0 0 4px rgba(74,74,140,0.3), 8px 8px 0 #06101d;">
+                <span class="retro-sprite">⚙️</span>
+                <span class="punchy-phrase" style="color: #6ce8ff;">DUAL-LAYER ARCHITECTURE</span>
+                <p style="margin-top: 15px;">To solve the disconnect between physical tampering and digital response, we mapped a complex dual-layer data architecture. <strong>Front-Loading the Friction:</strong> The flow is now proactive: [Thief sprays camera -> Ultrasonic sensor detects proximity -> Local server triggers 120dB alarm instantly -> AI validates weapon/fire -> Authorities alerted].</p>
             </div>
 
-            <h3 class="section-heading">The Idea</h3>
             <div style="max-height: 100%; overflow-y: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none; margin-bottom: 2rem;">
                 <img src="cam-idea.png" alt="Dual-Layer Data Architecture Map" style="display: block; width: 100%; height: 100%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div style="display: none; padding: 40px 20px; text-align: center; color: #ccc; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
             </div>
 
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
-                <p><strong>Structuring Complex System Data:</strong> To solve the disconnect between physical tampering and digital response, We mapped a complex dual-layer data architecture. The flow was split into a Local Server (handling rapid analog inputs from Obstruction and Smoke sensors) and a Central Server (handling heavy video data streams for AI Analysis).</p>
-                <br>
-                <p><strong>Rationale Behind the Restructured User Flow:</strong><br>
-                • <strong>Front-Loading the Friction (Proactive vs. Passive):</strong> I redesigned the security journey to trigger before a crime occurs. The flow is now proactive: [Thief sprays camera -> Ultrasonic sensor detects proximity -> Local server triggers 120dB alarm instantly -> AI validates weapon/fire -> Authorities alerted].<br>
-                • <strong>Eliminating Cloud Latency for Physical Threats:</strong> By routing basic obstruction and smoke data directly through a local Arduino Uno rather than sending it to the cloud, we eliminated processing latency. The system responds instantly to immediate physical threats, ensuring rapid deterrence.</p>
-            </div>
-
-            <h3 class="section-heading">Design Execution & Iteration</h3>
+            <span class="punchy-phrase" style="color: #ff77da; display: block; margin-bottom: 1rem;">► HARDWARE ITERATION</span>
             <div style="max-height: 100%; overflow-y: auto; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab; flex: none; margin-bottom: 2rem;">
                 <img src="cam-ideation.png" alt="CAD Modeling and Hardware Breadboarding" style="display: block; width: 100%; height: 100%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div style="display: none; padding: 40px 20px; text-align: center; color: #ccc; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
             </div>
 
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
-                <p><strong>Rapid Prototyping & Testing:</strong> Transitioned from behavioral storyboarding to 3D CAD modeling, meticulously iterating on the physical constraints of an ATM enclosure. We built functional breadboard circuits using Arduino, HC-SR04 (Ultrasonic), and MQ (Smoke) sensors.</p>
-                <br>
-                <p><strong>The Overcome:</strong> We engineered a Retrofit Corner-Mount Architecture. Rather than a full system replacement, the casing was designed to be manufactured easily from Aluminum alloy (6061/6063) and mounts seamlessly into the corner of any existing enclosure. I positioned the camera specifically at a 45-degree angle for maximum visibility, and aligned the ultrasonic sensor perfectly parallel to the lens, ensuring any hand or spray can entering the camera's blind spot is instantly detected.</p>
-            </div>
-
-            <h3 class="section-heading">The Final Solution</h3>
+            <span class="punchy-phrase" style="color: #7cff9b; display: block; margin-bottom: 1rem;">► FINAL SENSOR-FUSION SOLUTION</span>
             <div style="max-height: 100%; overflow-y: auto; background: #050d1f; border-radius: 8px; border: 2px solid #7cff9b; box-shadow: 0 0 15px rgba(124,255,155,0.15); cursor: grab; flex: none; margin-bottom: 2rem;">
                 <video width="100%" controls>
                   <source src="Detection.mp4" type="video/mp4">
                 </video>
             </div>
 
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
-                <p><strong>The Deliverables:</strong> Cam Secure, a highly durable, retrofit security unit priced at just ₹1500. The final design houses a 45-degree camera, side pods for gas detection, a parallel ultrasonic sensor for blockage detection, and a loud Arduino-powered buzzer, all feeding into an AI model trained for fire, weapon, and behavioral anomaly detection.</p>
-                <p><strong>Ethical & Governance Considerations:</strong> This product acts directly as "moral infrastructure." High-end security shouldn't be a luxury reserved for premium bank branches. By designing a highly cost-effective (₹1500) retrofit solution, we made advanced AI and sensor-fusion accessible to grassroots, rural, and isolated off-site ATMs. Furthermore, processing sensor data locally rather than relying purely on continuous cloud surveillance ensures rapid response while keeping sensitive operational data secure.</p>
-                <br>
-            </div>
-
-            <h3 class="section-heading">Impact, Metrics & Reflections</h3>
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
-                <p><strong>Structural Mitigation (Quantitative):</strong> The dual hardware+AI architecture specifically neutralizes the two most frequent attack vectors—Gas Cutters (37.5%) and Camera Spraying (25%)—effectively covering 62.5% of all known ATM vulnerabilities.</p>
-                <p><strong>Qualitative Ecosystem Shift:</strong> Successfully reduced false alarms by shifting from "single-source alerts" (relying just on motion) to a "cross-verified by AI + Sensors" model, drastically improving trust for monitoring authorities.</p>
-                <p><strong>Core Learnings:</strong> True security requires sensory fusion. AI is powerful, but software cannot "feel" a spray paint can. Bridging the gap between physical hardware (ultrasonic) and digital intelligence (AI) is where real systemic improvement happens. Furthermore, designing a cheap, adaptable retrofit solution proved that empathetic, user-centric design must also account for economic viability and ease of installation.</p>
+            <div class="retro-dialogue-box" style="background-color: #2b1f10; border-color: #b38b14; box-shadow: inset 0 0 0 4px rgba(179,139,20,0.3), 8px 8px 0 #06101d;">
+                <span class="retro-sprite">🏆</span>
+                <span class="punchy-phrase" style="color: #ffd84f;">STRUCTURAL MITIGATION</span>
+                <p style="margin-top: 15px;">The dual hardware+AI architecture specifically neutralizes the two most frequent attack vectors—Gas Cutters (37.5%) and Camera Spraying (25%)—effectively covering 62.5% of all known ATM vulnerabilities.</p>
+                <p style="margin-top: 10px;"><strong>Ethical Design:</strong> High-end security shouldn't be a luxury. By designing a highly cost-effective (₹1500) retrofit solution, we made advanced AI and sensor-fusion accessible to grassroots, rural ATMs.</p>
             </div>
         `
     },
@@ -205,17 +184,16 @@ const projectData = {
                 .h-icon { font-family: monospace; font-size: 12px; flex-shrink: 0; opacity: 0.6; margin-top: 2px; }
             </style>
 
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 3rem;">
-                <h3 class="section-heading">Research & Discovery</h3>
-                <p>Through Heuristic Evaluation and Global Competitive Analysis, we uncovered severe Accessibility Barriers. Linguistic gatekeeping and overlapping navigation bars with nested sub-menus caused massive navigational paralysis.</p>
+            <div class="retro-dialogue-box" style="background-color: #0b1831; border-color: #4a4a8c; box-shadow: inset 0 0 0 4px rgba(74,74,140,0.3), 8px 8px 0 #06101d;">
+                <span class="retro-sprite">🔍</span>
+                <span class="punchy-phrase" style="color: #6ce8ff;">LINGUISTIC GATEKEEPING</span>
+                <p style="margin-top: 15px;">Through Heuristic Evaluation and Global Competitive Analysis, we uncovered severe Accessibility Barriers. Overlapping navigation bars with nested sub-menus caused massive navigational paralysis, effectively locking out the public.</p>
             </div>
 
-            <h3 class="section-heading">THE UI OVERHAUL</h3>
-            <p style="color:#aaa; font-family: 'Space Mono', monospace; font-size:0.85rem; margin-bottom: 2rem;">
-                Scroll inside the windows below to view the legacy interface versus the modernized, WCAG-compliant redesign.
-            </p>
+            <div class="pixel-divider" style="height: 4px; background: repeating-linear-gradient(90deg, #4a4a8c, #4a4a8c 12px, transparent 12px, transparent 24px); margin: 2.5rem 0; opacity: 0.5;"></div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 5rem;">
+            <span class="punchy-phrase" style="color: #ff77da; display: block; margin-bottom: 1rem;">► THE UI OVERHAUL</span>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 5rem;" class="before-after-grid">
                 <div style="display: flex; flex-direction: column;">
                     <div class="retro-title" style="color: #ff5555; border-color: #ff5555; width: max-content;">► BEFORE: THE MAZE</div>
                     <div style="max-height: 500px; max-width: 500px; overflow: auto; background: #000; border-radius: 4px; border: 2px solid #ff5555;">
@@ -233,12 +211,13 @@ const projectData = {
                 </div>
             </div>
 
-            <h3 class="section-heading" style="color: #ff5555;">BEFORE: THE NAVIGATIONAL MAZE (FULL SCOPE)</h3>
-            <p style="color:#aaa; font-family: 'Space Mono', monospace; font-size:0.85rem; margin-bottom: 2rem;">
-                The legacy architecture forced users to navigate three entirely separate, conflicting navigation structures, alongside a deep 5-level vertical tree. Below is the exhaustive map of the old system's cognitive overload.
-            </p>
+            <div class="retro-dialogue-box" style="background-color: #240a0a; border-color: #8b2222; box-shadow: inset 0 0 0 4px rgba(139,34,34,0.3), 8px 8px 0 #06101d;">
+                <span class="retro-sprite">🛑</span>
+                <span class="punchy-phrase" style="color: #ff5555;">BEFORE: THE NAVIGATIONAL MAZE</span>
+                <p style="margin-top: 15px;">The legacy architecture forced users to navigate three entirely separate, conflicting navigation structures, alongside a deep 5-level vertical tree. Below is the exhaustive map of the old system's cognitive overload.</p>
+            </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 2rem; align-items: stretch;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 2rem; align-items: stretch;" class="before-after-grid">
                 <div style="display: flex; flex-direction: column; min-width: 0;">
                     <div>
                         <div class="retro-title" style="color: #00ffff; border-color: #00ffff;">► EXPLORE NATIONAL ARCHIVE</div>
@@ -412,10 +391,11 @@ const projectData = {
                 </div>
             </div>
 
-            <h3 class="section-heading" style="color: #7cff9b;">AFTER: THE UNIFIED I.A. TREE</h3>
-            <p style="color:#aaa; font-family: 'Space Mono', monospace; font-size:0.85rem; margin-bottom: 2rem;">
-                I dismantled the bloated hierarchies and merged all conflicting navigation structures into a single, logical, intent-driven expanding map.
-            </p>
+            <div class="retro-dialogue-box" style="background-color: #1a1525; border-color: #7cff9b; box-shadow: inset 0 0 0 4px rgba(124,255,155,0.1), 8px 8px 0 #06101d;">
+                <span class="retro-sprite">✨</span>
+                <span class="punchy-phrase" style="color: #7cff9b;">AFTER: THE UNIFIED I.A. TREE</span>
+                <p style="margin-top: 15px;">I dismantled the bloated hierarchies and merged all conflicting navigation structures into a single, logical, intent-driven expanding map.</p>
+            </div>
 
             <div style="background: #050d1f; border: 2px solid #333; border-radius: 8px; padding: 2.5rem; overflow-x: auto; margin-bottom: 3rem;">
                 
@@ -603,9 +583,10 @@ const projectData = {
 
             </div>
 
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
-                <h3 class="section-heading">The Final Solution & Ethics</h3>
-                <p>By implementing robust screen-reader support, scalable text, and high-contrast modes, the redesign champions inclusivity. These choices frame the platform as "moral infrastructure"—treating equitable access to national heritage as a fundamental civic right.</p>
+            <div class="retro-dialogue-box" style="background-color: #2b1f10; border-color: #ffd84f; box-shadow: inset 0 0 0 4px rgba(255,216,79,0.1), 8px 8px 0 #06101d;">
+                <span class="retro-sprite">🏛️</span>
+                <span class="punchy-phrase" style="color: #ffd84f;">CIVIC ETHICS</span>
+                <p style="margin-top: 15px;">By implementing robust screen-reader support, scalable text, and high-contrast modes, the redesign champions inclusivity. These choices frame the platform as "moral infrastructure"—treating equitable access to national heritage as a fundamental civic right.</p>
             </div>
         `
     },
@@ -623,14 +604,17 @@ const projectData = {
             impact: "Dramatically improved data comprehension among illiterate users, transforming raw civic data into moral infrastructure."
         },
         dynamicHTML: `
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
-                <h3 class="section-heading">Research & Discovery</h3>
-                <p>1-on-1 Usability Testing revealed "The Number Barrier": users completely failed to comprehend percentages or decimals. Furthermore, officials were manually copying shorthand notes under time pressure, resulting in vague civic records.</p>
+            <div class="retro-dialogue-box" style="background-color: #0b1831; border-color: #4a4a8c; box-shadow: inset 0 0 0 4px rgba(74,74,140,0.3), 8px 8px 0 #06101d;">
+                <span class="retro-sprite">📉</span>
+                <span class="punchy-phrase" style="color: #6ce8ff;">THE NUMBER BARRIER</span>
+                <p style="margin-top: 15px;">1-on-1 Usability Testing revealed a massive flaw: users completely failed to comprehend percentages or decimals. Furthermore, officials were manually copying shorthand notes under time pressure, resulting in vague civic records.</p>
             </div>
 
-            <h3 class="section-heading">I.A. DASHBOARD: THE MACRO SYSTEM</h3>
+            <div class="pixel-divider" style="height: 4px; background: repeating-linear-gradient(90deg, #4a4a8c, #4a4a8c 12px, transparent 12px, transparent 24px); margin: 2.5rem 0; opacity: 0.5;"></div>
+
+            <span class="punchy-phrase" style="color: #ff77da; display: block; margin-bottom: 0.5rem;">► I.A. DASHBOARD: THE MACRO SYSTEM</span>
             <p style="color:#ccc; font-family: 'Space Mono', monospace; font-size:0.9rem; margin-bottom: 2rem; line-height: 1.6;">
-                The original architecture possessed a deeply nested, overwhelming structure. I reorganized the core navigation into a unified dashboard. Below is the complete expansion of the <strong>HOME</strong> module, detailing the deep horizontal task flows required for data retrieval.
+                The original architecture possessed a deeply nested, overwhelming structure. I reorganized the core navigation into a unified dashboard. Below is the complete expansion of the <strong>HOME</strong> module, detailing the deep horizontal task flows required for data retrieval. [SCROLL ►]
             </p>
 
             <div style="display: flex; gap: 2rem; background: #050d1f; padding: 2.5rem; border: 2px solid #333; border-radius: 8px; margin-bottom: 3rem; overflow-x: auto; box-shadow: inset 0 0 20px rgba(0,0,0,0.5);">
@@ -780,7 +764,7 @@ const projectData = {
                 </div>
             </div>
 
-            <h3 class="section-heading" style="margin-top: 4rem;">I.A. TREE: MEETING MANAGEMENT (M.O.M)</h3>
+            <span class="punchy-phrase" style="color: #6ce8ff; display: block; margin-top: 4rem; margin-bottom: 0.5rem;">► I.A. TREE: MEETING MANAGEMENT (M.O.M)</span>
             <p style="color:#ccc; font-family: 'Space Mono', monospace; font-size:0.9rem; margin-bottom: 2rem; line-height: 1.6;">
                 Zooming into the administrative side, the Meeting Management architecture was rebuilt into a linear, sequential flow to eliminate data entry errors by Panchayat officials.
             </p>
@@ -913,15 +897,15 @@ const projectData = {
                 </div>
             </div>
 
-            <h3 class="section-heading">AUDIO-FIRST DATA VISUALIZATION</h3>
+            <div class="retro-dialogue-box" style="background-color: #2b1f10; border-color: #ffd84f; box-shadow: inset 0 0 0 4px rgba(255,216,79,0.1), 8px 8px 0 #06101d;">
+                <span class="retro-sprite">🔊</span>
+                <span class="punchy-phrase" style="color: #ffd84f;">AUDIO-FIRST DATA VISUALIZATION</span>
+                <p style="margin-top: 15px;">Data visualizations alone failed. But pairing animated visuals with Kannada audio narrations resulted in an 8x increase in comprehension. Stripping away decimals and formal language wasn't "dumbing down" the app; it was an act of profound respect for the user's cognitive load and reality.</p>
+            </div>
+
             <div style="max-height: 100%; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #333; margin-bottom: 2rem;">
                 <img src="rdpr-audio.png" alt="Mobile Panchamitra UI" style="display: block; width: 100%; min-width: 600px; height: 100%;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div style="display: none; padding: 40px 20px; text-align: center; color: #ccc; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
-            </div>
-
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
-                <h3 class="section-heading">Impact & Reflections</h3>
-                <p>Data visualizations alone failed. But pairing animated visuals with Kannada audio narrations resulted in an 8x increase in comprehension. Stripping away decimals and formal language wasn't "dumbing down" the app; it was an act of profound respect for the user's cognitive load and reality.</p>
             </div>
         `
     },
@@ -936,36 +920,40 @@ const projectData = {
             impact: "Established a highly validated, user-driven architecture that bridges the gap between newcomers and the local grassroots economy."
         },
         dynamicHTML: `
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
-                <h3 class="section-heading">Context & Systemic Flaw</h3>
-                <p>The transition into a new city is highly fragmented ("Three apps. One pizza. Zero clarity"). Existing real estate platforms function as mere directories; they severely lack "life in the area" guidance or trust signals (safety, curfews), leaving newcomers isolated.</p>
+            <div class="retro-dialogue-box" style="background-color: #240a0a; border-color: #8b2222; box-shadow: inset 0 0 0 4px rgba(139,34,34,0.3), 8px 8px 0 #06101d;">
+                <span class="retro-sprite">🧩</span>
+                <span class="punchy-phrase" style="color: #ff5555;">SYSTEMIC FLAW</span>
+                <p style="margin-top: 15px;">The transition into a new city is highly fragmented ("Three apps. One pizza. Zero clarity"). Existing real estate platforms function as mere directories; they severely lack "life in the area" guidance or trust signals (safety, curfews), leaving newcomers isolated.</p>
             </div>
 
-            <h3 class="section-heading">USER FLOW & ARCHITECTURE BOOKLET</h3>
+            <div class="pixel-divider" style="height: 4px; background: repeating-linear-gradient(90deg, #4a4a8c, #4a4a8c 12px, transparent 12px, transparent 24px); margin: 2.5rem 0; opacity: 0.5;"></div>
+
+            <span class="punchy-phrase" style="color: #6ce8ff; display: block; margin-bottom: 1rem;">► USER FLOW & ARCHITECTURE BOOKLET</span>
             <div class="booklet-carousel" style="margin-bottom: 2rem;">
                 <div class="booklet-page">
                     <div style="max-height: 60vh; overflow-y: auto; overflow-x: hidden; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab;">
                         <img src="salt-card.png" alt="Participatory Open Card Sorting" style="display: block; width: 100%; height: auto;">
                     </div>
-                    <p class="booklet-desc">Mathematical UX: Calculated priority scores to dictate the 4 hubs (Home, Travel, Explore, Learn). Safety features explicitly overrode convenience.</p>
+                    <p class="booklet-desc" style="margin-top: 12px; color: #aaa;">Mathematical UX: Calculated priority scores to dictate the 4 hubs (Home, Travel, Explore, Learn). Safety features explicitly overrode convenience.</p>
                 </div>
                 <div class="booklet-page">
                     <div style="max-height: 60vh; overflow-y: auto; overflow-x: hidden; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab;">
                         <img src="salt-market.png" alt="Aggregated Decision UI" style="display: block; width: 100%; height: auto;">
                     </div>
-                    <p class="booklet-desc">Comparing all existing app solutions side-by-side.</p>
+                    <p class="booklet-desc" style="margin-top: 12px; color: #aaa;">Comparing all existing app solutions side-by-side.</p>
                 </div>
                 <div class="booklet-page">
                     <div style="max-height: 60vh; overflow-y: auto; overflow-x: hidden; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab;">
                         <img src="salt-pakhi.png" alt="Pakhi Gamification Zone" style="display: block; width: 100%; height: auto;">
                     </div>
-                    <p class="booklet-desc">To make the directory app feel warm, I introduced "Pakhi" the elephant. Daily trivia transforms passive scrolling into joyful engagement.</p>
+                    <p class="booklet-desc" style="margin-top: 12px; color: #aaa;">To make the directory app feel warm, I introduced "Pakhi" the elephant. Daily trivia transforms passive scrolling into joyful engagement.</p>
                 </div>
             </div>
 
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
-                <h3 class="section-heading">Moral Infrastructure</h3>
-                <p>The platform name, "Salt," is rooted in social impact—in India, salt is a traditional housewarming gift symbolizing warmth. The platform features an "All-in-one directory" that elevates unorganized local service providers (house helps, electricians), giving marginalized grassroots workers equal digital real estate.</p>
+            <div class="retro-dialogue-box" style="background-color: #2b1f10; border-color: #ffd84f; box-shadow: inset 0 0 0 4px rgba(255,216,79,0.1), 8px 8px 0 #06101d;">
+                <span class="retro-sprite">🏠</span>
+                <span class="punchy-phrase" style="color: #ffd84f;">MORAL INFRASTRUCTURE</span>
+                <p style="margin-top: 15px;">The platform name, "Salt," is rooted in social impact—in India, salt is a traditional housewarming gift symbolizing warmth. The platform features an "All-in-one directory" that elevates unorganized local service providers (house helps, electricians), giving marginalized grassroots workers equal digital real estate.</p>
             </div>
         `
     },
@@ -980,12 +968,15 @@ const projectData = {
             impact: "Transformed an anxiety-inducing hazard into a safe, dignified routine, validated through rigorous FMEA safety testing."
         },
         dynamicHTML: `
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
-                <h3 class="section-heading">Research & Discovery</h3>
-                <p>Through Contextual Ethnography, we found the "Transfer Bottleneck" was the hardest part—transferring a heavy child from bed to wet bathroom. Emotional trauma overpowered physical limitation; children felt immense guilt over being a "burden." Existing imported solutions required massive remodeling and constant electricity, making them useless in India.</p>
+            <div class="retro-dialogue-box" style="background-color: #0b1831; border-color: #4a4a8c; box-shadow: inset 0 0 0 4px rgba(74,74,140,0.3), 8px 8px 0 #06101d;">
+                <span class="retro-sprite">🚿</span>
+                <span class="punchy-phrase" style="color: #6ce8ff;">RESEARCH & DISCOVERY</span>
+                <p style="margin-top: 15px;">Through Contextual Ethnography, we found the "Transfer Bottleneck" was the hardest part—transferring a heavy child from bed to wet bathroom. Emotional trauma overpowered physical limitation; children felt immense guilt over being a "burden." Existing imported solutions required massive remodeling and constant electricity, making them useless in India.</p>
             </div>
 
-            <h3 class="section-heading">SPATIAL JOURNEY FLOW</h3>
+            <div class="pixel-divider" style="height: 4px; background: repeating-linear-gradient(90deg, #4a4a8c, #4a4a8c 12px, transparent 12px, transparent 24px); margin: 2.5rem 0; opacity: 0.5;"></div>
+
+            <span class="punchy-phrase" style="color: #ff77da; display: block; margin-bottom: 1rem;">► SPATIAL JOURNEY FLOW</span>
             <div class="booklet-carousel" style="margin-bottom: 2rem;">
                 <div class="booklet-page" style="margin-bottom: 2rem;">
                     <div style="max-height: 60vh; overflow-y: auto; overflow-x: hidden; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab;">
@@ -1009,9 +1000,10 @@ const projectData = {
                 </div>
             </div>
 
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
-                <h3 class="section-heading">Reflections & Impact</h3>
-                <p>Protecting the vulnerable patient meant I first had to protect the caregiver. Empathy requires contextual realism: a $30,000 automated tub is a failed design if it doesn't fit the user's environment. True user-centric design adapts to the user's reality; it doesn't demand the user adapt to the design.</p>
+            <div class="retro-dialogue-box" style="background-color: #2b1f10; border-color: #ffd84f; box-shadow: inset 0 0 0 4px rgba(255,216,79,0.1), 8px 8px 0 #06101d;">
+                <span class="retro-sprite">❤️</span>
+                <span class="punchy-phrase" style="color: #ffd84f;">REFLECTIONS & IMPACT</span>
+                <p style="margin-top: 15px;">Protecting the vulnerable patient meant I first had to protect the caregiver. Empathy requires contextual realism: a $30,000 automated tub is a failed design if it doesn't fit the user's environment. True user-centric design adapts to the user's reality; it doesn't demand the user adapt to the design.</p>
             </div>
         `
     },
@@ -1026,12 +1018,15 @@ const projectData = {
             impact: "Dismantled the inherent 'pity dynamic' in mixed-ability play, fostering genuine positive competition."
         },
         dynamicHTML: `
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
-                <h3 class="section-heading">Research & Insights</h3>
-                <p>When VI and VA children played mainstream games, VA children played with sympathy, making VI children feel insecure and like a "liability." VI children actively rejected being coddled, displaying heightened cognitive abilities and excelling in spatial and tactile memory.</p>
+            <div class="retro-dialogue-box" style="background-color: #0b1831; border-color: #4a4a8c; box-shadow: inset 0 0 0 4px rgba(74,74,140,0.3), 8px 8px 0 #06101d;">
+                <span class="retro-sprite">🧠</span>
+                <span class="punchy-phrase" style="color: #6ce8ff;">RESEARCH & INSIGHTS</span>
+                <p style="margin-top: 15px;">When VI and VA children played mainstream games, VA children played with sympathy, making VI children feel insecure and like a "liability." VI children actively rejected being coddled, displaying heightened cognitive abilities and excelling in spatial and tactile memory.</p>
             </div>
 
-            <h3 class="section-heading">LEVELING THE PLAYING FIELD</h3>
+            <div class="pixel-divider" style="height: 4px; background: repeating-linear-gradient(90deg, #4a4a8c, #4a4a8c 12px, transparent 12px, transparent 24px); margin: 2.5rem 0; opacity: 0.5;"></div>
+
+            <span class="punchy-phrase" style="color: #ff77da; display: block; margin-bottom: 1rem;">► LEVELING THE PLAYING FIELD</span>
             <div class="before-after-grid" style="margin-bottom: 2rem;">
                 <div class="ba-box">
                     <div class="ba-label label-before">THE FLAW: VISUAL WAYFINDING</div>
@@ -1049,15 +1044,15 @@ const projectData = {
                 </div>
             </div>
 
-            <h3 class="section-heading">PHYSICAL PRODUCT DETAILS</h3>
-            <div style="max-height: 100%; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #333; margin-bottom: 2rem;">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/4cMisV6p1UM?si=ZdK-Fy0uWpFibekp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <div style="display: none; padding: 40px 20px; text-align: center; color: #ccc; font-family: 'Space Mono', monospace; font-size: 12px;"></div>
+            <span class="punchy-phrase" style="color: #6ce8ff; display: block; margin-bottom: 1rem;">► PHYSICAL PRODUCT DETAILS</span>
+            <div style="max-height: 100%; max-width: 100%; overflow: auto; background: #050d1f; border-radius: 8px; border: 2px solid #333; margin-bottom: 2rem; position: relative; padding-bottom: 56.25%;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/4cMisV6p1UM?si=ZdK-Fy0uWpFibekp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
-                <h3 class="section-heading">Reflections</h3>
-                <p>True Inclusion means removing advantage, not just adding accommodations. Designing for accessibility isn't always about creating an assistive feature; sometimes, it is about strategically stripping away the inherent advantages of the privileged user to create a truly level playing field.</p>
+            <div class="retro-dialogue-box" style="background-color: #2b1f10; border-color: #ffd84f; box-shadow: inset 0 0 0 4px rgba(255,216,79,0.1), 8px 8px 0 #06101d;">
+                <span class="retro-sprite">🎲</span>
+                <span class="punchy-phrase" style="color: #ffd84f;">REFLECTIONS</span>
+                <p style="margin-top: 15px;">True Inclusion means removing advantage, not just adding accommodations. Designing for accessibility isn't always about creating an assistive feature; sometimes, it is about strategically stripping away the inherent advantages of the privileged user to create a truly level playing field.</p>
             </div>
         `
     },
@@ -1072,36 +1067,40 @@ const projectData = {
             impact: "Transformed an exploitative, trustless ecosystem into a transparent utility, scoring a 9/10 in heuristic evaluation."
         },
         dynamicHTML: `
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6; margin-bottom: 2rem;">
-                <h3 class="section-heading">Research & Discovery</h3>
-                <p>Observational Ethnography and quantitative surveys revealed that <strong>Bargaining is the True Bottleneck</strong>. 80% of passengers were willing to pay for a porter, but only if the system removed the anxiety of haggling. Physical hardware solutions (stair-climbing trolleys) were unviable in crowded stations.</p>
+            <div class="retro-dialogue-box" style="background-color: #0b1831; border-color: #4a4a8c; box-shadow: inset 0 0 0 4px rgba(74,74,140,0.3), 8px 8px 0 #06101d;">
+                <span class="retro-sprite">🚂</span>
+                <span class="punchy-phrase" style="color: #6ce8ff;">RESEARCH & DISCOVERY</span>
+                <p style="margin-top: 15px;">Observational Ethnography and quantitative surveys revealed that <strong>Bargaining is the True Bottleneck</strong>. 80% of passengers were willing to pay for a porter, but only if the system removed the anxiety of haggling. Physical hardware solutions (stair-climbing trolleys) were unviable in crowded stations.</p>
             </div>
 
-            <h3 class="section-heading">DESIGN EXECUTION & ITERATION</h3>
+            <div class="pixel-divider" style="height: 4px; background: repeating-linear-gradient(90deg, #4a4a8c, #4a4a8c 12px, transparent 12px, transparent 24px); margin: 2.5rem 0; opacity: 0.5;"></div>
+
+            <span class="punchy-phrase" style="color: #ff77da; display: block; margin-bottom: 1rem;">► DESIGN EXECUTION & ITERATION</span>
             <div class="booklet-carousel" style="margin-bottom: 2rem;">
                 <div class="booklet-page">
                     <div style="max-height: 60vh; overflow-y: auto; overflow-x: hidden; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab;">
                         <img src="coolie-id.png" alt="Low-Fi Physical Sticky-Note Maps" style="display: block; width: 100%; height: auto;">
                     </div>
-                    <p class="booklet-desc">Card Sorting exercises mapped the complex backend logistics into a seamless frontend experience matching the "Real World" hiring model.</p>
+                    <p class="booklet-desc" style="margin-top: 12px; color: #aaa;">Card Sorting exercises mapped the complex backend logistics into a seamless frontend experience matching the "Real World" hiring model.</p>
                 </div>
                 <div class="booklet-page">
                     <div style="max-height: 60vh; overflow-y: auto; overflow-x: hidden; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab;">
                         <img src="coolie-low.png" alt="Mid-Fi Booking Screens" style="display: block; width: 100%; height: auto;">
                     </div>
-                    <p class="booklet-desc">One Action Per Screen: Reduced cognitive load for chaotic railway environments (Train No. -> Luggage -> Pickup) with Dynamic Pricing.</p>
+                    <p class="booklet-desc" style="margin-top: 12px; color: #aaa;">One Action Per Screen: Reduced cognitive load for chaotic railway environments (Train No. -> Luggage -> Pickup) with Dynamic Pricing.</p>
                 </div>
                 <div class="booklet-page">
                     <div style="max-height: 60vh; overflow-y: auto; overflow-x: hidden; background: #050d1f; border-radius: 8px; border: 2px solid #444; cursor: grab;">
                         <img src="coolie-hi.png" alt="High-Fi UI / OTP Handshake" style="display: block; width: 100%; height: auto;">
                     </div>
-                    <p class="booklet-desc">The OTP Handshake: The coolie only takes possession, and the timer begins, once the digital OTP is shared in person—establishing mutual trust.</p>
+                    <p class="booklet-desc" style="margin-top: 12px; color: #aaa;">The OTP Handshake: The coolie only takes possession, and the timer begins, once the digital OTP is shared in person—establishing mutual trust.</p>
                 </div>
             </div>
 
-            <div style="font-family: 'Space Mono', monospace; color: #ccc; line-height: 1.6;">
-                <h3 class="section-heading">UX as Social Mediation</h3>
-                <p>By standardizing rates and formalizing the labor process, the app acts as moral infrastructure. It ensures passengers aren't extorted, while simultaneously guaranteeing marginalized laborers a predictable, dignified living wage without forcing them to beg or haggle.</p>
+            <div class="retro-dialogue-box" style="background-color: #2b1f10; border-color: #ffd84f; box-shadow: inset 0 0 0 4px rgba(255,216,79,0.1), 8px 8px 0 #06101d;">
+                <span class="retro-sprite">🤝</span>
+                <span class="punchy-phrase" style="color: #ffd84f;">UX AS SOCIAL MEDIATION</span>
+                <p style="margin-top: 15px;">By standardizing rates and formalizing the labor process, the app acts as moral infrastructure. It ensures passengers aren't extorted, while simultaneously guaranteeing marginalized laborers a predictable, dignified living wage without forcing them to beg or haggle.</p>
             </div>
         `
     }
