@@ -448,46 +448,39 @@
       /* GLOBAL MOBILE NAV BAR OPTIMIZATION        */
       /* ========================================= */
       @media (max-width: 768px) {
-          .hud { padding: 15px; }
+          .hud { padding: 12px 15px; }
           .hud-inner { 
               display: flex; 
-              flex-direction: column; /* Stack perfectly vertically */
+              flex-wrap: wrap; 
+              justify-content: space-between; 
               align-items: center; 
-              gap: 15px; 
+              gap: 10px; 
           }
-          .brand { 
-              order: 1; 
-              font-size: 1.4rem; 
-              text-align: center; 
-              margin: 0; 
-          }
+          /* Forces Brand and Stats to the top row */
+          .brand { order: 1; font-size: 1.1rem; margin: 0; }
+          .hud-stats { order: 2; margin: 0; gap: 8px; }
+          .stat-box { padding: 8px 10px; font-size: 0.7rem; }
+          
+          /* Forces Nav to the bottom row, making it scrollable with large tap targets */
           .nav { 
-              order: 2; 
+              order: 3; 
               width: 100%; 
               display: flex; 
-              flex-wrap: wrap; /* Allows buttons to drop to the next line safely */
-              justify-content: center; /* PERFECTLY CENTERED GLOBALLY */
-              gap: 8px; 
+              overflow-x: auto; 
+              justify-content: flex-start; 
+              gap: 12px; 
+              padding: 15px 0 5px 0; 
+              border-top: 2px dashed #1b5e78; 
+              margin-top: 5px;
+              -webkit-overflow-scrolling: touch;
           }
+          .nav::-webkit-scrollbar { display: none; }
           .nav a { 
               font-size: 0.75rem !important; 
-              padding: 12px 15px !important; 
+              padding: 10px 15px !important; 
+              white-space: nowrap; 
               background: rgba(255,255,255,0.05); 
               border: 1px solid #1b5e78; 
-              border-radius: 6px; 
-              text-align: center; 
-              flex-grow: 1; /* Makes the buttons expand to fill space, easier to tap */
-              min-width: calc(33% - 10px);
-          }
-          .hud-stats { 
-              order: 3; 
-              display: flex; 
-              justify-content: center; 
-              width: 100%; 
-              gap: 15px; 
-          }
-          .stat-box { 
-              padding: 10px 20px; 
-              font-size: 0.8rem; 
+              border-radius: 4px;
           }
       }
